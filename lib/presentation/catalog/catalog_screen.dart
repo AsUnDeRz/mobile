@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:catalog_app/presentation/start/start_screen.dart';
+import 'package:catalog_app/domain/model/offer.dart';
+import 'package:catalog_app/presentation/design/loader_view.dart';
+
+
 import 'catalog_presenter.dart';
 import 'catalog_view.dart';
 
@@ -9,12 +14,15 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
-  CatalogPresenter _CatalogPresenter;
+  CatalogPresenter _catalogPresenter;
+  List<Offer> _listOffer;
   bool _isLoading;
 
   _CatalogScreenState() {
-    _CatalogPresenter = CatalogPresenter(this);
-    _isLoading = false;
+    _catalogPresenter = CatalogPresenter(this);
+    _catalogPresenter.getDummyCatalog();
+    _listOffer=null;
+    _isLoading = true;
   }
 
   @override
@@ -24,6 +32,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       body: _getBody(),
     );
   }
+
   Widget _getAppBar() {
     return AppBar(
       title: _getTitleBar(),
@@ -34,6 +43,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       ],
     );
   }
+
   Widget _getTitleBar() {
     return Text(
       'Каталог',
@@ -42,66 +52,49 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       ),
     );
   }
+
   Widget _getIconLogout(){
     return IconButton(
       icon: const Icon(Icons.exit_to_app),
       tooltip: 'favorite',
       color: Colors.lightBlueAccent,
-      onPressed: (){ },
+      onPressed: () {
+        _catalogPresenter.logout();
+      },
     );
   }
+
   Widget _getBody() {
-    return Container(
-      child: _getList(),
-    );
+    if(_isLoading) {
+        return LoaderPage();
+    }
+    else {
+      return Container(
+        child: _getList(),
+      );
+    }
+
   }
+
   Widget _getList(){
     return ListView(
-      children: <Widget>[
-        _getCard(
-          image: 'assets/images/good1.jpg',
-          title: 'Good 1',
-          category: 'category 1',
-        ),
-        _getCard(
-          image: 'assets/images/good2.jpg',
-          title: 'Good 2',
-          category: 'category 2',
-        ),
-        _getCard(
-          image: 'assets/images/good3.jpg',
-          title: 'Good 3',
-          category: 'category 3',
-        ),
-        _getCard(
-          image: 'assets/images/good1.jpg',
-          title: 'Good 1',
-          category: 'category 1',
-        ),
-        _getCard(
-          image: 'assets/images/good2.jpg',
-          title: 'Good 2',
-          category: 'category 2',
-        ),
-        _getCard(
-          image: 'assets/images/good3.jpg',
-          title: 'Good 3',
-          category: 'category 3',
-        ),
-      ],
+      children: _listOffer
+          .map((item) => _getCard(item))
+          .toList(),
     );
   }
-  Widget _getCard({String image, String title, String category}) {
+
+  Widget _getCard(Offer offer) {
     return Card(
       elevation: 5,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
-            child: _getImageCard(image),
+            child: _getImageCard(offer.image),
           ),
           Expanded(
-            child: _getCardInfo(title,category),
+            child: _getCardInfo(offer.title,offer.category),
           ),
         ],
       ),
@@ -142,5 +135,18 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   @override
   void onError(String error) {
     // TODO: implement onError
+  }
+
+  @override
+  void onLogoutSuccess() {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => StartScreen()));
+  }
+
+  @override
+  void onCatalogReceived(List<Offer> catalog) {
+    setState(() {
+      _isLoading=false;
+      _listOffer=catalog;
+    });
   }
 }
