@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:catalog_app/presentation/start/start_screen.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
+import 'package:catalog_app/presentation/detail/detail_screen.dart';
 
 
 import 'catalog_presenter.dart';
@@ -20,9 +21,14 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   _CatalogScreenState() {
     _catalogPresenter = CatalogPresenter(this);
-    _catalogPresenter.getDummyCatalog();
     _listOffer=null;
     _isLoading = true;
+  }
+
+  @override
+  void initState() {
+    _catalogPresenter.getDummyCatalog();
+    super.initState();
   }
 
   @override
@@ -85,20 +91,26 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   }
 
   Widget _getCard(Offer offer) {
-    return Card(
-      elevation: 5,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: _getImageCard(offer.image),
+    return   Card(
+        elevation: 5,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: _getImageCard(offer.image),
+              ),
+              Expanded(
+                child: _getCardInfo(offer.title,offer.category),
+              ),
+            ],
           ),
-          Expanded(
-            child: _getCardInfo(offer.title,offer.category),
-          ),
-        ],
-      ),
-    );
+          onTap:(){
+            onRouteDetail(offer);
+          },
+        )
+      );
   }
 
   Widget _getCardInfo( String title, String category) {
@@ -148,5 +160,15 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       _isLoading=false;
       _listOffer=catalog;
     });
+  }
+
+  @override
+  void onRouteDetail(Offer offer) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailScreen(offer),
+      ),
+    );
   }
 }

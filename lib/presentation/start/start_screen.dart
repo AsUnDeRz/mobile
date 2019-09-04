@@ -12,6 +12,7 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> implements StartView {
+
   GlobalKey<FormState> _formKey;
   StartPresenter _startPresenter;
   bool _isLoading;
