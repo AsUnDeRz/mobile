@@ -4,7 +4,7 @@ class Offer {
   final String title;
   final String image;
   final String category;
-  final String address;
+  final String description;
   final double price;
   final Map<String,String> characters;
   final Seller seller;
@@ -15,6 +15,6 @@ class Offer {
   this.category,
   this.price,
   this.seller,
-  this.address,
+  this.description,
   this.characters);
 }

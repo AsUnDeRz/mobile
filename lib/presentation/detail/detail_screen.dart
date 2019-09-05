@@ -1,6 +1,9 @@
+import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
 
+
 import 'package:catalog_app/domain/model/offer.dart';
+import 'package:catalog_app/domain/model/cart.dart';
 
 import 'detail_presenter.dart';
 import 'detail_view.dart';
@@ -17,13 +20,22 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> implements DetailView{
   DetailPresenter _detailPresenter;
 
+  Cart _cart;
+
   _DetailScreenState() {
     _detailPresenter = DetailPresenter(this);
   }
 
   @override
   void initState() {
+    _detailPresenter.startCartStream();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _detailPresenter.stopCartStream();
+    super.dispose();
   }
 
   @override
@@ -31,29 +43,60 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     return  Scaffold(
       appBar: _getAppBar(),
       body: _getBody(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add,),
+        backgroundColor: Colors.blue,
+        onPressed: () => _detailPresenter.addItem(widget._offer.price),
+      ),
     );
   }
 
   Widget _getAppBar() {
     return AppBar(
-      title: Text(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        title: Text(
         'Описание',
+          style: TextStyle (
+            color: Colors.black
+          ),
       ),
       centerTitle: true,
       actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.favorite_border),
-          tooltip: 'favorite',
-          color: Colors.lightBlueAccent,
-          onPressed: ()=>{},
-        ),
-        IconButton(
-          icon: const Icon(Icons.more_vert),
-          tooltip: 'more',
-          color: Colors.lightBlueAccent,
-          onPressed: ()=>{},
-        ),
-      ],
+        _getIconCart(),
+      ]
+    );
+  }
+
+
+  Widget _getIconCart() {
+    return FlatButton(
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.0),
+            child: Icon(
+              Icons.shopping_cart,
+                color:Colors.blue
+            ),
+          ),
+          _getCartInfo(_cart),
+        ],
+      ),
+      onPressed: () => {},
+    );
+  }
+  Widget _getCartInfo(Cart cart) {
+    String str= strMoney(cart.sum);
+    return Text(
+      '$str',
+      style: TextStyle(
+        fontSize: 20.0,
+          color:Colors.blue
+      ),
     );
   }
 
@@ -67,7 +110,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     List<Function> listBlocks= [
       _titleProduct,
       _priceProduct,
-      _addressProduct,
+      _descriptionProduct,
       _charactersProduct,
       _labelProduct,
       _sellerProduct,
@@ -103,7 +146,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     return Row(
       children: [
         Text(
-          _getPriceString(offer.price),
+          strMoney(offer.price),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -113,23 +156,12 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     );
   }
 
-  String _getPriceString(double price){
-    String str= price.toStringAsFixed(2);
-    int fraction=int.parse(str.split('.')[1]);
-    if(fraction==0){
-      return price.ceil().toString()+'₽';
-    }
-
-    return price.toStringAsFixed(2)+'₽';
-
-  }
-
-  Widget _addressProduct (Offer offer) {
+  Widget _descriptionProduct (Offer offer) {
     return  Row(
       children: [
         Expanded(
           child: Text(
-            offer.address,
+            offer.description,
             style: TextStyle(
               fontSize: 16,
             ),
@@ -240,6 +272,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
       child: _getAvatar(offer),
     );
   }
+
   Widget _getAvatar(Offer offer) {
     String img = offer.seller.image.isEmpty ? 'assets/images/seller.png' : offer
         .seller.image;
@@ -247,6 +280,13 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
       img,
       height: 75.0,
     );
+  }
+
+  @override
+  void onCartUpdated(Cart cart) {
+    setState(() {
+      _cart = cart;
+    });
   }
 
   @override

@@ -1,7 +1,10 @@
+import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
+
 
 import 'package:catalog_app/presentation/start/start_screen.dart';
 import 'package:catalog_app/domain/model/offer.dart';
+import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
 import 'package:catalog_app/presentation/detail/detail_screen.dart';
 
@@ -17,6 +20,7 @@ class CatalogScreen extends StatefulWidget {
 class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   CatalogPresenter _catalogPresenter;
   List<Offer> _listOffer;
+  Cart _cart;
   bool _isLoading;
 
   _CatalogScreenState() {
@@ -27,8 +31,15 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   @override
   void initState() {
+    _catalogPresenter.startCartStream();
     _catalogPresenter.getDummyCatalog();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _catalogPresenter.stopCartStream();
+    super.dispose();
   }
 
   @override
@@ -41,20 +52,52 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   Widget _getAppBar() {
     return AppBar(
+      leading:
+      _getIconLogout(),
       title: _getTitleBar(),
       centerTitle: true,
       backgroundColor: Colors.white,
       actions: <Widget>[
-        _getIconLogout(),
+        _getIconCart(),
       ],
     );
   }
+
+  Widget _getIconCart() {
+    return FlatButton(
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.0),
+            child: Icon(
+              Icons.shopping_cart,
+              color: Colors.blue,
+            ),
+          ),
+          _getCartInfo(_cart),
+        ],
+      ),
+      onPressed: () => {},
+    );
+  }
+
+  Widget _getCartInfo(Cart cart) {
+    String str= strMoney(cart.sum);
+    return Text(
+      '$str',
+      style: TextStyle(
+          fontSize: 20.0,
+          color: Colors.blue,
+      ),
+    );
+  }
+
 
   Widget _getTitleBar() {
     return Text(
       'Каталог',
       style: TextStyle(
-        color: Colors.black.withOpacity(0.6),
+        color: Colors.black,
       ),
     );
   }
@@ -63,7 +106,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
     return IconButton(
       icon: const Icon(Icons.exit_to_app),
       tooltip: 'favorite',
-      color: Colors.lightBlueAccent,
+      color: Colors.black,
       onPressed: () {
         _catalogPresenter.logout();
       },
@@ -102,7 +145,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
                 child: _getImageCard(offer.image),
               ),
               Expanded(
-                child: _getCardInfo(offer.title,offer.category),
+                child: _getCardInfo(offer.title,offer.category, offer.price),
               ),
             ],
           ),
@@ -113,7 +156,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       );
   }
 
-  Widget _getCardInfo( String title, String category) {
+  Widget _getCardInfo( String title, String category, double price) {
     return Container(
       padding: EdgeInsets.all(10.0),
       child: Column(
@@ -122,7 +165,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
           Text(
             title,
             style: TextStyle(
-              color: Colors.blue,
+              color: Colors.black,
               fontSize: 16,
             ),
           ),
@@ -133,6 +176,26 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
             category,
             style: TextStyle(
               color: Colors.grey
+            ),
+          ),
+          Container(
+            height: 50.0,
+          ),
+          Text(
+            'Стоимость: ',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+            ),
+          ),
+          Container(
+            height: 5.0,
+          ),
+          Text(
+            strMoney(price),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
             ),
           ),
         ],
@@ -170,5 +233,12 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
         builder: (context) => DetailScreen(offer),
       ),
     );
+  }
+
+  @override
+  void onCartUpdated(Cart cart) {
+    setState(() {
+      _cart = cart;
+    });
   }
 }
