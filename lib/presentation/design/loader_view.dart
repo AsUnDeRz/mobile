@@ -11,7 +11,7 @@ class LoaderPage extends StatelessWidget{
   }
 }
 
-class LoaderPageStandart extends StatelessWidget{
+class LoaderPageStandard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Center(

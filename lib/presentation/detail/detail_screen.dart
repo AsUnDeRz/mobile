@@ -1,7 +1,7 @@
 import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
 
-
+import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/domain/model/cart.dart';
 
@@ -20,6 +20,7 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> implements DetailView{
   DetailPresenter _detailPresenter;
 
+  // ignore: unused_field
   Cart _cart;
 
   _DetailScreenState() {
@@ -28,14 +29,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
 
   @override
   void initState() {
-    _detailPresenter.startCartStream();
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _detailPresenter.stopCartStream();
-    super.dispose();
   }
 
   @override
@@ -43,12 +37,6 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     return  Scaffold(
       appBar: _getAppBar(),
       body: _getBody(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add,),
-        backgroundColor: Colors.blue,
-        onPressed: () => _detailPresenter.addItem(widget._offer.price),
-      ),
     );
   }
 
@@ -66,54 +54,25 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
       ),
       centerTitle: true,
       actions: <Widget>[
-        _getIconCart(),
+        CartActionWidget(),
       ]
-    );
-  }
-
-
-  Widget _getIconCart() {
-    return FlatButton(
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
-            child: Icon(
-              Icons.shopping_cart,
-                color:Colors.blue
-            ),
-          ),
-          _getCartInfo(_cart),
-        ],
-      ),
-      onPressed: () => {},
-    );
-  }
-  Widget _getCartInfo(Cart cart) {
-    String str= strMoney(cart.sum);
-    return Text(
-      '$str',
-      style: TextStyle(
-        fontSize: 20.0,
-          color:Colors.blue
-      ),
     );
   }
 
   Widget _getBody() {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 10),
       child: _getContent(widget._offer),
     );
   }
 
   Widget _getContent(Offer offer){
     List<Function> listBlocks= [
-      _titleProduct,
-      _priceProduct,
+      _getHeader,
       _descriptionProduct,
-      _charactersProduct,
-      _labelProduct,
-      _sellerProduct,
+      _charactersOffer,
+      _categoryOffer,
+      _sellerOffer,
     ];
     return  ListView.builder(
       itemCount: listBlocks.length,
@@ -129,30 +88,74 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     );
   }
 
-  Widget _titleProduct (Offer offer) {
-    return Row(
-        children: [
-          Text(
-            offer.title,
-            style: TextStyle(
-              fontSize: 24,
+  Widget _getHeader(Offer offer) {
+    return Container(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: _getOfferImage(offer),
             ),
+          Expanded(
+            child: _getMinInfo(offer),
           ),
         ],
-      );
+      ),
+    );
+  }
+
+  Widget _getOfferImage(Offer offer) {
+    return Column(
+      children: <Widget>[
+        Image.asset(offer.image),
+      ],
+    );
+  }
+
+  Widget _getMinInfo(Offer offer) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          _titleProduct(offer),
+          Container(height: 10,),
+          _priceProduct(offer),
+          Container(height: 10,),
+          _getButtonBuy(offer),
+        ],
+      ),
+    );
+  }
+
+  Widget _titleProduct (Offer offer) {
+    return Text(
+      offer.title,
+      style: TextStyle(
+        fontSize: 24,
+      ),
+    );
   }
 
   Widget _priceProduct (Offer offer) {
-    return Row(
-      children: [
-        Text(
-          strMoney(offer.price),
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
+    return Text(
+      MoneyHelper.formatMoney(offer.price),
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      ),
+    );
+  }
+
+  Widget _getButtonBuy(Offer offer) {
+    return FlatButton(
+      color: Colors.blue,
+      child: Text(
+        'Купить',
+        style: TextStyle(
+          color: Colors.white,
         ),
-      ],
+      ),
+      onPressed:  ()=>_detailPresenter.addItem(offer.price),
     );
   }
 
@@ -167,17 +170,11 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
             ),
           ),
         ),
-        IconButton(
-          icon: const Icon(Icons.arrow_forward_ios),
-          iconSize: 14.0,
-          onPressed: ()=>{},
-          color: Colors.grey[500],
-        ),
       ],
     );
   }
 
-  Widget _charactersProduct (Offer offer) {
+  Widget _charactersOffer (Offer offer) {
     return Column(
       children: _getListCharacter(offer),
     );
@@ -191,7 +188,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
         .toList(growable: false);
   }
 
-  Widget _getRowCharacter(String k, String v){
+  Widget _getRowCharacter(String titleCharacter, String valueCharacter){
     return Container(
       padding: const EdgeInsets.only(top: 10),
       child: Row(
@@ -199,7 +196,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
           Expanded(
             flex: 2,
             child: Text(
-              k,
+              titleCharacter,
               style: TextStyle(
                 color: Colors.grey,
               ),
@@ -207,14 +204,14 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
           ),
           Flexible(
             flex: 3,
-            child: Text(v),
+            child: Text(valueCharacter),
           ),
         ],
       ),
     );
   }
 
-  Widget _labelProduct (Offer offer) {
+  Widget _categoryOffer (Offer offer) {
     return Text(
       offer.category,
       style: TextStyle(
@@ -223,46 +220,16 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     );
   }
 
-  Widget _sellerProduct (Offer offer) {
+  Widget _sellerOffer (Offer offer) {
     return Container(
       color: Colors.grey[100],
       padding: EdgeInsets.all(15.0),
       child: Row(
         children: <Widget>[
-         _getSellerInfo(offer),
-          _getSellerImage(offer),
+         _getSellerDescription(offer),
+         _getSellerImage(offer),
         ],
       ),
-    );
-  }
-
-  Widget _getSellerInfo(Offer offer){
-    return Expanded(
-        flex: 6,
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Text(
-                  offer.seller.name,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Text(offer.seller.type),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Text(offer.seller.info),
-              ],
-            ),
-          ],
-        )
     );
   }
 
@@ -282,6 +249,38 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     );
   }
 
+  Widget _getSellerDescription(Offer offer){
+    return Expanded(
+      flex: 6,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _getSellerName(offer),
+          Container(height: 5,),
+          _getSellerType(offer),
+          Container(height: 5,),
+          _getSellerInfo(offer),
+        ],
+      ),
+    );
+  }
+
+  Widget _getSellerName(Offer offer) {
+    return Text(
+      offer.seller.name,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _getSellerType(Offer offer) {
+    return Text(offer.seller.type);
+  }
+
+  Widget _getSellerInfo(Offer offer) {
+    return Text(offer.seller.info);
+  }
   @override
   void onCartUpdated(Cart cart) {
     setState(() {

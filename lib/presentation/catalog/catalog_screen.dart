@@ -7,6 +7,7 @@ import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
 import 'package:catalog_app/presentation/detail/detail_screen.dart';
+import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
 
 
 import 'catalog_presenter.dart';
@@ -20,6 +21,7 @@ class CatalogScreen extends StatefulWidget {
 class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   CatalogPresenter _catalogPresenter;
   List<Offer> _listOffer;
+  // ignore: unused_field
   Cart _cart;
   bool _isLoading;
 
@@ -31,15 +33,8 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   @override
   void initState() {
-    _catalogPresenter.startCartStream();
     _catalogPresenter.getDummyCatalog();
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _catalogPresenter.stopCartStream();
-    super.dispose();
   }
 
   @override
@@ -58,40 +53,10 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       centerTitle: true,
       backgroundColor: Colors.white,
       actions: <Widget>[
-        _getIconCart(),
+        CartActionWidget(),
       ],
     );
   }
-
-  Widget _getIconCart() {
-    return FlatButton(
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
-            child: Icon(
-              Icons.shopping_cart,
-              color: Colors.blue,
-            ),
-          ),
-          _getCartInfo(_cart),
-        ],
-      ),
-      onPressed: () => {},
-    );
-  }
-
-  Widget _getCartInfo(Cart cart) {
-    String str= strMoney(cart.sum);
-    return Text(
-      '$str',
-      style: TextStyle(
-          fontSize: 20.0,
-          color: Colors.blue,
-      ),
-    );
-  }
-
 
   Widget _getTitleBar() {
     return Text(
@@ -104,7 +69,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   Widget _getIconLogout(){
     return IconButton(
-      icon: const Icon(Icons.exit_to_app),
+      icon: Icon(Icons.exit_to_app),
       tooltip: 'favorite',
       color: Colors.black,
       onPressed: () {
@@ -127,6 +92,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   Widget _getList(){
     return ListView(
+      padding:  EdgeInsets.all(5),
       children: _listOffer
           .map((item) => _getCard(item))
           .toList(),
@@ -145,7 +111,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
                 child: _getImageCard(offer.image),
               ),
               Expanded(
-                child: _getCardInfo(offer.title,offer.category, offer.price),
+                child: _getCardInfo(offer),
               ),
             ],
           ),
@@ -156,55 +122,98 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       );
   }
 
-  Widget _getCardInfo( String title, String category, double price) {
+  Widget _getCardInfo(Offer offer) {
     return Container(
       padding: EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-            ),
-          ),
-          Container(
-            height: 10.0,
-          ),
-          Text(
-            category,
-            style: TextStyle(
-              color: Colors.grey
-            ),
-          ),
-          Container(
-            height: 50.0,
-          ),
-          Text(
-            'Стоимость: ',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-            ),
-          ),
-          Container(
-            height: 5.0,
-          ),
-          Text(
-            strMoney(price),
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-            ),
-          ),
-        ],
+      child:  Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+           _getTitleOffer(offer),
+            Container(height: 5.0,),
+            _getCategoryOffer(offer),
+            Container(height: 5.0),
+            _getDescriptionOffer(offer),
+            _getBuyAreaOffer(offer),
+          ],
       ),
+    );
+  }
+
+  Widget _getTitleOffer(Offer offer) {
+    return  Text(
+      offer.title,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  Widget _getCategoryOffer(Offer offer) {
+    return Text(
+      offer.category,
+      style: TextStyle(
+        color: Colors.grey,
+      ),
+    );
+  }
+
+  Widget _getDescriptionOffer(Offer offer) {
+    return Container(
+      height: 50.0,
+      child: Text(
+        offer.description,
+      ),
+    );
+  }
+
+  Widget _getBuyAreaOffer(Offer offer) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        _getTextPriceOffer(offer),
+        Container(height: 5.0),
+        _getPriceOffer(offer),
+        _getButtonBuyOffer(offer),
+      ],
+    );
+  }
+
+  Widget _getTextPriceOffer(Offer offer) {
+    return Text(
+      'Стоимость: ',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  Widget _getButtonBuyOffer(Offer offer) {
+    return FlatButton(
+      color: Colors.blue,
+      child: Text(
+        'Купить',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      onPressed:  ()=> _catalogPresenter.addItem(offer.price),
     );
   }
 
   Widget _getImageCard(String image) {
     return Image.asset(image);
+  }
+
+  Widget _getPriceOffer(Offer offer) {
+    return Text(
+      MoneyHelper.formatMoney(offer.price),
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    );
   }
 
   @override
