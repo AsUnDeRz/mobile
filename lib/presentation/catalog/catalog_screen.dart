@@ -198,7 +198,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
           color: Colors.white,
         ),
       ),
-      onPressed:  ()=> _catalogPresenter.addItem(offer.price),
+      onPressed:  ()=> _catalogPresenter.addItem(offer),
     );
   }
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
+import 'package:catalog_app/presentation/cart/cart_screen.dart';
 
 
 import 'cart_action_presenter.dart';
@@ -53,7 +54,7 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
           _getCartInfo(_cart),
         ],
       ),
-      onPressed: () => {},
+      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));},
     );
   }
 

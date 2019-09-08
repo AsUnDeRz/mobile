@@ -1,4 +1,6 @@
 import 'package:catalog_app/internal/dependencies/application_component.dart';
+import 'package:catalog_app/domain/model/offer.dart';
+import 'package:catalog_app/domain/model/cart_item.dart';
 
 import 'catalog_view.dart';
 
@@ -12,8 +14,10 @@ class CatalogPresenter {
 
   CatalogPresenter(this._view);
 
-  void addItem(double sum) {
-    _addCartItemCase.addCartItem(sum);
+  void addItem(Offer offer) {
+
+    _addCartItemCase.addCartItem(
+        CartItem(offer.title,offer.image,offer.price));
   }
 
   void getDummyCatalog() {

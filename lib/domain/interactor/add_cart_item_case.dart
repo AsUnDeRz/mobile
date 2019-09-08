@@ -1,3 +1,4 @@
+import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/domain/repository/cart_repository.dart';
 
 class AddCartItemCase {
@@ -5,7 +6,7 @@ class AddCartItemCase {
 
   AddCartItemCase(this._cartRepository);
 
-  Future<void> addCartItem(double sum) async {
-    return _cartRepository.addCartItem(sum);
+  Future<void> addCartItem(CartItem item) async {
+    return _cartRepository.addCartItem(item);
   }
 }

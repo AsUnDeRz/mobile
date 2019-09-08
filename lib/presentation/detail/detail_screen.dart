@@ -155,7 +155,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
           color: Colors.white,
         ),
       ),
-      onPressed:  ()=>_detailPresenter.addItem(offer.price),
+      onPressed:  ()=>_detailPresenter.addItem(offer),
     );
   }
 

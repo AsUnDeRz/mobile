@@ -1,6 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 
 import 'package:catalog_app/domain/model/cart.dart';
+import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/domain/repository/cart_repository.dart';
 
 
@@ -10,7 +11,7 @@ class CartDataRepository extends CartRepository {
   final _cartSubject = BehaviorSubject <Cart> ();
 
   CartDataRepository() {
-    _cart = Cart(0.0);
+    _cart = Cart(List<CartItem>());
     _cartUpdate();
   }
 
@@ -19,19 +20,26 @@ class CartDataRepository extends CartRepository {
   }
 
   @override
-  Future<void> addCartItem(double sum) async {
-    _cart = Cart(_cart.sum + sum);
+  Future<void> addCartItem(CartItem item) async {
+    List<CartItem> newListItem=_cart.listItem;
+    newListItem.add(item);
+    _cart= Cart(newListItem);
     await _cartUpdate();
   }
 
   @override
   Future<void> clearCart() async {
-    _cart = Cart(0.0);
+    _cart = Cart(List<CartItem>());
     await _cartUpdate();
   }
 
   @override
   Stream<Cart> getCartStream() {
     return _cartSubject.stream;
+  }
+
+  @override
+  Future<List<CartItem>> getCartItems() async {
+    return _cart.listItem;
   }
 }
