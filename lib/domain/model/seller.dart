@@ -1,4 +1,10 @@
+
 class Seller {
+  static const ID = 'seller_id';
+  static const NAME = 'seller_name';
+  static const TYPE = 'seller_type';
+  static const INFO = 'seller_info';
+
   final String name;
   final String image;
   final String type;
@@ -10,9 +16,4 @@ class Seller {
       this.image,
       this.info,
       );
-}
-
-class SellerEnums {
-  static const String PUBLIC = "Частное лицо";
-  static const String COMPANY = "Компания";
 }

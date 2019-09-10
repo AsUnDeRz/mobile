@@ -1,14 +1,11 @@
 import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
 
-
 import 'package:catalog_app/presentation/start/start_screen.dart';
 import 'package:catalog_app/domain/model/offer.dart';
-import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
 import 'package:catalog_app/presentation/detail/detail_screen.dart';
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
-
 
 import 'catalog_presenter.dart';
 import 'catalog_view.dart';
@@ -21,8 +18,6 @@ class CatalogScreen extends StatefulWidget {
 class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   CatalogPresenter _catalogPresenter;
   List<Offer> _listOffer;
-  // ignore: unused_field
-  Cart _cart;
   bool _isLoading;
 
   _CatalogScreenState() {
@@ -80,14 +75,12 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   Widget _getBody() {
     if(_isLoading) {
-        return LoaderPage();
-    }
-    else {
+      return LoaderPage();
+    } else {
       return Container(
         child: _getList(),
       );
     }
-
   }
 
   Widget _getList(){
@@ -115,9 +108,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
               ),
             ],
           ),
-          onTap:(){
-            onRouteDetail(offer);
-          },
+          onTap: () => onRouteDetail(offer),
         )
       );
   }
@@ -217,8 +208,25 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   }
 
   @override
-  void onError(String error) {
-    // TODO: implement onError
+  void onError( error) {
+      showPlatformDialog(
+        context: context,
+        builder: (_) => PlatformAlertDialog(
+          title: Text('Результат рулетки'),
+          content: Text(error.toString()),
+          actions: <Widget>[
+            PlatformDialogAction(
+              android: (_) => MaterialDialogActionData(),
+              ios: (_) => CupertinoDialogActionData(),
+              child: PlatformText('Попробовать снова'),
+              onPressed: () {
+                Navigator.pop(context);
+                _catalogPresenter.getDummyCatalog();
+              },
+            )
+          ],
+        ),
+      );
   }
 
   @override
@@ -242,12 +250,5 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
         builder: (context) => DetailScreen(offer),
       ),
     );
-  }
-
-  @override
-  void onCartUpdated(Cart cart) {
-    setState(() {
-      _cart = cart;
-    });
   }
 }

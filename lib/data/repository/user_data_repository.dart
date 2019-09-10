@@ -7,8 +7,7 @@ class UserDataRepository extends UserRepository {
 
   @override
   Future<User> getUser() async {
-
-    return  User(
+    return User(
         await SpUtil.getName(),
         await SpUtil.getPassword());
   }

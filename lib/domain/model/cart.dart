@@ -1,14 +1,13 @@
 import 'package:catalog_app/domain/model/cart_item.dart';
 
 class Cart {
-  List<CartItem> listItem;
+  final List<CartItem> _listItem;
 
-  Cart(this.listItem);
+  Cart(this._listItem);
 
-  List<CartItem> get listItems => listItem;
+  List<CartItem> get listItems => _listItem;
+
   double get sum {
-    double sum = 0;
-    listItems.forEach((cartItem) => sum += cartItem.price);
-    return sum;
+    return listItems.fold(0.0, (value, cartItem) => value + cartItem.price);
   }
 }

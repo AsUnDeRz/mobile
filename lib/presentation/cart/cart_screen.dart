@@ -1,13 +1,9 @@
+import 'package:catalog_app/domain/model/cart.dart';
 import 'package:flutter/material.dart';
 
 
 import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/presentation/start/start_screen.dart';
-
-import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
-import 'package:catalog_app/domain/model/offer.dart';
-import 'package:catalog_app/domain/model/cart.dart';
 
 import 'cart_presenter.dart';
 import 'cart_view.dart';
@@ -21,7 +17,7 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> implements CartView{
   CartPresenter _cartPresenter;
 
-  List<CartItem> _listItems;
+  Cart _cart;
 
   _CartScreenState() {
     _cartPresenter = CartPresenter(this);
@@ -29,8 +25,14 @@ class _CartScreenState extends State<CartScreen> implements CartView{
 
   @override
   void initState() {
-  _cartPresenter.getCartListItems();
+  _cartPresenter.startCartStream();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _cartPresenter.stopCartStream();
+    super.dispose();
   }
 
   @override
@@ -42,6 +44,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getAppBar() {
+
     return AppBar(
       iconTheme: IconThemeData(
         color: Colors.black, //change your color here
@@ -50,9 +53,30 @@ class _CartScreenState extends State<CartScreen> implements CartView{
       centerTitle: true,
       backgroundColor: Colors.white,
       actions: <Widget>[
-        CartActionWidget(),
+        _getCartSum(_cart),
+
       ],
     );
+  }
+
+  Widget _getCartSum( Cart cart) {
+    if(cart!=null){
+      return Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
+          child: Text(
+            'Итого: ${MoneyHelper.formatMoney(cart.sum)}',
+            style: TextStyle (
+              color: Colors.black,
+            ),
+          ),
+        ),
+      );
+    }
+    else {
+      return Container();
+    }
+
   }
 
   Widget _getTitleBar() {
@@ -65,7 +89,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getBody() {
-    if(_listItems==null) {
+    if(_cart==null) {
       return LoaderPage();
     }
     else {
@@ -77,12 +101,21 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getList(){
-    return ListView(
-      padding:  EdgeInsets.all(5),
-      children: _listItems
-          .map((item) => _getCard(item))
-          .toList(),
-    );
+    if(_cart.listItems.length>0) {
+      return ListView(
+        padding: EdgeInsets.all(5),
+        children: _cart.listItems
+            .map((item) => _getCard(item))
+            .toList(),
+      );
+    }
+    else {
+      return Center (
+        child: Text(
+          'Корзина пуста',
+        ),
+      );
+    }
   }
 
   Widget _getCard(CartItem item) {
@@ -133,20 +166,17 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   @override
+  void onCartUpdated(Cart cart) {
+    setState(() {
+      _cart = cart;
+    });
+  }
+
+  @override
   void onError(String error) {
     // TODO: implement onError
   }
 
-  @override
-  void onLogoutSuccess() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => StartScreen()));
-  }
 
-  @override
-  void onReceivedCartItems(List<CartItem> listItems) {
-    setState(() {
-      _listItems=listItems;
-    });
-  }
 
 }

@@ -1,7 +1,6 @@
-import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app/domain/model/cart.dart';
 
 abstract class CartView {
-  void onReceivedCartItems(List<CartItem> listItems);
-  void onLogoutSuccess ();
+  void onCartUpdated(Cart cart);
   void onError(String error);
 }

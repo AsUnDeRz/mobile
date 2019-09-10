@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
 import 'package:catalog_app/domain/model/offer.dart';
-import 'package:catalog_app/domain/model/cart.dart';
 
 import 'detail_presenter.dart';
 import 'detail_view.dart';
@@ -19,9 +18,6 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> implements DetailView{
   DetailPresenter _detailPresenter;
-
-  // ignore: unused_field
-  Cart _cart;
 
   _DetailScreenState() {
     _detailPresenter = DetailPresenter(this);
@@ -280,12 +276,6 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
 
   Widget _getSellerInfo(Offer offer) {
     return Text(offer.seller.info);
-  }
-  @override
-  void onCartUpdated(Cart cart) {
-    setState(() {
-      _cart = cart;
-    });
   }
 
   @override

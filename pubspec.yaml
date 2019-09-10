@@ -32,6 +32,7 @@ dev_dependencies:
   rxdart: ^0.22.2
   sqflite: ^1.1.6+4
   flutter_money_formatter: ^0.8.3
+  flutter_platform_widgets: ^0.12.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -47,7 +48,9 @@ flutter:
     - assets/images/good1.jpg
     - assets/images/good2.jpg
     - assets/images/good3.jpg
-    - assets/images/seller.png
+    - assets/images/seller1.jpg
+    - assets/images/seller2.jpg
+    - assets/images/seller3.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

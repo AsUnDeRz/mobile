@@ -16,11 +16,11 @@ class CartActionWidget extends StatefulWidget {
 }
 
 class _CartActionWidgetState extends State<CartActionWidget> implements CartActionView {
-  CartActionPresentor _cartActionPresenter;
+  CartActionPresenter _cartActionPresenter;
   Cart _cart;
 
   _CartActionWidgetState() {
-    _cartActionPresenter = CartActionPresentor(this);
+    _cartActionPresenter = CartActionPresenter(this);
   }
 
   @override
@@ -54,7 +54,7 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
           _getCartInfo(_cart),
         ],
       ),
-      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));},
+      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()))
     );
   }
 

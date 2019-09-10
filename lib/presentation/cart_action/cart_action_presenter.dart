@@ -6,12 +6,12 @@ import 'package:catalog_app/domain/model/cart.dart';
 import 'cart_action_view.dart';
 
 
-class CartActionPresentor {
+class CartActionPresenter {
   final CartActionView _view;
   final _getCartStreamCase=CartModule.getCartStreamCase;
   StreamSubscription<Cart> _cartSubscription;
 
-  CartActionPresentor(this._view);
+  CartActionPresenter(this._view);
 
   void startCartStream() {
     _cartSubscription = _getCartStreamCase

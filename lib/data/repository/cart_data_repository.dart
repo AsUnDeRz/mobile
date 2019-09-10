@@ -4,32 +4,25 @@ import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/domain/repository/cart_repository.dart';
 
+import 'package:catalog_app/data/db/db_util.dart';
 
 class CartDataRepository extends CartRepository {
-  static Cart _cart;
-
   final _cartSubject = BehaviorSubject <Cart> ();
+  final DbUtil _dbUtil;
 
-  CartDataRepository() {
-    _cart = Cart(List<CartItem>());
+  CartDataRepository(this._dbUtil) {
     _cartUpdate();
-  }
-
-  Future<void> _cartUpdate() async {
-    _cartSubject.add(_cart);
   }
 
   @override
   Future<void> addCartItem(CartItem item) async {
-    List<CartItem> newListItem=_cart.listItem;
-    newListItem.add(item);
-    _cart= Cart(newListItem);
+    _dbUtil.insert(CartScheme.tableId, item.toMap());
     await _cartUpdate();
   }
 
   @override
   Future<void> clearCart() async {
-    _cart = Cart(List<CartItem>());
+    _dbUtil.delete(CartScheme.tableId);
     await _cartUpdate();
   }
 
@@ -38,8 +31,24 @@ class CartDataRepository extends CartRepository {
     return _cartSubject.stream;
   }
 
-  @override
-  Future<List<CartItem>> getCartItems() async {
-    return _cart.listItem;
+  Future<void> _cartUpdate() async {
+    final cartItems = await _getCartItems();
+    final cart = Cart(cartItems);
+    _cartSubject.add(cart);
+  }
+
+  Future<List<CartItem>> _getCartItems() async {
+    final maps = await _dbUtil.get(
+      CartScheme.tableId,
+      columns: [
+        CartScheme.columnTitle,
+        CartScheme.columnImage,
+        CartScheme.columnPrice,
+      ],
+    );
+
+    return maps
+        .map((map) => CartItem.fromMap(map))
+        .toList(growable: false);
   }
 }

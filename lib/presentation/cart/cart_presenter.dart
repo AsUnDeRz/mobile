@@ -1,24 +1,30 @@
-import 'package:catalog_app/internal/dependencies/application_component.dart';
+import 'dart:async';
+
+import 'package:catalog_app/internal/dependencies/cart_module.dart';
+import 'package:catalog_app/domain/model/cart.dart';
 
 import 'cart_view.dart';
 
 class CartPresenter {
-  // ignore: unused_field
   final CartView _view;
-  final _resetUserCase=UserModule.resetUserCase;
-  final _getCartItemsCase = CartModule.getCartItemsCase;
+  final _getCartStreamCase=CartModule.getCartStreamCase;
+  StreamSubscription<Cart> _cartSubscription;
 
   CartPresenter(this._view);
 
-  void getCartListItems()  async {
-    _view.onReceivedCartItems( await _getCartItemsCase.getCartItems());
+  void startCartStream() {
+    _cartSubscription = _getCartStreamCase
+        .getCartStream()
+        .listen(
+      _view.onCartUpdated,
+      onError: (error) => _view.onError(error.toString()),
+    );
   }
 
-  void logout() {
-    _resetUserCase.resetUser()
-        .then((_) {
-      _view.onLogoutSuccess();
-    });
+  void stopCartStream() {
+    if (_cartSubscription != null) {
+      _cartSubscription.cancel();
+      _cartSubscription = null;
+    }
   }
-
 }
