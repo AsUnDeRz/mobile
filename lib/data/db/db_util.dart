@@ -11,12 +11,14 @@ class DbUtil{
   Database _db;
   final _lock = new Lock();
 
-  Future<List<Map<String, dynamic>>> get(String table, {List<String> columns, String orderBy}) async {
+  Future<List<Map<String, dynamic>>> get(String table, {List<String> columns, String orderBy, String where, List<dynamic> whereArgs}) async {
     final db = await _getDb();
     final result = await db.query(
-        table,
-        columns: columns,
-        orderBy: orderBy
+      table,
+      where: where,
+      whereArgs: whereArgs,
+      columns: columns,
+      orderBy: orderBy,
     );
     return result;
   }
@@ -77,6 +79,8 @@ class DbUtil{
       db.execute(CartScheme.getCreateSql()),
       db.execute(OfferScheme.getCreateSql()),
       db.execute(SellerScheme.getCreateSql()),
+      db.execute(OfferScheme.fillTableDemo()),
+      db.execute(SellerScheme.fillTableDemo())
     ]);
   }
 }

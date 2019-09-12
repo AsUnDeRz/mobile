@@ -58,7 +58,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
       ],
     );
   }
-
+//TODO
   Widget _getCartSum( Cart cart) {
     if(cart!=null){
       return Padding(
@@ -133,6 +133,9 @@ class _CartScreenState extends State<CartScreen> implements CartView{
               child: _getTitleItem(item.title),
             ),
             Expanded(
+              child: _getCountItem(item.count),
+            ),
+            Expanded(
               child: _getPriceItem(item.price),
             ),
            ],
@@ -148,6 +151,16 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   Widget _getTitleItem(String title) {
     return Text(
       title,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  Widget _getCountItem(int count) {
+    return Text(
+      count.toString()+' шт.',
       style: TextStyle(
         color: Colors.black,
         fontSize: 16,

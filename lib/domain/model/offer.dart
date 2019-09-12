@@ -1,4 +1,4 @@
-import 'package:catalog_app/domain/model/seller.dart';
+import 'dart:convert';
 
 class Offer {
   static const ID = 'offer_id';
@@ -18,10 +18,17 @@ class Offer {
   final String _category;
   final String _description;
   final double _price;
-  final Map<String,String> _characters;
-  final Seller _seller;
+  final Map _characters;
+  final int _sellerId;
 
   int get id => _id;
+  String get title => _title;
+  String get image => _image;
+  String get category => _category;
+  String get description => _description;
+  double get price => _price;
+  Map get characters => _characters;
+  int get seller => _sellerId;
 
   Offer(
       this._id,
@@ -31,30 +38,15 @@ class Offer {
       this._price,
       this._description,
       this._characters,
-      this._seller);
+      this._sellerId);
 
   Offer.fromMap(dynamic map) :
         _id = map [ID],
-        _title = map [TITLE],
+        _title = map[TITLE],
         _image = map [IMAGE],
-        _price = map [PRICE];
-        _description = map [DESCRIPTION];
-        _category = map [CATEGORY];
-        _characters = map [CHARACTERS];
-        _seller = map [SELLER];
-
-  String get title => _title;
-
-  String get image => _image;
-
-  String get category => _category;
-
-  String get description => _description;
-
-  double get price => _price;
-
-  Map<String, String> get characters => _characters;
-
-  Seller get seller => _seller;
-
+        _price = map [PRICE],
+        _description = map [DESCRIPTION],
+        _category = map [CATEGORY],
+        _characters = jsonDecode(map [Offer.CHARACTERS]),
+        _sellerId = map [SELLER];
 }

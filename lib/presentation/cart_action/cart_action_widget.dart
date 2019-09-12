@@ -38,6 +38,7 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
   @override
   Widget build(BuildContext context) {
     return _getCart();
+
   }
 
   Widget _getCart() {

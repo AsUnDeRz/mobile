@@ -40,15 +40,16 @@ class CartDataRepository extends CartRepository {
   Future<List<CartItem>> _getCartItems() async {
     final maps = await _dbUtil.get(
       CartScheme.tableId,
-      columns: [
-        CartScheme.columnTitle,
-        CartScheme.columnImage,
-        CartScheme.columnPrice,
-      ],
     );
 
     return maps
         .map((map) => CartItem.fromMap(map))
         .toList(growable: false);
+  }
+
+  @override
+  Future<void> updateCartItem(CartItem cartItem) async {
+    await _dbUtil.update(CartScheme.tableId, cartItem.toMap(), where: '${CartScheme.columnId} = ?', whereArgs: [cartItem.id]);
+    await _cartUpdate();
   }
 }

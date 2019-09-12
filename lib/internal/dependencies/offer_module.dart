@@ -4,8 +4,7 @@ import 'offer_repository_module.dart';
 
 class OfferModule {
 
-
-  static final getListOffCase = GetListOfferCase(
+  static final getListOfferCase = GetListOfferCase(
       OfferRepositoryModule.offerRepository
   );
 }

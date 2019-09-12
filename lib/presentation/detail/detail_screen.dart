@@ -1,8 +1,10 @@
-import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
 
+import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
 import 'package:catalog_app/domain/model/offer.dart';
+import 'package:catalog_app/presentation/detail/seller_widget/seller_widget.dart';
+import 'package:catalog_app/presentation/design/dialog/count_good/count_good_widget.dart';
 
 import 'detail_presenter.dart';
 import 'detail_view.dart';
@@ -56,10 +58,14 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   }
 
   Widget _getBody() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      child: _getContent(widget._offer),
-    );
+    if(widget._offer == null){
+      return LoaderPage();
+    } else {
+      return Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: _getContent(widget._offer),
+      );
+    }
   }
 
   Widget _getContent(Offer offer){
@@ -151,13 +157,13 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
           color: Colors.white,
         ),
       ),
-      onPressed:  ()=>_detailPresenter.addItem(offer),
+      onPressed:  () => onChooseCountGoods(offer),
     );
   }
 
   Widget _descriptionProduct (Offer offer) {
-    return  Row(
-      children: [
+    return Row(
+      children: <Widget>[
         Expanded(
           child: Text(
             offer.description,
@@ -216,70 +222,21 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     );
   }
 
-  Widget _sellerOffer (Offer offer) {
-    return Container(
-      color: Colors.grey[100],
-      padding: EdgeInsets.all(15.0),
-      child: Row(
-        children: <Widget>[
-         _getSellerDescription(offer),
-         _getSellerImage(offer),
-        ],
-      ),
-    );
-  }
-
-  Widget _getSellerImage(Offer offer){
-    return Expanded(
-      flex: 2,
-      child: _getAvatar(offer),
-    );
-  }
-
-  Widget _getAvatar(Offer offer) {
-    String img = offer.seller.image.isEmpty ? 'assets/images/seller.png' : offer
-        .seller.image;
-    return Image.asset(
-      img,
-      height: 75.0,
-    );
-  }
-
-  Widget _getSellerDescription(Offer offer){
-    return Expanded(
-      flex: 6,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _getSellerName(offer),
-          Container(height: 5,),
-          _getSellerType(offer),
-          Container(height: 5,),
-          _getSellerInfo(offer),
-        ],
-      ),
-    );
-  }
-
-  Widget _getSellerName(Offer offer) {
-    return Text(
-      offer.seller.name,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
-  Widget _getSellerType(Offer offer) {
-    return Text(offer.seller.type);
-  }
-
-  Widget _getSellerInfo(Offer offer) {
-    return Text(offer.seller.info);
+  Widget _sellerOffer(Offer offer) {
+    return SellerBlockDetailWidget(offer.seller);
   }
 
   @override
-  void onError(String error) {
+  void onChooseCountGoods(Offer offer) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => CountGoodWidget(offer),
+    );
+  }
+
+  @override
+  void onError(dynamic error) {
     // TODO: implement onError
   }
+
 }

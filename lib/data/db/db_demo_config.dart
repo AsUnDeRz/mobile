@@ -1,4 +1,4 @@
 
 class DbDemoConfig {
-  static const int countGoods=20;
+  static int countGoods=20;
 }

@@ -6,6 +6,7 @@ import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
 import 'package:catalog_app/presentation/detail/detail_screen.dart';
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
+import 'package:catalog_app/presentation/design/dialog/count_good/count_good_widget.dart';
 
 import 'catalog_presenter.dart';
 import 'catalog_view.dart';
@@ -28,7 +29,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   @override
   void initState() {
-    _catalogPresenter.getDummyCatalog();
+    _catalogPresenter.getCatalog();
     super.initState();
   }
 
@@ -189,7 +190,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
           color: Colors.white,
         ),
       ),
-      onPressed:  ()=> _catalogPresenter.addItem(offer),
+      onPressed: ()=>onChooseCountGoods(offer),
     );
   }
 
@@ -209,24 +210,21 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
 
   @override
   void onError( error) {
-      showPlatformDialog(
-        context: context,
-        builder: (_) => PlatformAlertDialog(
-          title: Text('Результат рулетки'),
-          content: Text(error.toString()),
-          actions: <Widget>[
-            PlatformDialogAction(
-              android: (_) => MaterialDialogActionData(),
-              ios: (_) => CupertinoDialogActionData(),
-              child: PlatformText('Попробовать снова'),
-              onPressed: () {
-                Navigator.pop(context);
-                _catalogPresenter.getDummyCatalog();
-              },
-            )
-          ],
-        ),
-      );
+    showPlatformDialog(
+      context: context,
+      builder: (_) => PlatformAlertDialog(
+        title: Text('Результат рулетки'),
+        content: Text(error.toString()),
+        actions: <Widget>[
+          PlatformDialogAction(
+            android: (_) => MaterialDialogActionData(),
+            ios: (_) => CupertinoDialogActionData(),
+            child: PlatformText('Попробовать снова'),
+            onPressed: onRefreshCatalog,
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -250,5 +248,19 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
         builder: (context) => DetailScreen(offer),
       ),
     );
+  }
+
+  @override
+  void onChooseCountGoods(Offer offer) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => CountGoodWidget(offer),
+    );
+  }
+
+  @override
+  void onRefreshCatalog() {
+    Navigator.pop(context);
+    _catalogPresenter.getCatalog();
   }
 }
