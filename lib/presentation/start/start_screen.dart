@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:catalog_app/presentation/catalog/catalog_screen.dart';
-import 'package:catalog_app/presentation/design/loader_view.dart';
+import 'package:catalog_app/presentation/design/application_design.dart';
 
 import 'start_presenter.dart';
 import 'start_view.dart';
@@ -131,7 +131,7 @@ class _StartScreenState extends State<StartScreen> implements StartView {
   }
 
   @override
-  void onError(String error) {
-    // TODO: implement onError
+  void onError(dynamic error) {
+    ErrorDialogWidget.showErrorDialog(error, context);
   }
 }

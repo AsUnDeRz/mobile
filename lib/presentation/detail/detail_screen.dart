@@ -223,7 +223,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   }
 
   Widget _sellerOffer(Offer offer) {
-    return SellerBlockDetailWidget(offer.seller);
+    return SellerBlockDetailWidget(offer.sellerId);
   }
 
   @override
@@ -236,7 +236,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
 
   @override
   void onError(dynamic error) {
-    // TODO: implement onError
+    ErrorDialogWidget.showErrorDialog(error, context);
   }
 
 }

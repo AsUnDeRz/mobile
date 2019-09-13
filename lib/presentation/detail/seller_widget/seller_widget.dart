@@ -109,6 +109,6 @@ class _SellerBlockDetailWidgetState extends State<SellerBlockDetailWidget> imple
 
   @override
   void onError(String error) {
-    // TODO: implement onError
+    ErrorDialogWidget.showErrorDialog(error, context);
   }
 }

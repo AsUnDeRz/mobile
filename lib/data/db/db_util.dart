@@ -79,8 +79,9 @@ class DbUtil{
       db.execute(CartScheme.getCreateSql()),
       db.execute(OfferScheme.getCreateSql()),
       db.execute(SellerScheme.getCreateSql()),
-      db.execute(OfferScheme.fillTableDemo()),
-      db.execute(SellerScheme.fillTableDemo())
+      db.execute(SellerScheme.fillTableDemo()),
     ]);
   }
+
+
 }

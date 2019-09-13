@@ -195,7 +195,8 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   }
 
   Widget _getImageCard(String image) {
-    return Image.asset(image);
+    return Image.asset(image,
+    fit: BoxFit.fitHeight,);
   }
 
   Widget _getPriceOffer(Offer offer) {
@@ -209,22 +210,11 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   }
 
   @override
-  void onError( error) {
-    showPlatformDialog(
-      context: context,
-      builder: (_) => PlatformAlertDialog(
-        title: Text('Результат рулетки'),
-        content: Text(error.toString()),
-        actions: <Widget>[
-          PlatformDialogAction(
-            android: (_) => MaterialDialogActionData(),
-            ios: (_) => CupertinoDialogActionData(),
-            child: PlatformText('Попробовать снова'),
-            onPressed: onRefreshCatalog,
-          ),
-        ],
-      ),
-    );
+  void onError(dynamic error) {
+    ErrorDialogWidget.showErrorDialog(
+        error,
+        context,
+        handlerButton: onRefreshCatalog);
   }
 
   @override

@@ -74,8 +74,8 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
   }
 
   @override
-  void onError(String error) {
-    // TODO: implement onError
+  void onError(dynamic error) {
+    ErrorDialogWidget.showErrorDialog(error, context);
   }
 
   @override

@@ -58,7 +58,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
       ],
     );
   }
-//TODO
+
   Widget _getCartSum( Cart cart) {
     if(cart!=null){
       return Padding(
@@ -102,11 +102,13 @@ class _CartScreenState extends State<CartScreen> implements CartView{
 
   Widget _getList(){
     if(_cart.listItems.length>0) {
+      final listItems=_cart.listItems
+          .map((item) => _getCard(item))
+          .toList();
+      listItems.add(_getButtonDeleteAllCartItems());
       return ListView(
         padding: EdgeInsets.all(5),
-        children: _cart.listItems
-            .map((item) => _getCard(item))
-            .toList(),
+        children: listItems,
       );
     }
     else {
@@ -138,6 +140,9 @@ class _CartScreenState extends State<CartScreen> implements CartView{
             Expanded(
               child: _getPriceItem(item.price),
             ),
+            Expanded(
+              child: _getIconDelete(item),
+            ),
            ],
         ),
       ),
@@ -160,7 +165,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
 
   Widget _getCountItem(int count) {
     return Text(
-      count.toString()+' шт.',
+      CartItemHelper.formatCount(count),
       style: TextStyle(
         color: Colors.black,
         fontSize: 16,
@@ -178,6 +183,35 @@ class _CartScreenState extends State<CartScreen> implements CartView{
     );
   }
 
+  Widget _getIconDelete(CartItem cartItem) {
+    return IconButton(
+      icon: Icon(Icons.delete),
+      onPressed: () => onDeleteCartItem(cartItem),
+      color: Colors.red,
+    );
+  }
+
+  Widget _getButtonDeleteAllCartItems() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+         RaisedButton(
+           color: Colors.redAccent,
+           child: Text(
+             'Удалить все товары',
+             style: TextStyle(
+               color: Colors.white,
+             ),
+           ),
+           onPressed: onClearCart,
+         ),
+        ],
+      ),
+    );
+  }
+
   @override
   void onCartUpdated(Cart cart) {
     setState(() {
@@ -186,10 +220,22 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   @override
-  void onError(String error) {
-    // TODO: implement onError
+  void onDeleteCartItem(CartItem cartItem) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => DeleteCartItemWidget(cartItem),
+    );
   }
 
+  @override
+  void onClearCart() {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => DeleteAllCartItemsWidget(),
+    );  }
 
-
+  @override
+  void onError(dynamic error) {
+    ErrorDialogWidget.showErrorDialog(error, context);
+  }
 }

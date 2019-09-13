@@ -54,7 +54,6 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
                     TableRow(
                       children: <Widget>[
                         Table(
-                          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                           columnWidths: {
                             0: FixedColumnWidth(60.0),
                             1: FixedColumnWidth(10),
@@ -77,7 +76,10 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
                                 ),
                                 Container(
                                   height: 50,
-                                  child: Text('$_count'),
+                                  child: Center(
+                                    child: Text('$_count',
+                                    ),
+                                  ),
                                 ),
                                 Container(
                                   height: 50,
@@ -101,24 +103,29 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
                       children: <Widget>[
                         Table(
                           columnWidths: {
-                            0: FixedColumnWidth(40.0),
+                            0: FixedColumnWidth(100.0),
                             1: FixedColumnWidth(100),
                           },
                           children: <TableRow>[
                             TableRow(
                               children: [
                                 Container(
+                                  height: 50,
                                   padding: EdgeInsets.symmetric(vertical: 5),
                                     child:
-                                    Text(
-                                        'Стоимость:'
+                                    Center(
+                                      child: Text(
+                                          'Стоимость:'
+                                      ),
                                     ),
                                 ),
                                 Container(
+                                  height: 50,
                                   padding: EdgeInsets.symmetric(vertical: 5),
-                                  child:
-                                  Text(
-                                    MoneyHelper.formatMoney(_count * offer.price),
+                                  child:  Center(
+                                    child: Text(
+                                      MoneyHelper.formatMoney(_count * offer.price),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -141,7 +148,9 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
                 PlatformDialogAction(
                   android: (_) => MaterialDialogActionData(),
                   ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText('Добавить в корзину'),
+                  child: PlatformText(
+                    'Добавить в корзину',
+                  ),
                   onPressed: () => onAddCart(
                       CartItem(null, offer.title, offer.image, offer.id, _count, _count * offer.price)),
                 ),
@@ -154,8 +163,13 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
           {
             return PlatformAlertDialog(
               title: Text(''),
-              content: Center(
-                child: Text('Товар успешно добавлен'),
+              content: Container(
+                  height: 50,
+                  child: Center(
+                    child: Text(
+                        'Товар успешно добавлен',
+                    ),
+                  ),
               ),
               actions: <Widget>[
                 PlatformDialogAction(
@@ -211,6 +225,6 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
 
   @override
   void onError(String error) {
-    // TODO: implement onError
+    ErrorDialogWidget.showErrorDialog(error, context);
   }
 }
