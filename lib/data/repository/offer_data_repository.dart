@@ -26,7 +26,7 @@ class OfferDataRepository extends OfferRepository {
             .map((map) => Offer.fromMap(map))
             .toList(growable: false);
       } else {
-        await _synchronize();
+        await _cache();
         final repeatedMaps = await _dbUtil.get(
           OfferScheme.tableId,
         );
@@ -36,9 +36,8 @@ class OfferDataRepository extends OfferRepository {
     }
   }
 
-  Future<void> _synchronize() async{
+  Future<void> _cache() async{
     List<Offer> offers = await OfferFixture.synchronizedOffer;
     offers.forEach( (offer) async => await _dbUtil.insert(OfferScheme.tableId, offer.toMap())) ;
     }
   }
-}

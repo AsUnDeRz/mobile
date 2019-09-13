@@ -14,17 +14,17 @@ class SellerFixture{
 
   static String  get name  {
     Random rnd = Random();
-    return _names[rnd.nextInt(4)-1];
+    return _names[rnd.nextInt(3)];
   }
 
   static int  get sellerId  {
     Random rnd = Random();
-    return rnd.nextInt(4);
+    return 1+rnd.nextInt(4-1);
   }
 
   static String  get image  {
     Random rnd = Random();
-    return 'assets/images/seller${rnd.nextInt(4)}.jpg';
+    return 'assets/images/seller${1+rnd.nextInt(4-1)}.jpg';
   }
 
   static String  get info  {
@@ -39,7 +39,7 @@ class SellerFixture{
 
     for (int i = 1; i <= 3; ++i) {
       sql += """
-        (null, '$name',$image , '$sellerType',$info )
+        (null, '$name', '$image' , '$sellerType', '$info' )
         """;
       sql += (i == 3) ? ';' : ',';
     }
@@ -54,7 +54,7 @@ class OfferFixture {
     List<String> titles = await synchronizedTitleOffer;
     List<String> descriptions = await synchronizedDescriptionOffer;
 
-    List<Offer> offers;
+    List<Offer> offers = [];
 
     for (int i = 0; i != countGoods; ++i) {
       offers.add(Offer(
@@ -95,12 +95,12 @@ class OfferFixture {
 
   static String get image {
     Random rnd = Random();
-    return 'assets/images/good${rnd.nextInt(4)}.jpg';
+    return 'assets/images/good${1+rnd.nextInt(4-1)}.jpg';
   }
 
   static String get category {
     Random rnd = Random();
-    return 'category${rnd.nextInt(4)}';
+    return 'category${1+rnd.nextInt(4-1)}';
   }
 
   static double get price {
