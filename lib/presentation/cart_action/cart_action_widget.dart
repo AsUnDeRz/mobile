@@ -11,11 +11,13 @@ import 'cart_action_presenter.dart';
 import 'cart_action_view.dart';
 
 class CartActionWidget extends StatefulWidget {
+
   @override
   _CartActionWidgetState createState() => _CartActionWidgetState();
 }
 
 class _CartActionWidgetState extends State<CartActionWidget> implements CartActionView {
+
   CartActionPresenter _cartActionPresenter;
   Cart _cart;
 
@@ -75,7 +77,7 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
 
   @override
   void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(error, context);
+    ErrorDialogWidget.showErrorDialog(context);
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:catalog_app/data/sp/sp_util.dart';
 
-class DbModule {
+class SpModule {
+
   static final spUtil = SpUtil();
 }

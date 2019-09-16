@@ -7,8 +7,9 @@ import 'cart_action_view.dart';
 
 
 class CartActionPresenter {
+
   final CartActionView _view;
-  final _getCartStreamCase=CartModule.getCartStreamCase;
+  final _getCartStreamCase = CartModule.getCartStreamCase;
   StreamSubscription<Cart> _cartSubscription;
 
   CartActionPresenter(this._view);
@@ -28,5 +29,4 @@ class CartActionPresenter {
       _cartSubscription = null;
     }
   }
-
 }

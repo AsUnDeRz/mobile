@@ -9,13 +9,16 @@ class AddCartItemCase {
   Future<void> addCartItem(CartItem cartItem) async {
     final cart = await _cartRepository.getCartStream().first;
     final cartItemExisting = cart.listItems.singleWhere(
-      ((item) => item.offerId==cartItem.offerId),
+      ((item) => item.offerId == cartItem.offerId),
       orElse: () => null,
     );
     if (cartItemExisting != null) {
-      final updatedCartItem=CartItem(cartItemExisting.id,
-          cartItemExisting.title,cartItemExisting.image,cartItemExisting.offerId,
-          cartItemExisting.count+cartItem.count,
+      final updatedCartItem=CartItem(
+          cartItemExisting.id,
+          cartItemExisting.title,
+          cartItemExisting.image,
+          cartItemExisting.offerId,
+          cartItemExisting.count + cartItem.count,
           cartItemExisting.price + cartItem.price);
 
       return _cartRepository.updateCartItem(updatedCartItem);

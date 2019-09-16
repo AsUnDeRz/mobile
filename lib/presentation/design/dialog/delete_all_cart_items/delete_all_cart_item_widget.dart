@@ -38,62 +38,95 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget>
       return LoaderPage();
     } else {
       switch (_numberStep) {
-        case 1:
-          {
-            return PlatformAlertDialog(
-              title: Text('Подвердите удаление всех товаро из корзины'),
-              actions: <Widget>[
-                PlatformDialogAction(
-                  android: (_) => MaterialDialogActionData(),
-                  ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText(
-                    'Назад',
-                  ),
-                  onPressed: onBack,
-                ),
-                PlatformDialogAction(
-                  android: (_) => MaterialDialogActionData(),
-                  ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText(
-                    'Удалить всё',
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
-                  ),
-                  onPressed: () => onDeleteAllCartItems(),
-                ),
-              ],
-            );
+        case 1: {
+            return _getDialogAcceptDeleteAllItems();
           }
           break;
 
-        case 2:
-          {
-            return PlatformAlertDialog(
-              title: Text(''),
-              content: Container(
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                        'Товары успешно удалены',
-                    ),
-                  ),
-              ),
-              actions: <Widget>[
-                PlatformDialogAction(
-                  android: (_) => MaterialDialogActionData(),
-                  ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText(
-                    'Продолжить покупки',
-                  ),
-                  onPressed: onBack,
-                ),
-              ],
-            );
+        case 2: {
+            return _getDialogSuccessDeleteAllItems();
           }
           break;
+
+        default: {
+          return _getDialogErrorDeleteAllItems();
+        }
       }
     }
+  }
+
+  Widget _getDialogAcceptDeleteAllItems() {
+    return PlatformAlertDialog(
+      title: Text('Подвердите удаление всех товаро из корзины'),
+      actions: <Widget>[
+        _getButtonBack('Назад'),
+        _getButtonDelete('Удалить всё', onDeleteAllCartItems),
+      ],
+    );
+  }
+
+  Widget _getButtonBack(String label) {
+    return  PlatformDialogAction(
+      android: (_) => MaterialDialogActionData(),
+      ios: (_) => CupertinoDialogActionData(),
+      child: PlatformText(
+        label,
+      ),
+      onPressed: onBack,
+    );
+  }
+
+  Widget _getButtonDelete(String label, Function handler) {
+    return  PlatformDialogAction(
+      android: (_) => MaterialDialogActionData(),
+      ios: (_) => CupertinoDialogActionData(),
+      child: PlatformText(
+        label,
+        style: TextStyle(
+          color: Colors.red,
+        ),
+      ),
+      onPressed: handler,
+    );
+  }
+
+  Widget _getDialogSuccessDeleteAllItems() {
+    return PlatformAlertDialog(
+      title: Text(''),
+      content: Container(
+        height: 50,
+        child: Center(
+          child: Text(
+            'Товары успешно удалены',
+          ),
+        ),
+      ),
+      actions: <Widget>[
+        PlatformDialogAction(
+          android: (_) => MaterialDialogActionData(),
+          ios: (_) => CupertinoDialogActionData(),
+          child: PlatformText(
+            'Продолжить покупки',
+          ),
+          onPressed: onBack,
+        ),
+      ],
+    );
+  }
+
+  Widget _getDialogErrorDeleteAllItems () {
+    return PlatformAlertDialog(
+      title: Text('Ошибка'),
+      content: Container(
+        height: 50,
+        child: Center(
+          child: Text('Произошла неизвестная ошибка'),
+        ),
+      ),
+      actions: <Widget>[
+        _getButtonBack('Вернуться назад'),
+      ],
+    );
   }
 
   @override
@@ -118,7 +151,7 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget>
   }
 
   @override
-  void onError(String error) {
-    ErrorDialogWidget.showErrorDialog(error, context);
+  void onError() {
+    ErrorDialogWidget.showErrorDialog(context);
   }
 }

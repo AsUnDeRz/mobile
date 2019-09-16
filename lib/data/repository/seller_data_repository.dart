@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:catalog_app/domain/model/seller.dart';
 import 'package:catalog_app/domain/repository/seller_repository.dart';
 import 'package:catalog_app/data/db/db_util.dart';

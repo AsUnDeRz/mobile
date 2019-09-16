@@ -6,6 +6,7 @@ import 'package:catalog_app/domain/model/cart.dart';
 import 'cart_view.dart';
 
 class CartPresenter {
+
   final CartView _view;
   final _getCartStreamCase=CartModule.getCartStreamCase;
   final _deleteCartCase=CartModule.deleteCartCase;

@@ -150,11 +150,11 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
 
   Widget _getButtonBuy(Offer offer) {
     return FlatButton(
-      color: Colors.blue,
-      child: Text(
+      color:  const Color(0xFF2196F3),
+      child: const Text(
         'Купить',
-        style: TextStyle(
-          color: Colors.white,
+        style: const TextStyle(
+          color: const Color(0xFFFFFFFFFF),
         ),
       ),
       onPressed:  () => onChooseCountGoods(offer),
@@ -167,7 +167,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
         Expanded(
           child: Text(
             offer.description,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
             ),
           ),
@@ -236,7 +236,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
 
   @override
   void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(error, context);
+    ErrorDialogWidget.showErrorDialog(context);
   }
 
 }

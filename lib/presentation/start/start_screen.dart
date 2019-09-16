@@ -50,33 +50,34 @@ class _StartScreenState extends State<StartScreen> implements StartView {
   }
 
   Widget _getFormBody() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Catalog app',
-            style: TextStyle(fontSize: 25.0),
-            textAlign: TextAlign.center,
-          ),
-          Container(height: 30.0),
-          _getTextFormField(
-            label: 'Логин',
-            errorText: 'Пожалуйста, введите логин',
-            controller: _nameUserController,
-          ),
-          Container(height: 20.0),
-          _getTextFormField(
-            label: 'Пароль',
-            errorText: 'Пожалуйста, введите пароль',
-            obscure: true,
-            controller: _passwordUserController,
-          ),
-          Container(height: 20.0),
-          _getSubmitButton()
-        ],
-      ),
+    return LayoutBuilder(
+        builder: (context, constraints) {
+          return ListView(
+              padding: EdgeInsets.all( constraints.maxWidth * 0.1),
+              children: <Widget>[
+                Text(
+                  'Catalog app',
+                  style: TextStyle(fontSize: 25.0),
+                  textAlign: TextAlign.center,
+                ),
+                Container(height: 30.0),
+                _getTextFormField(
+                  label: 'Логин',
+                  errorText: 'Пожалуйста, введите логин',
+                  controller: _nameUserController,
+                ),
+                Container(height: 20.0),
+                _getTextFormField(
+                  label: 'Пароль',
+                  errorText: 'Пожалуйста, введите пароль',
+                  obscure: true,
+                  controller: _passwordUserController,
+                ),
+                Container(height: 20.0),
+                _getSubmitButton()
+              ],
+          );
+        }
     );
   }
 
@@ -132,6 +133,6 @@ class _StartScreenState extends State<StartScreen> implements StartView {
 
   @override
   void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(error, context);
+    ErrorDialogWidget.showErrorDialog(context);
   }
 }

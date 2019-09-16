@@ -66,7 +66,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   Widget _getIconLogout(){
     return IconButton(
       icon: Icon(Icons.exit_to_app),
-      tooltip: 'favorite',
+      tooltip: 'logout',
       color: Colors.black,
       onPressed: () {
         _catalogPresenter.logout();
@@ -212,8 +212,8 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   @override
   void onError(dynamic error) {
     ErrorDialogWidget.showErrorDialog(
-        error,
         context,
+        error: error,
         handlerButton: onRefreshCatalog);
   }
 

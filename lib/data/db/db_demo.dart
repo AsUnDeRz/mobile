@@ -35,14 +35,13 @@ class SellerFixture{
   static String  get sqlFillTable  {
     String sql ='insert into seller_table (seller_id, seller_name, seller_image, seller_type, seller_info) values ';
 
-
-
     for (int i = 1; i <= 3; ++i) {
       sql += """
         (null, '$name', '$image' , '$sellerType', '$info' )
         """;
       sql += (i == 3) ? ';' : ',';
     }
+
     return sql;
   }
 }
@@ -73,7 +72,6 @@ class OfferFixture {
 
   static Future<List<String>> get synchronizedTitleOffer async {
     final api = ApiModule.apiUtil();
-
     final responseTitles = await api.getFixtureTitle(OfferFixture.countGoods);
 
     List<String> titles = responseTitles ['text'].split(RegExp(r"\\n\\n"));
@@ -83,9 +81,7 @@ class OfferFixture {
 
   static Future<List<String>> get synchronizedDescriptionOffer async {
     final api = ApiModule.apiUtil();
-
-    final responseDescriptions = await api.getFixtureDescription(
-        OfferFixture.countGoods);
+    final responseDescriptions = await api.getFixtureDescription(OfferFixture.countGoods);
 
     List<String> descriptions = responseDescriptions ['text'].split(
         RegExp(r"\\n\\n"));

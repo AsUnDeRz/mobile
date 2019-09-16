@@ -5,22 +5,26 @@ import 'package:catalog_app/data/sp/sp_util.dart';
 
 class UserDataRepository extends UserRepository {
 
+  SpUtil _spUtil;
+
+  UserDataRepository (this._spUtil);
+
   @override
   Future<User> getUser() async {
     return User(
-        await SpUtil.getName(),
-        await SpUtil.getPassword());
+        await _spUtil.getName(),
+        await _spUtil.getPassword());
   }
 
   @override
   Future<void> setUser(User user) async {
-    SpUtil.setName(user.name);
-    SpUtil.setPassword(user.password);
+    await _spUtil.setName(user.name);
+    await _spUtil.setPassword(user.password);
   }
 
   @override
   Future<void> resetUser() async {
-    SpUtil.setName('');
-    SpUtil.setPassword('');
+    await _spUtil.setName('');
+    await _spUtil.setPassword('');
   }
 }

@@ -15,6 +15,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> implements CartView{
+
   CartPresenter _cartPresenter;
 
   Cart _cart;
@@ -44,7 +45,6 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getAppBar() {
-
     return AppBar(
       iconTheme: IconThemeData(
         color: Colors.black, //change your color here
@@ -54,13 +54,12 @@ class _CartScreenState extends State<CartScreen> implements CartView{
       backgroundColor: Colors.white,
       actions: <Widget>[
         _getCartSum(_cart),
-
       ],
     );
   }
 
   Widget _getCartSum( Cart cart) {
-    if(cart!=null){
+    if(cart != null){
       return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Center(
@@ -89,7 +88,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getBody() {
-    if(_cart==null) {
+    if(_cart == null) {
       return LoaderPage();
     }
     else {
@@ -101,14 +100,13 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getList(){
-    if(_cart.listItems.length>0) {
-      final listItems=_cart.listItems
-          .map((item) => _getCard(item))
-          .toList();
-      listItems.add(_getButtonDeleteAllCartItems());
+    if(_cart.listItems.length > 0) {
       return ListView(
         padding: EdgeInsets.all(5),
-        children: listItems,
+        children:[
+          ..._getListItems(),
+          ..._getButtonDeleteAllCartItems(),
+        ]
       );
     }
     else {
@@ -120,12 +118,18 @@ class _CartScreenState extends State<CartScreen> implements CartView{
     }
   }
 
+  List<Widget> _getListItems() {
+    return _cart.listItems
+        .map((item) => _getCard(item))
+        .toList();
+  }
+
   Widget _getCard(CartItem item) {
     return  Card(
-        elevation: 5,
-        child:  Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
+      elevation: 5,
+      child:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
@@ -191,25 +195,27 @@ class _CartScreenState extends State<CartScreen> implements CartView{
     );
   }
 
-  Widget _getButtonDeleteAllCartItems() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-         RaisedButton(
-           color: Colors.redAccent,
-           child: Text(
-             'Удалить все товары',
-             style: TextStyle(
-               color: Colors.white,
-             ),
-           ),
-           onPressed: onClearCart,
-         ),
-        ],
+  List<Widget> _getButtonDeleteAllCartItems() {
+    return <Widget> [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            RaisedButton(
+              color: Colors.redAccent,
+              child: Text(
+                'Удалить все товары',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: onClearCart,
+            ),
+          ],
+        ),
       ),
-    );
+    ];
   }
 
   @override
@@ -236,6 +242,6 @@ class _CartScreenState extends State<CartScreen> implements CartView{
 
   @override
   void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(error, context);
+    ErrorDialogWidget.showErrorDialog(context);
   }
 }

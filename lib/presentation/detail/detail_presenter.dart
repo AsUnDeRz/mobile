@@ -12,6 +12,7 @@ class DetailPresenter {
   DetailPresenter(this._view);
 
   void addItem(CartItem item) {
-    _addCartItemCase.addCartItem(item);
+    _addCartItemCase.addCartItem(item)
+    .catchError( (error)=>_view.onError(error));
   }
 }

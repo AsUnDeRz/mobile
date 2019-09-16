@@ -43,149 +43,190 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
   Widget _getBody(Offer offer) {
     if (_isLoading) {
       return LoaderPage();
-    } else {
-      switch (_numberStep) {
-        case 1:
-          {
-            return PlatformAlertDialog(
-              title: Text('Выберите количество товара '),
-              content:  Table(
-                  children: <TableRow>[
-                    TableRow(
-                      children: <Widget>[
-                        Table(
-                          columnWidths: {
-                            0: FixedColumnWidth(60.0),
-                            1: FixedColumnWidth(10),
-                            2: FixedColumnWidth(60.0),
-                          },
-                          children: <TableRow>[
-                            TableRow(
-                              children: [
-                                Container(
-                                  height: 50,
-                                  child: RaisedButton(
-                                    shape: CircleBorder(),
-                                    color: Colors.blue,
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colors.white,
-                                    ),
-                                    onPressed: onIncrement,
-                                  ),
-                                ),
-                                Container(
-                                  height: 50,
-                                  child: Center(
-                                    child: Text('$_count',
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  height: 50,
-                                  child: RaisedButton(
-                                    shape: CircleBorder(),
-                                    color: Colors.blue,
-                                    child: Icon(
-                                      Icons.remove,
-                                      color: Colors.white,
-                                    ),
-                                    onPressed: onDecrement,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: <Widget>[
-                        Table(
-                          columnWidths: {
-                            0: FixedColumnWidth(100.0),
-                            1: FixedColumnWidth(100),
-                          },
-                          children: <TableRow>[
-                            TableRow(
-                              children: [
-                                Container(
-                                  height: 50,
-                                  padding: EdgeInsets.symmetric(vertical: 5),
-                                    child:
-                                    Center(
-                                      child: Text(
-                                          'Стоимость:'
-                                      ),
-                                    ),
-                                ),
-                                Container(
-                                  height: 50,
-                                  padding: EdgeInsets.symmetric(vertical: 5),
-                                  child:  Center(
-                                    child: Text(
-                                      MoneyHelper.formatMoney(_count * offer.price),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              actions: <Widget>[
-                PlatformDialogAction(
-                  android: (_) => MaterialDialogActionData(),
-                  ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText(
-                    'Назад',
-                  ),
-                  onPressed: onBack,
-                ),
-                PlatformDialogAction(
-                  android: (_) => MaterialDialogActionData(),
-                  ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText(
-                    'Добавить в корзину',
-                  ),
-                  onPressed: () => onAddCart(
-                      CartItem(null, offer.title, offer.image, offer.id, _count, _count * offer.price)),
-                ),
-              ],
-            );
-          }
-          break;
+    }
 
-        case 2:
-          {
-            return PlatformAlertDialog(
-              title: Text(''),
-              content: Container(
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                        'Товар успешно добавлен',
-                    ),
-                  ),
-              ),
-              actions: <Widget>[
-                PlatformDialogAction(
-                  android: (_) => MaterialDialogActionData(),
-                  ios: (_) => CupertinoDialogActionData(),
-                  child: PlatformText(
-                    'Продолжить покупки',
-                  ),
-                  onPressed: onBack,
-                ),
-              ],
-            );
-          }
-          break;
+    switch (_numberStep) {
+      case 1: {
+        return _getDialogChooseCount(offer);
+      }
+      break;
+
+      case 2: {
+        return _getDialogFinishChooseItem();
+      }
+      break;
+
+      default: {
+        return _getErrorFinishChooseItem();
       }
     }
+  }
+
+  Widget _getDialogChooseCount(Offer offer){
+    return PlatformAlertDialog(
+      title: Text('Выберите количество товара '),
+      content:  Table(
+        children: <TableRow>[
+          TableRow(
+            children: <Widget>[
+              _getChooseCount(),
+            ],
+          ), TableRow(
+            children: <Widget>[
+              _getSummaryPrice(offer),
+            ],
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        _getButtonBack('Назад'),
+        _getButtonAction(
+          'Добавить в корзину',
+              () => onAddCart(
+            CartItem(
+                null,
+                offer.title,
+                offer.image,
+                offer.id,
+                _count, _count * offer.price
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _getChooseCount() {
+    return Table(
+      columnWidths: {
+        0: FixedColumnWidth(60.0),
+        1: FixedColumnWidth(10),
+        2: FixedColumnWidth(60.0),
+      },
+      children: <TableRow>[
+        TableRow(
+          children: [
+            Container(
+              height: 50,
+              child: RaisedButton(
+                shape: CircleBorder(),
+                color: Colors.blue,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+                onPressed: onIncrement,
+              ),
+            ),
+            Container(
+              height: 50,
+              child: Center(
+                child: Text('$_count',
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              child: RaisedButton(
+                shape: CircleBorder(),
+                color: Colors.blue,
+                child: Icon(
+                  Icons.remove,
+                  color: Colors.white,
+                ),
+                onPressed: onDecrement,
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  _getSummaryPrice(Offer offer) {
+    return Table(
+      columnWidths: {
+        0: FixedColumnWidth(100.0),
+        1: FixedColumnWidth(100),
+      },
+      children: <TableRow>[
+        TableRow(
+          children: [
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child:
+              Center(
+                child: Text(
+                    'Стоимость:'
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child:  Center(
+                child: Text(
+                  MoneyHelper.formatMoney(_count * offer.price),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _getDialogFinishChooseItem(){
+    return PlatformAlertDialog(
+      title: Text(''),
+      content: Container(
+        height: 50,
+        child: Center(
+          child: Text('Товар успешно добавлен'),
+        ),
+      ),
+      actions: <Widget>[
+        _getButtonBack('Продолжить покупки'),
+      ],
+    );
+  }
+
+  Widget _getButtonBack(String label) {
+    return  PlatformDialogAction(
+      android: (_) => MaterialDialogActionData(),
+      ios: (_) => CupertinoDialogActionData(),
+      child: PlatformText(
+        label,
+      ),
+      onPressed: onBack,
+    );
+  }
+
+  Widget _getButtonAction(String label, Function handler) {
+    return  PlatformDialogAction(
+      android: (_) => MaterialDialogActionData(),
+      ios: (_) => CupertinoDialogActionData(),
+      child: PlatformText(
+        label,
+      ),
+      onPressed: handler,
+    );
+  }
+
+  Widget _getErrorFinishChooseItem () {
+    return PlatformAlertDialog(
+      title: Text('Ошибка'),
+      content: Container(
+        height: 50,
+        child: Center(
+          child: Text('Произошла неизвестная ошибка'),
+        ),
+      ),
+      actions: <Widget>[
+        _getButtonBack('Вернуться назад'),
+      ],
+    );
   }
 
   @override
@@ -224,7 +265,9 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
   }
 
   @override
-  void onError(String error) {
-    ErrorDialogWidget.showErrorDialog(error, context);
+  void onError(dynamic error) {
+    ErrorDialogWidget.showErrorDialog(
+        context,
+        error: error);
   }
 }
