@@ -1,5 +1,6 @@
 import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:catalog_app/presentation/start/start_screen.dart';
 import 'package:catalog_app/domain/model/offer.dart';
@@ -194,9 +195,13 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
     );
   }
 
+
+
   Widget _getImageCard(String image) {
-    return Image.asset(image,
-    fit: BoxFit.fitHeight,);
+    return CachedNetworkImage(
+      placeholder: (context, url) => LoaderPage(),
+      imageUrl: image,
+    );
   }
 
   Widget _getPriceOffer(Offer offer) {

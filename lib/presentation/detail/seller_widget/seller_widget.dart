@@ -8,9 +8,9 @@ import 'seller_widget_presenter.dart';
 import 'seller_widget_view.dart';
 
 class SellerBlockDetailWidget extends StatefulWidget {
-  final int sellerId;
+  final Seller seller;
 
-  SellerBlockDetailWidget(this.sellerId);
+  SellerBlockDetailWidget(this.seller);
 
   @override
   _SellerBlockDetailWidgetState createState() => _SellerBlockDetailWidgetState();
@@ -18,7 +18,6 @@ class SellerBlockDetailWidget extends StatefulWidget {
 
 class _SellerBlockDetailWidgetState extends State<SellerBlockDetailWidget> implements SellerBlockDetailView {
   SellerBlockDetailPresenter _sellerBlockDetailPresenter;
-  Seller _seller;
 
   _SellerBlockDetailWidgetState() {
     _sellerBlockDetailPresenter = SellerBlockDetailPresenter(this);
@@ -26,17 +25,12 @@ class _SellerBlockDetailWidgetState extends State<SellerBlockDetailWidget> imple
 
   @override
   void initState() {
-    _sellerBlockDetailPresenter.getSellerById(widget.sellerId);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    if(_seller ==null) {
-      return LoaderPage();
-    } else {
-      return _body(_seller);
-    }
+      return _body(widget.seller);
   }
 
     Widget _body (Seller seller) {
@@ -98,13 +92,6 @@ class _SellerBlockDetailWidgetState extends State<SellerBlockDetailWidget> imple
 
   Widget _getSellerInfo(Seller seller) {
     return Text(seller.info);
-  }
-
-  @override
-  void onSellerReceived(Seller seller) {
-    setState(() {
-      _seller = seller;
-    });
   }
 
   @override

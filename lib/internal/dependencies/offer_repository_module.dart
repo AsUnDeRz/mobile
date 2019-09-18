@@ -3,5 +3,5 @@ import 'package:catalog_app/internal/dependencies/db_module.dart';
 
 class OfferRepositoryModule {
 
-  static final offerRepository = OfferDataRepository(DbModule.dbUtil);
+  static final offerDataRepository = OfferDataRepository(DbModule.dbUtil);
 }

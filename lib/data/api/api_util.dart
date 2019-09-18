@@ -5,11 +5,13 @@ import 'package:dio/dio.dart';
 class ApiUtil {
 
 
+
+
   final Dio _dio;
 
   ApiUtil(this._dio);
 
-  Future<Map> getFixtureTitle(int count) async {
+  Future<List<String>> getFixtureTitle(int count) async {
     final result = await _get(
      '',
       queryParameters: {
@@ -17,9 +19,11 @@ class ApiUtil {
         "number": count,
         "format": "json"},
       );
-    return jsonDecode(result);
+
+    return _explodeString(result);
   }
-  Future<Map> getFixtureDescription(int count) async {
+
+  Future<List<String>> getFixtureDescription(int count) async {
     final result = await _get(
       '',
       queryParameters: {
@@ -27,7 +31,38 @@ class ApiUtil {
         "number": count,
         "format": "json"},
       );
-    return jsonDecode(result);
+
+    return _explodeString(result);
+  }
+
+  List<String> _explodeString(result){
+    var listItems = jsonDecode(result)['text'].split(RegExp(r"\\n\\n"));
+    listItems.removeLast();
+    return listItems;
+  }
+
+  Future<dynamic> getEngFixtureTitle(int count, {words=5}) async {
+    final result = await _get(
+     '',
+      queryParameters: {
+        "paragraphs": '$count-$count',
+        "words": '$words-$words',
+        "start-with-lorem-ipsum": "false",
+        "format": "json",},
+      );
+    return result;
+  }
+
+  Future<dynamic> getEngFixtureDescription(int count, {words=100}) async {
+    final result = await _get(
+      '',
+      queryParameters: {
+        "paragraphs": '$count-$count',
+        "words": '$words-$words',
+        "start-with-lorem-ipsum": "false",
+        "format": "json",},
+    );
+    return result;
   }
 
   Future<dynamic> _get(String path, {

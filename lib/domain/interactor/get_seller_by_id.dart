@@ -1,12 +1,11 @@
-import 'package:catalog_app/domain/model/seller.dart';
-import 'package:catalog_app/domain/repository/seller_repository.dart';
+import 'package:catalog_app/domain/repository/offer_repository.dart';
 
 class GetSellerByIdCase {
-  final SellerRepository _sellerRepository;
+  final OfferRepository _offerRepository;
 
-  GetSellerByIdCase(this._sellerRepository);
+  GetSellerByIdCase(this._offerRepository);
 
-  Future<Seller> getSellerById(int id) {
-    return _sellerRepository.getSellerById(id);
+  Future<Map<String, dynamic>> getSellerById(int id) {
+    return _offerRepository.getSellerById(id);
   }
 }

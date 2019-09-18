@@ -1,7 +1,7 @@
-import 'package:catalog_app/domain/model/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
-
+import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
 
@@ -132,20 +132,35 @@ class _CartScreenState extends State<CartScreen> implements CartView{
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Expanded(
-              child: _getImageItem(item.image),
+             Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:5.0),
+                  child: _getImageItem(item.image),
+              ),
             ),
-            Expanded(
-              child: _getTitleItem(item.title),
+             Expanded(
+                child:Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:5.0),
+                  child: _getTitleItem(item.title),
+              ),
             ),
-            Expanded(
-              child: _getCountItem(item.count),
+             Expanded(
+                child:Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:5.0),
+                  child: _getCountItem(item.count),
+              ),
             ),
-            Expanded(
-              child: _getPriceItem(item.price),
+             Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:5.0),
+                  child: _getPriceItem(item.price),
+              ),
             ),
-            Expanded(
-              child: _getIconDelete(item),
+             Expanded(
+                child:Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:5.0),
+                  child: _getIconDelete(item),
+              ),
             ),
            ],
         ),
@@ -154,7 +169,11 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   }
 
   Widget _getImageItem(String image) {
-    return Image.asset(image, height: 50.0,);
+    return CachedNetworkImage(
+      placeholder: (context, url) => LoaderPage(),
+      imageUrl: image,
+      height: 50,
+    );
   }
 
   Widget _getTitleItem(String title) {

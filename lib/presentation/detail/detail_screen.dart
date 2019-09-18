@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
@@ -8,6 +9,7 @@ import 'package:catalog_app/presentation/design/dialog/count_good/count_good_wid
 
 import 'detail_presenter.dart';
 import 'detail_view.dart';
+
 
 class DetailScreen extends StatefulWidget {
   final Offer _offer;
@@ -108,7 +110,10 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   Widget _getOfferImage(Offer offer) {
     return Column(
       children: <Widget>[
-        Image.asset(offer.image),
+        CachedNetworkImage(
+          placeholder: (context, url) => LoaderPage(),
+          imageUrl: offer.image,
+        ),
       ],
     );
   }
@@ -223,7 +228,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   }
 
   Widget _sellerOffer(Offer offer) {
-    return SellerBlockDetailWidget(offer.sellerId);
+    return SellerBlockDetailWidget(offer.seller);
   }
 
   @override

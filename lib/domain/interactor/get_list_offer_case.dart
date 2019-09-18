@@ -7,6 +7,6 @@ class GetListOfferCase {
   GetListOfferCase(this._offerRepository);
 
   Future<List<Offer>> getListOffer() {
-    return _offerRepository.getListOffer();
+    return  _offerRepository.getListOffer();
   }
 }
