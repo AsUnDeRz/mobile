@@ -131,42 +131,19 @@ class _CartScreenState extends State<CartScreen> implements CartView{
         padding: const EdgeInsets.all(8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-             Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:5.0),
-                  child: _getImageItem(item.image),
-              ),
-            ),
-             Expanded(
-                child:Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:5.0),
-                  child: _getTitleItem(item.title),
-              ),
-            ),
-             Expanded(
-                child:Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:5.0),
-                  child: _getCountItem(item.count),
-              ),
-            ),
-             Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:5.0),
-                  child: _getPriceItem(item.price),
-              ),
-            ),
-             Expanded(
-                child:Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:5.0),
-                  child: _getIconDelete(item),
-              ),
-            ),
-           ],
+          children: _getPartCardCartItem(item),
         ),
       ),
     );
   }
+
+  List <Widget> _getPartCardCartItem(CartItem item) =>
+      [_getImageItem(item.image),
+        _getTitleItem(item.title),
+        _getCountItem(item.count),
+        _getPriceItem(item.price),]
+          .map((content) => _getContainerPartCardCartItem(content) )
+          .toList(growable: false);
 
   Widget _getImageItem(String image) {
     return CachedNetworkImage(
@@ -205,6 +182,14 @@ class _CartScreenState extends State<CartScreen> implements CartView{
       ),
     );
   }
+
+  Widget _getContainerPartCardCartItem(Widget content) =>
+      Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal:5.0),
+          child: content,
+        ),
+      );
 
   Widget _getIconDelete(CartItem cartItem) {
     return IconButton(

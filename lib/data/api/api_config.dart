@@ -14,3 +14,11 @@ class LoremConfig {
 
   static const CONNECT_TIMEOUT = 60000;
 }
+
+class MockableConfig {
+  static const HOST_URL = 'http://demo7592015.mockable.io/';
+  static const API_VERSION = '';
+  static const BASE_URL = HOST_URL + API_VERSION;
+
+  static const CONNECT_TIMEOUT = 60000;
+}

@@ -3,8 +3,8 @@ import 'package:synchronized/synchronized.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'db_scheme.dart';
 
+import 'db_scheme.dart';
 export 'db_scheme.dart';
 
 class DbUtil{
@@ -23,9 +23,9 @@ class DbUtil{
     return result;
   }
 
-  Future<void> insert(String table, Map<String, dynamic> values) async {
+  Future<void> insert(String table, Map<String, dynamic> values, {ConflictAlgorithm conflictAlgorithm}) async {
     final db = await _getDb();
-    await db.insert(table, values);
+    await db.insert(table, values, conflictAlgorithm: conflictAlgorithm);
   }
 
   Future<void> update(String table, Map<String, dynamic> values, {String where, List<dynamic> whereArgs}) async {
@@ -79,7 +79,6 @@ class DbUtil{
       db.execute(CartScheme.getCreateSql()),
       db.execute(OfferScheme.getCreateSql()),
       db.execute(SellerScheme.getCreateSql()),
-      db.execute(SellerScheme.fillTableDemo()),
     ]);
   }
 

@@ -1,16 +1,16 @@
 import 'package:catalog_app/data/db/db_demo.dart';
-import 'package:catalog_app/data/db/model/offerDb.dart';
+import 'package:catalog_app/data/db/model/db_offer.dart';
+import 'package:catalog_app/data/db/model/db_seller.dart';
 import 'package:catalog_app/domain/model/cart_item.dart';
-import 'package:catalog_app/domain/model/seller.dart';
 
 class CartScheme {
   static final String tableId = 'cart_table';
-  static final String columnId = CartItem.CART_ITEM_ID;
-  static final String columnTitle = CartItem.CART_ITEM_TITLE;
-  static final String columnImage = CartItem.CART_ITEM_IMAGE;
+  static final String columnId = CartItem.ID;
+  static final String columnTitle = CartItem.TITLE;
+  static final String columnImage = CartItem.IMAGE;
   static final String columnOfferId = CartItem.OFFER_ID;
-  static final String columnCount = CartItem.CART_ITEM_COUNT;
-  static final String columnPrice = CartItem.CART_ITEM_PRICE;
+  static final String columnCount = CartItem.COUNT;
+  static final String columnPrice = CartItem.PRICE;
 
   static String getCreateSql() {
     return ''' 
@@ -29,14 +29,14 @@ class CartScheme {
 
 class OfferScheme {
   static final String tableId = 'offer_table';
-  static final String columnId = OfferDb.OFFER_ID;
-  static final String columnTitle = OfferDb.OFFER_TITLE;
-  static final String columnImage = OfferDb.OFFER_IMAGE;
-  static final String columnPrice = OfferDb.OFFER_PRICE;
-  static final String columnDescription = OfferDb.OFFER_DESCRIPTION;
-  static final String columnCategory = OfferDb.OFFER_CATEGORY;
-  static final String columnCharacters = OfferDb.OFFER_CHARACTERS;
-  static final String columnSeller = OfferDb.OFFER_SELLER_ID;
+  static final String columnId = DbOffer.ID;
+  static final String columnTitle = DbOffer.TITLE;
+  static final String columnImage = DbOffer.IMAGE;
+  static final String columnPrice = DbOffer.PRICE;
+  static final String columnDescription = DbOffer.DESCRIPTION;
+  static final String columnCategory = DbOffer.CATEGORY;
+  static final String columnCharacters = DbOffer.CHARACTERS;
+  static final String columnSeller = DbOffer.SELLER_ID;
 
   static String getCreateSql() {
     return ''' 
@@ -56,11 +56,11 @@ class OfferScheme {
 
 class SellerScheme {
   static final String tableId = 'seller_table';
-  static final String columnId = Seller.SELLER_ID;
-  static final String columnName = Seller.SELLER_NAME;
-  static final String columnImage = Seller.SELLER_IMAGE;
-  static final String columnType = Seller.SELLER_TYPE;
-  static final String columnInfo = Seller.SELLER_INFO;
+  static final String columnId = DbSeller.ID;
+  static final String columnName = DbSeller.NAME;
+  static final String columnImage = DbSeller.IMAGE;
+  static final String columnType = DbSeller.TYPE;
+  static final String columnInfo = DbSeller.INFO;
 
   static String getCreateSql() {
     return ''' 

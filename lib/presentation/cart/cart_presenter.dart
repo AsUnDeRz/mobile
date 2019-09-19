@@ -8,9 +8,9 @@ import 'cart_view.dart';
 class CartPresenter {
 
   final CartView _view;
-  final _getCartStreamCase=CartModule.getCartStreamCase;
-  final _deleteCartCase=CartModule.deleteCartCase;
-  final _clearCartCase=CartModule.clearCartCase;
+  final _getCartStreamCase = CartModule.getCartStreamCase;
+  final _deleteCartCase = CartModule.deleteCartCase;
+  final _clearCartCase = CartModule.clearCartCase;
   StreamSubscription<Cart> _cartSubscription;
 
   CartPresenter(this._view);

@@ -49,15 +49,22 @@ class CartDataRepository extends CartRepository {
 
   @override
   Future<void> updateCartItem(CartItem cartItem) async {
-    await _dbUtil.update(CartScheme.tableId, cartItem.toMap(),
-        where: '${CartScheme.columnId} = ?', whereArgs: [cartItem.id]);
+    await _dbUtil.update(
+        CartScheme.tableId,
+        cartItem.toMap(),
+        where: '${CartScheme.columnId} = ?',
+        whereArgs: [cartItem.id]
+    );
+
     await _cartUpdate();
   }
 
   @override
   Future<void> deleteCartItem(int id) async {
     await _dbUtil.delete(CartScheme.tableId,
-        where: '${CartScheme.columnId} = ?', whereArgs: [id]);
+        where: '${CartScheme.columnId} = ?',
+        whereArgs: [id],
+    );
     await _cartUpdate();
   }
 }

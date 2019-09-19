@@ -69,9 +69,7 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
       icon: Icon(Icons.exit_to_app),
       tooltip: 'logout',
       color: Colors.black,
-      onPressed: () {
-        _catalogPresenter.logout();
-      },
+      onPressed: onLogout,
     );
   }
 
@@ -226,6 +224,12 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
   void onLogoutSuccess() {
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => StartScreen()));
   }
+
+  @override
+  void onLogout() {
+    _catalogPresenter.logout();
+  }
+
 
   @override
   void onCatalogReceived(List<Offer> catalog) {

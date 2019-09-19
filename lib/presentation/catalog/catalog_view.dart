@@ -6,6 +6,7 @@ abstract class CatalogView {
   void onChooseCountGoods(Offer offer);
   void onRouteDetail(Offer offer);
   void onCatalogReceived(List<Offer> catalog);
+  void onLogout();
   void onLogoutSuccess ();
   void onError(dynamic error);
 }

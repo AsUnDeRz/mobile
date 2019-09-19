@@ -1,24 +1,24 @@
-import 'package:catalog_app/data/db/model/offerDb.dart';
+import 'package:catalog_app/data/db/model/db_offer.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/domain/model/seller.dart';
 
 class OfferMapper {
 
-  static Offer toOffer(OfferDb offerDb, Seller seller) {
+  static Offer toOffer(DbOffer dbOffer, Seller seller) {
     return Offer(
-      offerDb.id,
-      offerDb.title,
-      offerDb.image,
-      offerDb.category,
-      offerDb.price,
-      offerDb.description,
-      offerDb.characters,
+      dbOffer.id,
+      dbOffer.title,
+      dbOffer.image,
+      dbOffer.category,
+      dbOffer.price,
+      dbOffer.description,
+      dbOffer.characters,
       seller,
     );
   }
 
-  static OfferDb fromOffer(Offer offer) {
-    return OfferDb(
+  static DbOffer fromOffer(Offer offer) {
+    return DbOffer(
       offer.id,
       offer.title,
       offer.image,
@@ -29,4 +29,5 @@ class OfferMapper {
       offer.seller.id,
     );
   }
+
 }
