@@ -1,28 +1,29 @@
 import 'package:rxdart/rxdart.dart';
 
+import 'package:catalog_app/data/db/orm/orm_cart_item.dart';
 import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/domain/repository/cart_repository.dart';
 
-import 'package:catalog_app/data/db/db_util.dart';
 
 class CartDataRepository extends CartRepository {
-  final _cartSubject = BehaviorSubject <Cart> ();
-  final DbUtil _dbUtil;
 
-  CartDataRepository(this._dbUtil) {
+  final OrmCartItem _ormCartItem;
+  final _cartSubject = BehaviorSubject <Cart> ();
+
+  CartDataRepository(this._ormCartItem) {
     _cartUpdate();
   }
 
   @override
-  Future<void> addCartItem(CartItem item) async {
-    _dbUtil.insert(CartScheme.tableId, item.toMap());
+  Future<void> addCartItem(CartItem cartItem) async {
+    await _ormCartItem.insertCartItem(cartItem);
     await _cartUpdate();
   }
 
   @override
   Future<void> clearCart() async {
-    _dbUtil.delete(CartScheme.tableId);
+    await _ormCartItem.clearCart();
     await _cartUpdate();
   }
 
@@ -31,40 +32,21 @@ class CartDataRepository extends CartRepository {
     return _cartSubject.stream;
   }
 
-  Future<void> _cartUpdate() async {
-    final cartItems = await _getCartItems();
-    final cart = Cart(cartItems);
-    _cartSubject.add(cart);
-  }
-
-  Future<List<CartItem>> _getCartItems() async {
-    final maps = await _dbUtil.get(
-      CartScheme.tableId,
-    );
-
-    return maps
-        .map((map) => CartItem.fromMap(map))
-        .toList(growable: false);
-  }
-
   @override
   Future<void> updateCartItem(CartItem cartItem) async {
-    await _dbUtil.update(
-        CartScheme.tableId,
-        cartItem.toMap(),
-        where: '${CartScheme.columnId} = ?',
-        whereArgs: [cartItem.id]
-    );
-
+    await _ormCartItem.updateCartItem(cartItem);
     await _cartUpdate();
   }
 
   @override
   Future<void> deleteCartItem(int id) async {
-    await _dbUtil.delete(CartScheme.tableId,
-        where: '${CartScheme.columnId} = ?',
-        whereArgs: [id],
-    );
+    await _ormCartItem.deleteCartItem(id);
     await _cartUpdate();
+  }
+
+  Future<void> _cartUpdate() async {
+    final cartItems = await _ormCartItem.getCartItems();
+    final cart = Cart(cartItems);
+    _cartSubject.add(cart);
   }
 }

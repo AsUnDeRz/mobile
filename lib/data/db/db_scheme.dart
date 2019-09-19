@@ -1,16 +1,16 @@
 import 'package:catalog_app/data/db/db_demo.dart';
 import 'package:catalog_app/data/db/model/db_offer.dart';
 import 'package:catalog_app/data/db/model/db_seller.dart';
-import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app/data/db/model/db_cart_item.dart';
 
 class CartScheme {
   static final String tableId = 'cart_table';
-  static final String columnId = CartItem.ID;
-  static final String columnTitle = CartItem.TITLE;
-  static final String columnImage = CartItem.IMAGE;
-  static final String columnOfferId = CartItem.OFFER_ID;
-  static final String columnCount = CartItem.COUNT;
-  static final String columnPrice = CartItem.PRICE;
+  static final String columnId = DbCartItem.ID;
+  static final String columnTitle = DbCartItem.TITLE;
+  static final String columnImage = DbCartItem.IMAGE;
+  static final String columnOfferId = DbCartItem.OFFER_ID;
+  static final String columnCount = DbCartItem.COUNT;
+  static final String columnPrice = DbCartItem.PRICE;
 
   static String getCreateSql() {
     return ''' 

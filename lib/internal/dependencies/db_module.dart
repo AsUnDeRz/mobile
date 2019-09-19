@@ -1,21 +1,30 @@
 import 'package:catalog_app/data/db/db_util.dart';
+import 'package:catalog_app/data/db/orm/orm_cart_item.dart';
 import 'package:catalog_app/data/db/orm/orm_offer.dart';
 
 class DbModule {
-  static DbUtil _dbUtil;
+  static DbUtil _dbUtilInstance;
   static OrmOffer _ormOffer;
+  static OrmCartItem _ormCartItem;
 
   static OrmOffer ormOffer() {
     if (_ormOffer == null) {
-      _ormOffer = OrmOffer(dbUtil());
+      _ormOffer = OrmOffer(_dbUtil());
     }
     return _ormOffer;
   }
 
-  static DbUtil dbUtil() {
-    if (_dbUtil == null) {
-      _dbUtil = DbUtil();
+  static OrmCartItem ormCartItem() {
+    if (_ormCartItem == null) {
+      _ormCartItem = OrmCartItem(_dbUtil());
     }
-    return _dbUtil;
+    return _ormCartItem;
+  }
+
+  static DbUtil _dbUtil() {
+    if (_dbUtilInstance == null) {
+      _dbUtilInstance = DbUtil();
+    }
+    return _dbUtilInstance;
   }
 }

@@ -137,11 +137,12 @@ class _CartScreenState extends State<CartScreen> implements CartView{
     );
   }
 
-  List <Widget> _getPartCardCartItem(CartItem item) =>
-      [_getImageItem(item.image),
-        _getTitleItem(item.title),
-        _getCountItem(item.count),
-        _getPriceItem(item.price),]
+  List <Widget> _getPartCardCartItem(CartItem cartItem) =>
+      [_getImageItem(cartItem.image),
+        _getTitleItem(cartItem.title),
+        _getCountItem(cartItem.count),
+        _getPriceItem(cartItem.price),
+        _getIconDelete(cartItem)]
           .map((content) => _getContainerPartCardCartItem(content) )
           .toList(growable: false);
 
