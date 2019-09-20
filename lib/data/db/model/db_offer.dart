@@ -4,6 +4,7 @@ class DbOffer {
   static const ID = 'offer_id';
   static const TITLE = 'offer_title';
   static const IMAGE = 'offer_image';
+  static const GALLERY = 'offer_gallery';
   static const PRICE = 'offer_price';
   static const DESCRIPTION = 'offer_description';
   static const CATEGORY = 'offer_category';
@@ -13,6 +14,7 @@ class DbOffer {
   final int _id;
   final String _title;
   final String _image;
+  final List _gallery;
   final String _category;
   final String _description;
   final double _price;
@@ -22,6 +24,7 @@ class DbOffer {
   int get id => _id;
   String get title => _title;
   String get image => _image;
+  List get gallery => _gallery;
   String get category => _category;
   String get description => _description;
   double get price => _price;
@@ -32,6 +35,7 @@ class DbOffer {
       this._id,
       this._title,
       this._image,
+      this._gallery,
       this._category,
       this._price,
       this._description,
@@ -42,6 +46,7 @@ class DbOffer {
         _id = map [ID],
         _title = map[TITLE],
         _image = map [IMAGE],
+        _gallery = jsonDecode(map [GALLERY]),
         _price = map [PRICE],
         _description = map [DESCRIPTION],
         _category = map [CATEGORY],
@@ -52,6 +57,7 @@ class DbOffer {
     ID: id,
     TITLE: title,
     IMAGE: image,
+    GALLERY: jsonEncode(gallery),
     CATEGORY: category,
     DESCRIPTION: description,
     CHARACTERS: jsonEncode(characters),

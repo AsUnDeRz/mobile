@@ -193,8 +193,6 @@ class _CatalogScreenState extends State<CatalogScreen> implements CatalogView {
     );
   }
 
-
-
   Widget _getImageCard(String image) {
     return CachedNetworkImage(
       placeholder: (context, url) => LoaderPage(),

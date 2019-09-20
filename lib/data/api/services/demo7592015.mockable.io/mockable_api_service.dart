@@ -10,9 +10,11 @@ class MockableApiService {
   Future<List<ApiOffer>> getListOffer() async {
     List<dynamic> result = await _get('list-offer');
 
-    return result
+    var t=result
         .map((res) => ApiOffer.fromMap(res))
         .toList(growable: false);
+
+    return t;
   }
 
   Future<dynamic> _get(String path, {

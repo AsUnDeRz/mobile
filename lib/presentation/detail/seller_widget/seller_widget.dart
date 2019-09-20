@@ -1,46 +1,28 @@
 import 'package:flutter/material.dart';
 
+import 'package:catalog_app/presentation/detail/seller_widget/seller_avatar.dart';
+import 'package:catalog_app/presentation/detail/seller_widget/seller_description.dart';
 import 'package:catalog_app/domain/model/seller.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
 
 
-import 'seller_widget_presenter.dart';
-import 'seller_widget_view.dart';
+class SellerWidget extends StatelessWidget{
+  final Seller _seller;
 
-class SellerBlockDetailWidget extends StatefulWidget {
-  final Seller seller;
-
-  SellerBlockDetailWidget(this.seller);
-
-  @override
-  _SellerBlockDetailWidgetState createState() => _SellerBlockDetailWidgetState();
-}
-
-class _SellerBlockDetailWidgetState extends State<SellerBlockDetailWidget> implements SellerBlockDetailView {
-  SellerBlockDetailPresenter _sellerBlockDetailPresenter;
-
-  _SellerBlockDetailWidgetState() {
-    _sellerBlockDetailPresenter = SellerBlockDetailPresenter(this);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  SellerWidget(this._seller);
 
   @override
   Widget build(BuildContext context) {
-      return _body(widget.seller);
+    return _body(_seller);
   }
 
-    Widget _body (Seller seller) {
+  Widget _body (Seller seller) {
     return Container(
       color: Colors.grey[100],
       padding: EdgeInsets.all(15.0),
       child: Row(
         children: <Widget>[
-         _getSellerDescription(seller),
-         _getSellerImage(seller),
+          _getSellerDescription(seller),
+          _getSellerImage(seller),
         ],
       ),
     );
@@ -49,53 +31,13 @@ class _SellerBlockDetailWidgetState extends State<SellerBlockDetailWidget> imple
   Widget _getSellerImage(Seller seller){
     return Expanded(
       flex: 2,
-      child: _getAvatar(seller),
+      child: SellerAvatar(seller.image),
     );
   }
 
-  Widget _getAvatar(Seller seller) {
-    String img = seller.image;
-    return Image.asset(
-      img,
-      height: 75.0,
-    );
-  }
-
-  Widget _getSellerDescription(Seller seller){
-    return Expanded(
-      flex: 6,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _getSellerName(seller),
-          Container(height: 5,),
-          _getSellerType(seller),
-          Container(height: 5,),
-          _getSellerInfo(seller),
-        ],
-      ),
-    );
-  }
-
-  Widget _getSellerName(Seller seller) {
-    return Text(
-      seller.name,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
-  Widget _getSellerType(Seller seller) {
-    return Text(seller.type);
-  }
-
-  Widget _getSellerInfo(Seller seller) {
-    return Text(seller.info);
-  }
-
-  @override
-  void onError(String error) {
-    ErrorDialogWidget.showErrorDialog(context);
-  }
+  Widget _getSellerDescription(Seller seller) =>
+      Expanded(
+        flex: 6,
+        child: SellerDescription(seller.name, seller.type, seller.info),
+      );
 }

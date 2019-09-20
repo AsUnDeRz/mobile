@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:math';
 
+import 'package:catalog_app/presentation/detail/offer_widgets/gallery_offer_widget/gallery_offer_widget.dart';
+import 'package:flutter/material.dart';
+
+import 'package:catalog_app/presentation/detail/offer_widgets/offer_widgets.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/presentation/detail/seller_widget/seller_widget.dart';
-import 'package:catalog_app/presentation/design/dialog/count_good/count_good_widget.dart';
 
 import 'detail_presenter.dart';
 import 'detail_view.dart';
@@ -27,10 +29,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     _detailPresenter = DetailPresenter(this);
   }
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  Offer get offer => widget._offer;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
     return AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+          color: Colors.black,
         ),
         title: Text(
         'Описание',
@@ -60,23 +59,24 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   }
 
   Widget _getBody() {
-    if(widget._offer == null){
+    if(offer == null){
       return LoaderPage();
     } else {
       return Container(
         padding: EdgeInsets.symmetric(vertical: 10),
-        child: _getContent(widget._offer),
+        child: _getContent(offer),
       );
     }
   }
 
   Widget _getContent(Offer offer){
-    List<Function> listBlocks= [
-      _getHeader,
-      _descriptionProduct,
-      _charactersOffer,
-      _categoryOffer,
-      _sellerOffer,
+    List<Widget> listBlocks= [
+      HeaderOfferWidget(offer),
+      GalleryOfferWidget(offer.gallery),
+      DescriptionOfferWidget(offer.description),
+      CharactersOfferWidget(offer.characters),
+      CategoryOfferWidget(offer.category),
+      SellerWidget(offer.seller),
     ];
     return  ListView.builder(
       itemCount: listBlocks.length,
@@ -86,156 +86,9 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
             vertical: 10.0,
             horizontal: 16.0,
           ),
-          child: Function.apply(listBlocks[index], [offer]),
+          child: listBlocks[index],
         );
       },
-    );
-  }
-
-  Widget _getHeader(Offer offer) {
-    return Container(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: _getOfferImage(offer),
-            ),
-          Expanded(
-            child: _getMinInfo(offer),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _getOfferImage(Offer offer) {
-    return Column(
-      children: <Widget>[
-        CachedNetworkImage(
-          placeholder: (context, url) => LoaderPage(),
-          imageUrl: offer.image,
-        ),
-      ],
-    );
-  }
-
-  Widget _getMinInfo(Offer offer) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-          _titleProduct(offer),
-          Container(height: 10,),
-          _priceProduct(offer),
-          Container(height: 10,),
-          _getButtonBuy(offer),
-        ],
-      ),
-    );
-  }
-
-  Widget _titleProduct (Offer offer) {
-    return Text(
-      offer.title,
-      style: TextStyle(
-        fontSize: 24,
-      ),
-    );
-  }
-
-  Widget _priceProduct (Offer offer) {
-    return Text(
-      MoneyHelper.formatMoney(offer.price),
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 24,
-      ),
-    );
-  }
-
-  Widget _getButtonBuy(Offer offer) {
-    return FlatButton(
-      color:  const Color(0xFF2196F3),
-      child: const Text(
-        'Купить',
-        style: const TextStyle(
-          color: const Color(0xFFFFFFFFFF),
-        ),
-      ),
-      onPressed:  () => onChooseCountGoods(offer),
-    );
-  }
-
-  Widget _descriptionProduct (Offer offer) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: Text(
-            offer.description,
-            style: const TextStyle(
-              fontSize: 16,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _charactersOffer (Offer offer) {
-    return Column(
-      children: _getListCharacter(offer),
-    );
-  }
-
-  List<Widget> _getListCharacter(Offer offer){
-    return offer
-        .characters
-        .entries
-        .map((entry) => _getRowCharacter(entry.key, entry.value))
-        .toList(growable: false);
-  }
-
-  Widget _getRowCharacter(String titleCharacter, String valueCharacter){
-    return Container(
-      padding: const EdgeInsets.only(top: 10),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Text(
-              titleCharacter,
-              style: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          Flexible(
-            flex: 3,
-            child: Text(valueCharacter),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _categoryOffer (Offer offer) {
-    return Text(
-      offer.category,
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
-  Widget _sellerOffer(Offer offer) {
-    return SellerBlockDetailWidget(offer.seller);
-  }
-
-  @override
-  void onChooseCountGoods(Offer offer) {
-    showPlatformDialog(
-      context: context,
-      builder: (_) => CountGoodWidget(offer),
     );
   }
 
@@ -243,5 +96,4 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   void onError(dynamic error) {
     ErrorDialogWidget.showErrorDialog(context);
   }
-
 }

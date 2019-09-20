@@ -8,6 +8,7 @@ class ApiOfferMapper {
       apiOffer.id,
       apiOffer.title,
       apiOffer.image,
+      apiOffer.gallery,
       apiOffer.category,
       apiOffer.price,
       apiOffer.description,

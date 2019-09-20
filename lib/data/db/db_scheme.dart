@@ -32,6 +32,7 @@ class OfferScheme {
   static final String columnId = DbOffer.ID;
   static final String columnTitle = DbOffer.TITLE;
   static final String columnImage = DbOffer.IMAGE;
+  static final String columnGallery = DbOffer.GALLERY;
   static final String columnPrice = DbOffer.PRICE;
   static final String columnDescription = DbOffer.DESCRIPTION;
   static final String columnCategory = DbOffer.CATEGORY;
@@ -45,6 +46,7 @@ class OfferScheme {
     $columnId integer primary key autoincrement,
     $columnTitle text not null,
     $columnImage text not null,
+    $columnGallery text not null,
     $columnPrice real not null,
     $columnDescription text not null,
     $columnCategory text not null,
