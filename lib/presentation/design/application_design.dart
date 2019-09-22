@@ -5,3 +5,4 @@ export 'package:catalog_app/presentation/design/dialog/delete_all_cart_items/del
 export 'cart_item_helper.dart';
 export 'loader_view.dart';
 export 'money_helper.dart';
+export 'appBarTitle.dart';

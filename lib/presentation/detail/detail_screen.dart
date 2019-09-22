@@ -72,7 +72,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   Widget _getContent(Offer offer){
     List<Widget> listBlocks= [
       HeaderOfferWidget(offer),
-      GalleryOfferWidget(offer.gallery),
+//      GalleryOfferWidget(offer.gallery),
       DescriptionOfferWidget(offer.description),
       CharactersOfferWidget(offer.characters),
       CategoryOfferWidget(offer.category),

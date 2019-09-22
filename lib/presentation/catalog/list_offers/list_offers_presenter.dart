@@ -1,14 +1,13 @@
 import 'package:catalog_app/internal/dependencies/application_component.dart';
 
-import 'catalog_view.dart';
+import 'list_offers_view.dart';
 
-class CatalogPresenter {
+class ListOffersPresenter {
 
-  final CatalogView _view;
-  final _resetUserCase = UserModule.resetUserCase;
+  final ListOffersView _view;
   final _getListOfferCase = OfferModule.getListOfferCase;
 
-  CatalogPresenter(this._view);
+  ListOffersPresenter(this._view);
 
   void getCatalog() {
     _getListOfferCase
@@ -16,10 +15,4 @@ class CatalogPresenter {
         .then((list) => _view.onCatalogReceived(list))
         .catchError(_view.onError);
   }
-
-  void logout() {
-    _resetUserCase.resetUser()
-        .then((_) => _view.onLogoutSuccess());
-  }
-
 }
