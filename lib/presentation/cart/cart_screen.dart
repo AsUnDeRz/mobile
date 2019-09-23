@@ -1,11 +1,9 @@
-import 'package:catalog_app/presentation/cart/cart_sum.dart';
-import 'package:catalog_app/presentation/cart/list_cart_items/list_cart_item_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:catalog_app/domain/model/cart.dart';
-import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
+import 'package:catalog_app/presentation/cart_action/cart_sum_action_widget.dart';
+import 'package:catalog_app/presentation/cart/list_cart_items/list_cart_item_widget.dart';
 
 import 'cart_presenter.dart';
 import 'cart_view.dart';
@@ -49,7 +47,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
         centerTitle: true,
         backgroundColor: Colors.white,
         actions: [
-          CartSum(_cart),
+          CartSumActionWidget(_cart),
         ],
       ),
       body: ListCartItems(_cart),

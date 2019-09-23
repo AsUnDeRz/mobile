@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:catalog_app/presentation/detail/offer_widgets/gallery_offer_widget/gallery_offer_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catalog_app/presentation/detail/offer_widgets/offer_widgets.dart';
@@ -8,6 +5,7 @@ import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/presentation/cart_action/cart_action_widget.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/presentation/detail/seller_widget/seller_widget.dart';
+import 'package:catalog_app/presentation/detail/offer_widgets/gallery_offer_widget/gallery_offer_widget.dart';
 
 import 'detail_presenter.dart';
 import 'detail_view.dart';
@@ -23,6 +21,7 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> implements DetailView{
+
   DetailPresenter _detailPresenter;
 
   _DetailScreenState() {
@@ -72,7 +71,7 @@ class _DetailScreenState extends State<DetailScreen> implements DetailView{
   Widget _getContent(Offer offer){
     List<Widget> listBlocks= [
       HeaderOfferWidget(offer),
-//      GalleryOfferWidget(offer.gallery),
+      GalleryOfferWidget(offer.gallery),
       DescriptionOfferWidget(offer.description),
       CharactersOfferWidget(offer.characters),
       CategoryOfferWidget(offer.category),

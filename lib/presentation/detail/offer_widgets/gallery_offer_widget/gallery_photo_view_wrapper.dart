@@ -19,7 +19,7 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
   final dynamic maxScale;
   final int initialIndex;
   final PageController pageController;
-  final List<String> galleryItems;
+  final List galleryItems;
 
   @override
   State<StatefulWidget> createState() {
