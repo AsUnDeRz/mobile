@@ -1,5 +1,9 @@
-export 'package:animation_app/screen/car_screen.dart';
-export 'package:animation_app/screen/curve_screen.dart';
+export 'package:animation_app/screen/car/car_screen.dart';
+export 'package:animation_app/screen/curve/curve_screen.dart';
 export 'package:animation_app/screen/wolf_rotate_screen.dart';
 export 'package:animation_app/screen/wolf_scale_screen.dart';
 export 'package:animation_app/screen/wolf_fade_screen.dart';
+export 'package:animation_app/screen/physics_splash/physics_splash_screen.dart';
+export 'package:animation_app/screen/simulate_gravity_screen.dart';
+export 'package:animation_app/screen/wolf_rotate_gesture_screen.dart';
+export 'package:animation_app/screen/wolf_rotate_gesture_set_state/wolf_rotate_gesture_set_state_screen.dart';

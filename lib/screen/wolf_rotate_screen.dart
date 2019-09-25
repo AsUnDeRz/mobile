@@ -12,8 +12,8 @@ class _WolfRotateScreenState extends State<WolfRotateScreen> with SingleTickerPr
   @override
   void initState() {
     super.initState();
-    _controller = new AnimationController(vsync: this,
-        duration: new Duration(seconds: 6));
+    _controller = AnimationController(vsync: this,
+        duration: Duration(seconds: 6));
     _controller.repeat();
   }
 
@@ -24,13 +24,16 @@ class _WolfRotateScreenState extends State<WolfRotateScreen> with SingleTickerPr
   }
 
   Widget build(BuildContext context) {
-    return new Center(
-        child: new RotationTransition(
-            turns: _controller,
-            child: new Text("\u{1F43A}",
-              textDirection: TextDirection.ltr,
-              style: new TextStyle(fontSize: 85.0),)
-        )
+    return Container(
+      color: Colors.white,
+      child: Center(
+          child: RotationTransition(
+              turns: _controller,
+              child: Text("\u{1F43A}",
+                textDirection: TextDirection.ltr,
+                style: TextStyle(fontSize: 85.0),)
+          )
+      ),
     );
   }
 }

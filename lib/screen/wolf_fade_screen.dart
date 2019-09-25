@@ -13,9 +13,9 @@ class _WolfFadeScreenState extends State<WolfFadeScreen> with SingleTickerProvid
 
   @override
   void initState() {
-    _controller = new AnimationController(
+    _controller = AnimationController(
       vsync: this,
-      duration: new Duration(seconds: 2),
+      duration: Duration(seconds: 2),
     );
     _animation = Tween (
       begin: .0,
@@ -39,13 +39,16 @@ class _WolfFadeScreenState extends State<WolfFadeScreen> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return new Center(
-        child: FadeTransition(
-        opacity: _animation,
-            child: new Text("\u{1F43A}",
-              textDirection: TextDirection.ltr,
-              style: new TextStyle(fontSize: 85.0),)
-        )
+    return Container(
+      color: Colors.white,
+      child: Center(
+          child: FadeTransition(
+          opacity: _animation,
+              child: Text("\u{1F43A}",
+                textDirection: TextDirection.ltr,
+                style: TextStyle(fontSize: 85.0),)
+          )
+      ),
     );
   }
 }

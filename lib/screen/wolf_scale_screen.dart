@@ -13,8 +13,8 @@ class _WolfScaleScreenState extends State<WolfScaleScreen> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    _controller = new AnimationController(vsync: this,
-        duration: new Duration(seconds: 6));
+    _controller = AnimationController(vsync: this,
+        duration: Duration(seconds: 6));
     _controller.repeat();
   }
 
@@ -26,13 +26,16 @@ class _WolfScaleScreenState extends State<WolfScaleScreen> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    return new Center(
-        child: new ScaleTransition(
-            scale: _controller,
-            child: new Text("\u{1F43A}",
-              textDirection: TextDirection.ltr,
-              style: new TextStyle(fontSize: 85.0),)
-        )
+    return Container(
+      color: Colors.white,
+      child: Center(
+          child: ScaleTransition(
+              scale: _controller,
+              child: Text("\u{1F43A}",
+                textDirection: TextDirection.ltr,
+                style: TextStyle(fontSize: 85.0),)
+          )
+      ),
     );
   }
 }

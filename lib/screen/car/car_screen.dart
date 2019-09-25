@@ -13,10 +13,10 @@ class _CarScreenState extends State<CarScreen> with SingleTickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _controller = new AnimationController(
+    _controller = AnimationController(
         vsync: this,
-        duration: new Duration(seconds: 4));
-    Tween tween = new Tween<double>(begin: 10.0, end: 180.0);
+        duration: Duration(seconds: 4));
+    Tween tween = Tween<double>(begin: 10.0, end: 180.0);
     _animation = tween.animate(_controller);
     _animation.addListener(() {
       setState(() {
@@ -40,13 +40,13 @@ class _CarScreenState extends State<CarScreen> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
         color: Colors.white,
-        child: new Stack(
+        child: Stack(
           children: <Widget>[
-            new Positioned(
-                child: new Material(
-                    child: new Icon(Icons.airport_shuttle,
+            Positioned(
+                child: Material(
+                    child: Icon(Icons.airport_shuttle,
                         textDirection: TextDirection.ltr,
                         size: 81.0
                     )

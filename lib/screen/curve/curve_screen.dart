@@ -13,17 +13,17 @@ class _CurveScreenState extends State<CurveScreen> with SingleTickerProviderStat
 
   @override
   void initState() {
-    _controller = new AnimationController(
+    _controller = AnimationController(
         vsync: this,
-        duration: new Duration(seconds: 5)
+        duration: Duration(seconds: 5)
     );
 
-    CurvedAnimation curvedAnimation = new CurvedAnimation(
+    CurvedAnimation curvedAnimation = CurvedAnimation(
         parent: _controller,
         curve: Curves.bounceOut
     );
 
-    Tween myTween = new Tween<double>(begin: 150.0, end: 450.0);
+    Tween myTween = Tween<double>(begin: 150.0, end: 450.0);
     _animation = myTween.animate(curvedAnimation);
 
     _animation.addListener(() {
@@ -43,20 +43,23 @@ class _CurveScreenState extends State<CurveScreen> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    return new Stack(
-      children: [
-        new Positioned(
-            child: new Text("\u{26BE}",
+    return Container(
+      color: Colors.white,
+      child: Stack(
+        children: [
+          Positioned(
+              child: Text("\u{26BE}",
                 textDirection: TextDirection.ltr,
-                style: new TextStyle(
-                    fontSize: 70.0
-                )
-            ),
-            left: 50.0,
-            top: _animation.value  // Animated property
-        )
-      ],
-      textDirection: TextDirection.ltr,
+                  style: TextStyle(
+                      fontSize: 70.0
+                  ),
+              ),
+              left: 50.0,
+              top: _animation.value  // Animated property
+          ),
+        ],
+        textDirection: TextDirection.ltr,
+      ),
     );
   }
 }

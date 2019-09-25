@@ -85,6 +85,54 @@ class Application extends StatelessWidget {
                               ),
                             ),
                           ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Simulate gravity',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  SimulateGravityScreen(),
+                              ),
+                            ),
+                          ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Physics splash',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  PhysicsSplashScreen(),
+                              ),
+                            ),
+                          ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Wolf rotate gesture',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  WolfRotateGestureScreen(),
+                              ),
+                            ),
+                          ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Wolf rotate gesture set state',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  WolfRotateGestureSetStateScreen(),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
