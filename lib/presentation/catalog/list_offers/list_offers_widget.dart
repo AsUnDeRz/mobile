@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
+import 'package:catalog_app/presentation/catalog/list_offers/card_offer/card_offer_widget.dart';
 
 import 'list_offers_presenter.dart';
 import 'list_offers_view.dart';
-import 'card_offer_widget.dart';
+
 
 class ListOffersWidget extends StatefulWidget {
   @override
@@ -29,8 +30,7 @@ class _ListOffersWidgetState extends State<ListOffersWidget> implements ListOffe
   }
 
   @override
-  Widget build(BuildContext context) =>
-      (_listOffer == null) ? LoaderPage() : _getList();
+  Widget build(BuildContext context) => (_listOffer == null) ? LoaderPage() : _getList();
 
   Widget _getList() =>
       ListView(

@@ -1,3 +1,4 @@
+import 'package:catalog_app/presentation/menu_drawer/menu_drawer_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catalog_app/domain/model/cart.dart';
@@ -50,6 +51,7 @@ class _CartScreenState extends State<CartScreen> implements CartView{
           CartSumActionWidget(_cart),
         ],
       ),
+      drawer: MenuDrawerWidget(),
       body: ListCartItems(_cart),
     );
   }

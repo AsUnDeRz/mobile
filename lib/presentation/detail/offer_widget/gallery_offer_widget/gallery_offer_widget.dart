@@ -2,7 +2,7 @@ import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:catalog_app/presentation/detail/offer_widgets/gallery_offer_widget/gallery_photo_view_wrapper.dart';
+import 'gallery_photo_view_wrapper.dart';
 
 class GalleryOfferWidget extends StatefulWidget {
   final List galleryImages;
@@ -20,19 +20,22 @@ class _GalleryOfferWidgetState extends State<GalleryOfferWidget> {
   @override
   Widget build(BuildContext context) =>
       LayoutBuilder(
-        builder: (context, constrains) =>
-            Container(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: widget.galleryImages.length,
-                itemBuilder: (BuildContext context, int index) => _getGalleryImage(index),
-              ),
+        builder: (context, constraint) {
+          return Container(
+            height: 100,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: widget.galleryImages.length,
+              itemBuilder: (BuildContext context, int index) =>
+                  _getGalleryImage(index, constraint),
             ),
+          );
+        }
       );
 
-  Widget _getGalleryImage(index) =>
+  Widget _getGalleryImage(index, BoxConstraints constraint) =>
       Container(
+        width: constraint.maxWidth * .5,
           padding: const EdgeInsets.symmetric(horizontal: 5.0),
           child: GestureDetector(
             onTap: () => _onOpenGallery(index),

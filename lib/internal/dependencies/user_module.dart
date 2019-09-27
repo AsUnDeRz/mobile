@@ -1,6 +1,6 @@
 import 'package:catalog_app/domain/interactor/get_user_case.dart';
+import 'package:catalog_app/domain/interactor/logout_user_case.dart';
 import 'package:catalog_app/domain/interactor/set_user_case.dart';
-import 'package:catalog_app/domain/interactor/reset_user_case.dart';
 
 import 'user_repository_module.dart';
 
@@ -12,7 +12,7 @@ class UserModule {
   static final setUserCase = SetUserCase(
       UserRepositoryModule.userRepository
   );
-  static final resetUserCase = ResetUserCase(
+  static final logoutUserCase = LogoutUserCase(
       UserRepositoryModule.userRepository
   );
 }

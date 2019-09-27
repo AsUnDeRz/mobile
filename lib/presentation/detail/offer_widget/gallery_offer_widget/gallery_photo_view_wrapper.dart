@@ -28,6 +28,9 @@ class GalleryPhotoViewWrapper extends StatefulWidget {
 }
 
 class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
+
+
+
   int currentIndex;
   @override
   void initState() {
@@ -78,8 +81,8 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
       PhotoViewGalleryPageOptions(
         imageProvider: CachedNetworkImageProvider (widget.galleryItems[index]),
         initialScale: PhotoViewComputedScale.contained,
-        minScale: PhotoViewComputedScale.contained * (0.5/ 10),
-        maxScale: PhotoViewComputedScale.covered * 1.1,
+        minScale: PhotoViewComputedScale.contained * (0.5),
+        maxScale: PhotoViewComputedScale.covered * 1.5,
         heroAttributes: PhotoViewHeroAttributes(tag: widget.galleryItems[index]),
       );
 }

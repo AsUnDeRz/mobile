@@ -9,7 +9,9 @@ class Application extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Catalog app',
-//      theme: ThemeData(),
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: StartScreen(),
     );
   }
