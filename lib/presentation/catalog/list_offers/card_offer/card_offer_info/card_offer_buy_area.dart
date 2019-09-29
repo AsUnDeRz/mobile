@@ -32,28 +32,21 @@ class _CardOfferBuyAreaSate extends State<CardOfferBuyArea> {
       Text(
         'Стоимость: ',
         style: TextStyle(
-          color: Colors.black,
           fontSize: 16,
         ),
       );
 
-  Widget _getButtonBuyOffer(Offer offer) =>
-      FlatButton(
-        color: Colors.blue,
-        child: Text(
-          'Купить',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        onPressed: () => _onChooseCountGoods(offer),
-      );
+  Widget _getButtonBuyOffer(Offer offer) {
+    return Button(
+      label: 'Купить',
+      handler: () => _onChooseCountGoods(offer),
+    );
+  }
 
   Widget _getPriceOffer(double price) =>
       Text(
         MoneyHelper.formatMoney(price),
         style: TextStyle(
-          color: Colors.black,
           fontSize: 16,
         ),
       );

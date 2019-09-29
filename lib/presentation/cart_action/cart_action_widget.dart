@@ -42,20 +42,22 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
   }
 
   Widget _getCart() {
-    return FlatButton(
+    return InkWell(
       child: Row(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Icon(
               Icons.shopping_cart,
-              color: Colors.black,
             ),
           ),
-          _getCartInfo(_cart),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: _getCartInfo(_cart),
+          ),
         ],
       ),
-      onPressed: onRouteCartScreen,
+      onTap: onRouteCartScreen,
     );
   }
 
@@ -65,7 +67,6 @@ class _CartActionWidgetState extends State<CartActionWidget> implements CartActi
         MoneyHelper.formatMoney(cart.sum),
         style: TextStyle(
           fontSize: 20.0,
-          color: Colors.black,
         ),
       );
     } else {

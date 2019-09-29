@@ -11,9 +11,6 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
-        ),//
         title: AppBarTitle('Каталог'),
         centerTitle: true,
         actions: <Widget>[

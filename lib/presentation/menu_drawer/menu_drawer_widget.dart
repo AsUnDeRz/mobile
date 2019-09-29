@@ -1,5 +1,9 @@
-import 'package:catalog_app/presentation/menu_drawer/logout/logout_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'package:catalog_app/presentation/menu_drawer/logout/logout_widget.dart';
+import 'package:catalog_app/presentation/menu_drawer/theme_mode_application_switcher/theme_mode_application_switcher_widget.dart';
+import 'package:catalog_app/presentation/menu_drawer/avatar/avatar_widget.dart';
+import 'package:catalog_app/presentation/menu_drawer/route_catalog/logout_widget.dart';
 
 class MenuDrawerWidget extends StatelessWidget{
 
@@ -8,26 +12,9 @@ class MenuDrawerWidget extends StatelessWidget{
     return Drawer(
       child: ListView(
         children: <Widget>[
-          DrawerHeader(
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Text(
-                "A",
-                style: TextStyle(fontSize: 40.0),
-              ),
-            ),
-          ),
-          ListTile(
-            title: Text("Catalog"),
-          ),
-          ListTile(
-            title: Text("Settings"),
-            trailing: Icon(Icons.settings),
-          ),
-          ListTile(
-            title: Text("Mode theme"),
-            trailing: Icon(Icons.brightness_medium),
-          ),
+          AvatarWidget(),
+          RouteCatalogWidget(),
+          ThemeModeApplicationSwitcherWidget(),
           LogoutWidget(),
         ],
       ),

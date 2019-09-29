@@ -1,5 +1,6 @@
-import 'package:catalog_app/internal/dependencies/application_component.dart';
 import 'package:flutter/material.dart';
+
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 
 import 'start_view.dart';
 

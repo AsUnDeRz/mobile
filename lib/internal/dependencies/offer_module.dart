@@ -8,5 +8,3 @@ class OfferModule {
       OfferRepositoryModule.offerDataRepository
   );
 }
-
-

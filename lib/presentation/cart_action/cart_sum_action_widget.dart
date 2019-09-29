@@ -17,9 +17,6 @@ class CartSumActionWidget extends StatelessWidget {
         child: Center(
           child: Text(
             'Итого: ${MoneyHelper.formatMoney(_cart.sum)}',
-            style: TextStyle (
-              color: Colors.black,
-            ),
           ),
         ),
       );

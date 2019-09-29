@@ -40,25 +40,29 @@ class _CardOfferWidgetState extends State<CardOfferWidget> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 20,
-            child: Container(
+      child: Card(
+        child: Row(
+          children: <Widget>[
+            Spacer(flex: 1),
+            Expanded(
+              flex: 20,
+              child: Container(
                 child: AnimatedSwitcher(
                   duration: Duration(seconds: 1),
                   child: (_height == null)
-                    ? LoaderPage()
-                    : CardOfferImage(widget.offer.image, _height),
+                      ? LoaderPage()
+                      : CardOfferImage(widget.offer.image, _height),
+                ),
               ),
             ),
-          ),
-          Spacer(flex: 1),
-          Expanded(
-            flex: 10,
-            child:  CardOfferInfo(widget.offer, _key),
-            ),
-        ],
+            Spacer(flex: 1),
+            Expanded(
+              flex: 10,
+              child:  CardOfferInfo(widget.offer, _key),
+              ),
+            Spacer(flex: 1),
+          ],
+        ),
       ),
       onTap: () => _onRouteDetail(widget.offer),
     );
@@ -71,11 +75,12 @@ class _CardOfferWidgetState extends State<CardOfferWidget> with SingleTickerProv
     });
   }
 
-  void _onRouteDetail(Offer offer) =>
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => DetailScreen(offer),
-        ),
-      );
+  void _onRouteDetail(Offer offer) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailScreen(offer),
+      ),
+    );
+  }
 }

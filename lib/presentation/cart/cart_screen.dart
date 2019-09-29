@@ -41,12 +41,8 @@ class _CartScreenState extends State<CartScreen> implements CartView{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
-        ),
         title: AppBarTitle('Корзина'),
         centerTitle: true,
-        backgroundColor: Colors.white,
         actions: [
           CartSumActionWidget(_cart),
         ],

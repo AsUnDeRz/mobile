@@ -30,7 +30,6 @@ class CardOfferDescription extends StatelessWidget {
       Text(
         offer.title,
         style: TextStyle(
-          color: Colors.black,
           fontSize: 16,
         ),
       );

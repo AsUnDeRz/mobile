@@ -55,7 +55,6 @@ class _ListCartItemsState extends State<ListCartItems> {
               child: Text(
                 'Удалить все товары',
                 style: TextStyle(
-                  color: Colors.white,
                 ),
               ),
               onPressed: onClearCart,

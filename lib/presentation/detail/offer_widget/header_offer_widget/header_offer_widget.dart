@@ -33,63 +33,63 @@ class _HeaderOfferWidgetState extends State<HeaderOfferWidget> {
     );
   }
 
-  Widget _getImage(String image) =>
-      Column(
+  Widget _getImage(String image) {
+    return Column(
+      children: <Widget>[
+        CachedNetworkImage(
+          placeholder: (context, url) => LoaderPage(),
+          imageUrl: image,
+        ),
+      ],
+    );
+  }
+
+  Widget _getInfo(Offer offer) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
-          CachedNetworkImage(
-            placeholder: (context, url) => LoaderPage(),
-            imageUrl: image,
-          ),
+          _getTitle(offer.title),
+          Container(height: 10,),
+          _getPrice(offer.price),
+          Container(height: 10,),
+          _getButtonBuy(offer),
         ],
-      );
+      ),
+    );
+  }
 
-  Widget _getInfo(Offer offer) =>
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            _getTitle(offer.title),
-            Container(height: 10,),
-            _getPrice(offer.price),
-            Container(height: 10,),
-            _getButtonBuy(offer),
-          ],
-        ),
-      );
+  Widget _getTitle(String title) {
+    return Text(
+      title,
+      style: TextStyle(
+        fontSize: 24,
+      ),
+    );
+  }
 
-  Widget _getTitle(String title) =>
-      Text(
-        title,
-        style: TextStyle(
-          fontSize: 24,
-        ),
-      );
+  Widget _getPrice(double price) {
+    return Text(
+      MoneyHelper.formatMoney(price),
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      ),
+    );
+  }
 
-  Widget _getPrice(double price) =>
-      Text(
-        MoneyHelper.formatMoney(price),
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-        ),
-      );
+  Widget _getButtonBuy(Offer offer) {
+    return Button(
+      label: 'Купить',
+      handler: () => _onChooseCountGoods(offer),
+    );
+  }
 
-  Widget _getButtonBuy(Offer offer) =>
-      FlatButton(
-        color: const Color(0xFF2196F3),
-        child: const Text(
-          'Купить',
-          style: const TextStyle(
-            color: const Color(0xFFFFFFFFFF),
-          ),
-        ),
-        onPressed: () => _onChooseCountGoods(offer),
-      );
-
-  void _onChooseCountGoods(Offer offer) =>
-      showPlatformDialog(
-        context: context,
-        builder: (_) => CountGoodWidget(offer),
-      );
+  void _onChooseCountGoods(Offer offer) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => CountGoodWidget(offer),
+    );
+  }
 }

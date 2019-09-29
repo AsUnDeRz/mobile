@@ -11,9 +11,6 @@ class AppBarTitle extends StatelessWidget {
   Widget build(BuildContext context) =>
       Text(
         _title,
-        style: TextStyle(
-          color: Colors.black,
-        ),
       );
 
 

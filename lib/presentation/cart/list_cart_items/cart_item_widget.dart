@@ -50,7 +50,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       title,
       style: TextStyle(
-        color: Colors.black,
         fontSize: 16,
       ),
     );
@@ -60,7 +59,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       CartItemHelper.formatCount(count),
       style: TextStyle(
-        color: Colors.black,
         fontSize: 16,
       ),
     );
@@ -70,7 +68,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       MoneyHelper.formatMoney(price),
       style: TextStyle(
-        color: Colors.black,
         fontSize: 16,
       ),
     );

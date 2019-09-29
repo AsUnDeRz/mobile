@@ -13,7 +13,7 @@ class CardOfferInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       Container(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.symmetric( vertical: 10.0),
         child: Container(
             key: _key,
             child: CardOfferDescription(_offer)
