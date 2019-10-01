@@ -1,6 +1,6 @@
 
 class CartItemHelper {
   static String formatCount(int count) {
-    return '$countшт.';
+    return '$count шт.';
   }
 }

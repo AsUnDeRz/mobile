@@ -20,7 +20,12 @@ class ErrorDialogWidget {
               android: (_) => MaterialDialogActionData(),
               ios: (_) => CupertinoDialogActionData(),
               child: PlatformText(labelButton),
-              onPressed: handlerButton==null?() => Navigator.pop(context):handlerButton,
+              onPressed: () {
+                Navigator.pop(context);
+                if(handlerButton!=null) {
+                  handlerButton();
+                }
+              },
             ),
           ],
         ),

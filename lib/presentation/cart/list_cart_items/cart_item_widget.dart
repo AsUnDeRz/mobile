@@ -5,7 +5,6 @@ import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
 
 class CartItemWidget extends StatefulWidget {
-
   final CartItem _cartItem;
 
   CartItemWidget(this._cartItem);
@@ -15,28 +14,30 @@ class CartItemWidget extends StatefulWidget {
 }
 
 class _CartItemWidgetState extends State<CartItemWidget> {
-
   @override
-  Widget build(BuildContext context) =>
-      Card(
-        elevation: 5,
-        child:  Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _getPartCardCartItem(widget._cartItem),
-          ),
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5,
+      child:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _getPartCardCartItem(widget._cartItem),
         ),
-      );
+      ),
+    );
+  }
 
-  List <Widget> _getPartCardCartItem(CartItem cartItem) =>
-      [_getImageItem(cartItem.image),
-        _getTitleItem(cartItem.title),
-        _getCountItem(cartItem.count),
-        _getPriceItem(cartItem.price),
-        _getIconDelete(cartItem)]
-          .map((content) => _getContainerPartCardCartItem(content) )
-          .toList(growable: false);
+  List <Widget> _getPartCardCartItem(CartItem cartItem) {
+    return [
+      _getImageItem(cartItem.image),
+      _getTitleItem(cartItem.title),
+      _getCountItem(cartItem.count),
+      _getPriceItem(cartItem.price),
+      _getIconDelete(cartItem),
+      ].map((content) => _getContainerPartCardCartItem(content) )
+        .toList(growable: false);
+  }
 
   Widget _getImageItem(String image) {
     return CachedNetworkImage(
@@ -50,7 +51,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       title,
       style: TextStyle(
-        color: Colors.black,
         fontSize: 16,
       ),
     );
@@ -60,7 +60,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       CartItemHelper.formatCount(count),
       style: TextStyle(
-        color: Colors.black,
         fontSize: 16,
       ),
     );
@@ -70,19 +69,19 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       MoneyHelper.formatMoney(price),
       style: TextStyle(
-        color: Colors.black,
         fontSize: 16,
       ),
     );
   }
 
-  Widget _getContainerPartCardCartItem(Widget content) =>
-      Expanded(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:5.0),
-          child: content,
-        ),
-      );
+  Widget _getContainerPartCardCartItem(Widget content) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal:5.0),
+        child: content,
+      ),
+    );
+  }
 
   Widget _getIconDelete(CartItem cartItem) {
     return IconButton(

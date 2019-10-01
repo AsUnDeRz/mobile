@@ -1,6 +1,5 @@
 
 class DbCartItem {
-
   static const ID = 'cart_item_id';
   static const TITLE = 'cart_item_title';
   static const IMAGE = 'cart_item_image';

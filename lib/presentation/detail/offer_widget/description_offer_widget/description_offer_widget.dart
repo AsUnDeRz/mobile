@@ -6,17 +6,18 @@ class DescriptionOfferWidget extends StatelessWidget {
   DescriptionOfferWidget(this._description);
 
   @override
-  Widget build(BuildContext context) =>
-      Row(
-        children: <Widget>[
-          Expanded(
-            child: Text(
-              _description,
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Text(
+            _description,
+            style: const TextStyle(
+              fontSize: 16,
             ),
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }

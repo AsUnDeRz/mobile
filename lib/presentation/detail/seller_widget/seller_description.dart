@@ -8,26 +8,32 @@ class SellerDescription extends StatelessWidget{
   SellerDescription(this._name, this._type, this._info);
 
   @override
-  Widget build(BuildContext context) =>
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _getSellerName(),
-          Container(height: 5,),
-          _getSellerType(),
-          Container(height: 5,),
-          _getSellerInfo(),
-        ],
-      );
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _getSellerName(),
+        Container(height: 5),
+        _getSellerType(),
+        Container(height: 5),
+        _getSellerInfo(),
+      ],
+    );
+  }
 
-  Widget _getSellerName() =>
-      Text(
-        _name,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      );
+  Widget _getSellerName() {
+    return Text(
+      _name,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
 
-  Widget _getSellerType() => Text(_type);
-  Widget _getSellerInfo() => Text(_info);
+  Widget _getSellerType() {
+    return Text(_type);
+  }
+  Widget _getSellerInfo() {
+    return Text(_info);
+  }
 }

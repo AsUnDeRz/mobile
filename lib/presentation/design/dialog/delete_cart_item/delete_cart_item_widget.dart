@@ -1,10 +1,10 @@
-import 'package:catalog_app/domain/model/cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app/presentation/design/application_design.dart';
-
-import 'delete_cart_item_presenter.dart';
-import 'delete_cart_item_view.dart';
+import 'package:catalog_app/domain/bloc/dialog/delete_cart_item_bloc.dart';
+import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 
 class DeleteCartItemWidget extends StatefulWidget {
   final CartItem _cartItem;
@@ -15,50 +15,31 @@ class DeleteCartItemWidget extends StatefulWidget {
   _DeleteCartItemWidgetState createState() => _DeleteCartItemWidgetState();
 }
 
-class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>
-    implements DeleteCartItemView {
-  DeleteCartItemPresenter _deleteCartItemPresenter;
-  int _numberStep;
-  bool _isLoading;
-
-  _DeleteCartItemWidgetState() {
-    _numberStep = 1;
-    _isLoading = false;
-    _deleteCartItemPresenter = DeleteCartItemPresenter(this);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
+  final DeleteCartItemBloc _deleteCartItemBloc = CartModule.deleteCartItemBloc();
 
   @override
   Widget build(BuildContext context) {
-    return _getBody(widget._cartItem);
-  }
-
-  Widget _getBody(CartItem cartItem) {
-    if (_isLoading) {
-      return LoaderPage();
-    } else {
-      switch (_numberStep) {
-        case 1:
-          {
-            return _getDialogAcceptDeleteItem(cartItem.id);
+    return BlocProvider(
+      builder: (context) => _deleteCartItemBloc,
+      child: BlocBuilder<DeleteCartItemBloc, DeleteCartItemState>(
+        builder: (context, state) {
+          if(state is DeleteCartItemInitState) {
+            return _getDialogAcceptDeleteItem(widget._cartItem.id);
           }
-          break;
 
-        case 2:
-          {
+          if(state is DeleteCartItemApplyDeleteState){
             return _getDialogSuccessDeleteItem();
           }
-          break;
 
-        default: {
+          if(state is DeleteCartItemErrorState) {
+            return _getDialogErrorDeleteItem();
+          }
+
           return _getDialogErrorDeleteItem();
-        }
-      }
-    }
+        },
+      ),
+    );
   }
 
   Widget _getDialogAcceptDeleteItem(int id) {
@@ -66,7 +47,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>
       title: Text('Подвердите удаление'),
       actions: <Widget>[
         _getButtonBack('Назад'),
-        _getButtonDelete('Удалить', () => onDeleteCartItem(id)),
+        _getButtonDelete('Удалить', () => _onDeleteCartItem(id)),
       ],
     );
   }
@@ -78,7 +59,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>
       child: PlatformText(
         label,
       ),
-      onPressed: onBack,
+      onPressed: _onBack,
     );
   }
 
@@ -114,7 +95,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>
           child: PlatformText(
             'Продолжить покупки',
           ),
-          onPressed: onBack,
+          onPressed: _onBack,
         ),
       ],
     );
@@ -135,29 +116,11 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>
     );
   }
 
-  @override
-  void onBack() {
+  void _onBack() {
     Navigator.pop(context);
   }
 
-  @override
-  void onDeleteCartItem(int id) {
-    _deleteCartItemPresenter.deleteItem(id);
-    setState(() {
-      _isLoading = true;
-    });
-  }
-
-  @override
-  void onAcceptDelete() {
-    setState(() {
-      _isLoading = false;
-      _numberStep = 2;
-    });
-  }
-
-  @override
-  void onError() {
-    ErrorDialogWidget.showErrorDialog(context);
+  void _onDeleteCartItem(int id) {
+    _deleteCartItemBloc.dispatch(DeleteCartItemDeleteEvent(id));
   }
 }

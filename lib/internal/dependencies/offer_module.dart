@@ -1,12 +1,11 @@
-import 'package:catalog_app/domain/interactor/get_list_offer_case.dart';
+import 'package:catalog_app/domain/bloc/catalog_bloc.dart';
 
 import 'offer_repository_module.dart';
 
 class OfferModule {
-
-  static final getListOfferCase = GetListOfferCase(
-      OfferRepositoryModule.offerDataRepository
-  );
+  static CatalogBloc catalogBloc() {
+    return CatalogBloc(OfferRepositoryModule.offerDataRepository);
+  }
 }
 
 

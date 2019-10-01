@@ -1,6 +1,7 @@
-import 'package:catalog_app/presentation/menu_drawer/logout/logout_presenter.dart';
-import 'package:catalog_app/presentation/menu_drawer/logout/logout_view.dart';
+import 'package:catalog_app/domain/bloc/menu_drawer/logout/logout_bloc.dart';
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app/presentation/start/start_screen.dart';
 
@@ -11,32 +12,42 @@ class LogoutWidget extends StatefulWidget {
 
 }
 
-class _LogoutWidgetState extends State<LogoutWidget> implements LogoutView {
-
-  LogoutPresenter _logoutPresenter;
-
-  _LogoutWidgetState() {
-    _logoutPresenter =   LogoutPresenter(this);
-  }
+class _LogoutWidgetState extends State<LogoutWidget> {
+  final LogoutBloc _logoutBloc = UserModule.logoutBloc();
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text("Loout"),
-      trailing: Icon(Icons.exit_to_app),
-      onTap: onLogout,
+    return BlocProvider(
+      builder: (context) => _logoutBloc,
+      child: BlocListener <LogoutBloc, LogoutState>(
+        listener: (context, state) {
+          if (state is LogoutApplyState) {
+            _onLogoutSuccess();
+          }
+        },
+        child: BlocBuilder<LogoutBloc, LogoutState>(
+          builder: (context, state) {
+            return  ListTile(
+              title: Text("Loout"),
+              trailing: Icon(Icons.exit_to_app),
+              onTap: _onLogout,
+            );
+          },
+        ),
+      ),
     );
   }
 
-  @override
-  void onLogout() => _logoutPresenter.logout();
+  void _onLogout() {
+    _logoutBloc.dispatch(LogoutActionEvent());
+  }
 
-  @override
-  void onLogoutSuccess() =>
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => StartScreen(),
-        ),
-      );
+  void _onLogoutSuccess() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => StartScreen(),
+      ),
+    );
+  }
 }

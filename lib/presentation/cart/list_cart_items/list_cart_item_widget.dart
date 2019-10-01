@@ -5,7 +5,6 @@ import 'package:catalog_app/presentation/cart/list_cart_items/cart_item_widget.d
 import 'package:catalog_app/presentation/design/application_design.dart';
 
 class ListCartItems extends StatefulWidget {
-
   final Cart cart;
 
   ListCartItems(this.cart);
@@ -15,26 +14,23 @@ class ListCartItems extends StatefulWidget {
 }
 
 class _ListCartItemsState extends State<ListCartItems> {
-
   @override
   Widget build(BuildContext context) {
     final cart =  widget.cart;
     if(cart != null && cart.listItems.length > 0) {
       return ListView(
-          padding: EdgeInsets.all(5),
-          children:[
-            ..._getListItems(cart),
-            ..._getButtonDeleteAllCartItems(),
-          ]
+        padding: EdgeInsets.all(5),
+        children:[
+          ..._getListItems(cart),
+          ..._getButtonDeleteAllCartItems(),
+        ],
       );
     }
-    else {
-      return Center (
-        child: Text(
-          'Корзина пуста',
-        ),
-      );
-    }
+    return Center (
+      child: Text(
+        'Корзина пуста',
+      ),
+    );
   }
 
   List<Widget> _getListItems(Cart cart) {
@@ -70,7 +66,8 @@ class _ListCartItemsState extends State<ListCartItems> {
     showPlatformDialog(
       context: context,
       builder: (_) => DeleteAllCartItemsWidget(),
-    );  }
+    );
+  }
 
   void onError(dynamic error) {
     ErrorDialogWidget.showErrorDialog(context);

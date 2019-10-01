@@ -1,13 +1,11 @@
 import 'dart:math';
 
 import 'package:catalog_app/data/api/api_util.dart';
-
 import 'package:catalog_app/data/db/orm/orm_offer.dart';
 import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/domain/repository/offer_repository.dart';
 
 class OfferDataRepository extends OfferRepository  {
-
   ApiUtil _apiUtil;
   OrmOffer _ormOffer;
 

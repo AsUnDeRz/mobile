@@ -36,7 +36,8 @@ dev_dependencies:
   dio: ^2.1.16
   cached_network_image: ^1.1.1
   photo_view: ^0.5.0
-  flutter_launcher_icons: "^0.7.2"
+  flutter_launcher_icons: ^0.7.2
+  flutter_bloc: ^0.21.0
 
 
 

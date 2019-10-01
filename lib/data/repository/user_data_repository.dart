@@ -1,10 +1,8 @@
 import 'package:catalog_app/domain/model/user.dart';
 import 'package:catalog_app/domain/repository/user_repository.dart';
-
 import 'package:catalog_app/data/sp/sp_util.dart';
 
 class UserDataRepository extends UserRepository {
-
   SpUtil _spUtil;
 
   UserDataRepository (this._spUtil);
@@ -24,7 +22,7 @@ class UserDataRepository extends UserRepository {
   }
 
   @override
-  Future<void> resetUser() async {
+  Future<void> logout() async {
     await _spUtil.setName('');
     await _spUtil.setPassword('');
   }

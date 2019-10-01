@@ -1,92 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:catalog_app/domain/bloc/cart_action_bloc.dart';
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 import 'package:catalog_app/domain/model/cart.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
 import 'package:catalog_app/presentation/cart/cart_screen.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
 
-import 'cart_action_presenter.dart';
-import 'cart_action_view.dart';
-
 class CartActionWidget extends StatefulWidget {
-
   @override
   _CartActionWidgetState createState() => _CartActionWidgetState();
 }
 
-class _CartActionWidgetState extends State<CartActionWidget> implements CartActionView {
-
-  CartActionPresenter _cartActionPresenter;
-  Cart _cart;
-
-  _CartActionWidgetState() {
-    _cartActionPresenter = CartActionPresenter(this);
-  }
-
-  @override
-  void initState() {
-    _cartActionPresenter.startCartStream();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _cartActionPresenter.stopCartStream();
-    super.dispose();
-  }
+class _CartActionWidgetState extends State<CartActionWidget>{
+  CartActionBloc _cartActionBloc = CartModule.cartActionBloc;
 
   @override
   Widget build(BuildContext context) {
-    return _getCart();
-
-  }
-
-  Widget _getCart() {
-    return FlatButton(
-      child: Row(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
-            child: Icon(
-              Icons.shopping_cart,
-              color: Colors.black,
-            ),
-          ),
-          _getCartInfo(_cart),
-        ],
+    return BlocProvider(
+      builder: (context) => _cartActionBloc,
+      child: BlocBuilder<CartActionBloc, CartActionState>(
+        builder: (context, state) {
+          if (state is CartActionReadyState) {
+            return _getCart(state.cart);
+          }
+          return LoaderPage();
+        },
       ),
-      onPressed: onRouteCartScreen,
     );
   }
 
+  Widget _getCart(Cart cart){
+    return InkWell(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Icon(
+                Icons.shopping_cart,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: _getCartInfo(cart),
+            ),
+          ],
+        ),
+      ),
+      onTap: _onRouteCartScreen,
+    );
+  }
+  
   Widget _getCartInfo(Cart cart) {
     if (cart != null) {
       return Text(
         MoneyHelper.formatMoney(cart.sum),
         style: TextStyle(
           fontSize: 20.0,
-          color: Colors.black,
         ),
       );
-    } else {
-      return LoaderPageStandard();
     }
+    return LoaderPage();
   }
 
-  @override
-  void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(context);
-  }
-
-  @override
-  void onCartUpdated(Cart cart) {
-    setState(() {
-      _cart = cart;
-    });
-  }
-
-  @override
-  void onRouteCartScreen() {
+  void _onRouteCartScreen() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()));
   }
 }

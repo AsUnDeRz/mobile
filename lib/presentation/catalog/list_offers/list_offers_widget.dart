@@ -1,60 +1,65 @@
+import 'package:catalog_app/domain/bloc/catalog_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/presentation/design/loader_view.dart';
 import 'package:catalog_app/presentation/catalog/list_offers/card_offer/card_offer_widget.dart';
-
-import 'list_offers_presenter.dart';
-import 'list_offers_view.dart';
-
+import 'package:catalog_app/internal/dependencies/offer_module.dart';
 
 class ListOffersWidget extends StatefulWidget {
   @override
   _ListOffersWidgetState createState() => _ListOffersWidgetState();
 }
 
-class _ListOffersWidgetState extends State<ListOffersWidget> implements ListOffersView {
-  ListOffersPresenter _listOffersPresenter;
-  List<Offer> _listOffer;
-
-  _ListOffersWidgetState() {
-    _listOffersPresenter = ListOffersPresenter(this);
-    _listOffer=null;
-  }
+class _ListOffersWidgetState extends State<ListOffersWidget> {
+  final _catalogBloc = OfferModule.catalogBloc();
 
   @override
   void initState() {
-    _listOffersPresenter.getCatalog();
     super.initState();
+    _catalogBloc.dispatch(CatalogRefreshEvent());
   }
 
   @override
-  Widget build(BuildContext context) => (_listOffer == null) ? LoaderPage() : _getList();
-
-  Widget _getList() =>
-      ListView(
-        padding:  EdgeInsets.all(5),
-        children: [
-          ..._listOffer.map((offer) => CardOfferWidget(offer))
-        ],
-      );
-
-  @override
-  void onError(dynamic error) =>
-    ErrorDialogWidget.showErrorDialog(
-        context,
-        error: error,
-        handlerButton: onRefreshCatalog
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      builder: (context) => _catalogBloc,
+      child: BlocListener<CatalogBloc, CatalogState>(
+        listener: (context, state) {
+          if (state is CatalogErrorState) {
+            _showErrorDialog(state.error);
+          }
+        },
+        child: BlocBuilder<CatalogBloc, CatalogState>(
+          builder: (context, state) {
+            if (state is CatalogReadyState) {
+              return _getList(state.listOffers);
+            }
+            else {
+              return LoaderPage();
+            }
+          },
+        ),
+      ),
     );
+  }
 
-  @override
-  void onCatalogReceived(List<Offer> catalog) =>
-      setState(() => _listOffer = catalog);
+  Widget _getList(listOffers) {
+    return ListView(
+      padding:  EdgeInsets.all(5),
+      children: [
+        ...listOffers.map((offer) => CardOfferWidget(offer))
+      ],
+    );
+  }
 
-  @override
-  void onRefreshCatalog() {
-    Navigator.pop(context);
-    _listOffersPresenter.getCatalog();
+  void _showErrorDialog(dynamic error) {
+    return ErrorDialogWidget.showErrorDialog(
+      context,
+      error: error,
+      handlerButton: () => _catalogBloc.dispatch(CatalogRefreshEvent(),
+      ), //onRefreshCatalog
+    );
   }
 }

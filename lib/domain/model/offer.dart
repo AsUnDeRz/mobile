@@ -1,7 +1,6 @@
 import 'package:catalog_app/domain/model/seller.dart';
 
 class Offer {
-
   final int _id;
   final String _title;
   final String _image;

@@ -9,9 +9,7 @@ import 'package:catalog_app/presentation/detail/offer_widget/characters_offer_wi
 import 'package:catalog_app/presentation/detail/offer_widget/description_offer_widget/description_offer_widget.dart';
 import 'package:catalog_app/presentation/detail/offer_widget/header_offer_widget/header_offer_widget.dart';
 
-
 class OfferWidget extends StatelessWidget {
-
   final Offer _offer;
 
   OfferWidget(this._offer);

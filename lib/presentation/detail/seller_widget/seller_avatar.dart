@@ -6,10 +6,7 @@ class SellerAvatar extends StatelessWidget{
   SellerAvatar(this._avatar);
 
   @override
-  Widget build(BuildContext context)  =>
-      Image.asset(
-        _avatar,
-        height: 75.0,
-      );
-
+  Widget build(BuildContext context)  {
+    return Image.asset(_avatar, height: 75.0,);
+  }
 }

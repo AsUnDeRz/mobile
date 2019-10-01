@@ -6,11 +6,12 @@ class CategoryOfferWidget extends StatelessWidget {
   CategoryOfferWidget(this._category);
 
   @override
-  Widget build(BuildContext context) =>
-      Text(
-        _category,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Text(
+      _category,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
 }

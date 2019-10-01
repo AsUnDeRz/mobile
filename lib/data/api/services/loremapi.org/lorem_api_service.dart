@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
 class LoremApiService {
-
   final Dio _dio;
 
   LoremApiService(this._dio);
@@ -40,5 +39,4 @@ class LoremApiService {
     );
     return result.data;
   }
-
 }

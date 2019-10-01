@@ -3,7 +3,6 @@ import 'package:catalog_app/domain/model/offer.dart';
 import 'package:catalog_app/domain/model/seller.dart';
 
 class OfferMapper {
-
   static Offer toOffer(DbOffer dbOffer, Seller seller) {
     return Offer(
       dbOffer.id,
@@ -31,5 +30,4 @@ class OfferMapper {
       offer.seller.id,
     );
   }
-
 }

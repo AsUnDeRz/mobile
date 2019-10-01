@@ -2,7 +2,6 @@ import 'package:catalog_app/data/db/model/db_seller.dart';
 import 'package:catalog_app/domain/model/seller.dart';
 
 class SellerMapper {
-
   static Seller toSeller(DbSeller dbSeller) {
     return Seller(
       dbSeller.id,

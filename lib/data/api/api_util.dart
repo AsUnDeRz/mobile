@@ -7,7 +7,6 @@ import 'package:catalog_app/data/api/services/loremapi.org/lorem_api_service.dar
 import 'package:catalog_app/domain/model/offer.dart';
 
 class ApiUtil {
-
   final FishApiService _fishApiService;
   final LoremApiService _loremApiService;
   final MockableApiService _mockableApiService;

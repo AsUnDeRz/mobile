@@ -5,19 +5,24 @@ import 'package:catalog_app/presentation/detail/seller_widget/seller_description
 import 'package:catalog_app/domain/model/seller.dart';
 
 
-class SellerWidget extends StatelessWidget{
+class SellerWidget extends StatefulWidget{
   final Seller _seller;
 
   SellerWidget(this._seller);
 
   @override
+  _SellerWidgetState createState() => _SellerWidgetState();
+}
+
+class _SellerWidgetState extends State<SellerWidget> {
+  @override
   Widget build(BuildContext context) {
-    return _body(_seller);
+    return _body(widget._seller);
   }
 
   Widget _body (Seller seller) {
     return Container(
-      color: Colors.grey[100],
+      color: Theme.of(context).cardColor,
       padding: EdgeInsets.all(15.0),
       child: Row(
         children: <Widget>[

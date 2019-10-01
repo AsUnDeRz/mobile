@@ -81,6 +81,4 @@ class DbUtil{
       db.execute(SellerScheme.getCreateSql()),
     ]);
   }
-
-
 }

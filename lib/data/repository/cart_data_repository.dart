@@ -7,7 +7,6 @@ import 'package:catalog_app/domain/repository/cart_repository.dart';
 
 
 class CartDataRepository extends CartRepository {
-
   final OrmCartItem _ormCartItem;
   final _cartSubject = BehaviorSubject <Cart> ();
 

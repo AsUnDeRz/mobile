@@ -1,79 +1,77 @@
+import 'package:catalog_app/domain/bloc/dialog/count_good_bloc.dart';
 import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 import 'package:flutter/material.dart';
 
 import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/domain/model/offer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'count_good_presenter.dart';
-import 'count_good_view.dart';
 
 class CountGoodWidget extends StatefulWidget {
-  final Offer _offer;
+  final CartItem _cartItem;
+  final CartItem originalCartItem;
 
-  CountGoodWidget(this._offer);
+  CountGoodWidget(this._cartItem):
+        originalCartItem = CartItem(
+          _cartItem.id,
+          _cartItem.title,
+          _cartItem.image,
+          _cartItem.offerId,
+          _cartItem.count,
+          _cartItem.price
+        );
 
   @override
-  _CountGoodWidgetState createState() => _CountGoodWidgetState();
+  CountGoodWidgetState createState() => CountGoodWidgetState() ;
 }
 
-class _CountGoodWidgetState extends State<CountGoodWidget>
-    implements CountGoodView {
-  CountGoodPresenter _countGoodPresenter;
-  int _count;
-  int _numberStep;
-  bool _isLoading;
+class CountGoodWidgetState extends State<CountGoodWidget> {
 
-  _CountGoodWidgetState() {
-    _count = 1;
-    _numberStep = 1;
-    _isLoading = false;
-    _countGoodPresenter = CountGoodPresenter(this);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  final CountGoodBloc _countGoodBloc = CartModule.countGoodBloc();
 
   @override
   Widget build(BuildContext context) {
-    return _getBody(widget._offer);
+    return BlocProvider(
+      builder: (context) => _countGoodBloc,
+      child: BlocBuilder<CountGoodBloc, CountGoodState>(
+        builder: (context, state) {
+
+          
+          if(state is CountGoodInitState) {
+            return _getDialogChooseCount(widget._cartItem);
+          }
+
+          if(state is CountGoodUpdateCountState) {
+            return _getDialogChooseCount(state.cartItem);
+          }
+
+          if(state is CountGoodApplyAddCartState){
+            return _getDialogFinishChooseItem();
+          }
+
+          if(state is CountGoodErrorState) {
+            return _getErrorFinishChooseItem();
+          }
+
+          return _getErrorFinishChooseItem();
+        },
+      ),
+    );
   }
 
-  Widget _getBody(Offer offer) {
-    if (_isLoading) {
-      return LoaderPage();
-    }
-
-    switch (_numberStep) {
-      case 1: {
-        return _getDialogChooseCount(offer);
-      }
-      break;
-
-      case 2: {
-        return _getDialogFinishChooseItem();
-      }
-      break;
-
-      default: {
-        return _getErrorFinishChooseItem();
-      }
-    }
-  }
-
-  Widget _getDialogChooseCount(Offer offer){
+  Widget _getDialogChooseCount(CartItem cartItem){
     return PlatformAlertDialog(
-      title: Text('Выберите количество товара '),
+      title: const Text('Выберите количество товара '),
       content:  Table(
         children: <TableRow>[
           TableRow(
             children: <Widget>[
-              _getChooseCount(),
+              _getChooseCount(cartItem),
             ],
-          ), TableRow(
+          ),
+          TableRow(
             children: <Widget>[
-              _getSummaryPrice(offer),
+              _getSummaryPrice(cartItem),
             ],
           ),
         ],
@@ -82,21 +80,13 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
         _getButtonBack('Назад'),
         _getButtonAction(
           'Добавить в корзину',
-              () => onAddCart(
-            CartItem(
-                null,
-                offer.title,
-                offer.image,
-                offer.id,
-                _count, _count * offer.price
-            ),
-          ),
+              () => _onAddCart(cartItem),
         ),
       ],
     );
   }
 
-  Widget _getChooseCount() {
+  Widget _getChooseCount(CartItem cartItem) {
     return Table(
       columnWidths: {
         0: FixedColumnWidth(60.0),
@@ -110,18 +100,16 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
               height: 50,
               child: RaisedButton(
                 shape: CircleBorder(),
-                color: Colors.blue,
                 child: Icon(
                   Icons.add,
-                  color: Colors.white,
                 ),
-                onPressed: onIncrement,
+                onPressed: () => _onIncrement(cartItem),
               ),
             ),
             Container(
               height: 50,
               child: Center(
-                child: Text('$_count',
+                child: Text('${cartItem.count}',
                 ),
               ),
             ),
@@ -129,12 +117,10 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
               height: 50,
               child: RaisedButton(
                 shape: CircleBorder(),
-                color: Colors.blue,
                 child: Icon(
                   Icons.remove,
-                  color: Colors.white,
                 ),
-                onPressed: onDecrement,
+                onPressed: () => _onDecrement(cartItem),
               ),
             ),
           ],
@@ -143,7 +129,7 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
     );
   }
 
-  _getSummaryPrice(Offer offer) {
+  _getSummaryPrice(CartItem cartItem) {
     return Table(
       columnWidths: {
         0: FixedColumnWidth(100.0),
@@ -167,7 +153,7 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
               padding: EdgeInsets.symmetric(vertical: 5),
               child:  Center(
                 child: Text(
-                  MoneyHelper.formatMoney(_count * offer.price),
+                  MoneyHelper.formatMoney(cartItem.price),
                 ),
               ),
             ),
@@ -183,7 +169,7 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
       content: Container(
         height: 50,
         child: Center(
-          child: Text('Товар успешно добавлен'),
+          child: const Text('Товар успешно добавлен'),
         ),
       ),
       actions: <Widget>[
@@ -192,14 +178,14 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
     );
   }
 
-  Widget _getButtonBack(String label) {
+  Widget _getButtonBack(String label, {handler}) {
     return  PlatformDialogAction(
       android: (_) => MaterialDialogActionData(),
       ios: (_) => CupertinoDialogActionData(),
       child: PlatformText(
         label,
       ),
-      onPressed: onBack,
+      onPressed: handler ?? _onBack,
     );
   }
 
@@ -229,45 +215,20 @@ class _CountGoodWidgetState extends State<CountGoodWidget>
     );
   }
 
-  @override
-  void onDecrement() {
-    setState(() {
-      if(_count>1) --_count;
-    });
+  void _onAddCart(CartItem cartItem){
+    _countGoodBloc.dispatch(CountGoodAddCartEvent(cartItem));
   }
 
-  @override
-  void onIncrement() {
-    setState(() {
-      ++_count;
-    });
+  void _onDecrement(CartItem cartItem) {
+    if(cartItem.count == 1) return;
+    _countGoodBloc.dispatch(CountGoodDecrementCountEvent(cartItem, widget.originalCartItem.price));
   }
 
-  @override
-  void onBack() {
+  void _onIncrement(CartItem cartItem) {
+    _countGoodBloc.dispatch(CountGoodIncrementCountEvent(cartItem, widget.originalCartItem.price));
+  }
+
+  void _onBack() {
     Navigator.pop(context);
-  }
-
-  @override
-  void onAddCart(CartItem item) {
-    _countGoodPresenter.addItem(item);
-    setState(() {
-      _isLoading = true;
-    });
-  }
-
-  @override
-  void onSaveCartItem() {
-    setState(() {
-      _isLoading = false;
-      _numberStep = 2;
-    });
-  }
-
-  @override
-  void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(
-        context,
-        error: error);
   }
 }

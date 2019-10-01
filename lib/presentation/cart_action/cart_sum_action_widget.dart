@@ -4,7 +4,6 @@ import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/domain/model/cart.dart';
 
 class CartSumActionWidget extends StatelessWidget {
-
   final Cart _cart;
 
   CartSumActionWidget(this._cart);
@@ -17,15 +16,10 @@ class CartSumActionWidget extends StatelessWidget {
         child: Center(
           child: Text(
             'Итого: ${MoneyHelper.formatMoney(_cart.sum)}',
-            style: TextStyle (
-              color: Colors.black,
-            ),
           ),
         ),
       );
     }
-    else {
-      return Container();
-    }
+    return Container();
   }
 }

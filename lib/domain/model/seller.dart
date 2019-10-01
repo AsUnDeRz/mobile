@@ -1,6 +1,5 @@
 
 class Seller {
-
   final int _id;
   final String _name;
   final String _image;

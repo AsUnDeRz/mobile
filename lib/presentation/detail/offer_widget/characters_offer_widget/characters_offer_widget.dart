@@ -6,12 +6,11 @@ class CharactersOfferWidget extends StatelessWidget {
   CharactersOfferWidget(this._characters);
 
   @override
-  Widget build(BuildContext context) =>
-      Column(
-        children: _getListCharacter(),
-      );
-
-
+  Widget build(BuildContext context) {
+    return Column(
+      children: _getListCharacter(),
+    );
+  }
 
   List<Widget> _getListCharacter(){
     return _characters

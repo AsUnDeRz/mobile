@@ -1,9 +1,8 @@
+import 'package:catalog_app/domain/bloc/dialog/delete_all_cart_item_bloc.dart';
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
-
-import 'delete_all_cart_item_presenter.dart';
-import 'delete_all_cart_item_view.dart';
 
 class DeleteAllCartItemsWidget extends StatefulWidget {
 
@@ -11,48 +10,31 @@ class DeleteAllCartItemsWidget extends StatefulWidget {
   _DeleteAllCartItemsWidgetState createState() => _DeleteAllCartItemsWidgetState();
 }
 
-class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget>
-    implements DeleteAllCartItemsView {
-  DeleteAllCartItemsPresenter _deleteAllCartItemsPresenter;
-  int _numberStep;
-  bool _isLoading;
-
-  _DeleteAllCartItemsWidgetState() {
-    _numberStep = 1;
-    _isLoading = false;
-    _deleteAllCartItemsPresenter = DeleteAllCartItemsPresenter(this);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
+  final DeleteAllCartItemsBloc _deleteAllCartItemsBloc = CartModule.deleteAllCartItemsBloc();
 
   @override
   Widget build(BuildContext context) {
-    return _getBody();
-  }
-
-  Widget _getBody() {
-    if (_isLoading) {
-      return LoaderPage();
-    } else {
-      switch (_numberStep) {
-        case 1: {
+    return BlocProvider(
+      builder: (context) => _deleteAllCartItemsBloc,
+      child: BlocBuilder<DeleteAllCartItemsBloc, DeleteAllCartItemsState>(
+        builder: (context, state) {
+          if(state is DeleteAllCartItemsInitState) {
             return _getDialogAcceptDeleteAllItems();
           }
-          break;
-
-        case 2: {
+          
+          if(state is DeleteAllCartItemsApplyClearState){
             return _getDialogSuccessDeleteAllItems();
           }
-          break;
 
-        default: {
+          if(state is DeleteAllCartItemsErrorState) {
+            return _getDialogErrorDeleteAllItems();
+          }
+
           return _getDialogErrorDeleteAllItems();
-        }
-      }
-    }
+        },
+      ),
+    );
   }
 
   Widget _getDialogAcceptDeleteAllItems() {
@@ -72,7 +54,7 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget>
       child: PlatformText(
         label,
       ),
-      onPressed: onBack,
+      onPressed:_onBack,
     );
   }
 
@@ -108,7 +90,7 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget>
           child: PlatformText(
             'Продолжить покупки',
           ),
-          onPressed: onBack,
+          onPressed:_onBack,
         ),
       ],
     );
@@ -129,28 +111,14 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget>
     );
   }
 
-  @override
-  void onBack() {
+  void _onBack() {
     Navigator.pop(context);
   }
 
-  @override
   void onDeleteAllCartItems() {
-    _deleteAllCartItemsPresenter.deleteItems();
-    setState(() {
-      _isLoading = true;
-    });
+    _deleteAllCartItemsBloc.dispatch(DeleteAllCartItemsClearEvent());
   }
 
-  @override
-  void onAcceptDelete() {
-    setState(() {
-      _isLoading = false;
-      _numberStep = 2;
-    });
-  }
-
-  @override
   void onError() {
     ErrorDialogWidget.showErrorDialog(context);
   }

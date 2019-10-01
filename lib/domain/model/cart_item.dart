@@ -1,6 +1,6 @@
+import 'package:catalog_app/domain/model/offer.dart';
 
 class CartItem {
-
   final int _id;
   final String _title;
   final String _image;
@@ -23,4 +23,12 @@ class CartItem {
       this._count,
       this._price
       );
+
+  CartItem.fromOffer(Offer offer):
+    _id = null,
+    _title = offer.title,
+    _image = offer.image,
+    _offerId = offer.id,
+    _count = 1,
+    _price = offer.price;
 }

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app/presentation/catalog/catalog_screen.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
-
-import 'start_presenter.dart';
-import 'start_view.dart';
+import 'package:catalog_app/domain/bloc/login_bloc.dart';
+import 'package:catalog_app/internal/dependencies/application_component.dart';
 
 class StartScreen extends StatefulWidget {
   @override
   _StartScreenState createState() => _StartScreenState();
 }
 
-class _StartScreenState extends State<StartScreen> implements StartView {
+class _StartScreenState extends State<StartScreen> {
 
+  final LoginBloc _loginBloc = UserModule.loginBloc();
   GlobalKey<FormState> _formKey;
-  StartPresenter _startPresenter;
-  bool _isLoading;
   TextEditingController _nameUserController;
   TextEditingController _passwordUserController;
 
@@ -23,61 +22,66 @@ class _StartScreenState extends State<StartScreen> implements StartView {
     _nameUserController = TextEditingController();
     _passwordUserController = TextEditingController();
     _formKey = GlobalKey<FormState>();
-    _startPresenter = StartPresenter(this);
-    _isLoading = false;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _getBody(),
+      body: BlocProvider <LoginBloc>(
+        builder: (context) => _loginBloc,
+        child: BlocListener <LoginBloc, LoginState>(
+          listener: (context, state) {
+            if (state is LoginApplyState) {
+              _onLoginSuccess();
+            }
+          },
+          child: BlocBuilder<LoginBloc, LoginState>(
+            builder: (context, state) {
+              return  _getBody();
+            },
+          ),
+        ),
+      ),
     );
   }
 
   Widget _getBody() {
-    if(_isLoading) {
-      return _getLoader();
-    } else {
-      return Form(
-        key: _formKey,
-        child: _getFormBody(),
-      );
-    }
+    return Form(
+      key: _formKey,
+      child: _getFormBody(),
+    );
   }
 
-  Widget _getLoader(){
-    return LoaderPage();
-  }
 
   Widget _getFormBody() {
     return LayoutBuilder(
-        builder: (context, constraints) {
-          return ListView(
-              padding: EdgeInsets.all( constraints.maxWidth * 0.1),
-              children: <Widget>[
-                Text(
-                  'Catalog app',
-                  style: TextStyle(fontSize: 25.0),
-                  textAlign: TextAlign.center,
-                ),
-                Container(height: 30.0),
-                _getTextFormField(
-                  label: 'Логин',
-                  errorText: 'Пожалуйста, введите логин',
-                  controller: _nameUserController,
-                ),
-                Container(height: 20.0),
-                _getTextFormField(
-                  label: 'Пароль',
-                  errorText: 'Пожалуйста, введите пароль',
-                  obscure: true,
-                  controller: _passwordUserController,
-                ),
-                Container(height: 20.0),
-                _getSubmitButton()
-              ],
-          );
-        }
+      builder: (context, constraints) {
+        return ListView(
+          padding: EdgeInsets.all( constraints.maxWidth * 0.1),
+          children: <Widget>[
+            Text(
+              'Catalog app',
+              style: TextStyle(fontSize: 25.0),
+              textAlign: TextAlign.center,
+            ),
+            Container(height: 30.0),
+            _getTextFormField(
+              label: 'Логин',
+              errorText: 'Пожалуйста, введите логин',
+              controller: _nameUserController,
+            ),
+            Container(height: 20.0),
+            _getTextFormField(
+              label: 'Пароль',
+              errorText: 'Пожалуйста, введите пароль',
+              obscure: true,
+              controller: _passwordUserController,
+            ),
+            Container(height: 20.0),
+            _getSubmitButton()
+          ],
+        );
+      },
     );
   }
 
@@ -102,37 +106,28 @@ class _StartScreenState extends State<StartScreen> implements StartView {
   }
 
   Widget _getSubmitButton(){
-    return RaisedButton(
-      onPressed: () {
-        if(!_formKey.currentState.validate()) {
-          return;
-        }
-        setState(() {
-          _isLoading=true;
-          _startPresenter.login(
-              name: _nameUserController.text,
-              password: _nameUserController.text
-          );
-        });
-      },
-      child:Text('Войти'),
-      color: Colors.blue,
-      textColor: Colors.white,
+    return Button(
+      label: 'Войти',
+      handler: _onLogin,
     );
   }
 
-  @override
-  void onLoginSuccess() {
+  void _onLoginSuccess() {
     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) => CatalogScreen()
-        )
+      context,
+      MaterialPageRoute(
+          builder: (context) => CatalogScreen()
+      ),
     );
   }
 
-  @override
-  void onError(dynamic error) {
-    ErrorDialogWidget.showErrorDialog(context);
+  void _onLogin() {
+    if(!_formKey.currentState.validate()) {
+      return;
+    }
+    _loginBloc.dispatch(LoginActionEvent(
+        _nameUserController.text,
+        _passwordUserController.text)
+    );
   }
 }

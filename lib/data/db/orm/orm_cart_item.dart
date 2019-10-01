@@ -1,7 +1,6 @@
 import 'package:catalog_app/data/db/mapping/cart_item_mapper.dart';
 import 'package:catalog_app/data/db/model/db_cart_item.dart';
 import 'package:catalog_app/domain/model/cart_item.dart';
-
 import 'package:catalog_app/data/db/db_util.dart';
 
 class OrmCartItem {
