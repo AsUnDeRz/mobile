@@ -24,7 +24,7 @@ class ApplicationThemeBloc extends Bloc<ApplicationThemeEvent, ApplicationThemeS
       yield  _mapApplicationThemeRefreshToState(event);
     }
     if (event is ApplicationThemeSwitchEvent) {
-      _mapApplicationThemeSwitchToState(event);
+     await _mapApplicationThemeSwitchToState(event);
     }
   }
 
@@ -41,8 +41,9 @@ class ApplicationThemeBloc extends Bloc<ApplicationThemeEvent, ApplicationThemeS
     return ApplicationThemeReadyState(event.applicationTheme);
   }
 
-  void _mapApplicationThemeSwitchToState(ApplicationThemeSwitchEvent event) {
-    _applicationThemeDataRepository.setApplicationTheme(event.applicationTheme.mode);
+  Future<void> _mapApplicationThemeSwitchToState(ApplicationThemeSwitchEvent event) async {
+    final applicationTheme = await _applicationThemeDataRepository.getApplicationThemeStream().first;
+    _applicationThemeDataRepository.setApplicationTheme(!applicationTheme.mode);
   }
 }
 
@@ -54,10 +55,7 @@ class ApplicationThemeRefreshEvent extends ApplicationThemeEvent {
   ApplicationThemeRefreshEvent(this.applicationTheme);
 }
 
-class ApplicationThemeSwitchEvent extends ApplicationThemeEvent {
-  final ApplicationTheme applicationTheme;
-  ApplicationThemeSwitchEvent(this.applicationTheme);
-}
+class ApplicationThemeSwitchEvent extends ApplicationThemeEvent {}
 
 @immutable
 abstract class ApplicationThemeState {}

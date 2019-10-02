@@ -11,6 +11,6 @@ class Cart {
     if(listItems.isEmpty) {
       return 0.0;
     }
-    return this.listItems.fold(0.0, (value, item) => value + item.price);
+    return this.listItems.fold(0.0, (value, item) => value + item.sum);
   }
 }

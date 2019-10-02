@@ -19,35 +19,38 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
   final DeleteCartItemBloc _deleteCartItemBloc = CartModule.deleteCartItemBloc();
 
   @override
+  void initState() {
+    _deleteCartItemBloc.dispatch(DeleteCartItemInitEvent(widget._cartItem.id));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       builder: (context) => _deleteCartItemBloc,
       child: BlocBuilder<DeleteCartItemBloc, DeleteCartItemState>(
         builder: (context, state) {
           if(state is DeleteCartItemInitState) {
-            return _getDialogAcceptDeleteItem(widget._cartItem.id);
+            return _getDialogAcceptDeleteItem();
           }
-
           if(state is DeleteCartItemApplyDeleteState){
             return _getDialogSuccessDeleteItem();
           }
-
           if(state is DeleteCartItemErrorState) {
             return _getDialogErrorDeleteItem();
           }
-
           return _getDialogErrorDeleteItem();
         },
       ),
     );
   }
 
-  Widget _getDialogAcceptDeleteItem(int id) {
+  Widget _getDialogAcceptDeleteItem() {
     return PlatformAlertDialog(
       title: Text('Подвердите удаление'),
       actions: <Widget>[
         _getButtonBack('Назад'),
-        _getButtonDelete('Удалить', () => _onDeleteCartItem(id)),
+        _getButtonDelete('Удалить',_onDeleteCartItem),
       ],
     );
   }
@@ -121,6 +124,6 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
   }
 
   void _onDeleteCartItem(int id) {
-    _deleteCartItemBloc.dispatch(DeleteCartItemDeleteEvent(id));
+    _deleteCartItemBloc.dispatch(DeleteCartItemDeleteEvent());
   }
 }

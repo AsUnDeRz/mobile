@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 
 import 'package:catalog_app/domain/model/cart.dart';
 
-class CartActionBloc extends Bloc<CartActionEvent, CartActionState> {
+class CartActionBloc extends  Bloc<CartActionEvent, CartActionState> {
   final _cartDataRepository;
   StreamSubscription<Cart> _cartSubscription;
 

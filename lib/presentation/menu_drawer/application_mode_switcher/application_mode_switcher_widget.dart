@@ -41,6 +41,6 @@ class _ApplicationThemeSwitcherWidgetState extends State<ApplicationThemeSwitche
   }
 
   void _onChange(bool mode) {
-    _applicationThemeBloc.dispatch(ApplicationThemeSwitchEvent(ApplicationTheme(!mode)));
+    _applicationThemeBloc.dispatch(ApplicationThemeSwitchEvent());
   }
 }

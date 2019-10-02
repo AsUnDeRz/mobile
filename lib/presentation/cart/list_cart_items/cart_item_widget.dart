@@ -33,7 +33,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
       _getImageItem(cartItem.image),
       _getTitleItem(cartItem.title),
       _getCountItem(cartItem.count),
-      _getPriceItem(cartItem.price),
+      _getPriceItem(cartItem.sum),
       _getIconDelete(cartItem),
       ].map((content) => _getContainerPartCardCartItem(content) )
         .toList(growable: false);

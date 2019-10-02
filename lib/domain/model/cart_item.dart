@@ -14,6 +14,7 @@ class CartItem {
   int get offerId => _offerId;
   int get count => _count;
   double get price => _price;
+  double get sum => _count * _price;
 
   CartItem(
       this._id,
@@ -25,10 +26,18 @@ class CartItem {
       );
 
   CartItem.fromOffer(Offer offer):
-    _id = null,
-    _title = offer.title,
-    _image = offer.image,
-    _offerId = offer.id,
-    _count = 1,
-    _price = offer.price;
+        _id = null,
+        _title = offer.title,
+        _image = offer.image,
+        _offerId = offer.id,
+        _count = 1,
+        _price = offer.price;
+
+  CartItem.fromCartItem(CartItem cartItem,{count}):
+        _id = cartItem.id,
+        _title = cartItem.title,
+        _image = cartItem._image,
+        _offerId = cartItem._offerId,
+        _count = count ?? cartItem._count,
+        _price = cartItem.price;
 }

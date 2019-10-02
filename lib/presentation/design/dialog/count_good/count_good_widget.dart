@@ -9,17 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CountGoodWidget extends StatefulWidget {
   final CartItem _cartItem;
-  final CartItem originalCartItem;
 
-  CountGoodWidget(this._cartItem):
-        originalCartItem = CartItem(
-          _cartItem.id,
-          _cartItem.title,
-          _cartItem.image,
-          _cartItem.offerId,
-          _cartItem.count,
-          _cartItem.price
-        );
+  CountGoodWidget(this._cartItem);
 
   @override
   CountGoodWidgetState createState() => CountGoodWidgetState() ;
@@ -30,15 +21,20 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
   final CountGoodBloc _countGoodBloc = CartModule.countGoodBloc();
 
   @override
+  void initState() {
+    _countGoodBloc.dispatch(CountGoodInitEvent(widget._cartItem));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       builder: (context) => _countGoodBloc,
       child: BlocBuilder<CountGoodBloc, CountGoodState>(
         builder: (context, state) {
 
-          
-          if(state is CountGoodInitState) {
-            return _getDialogChooseCount(widget._cartItem);
+          if(state is CountGoodLoadingState) {
+            return LoaderPage();
           }
 
           if(state is CountGoodUpdateCountState) {
@@ -153,7 +149,7 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
               padding: EdgeInsets.symmetric(vertical: 5),
               child:  Center(
                 child: Text(
-                  MoneyHelper.formatMoney(cartItem.price),
+                  MoneyHelper.formatMoney(cartItem.sum),
                 ),
               ),
             ),
@@ -216,16 +212,16 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
   }
 
   void _onAddCart(CartItem cartItem){
-    _countGoodBloc.dispatch(CountGoodAddCartEvent(cartItem));
+    _countGoodBloc.dispatch(CountGoodAddCartEvent());
   }
 
   void _onDecrement(CartItem cartItem) {
     if(cartItem.count == 1) return;
-    _countGoodBloc.dispatch(CountGoodDecrementCountEvent(cartItem, widget.originalCartItem.price));
+    _countGoodBloc.dispatch(CountGoodDecrementCountEvent());
   }
 
   void _onIncrement(CartItem cartItem) {
-    _countGoodBloc.dispatch(CountGoodIncrementCountEvent(cartItem, widget.originalCartItem.price));
+    _countGoodBloc.dispatch(CountGoodIncrementCountEvent());
   }
 
   void _onBack() {

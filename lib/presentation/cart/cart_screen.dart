@@ -29,7 +29,6 @@ class _CartScreenState extends State<CartScreen>{
                 centerTitle: true,
                 actions: [CartSumActionWidget(state.cart),],
               ),
-              drawer: MenuDrawerWidget(),
               body: ListCartItems(state.cart),
             );
           }
