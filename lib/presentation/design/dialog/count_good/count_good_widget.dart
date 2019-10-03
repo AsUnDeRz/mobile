@@ -22,7 +22,7 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
 
   @override
   void initState() {
-    _countGoodBloc.dispatch(CountGoodInitEvent(widget._cartItem));
+    _countGoodBloc.dispatch(InitEvent(widget._cartItem));
     super.initState();
   }
 
@@ -33,19 +33,19 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
       child: BlocBuilder<CountGoodBloc, CountGoodState>(
         builder: (context, state) {
 
-          if(state is CountGoodLoadingState) {
+          if(state is LoadingState) {
             return LoaderPage();
           }
 
-          if(state is CountGoodUpdateCountState) {
+          if(state is UpdateCountState) {
             return _getDialogChooseCount(state.cartItem);
           }
 
-          if(state is CountGoodApplyAddCartState){
+          if(state is ApplyAddCartState){
             return _getDialogFinishChooseItem();
           }
 
-          if(state is CountGoodErrorState) {
+          if(state is ErrorState) {
             return _getErrorFinishChooseItem();
           }
 
@@ -212,16 +212,16 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
   }
 
   void _onAddCart(CartItem cartItem){
-    _countGoodBloc.dispatch(CountGoodAddCartEvent());
+    _countGoodBloc.dispatch(AddCartEvent());
   }
 
   void _onDecrement(CartItem cartItem) {
     if(cartItem.count == 1) return;
-    _countGoodBloc.dispatch(CountGoodDecrementCountEvent());
+    _countGoodBloc.dispatch(DecrementCountEvent());
   }
 
   void _onIncrement(CartItem cartItem) {
-    _countGoodBloc.dispatch(CountGoodIncrementCountEvent());
+    _countGoodBloc.dispatch(IncrementCountEvent());
   }
 
   void _onBack() {

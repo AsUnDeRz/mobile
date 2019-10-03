@@ -20,7 +20,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
 
   @override
   void initState() {
-    _deleteCartItemBloc.dispatch(DeleteCartItemInitEvent(widget._cartItem.id));
+    _deleteCartItemBloc.dispatch(InitEvent(widget._cartItem.id));
     super.initState();
   }
 
@@ -30,13 +30,13 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
       builder: (context) => _deleteCartItemBloc,
       child: BlocBuilder<DeleteCartItemBloc, DeleteCartItemState>(
         builder: (context, state) {
-          if(state is DeleteCartItemInitState) {
+          if(state is InitState) {
             return _getDialogAcceptDeleteItem();
           }
-          if(state is DeleteCartItemApplyDeleteState){
+          if(state is ApplyDeleteState){
             return _getDialogSuccessDeleteItem();
           }
-          if(state is DeleteCartItemErrorState) {
+          if(state is ErrorState) {
             return _getDialogErrorDeleteItem();
           }
           return _getDialogErrorDeleteItem();
@@ -124,6 +124,6 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
   }
 
   void _onDeleteCartItem(int id) {
-    _deleteCartItemBloc.dispatch(DeleteCartItemDeleteEvent());
+    _deleteCartItemBloc.dispatch(DeleteEvent());
   }
 }

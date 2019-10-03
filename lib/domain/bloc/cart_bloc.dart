@@ -11,16 +11,16 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc(this._cartDataRepository){
     _cartSubscription = _cartDataRepository
         .getCartStream()
-        .listen((cart) => dispatch(CartRefreshEvent(cart)));
+        .listen((cart) => dispatch(RefreshEvent(cart)));
   }
 
   @override
-  CartState get initialState => CartLoadingState();
+  CartState get initialState => LoadingState();
 
   @override
   Stream<CartState> mapEventToState(CartEvent event) async* {
-    if (event is CartRefreshEvent) {
-      yield  _mapCartRefreshToState(event);
+    if (event is RefreshEvent) {
+      yield  _mapRefreshToState(event);
     }
   }
 
@@ -33,25 +33,25 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     super.dispose();
   }
 
-  CartState _mapCartRefreshToState(CartRefreshEvent event) {
-    return CartReadyState(event.cart);
+  CartState _mapRefreshToState(RefreshEvent event) {
+    return ReadyState(event.cart);
   }
 }
 
 @immutable
 abstract class CartEvent {}
 
-class CartRefreshEvent extends CartEvent {
+class RefreshEvent extends CartEvent {
   final Cart cart;
-  CartRefreshEvent(this.cart);
+  RefreshEvent(this.cart);
 }
 
 @immutable
 abstract class CartState {}
 
-class CartLoadingState extends CartState {}
+class LoadingState extends CartState {}
 
-class CartReadyState extends CartState {
+class ReadyState extends CartState {
   final Cart cart;
-  CartReadyState(this.cart);
+  ReadyState(this.cart);
 }

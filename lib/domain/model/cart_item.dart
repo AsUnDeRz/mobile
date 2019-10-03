@@ -33,11 +33,14 @@ class CartItem {
         _count = 1,
         _price = offer.price;
 
-  CartItem.fromCartItem(CartItem cartItem,{count}):
-        _id = cartItem.id,
-        _title = cartItem.title,
-        _image = cartItem._image,
-        _offerId = cartItem._offerId,
-        _count = count ?? cartItem._count,
-        _price = cartItem.price;
+  CartItem copyWith({count}){
+    return CartItem(
+        _id,
+        _title,
+        _image,
+        _offerId ,
+        count ?? _count,
+        _price
+    );
+  }
 }

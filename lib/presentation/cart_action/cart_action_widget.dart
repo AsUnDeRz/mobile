@@ -22,7 +22,7 @@ class _CartActionWidgetState extends State<CartActionWidget>{
       builder: (context) => _cartActionBloc,
       child: BlocBuilder<CartActionBloc, CartActionState>(
         builder: (context, state) {
-          if (state is CartActionReadyState) {
+          if (state is ReadyState) {
             return _getCart(state.cart);
           }
           return LoaderPage();

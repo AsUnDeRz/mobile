@@ -20,7 +20,7 @@ class _ApplicationState extends State<Application> {
       builder: (context) => _applicationThemeBloc,
       child: BlocBuilder<ApplicationThemeBloc, ApplicationThemeState>(
         builder: (context, state) {
-          if (state is ApplicationThemeReadyState) {
+          if (state is ReadyState) {
             return  MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Catalog app',

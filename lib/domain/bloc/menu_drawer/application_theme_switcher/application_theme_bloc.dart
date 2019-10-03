@@ -12,19 +12,19 @@ class ApplicationThemeBloc extends Bloc<ApplicationThemeEvent, ApplicationThemeS
   ApplicationThemeBloc(this._applicationThemeDataRepository){
     _applicationThemeSubscription = _applicationThemeDataRepository
         .getApplicationThemeStream()
-        .listen((applicationTheme) => dispatch(ApplicationThemeRefreshEvent(applicationTheme)));
+        .listen((applicationTheme) => dispatch(RefreshEvent(applicationTheme)));
   }
 
   @override
-  ApplicationThemeState get initialState => ApplicationThemeLoadingState();
+  ApplicationThemeState get initialState => LoadingState();
 
   @override
   Stream<ApplicationThemeState> mapEventToState(ApplicationThemeEvent event) async* {
-    if (event is ApplicationThemeRefreshEvent) {
-      yield  _mapApplicationThemeRefreshToState(event);
+    if (event is RefreshEvent) {
+      yield  _mapRefreshToState(event);
     }
-    if (event is ApplicationThemeSwitchEvent) {
-     await _mapApplicationThemeSwitchToState(event);
+    if (event is SwitchEvent) {
+     await _mapSwitchToState(event);
     }
   }
 
@@ -37,11 +37,11 @@ class ApplicationThemeBloc extends Bloc<ApplicationThemeEvent, ApplicationThemeS
     super.dispose();
   }
 
-  ApplicationThemeState _mapApplicationThemeRefreshToState(ApplicationThemeRefreshEvent event) {
-    return ApplicationThemeReadyState(event.applicationTheme);
+  ApplicationThemeState _mapRefreshToState(RefreshEvent event) {
+    return ReadyState(event.applicationTheme);
   }
 
-  Future<void> _mapApplicationThemeSwitchToState(ApplicationThemeSwitchEvent event) async {
+  Future<void> _mapSwitchToState(SwitchEvent event) async {
     final applicationTheme = await _applicationThemeDataRepository.getApplicationThemeStream().first;
     _applicationThemeDataRepository.setApplicationTheme(!applicationTheme.mode);
   }
@@ -50,20 +50,20 @@ class ApplicationThemeBloc extends Bloc<ApplicationThemeEvent, ApplicationThemeS
 @immutable
 abstract class ApplicationThemeEvent {}
 
-class ApplicationThemeRefreshEvent extends ApplicationThemeEvent {
+class RefreshEvent extends ApplicationThemeEvent {
   final ApplicationTheme applicationTheme;
-  ApplicationThemeRefreshEvent(this.applicationTheme);
+  RefreshEvent(this.applicationTheme);
 }
 
-class ApplicationThemeSwitchEvent extends ApplicationThemeEvent {}
+class SwitchEvent extends ApplicationThemeEvent {}
 
 @immutable
 abstract class ApplicationThemeState {}
 
-class ApplicationThemeLoadingState extends ApplicationThemeState {}
+class LoadingState extends ApplicationThemeState {}
 
-class ApplicationThemeReadyState extends ApplicationThemeState {
+class ReadyState extends ApplicationThemeState {
   final ApplicationTheme applicationTheme;
-  ApplicationThemeReadyState(this.applicationTheme);
+  ReadyState(this.applicationTheme);
 }
 

@@ -10,28 +10,28 @@ class DeleteAllCartItemsBloc extends Bloc<DeleteAllCartItemsEvent, DeleteAllCart
   DeleteAllCartItemsBloc(this._cartDataRepository);
 
   @override
-  DeleteAllCartItemsState get initialState => DeleteAllCartItemsInitState();
+  DeleteAllCartItemsState get initialState => InitState();
 
   @override
   Stream<DeleteAllCartItemsState> mapEventToState(DeleteAllCartItemsEvent event) async* {
-    if (event is DeleteAllCartItemsInitEvent) {
-      yield  _mapDeleteAllCartItemsInitToState(event);
+    if (event is InitEvent) {
+      yield  _mapInitToState(event);
     }
-    if (event is DeleteAllCartItemsClearEvent) {
-      yield await _mapDeleteAllCartItemsClearToState(event);
+    if (event is ClearEvent) {
+      yield await _mapClearToState(event);
     }
   }
 
-  DeleteAllCartItemsState _mapDeleteAllCartItemsInitToState(DeleteAllCartItemsInitEvent event) {
-    return DeleteAllCartItemsInitState();
+  DeleteAllCartItemsState _mapInitToState(InitEvent event) {
+    return InitState();
   }
 
-  Future<DeleteAllCartItemsState> _mapDeleteAllCartItemsClearToState(DeleteAllCartItemsClearEvent event) async {
+  Future<DeleteAllCartItemsState> _mapClearToState(ClearEvent event) async {
     try {
       await _cartDataRepository.clearCart();
-      return DeleteAllCartItemsApplyClearState();
+      return ApplyClearState();
     } catch(e) {
-      return DeleteAllCartItemsErrorState(e);
+      return ErrorState(e);
     }
   }
 }
@@ -39,18 +39,18 @@ class DeleteAllCartItemsBloc extends Bloc<DeleteAllCartItemsEvent, DeleteAllCart
 @immutable
 abstract class DeleteAllCartItemsEvent {}
 
-class DeleteAllCartItemsInitEvent extends DeleteAllCartItemsEvent{}
+class InitEvent extends DeleteAllCartItemsEvent{}
 
-class DeleteAllCartItemsClearEvent extends DeleteAllCartItemsEvent{}
+class ClearEvent extends DeleteAllCartItemsEvent{}
 
 @immutable
 abstract class DeleteAllCartItemsState {}
 
-class DeleteAllCartItemsInitState extends DeleteAllCartItemsState {}
+class InitState extends DeleteAllCartItemsState {}
 
-class DeleteAllCartItemsApplyClearState extends DeleteAllCartItemsState {}
+class ApplyClearState extends DeleteAllCartItemsState {}
 
-class DeleteAllCartItemsErrorState extends DeleteAllCartItemsState {
+class ErrorState extends DeleteAllCartItemsState {
   final dynamic error;
-  DeleteAllCartItemsErrorState(this.error);
+  ErrorState(this.error);
 }

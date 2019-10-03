@@ -5,7 +5,6 @@ import 'package:catalog_app/presentation/design/application_design.dart';
 import 'package:catalog_app/presentation/cart_action/cart_sum_action_widget.dart';
 import 'package:catalog_app/presentation/cart/list_cart_items/list_cart_item_widget.dart';
 import 'package:catalog_app/internal/dependencies/application_component.dart';
-import 'package:catalog_app/presentation/menu_drawer/menu_drawer_widget.dart';
 import 'package:catalog_app/domain/bloc/cart_bloc.dart';
 
 class CartScreen extends StatefulWidget {
@@ -22,7 +21,7 @@ class _CartScreenState extends State<CartScreen>{
       builder: (context) => _cartBloc,
       child: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
-          if (state is CartReadyState) {
+          if (state is ReadyState) {
             return Scaffold(
               appBar: AppBar(
                 title: AppBarTitle('Корзина'),

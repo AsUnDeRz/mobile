@@ -11,47 +11,47 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
   CountGoodBloc(this._cartDataRepository);
 
   @override
-  CountGoodState get initialState => CountGoodLoadingState();
+  CountGoodState get initialState => LoadingState();
 
   @override
   Stream<CountGoodState> mapEventToState(CountGoodEvent event) async* {
-    if (event is CountGoodInitEvent) {
-      yield  _mapCountGoodInitToState(event);
+    if (event is InitEvent) {
+      yield  _mapInitToState(event);
     }
-    if (event is CountGoodDecrementCountEvent) {
-      yield  _mapCountGoodDecrementCountToState(event);
+    if (event is DecrementCountEvent) {
+      yield  _mapDecrementCountToState(event);
     }
-    if (event is CountGoodIncrementCountEvent) {
-      yield  _mapCountGoodIncrementCountToState(event);
+    if (event is IncrementCountEvent) {
+      yield  _mapIncrementCountToState(event);
     }
-    if (event is CountGoodAddCartEvent) {
-      yield await _mapCountGoodAddCartToState(event);
+    if (event is AddCartEvent) {
+      yield await _mapAddCartToState(event);
     }
   }
 
-  CountGoodState _mapCountGoodInitToState(CountGoodInitEvent event) {
+  CountGoodState _mapInitToState(InitEvent event) {
     _cartItem = event.cartItem;
-    return CountGoodUpdateCountState(_cartItem);
+    return UpdateCountState(_cartItem);
   }
 
-  CountGoodState _mapCountGoodDecrementCountToState(CountGoodDecrementCountEvent event) {
+  CountGoodState _mapDecrementCountToState(DecrementCountEvent event) {
     final decrementedCount = _cartItem.count - 1;
-    _cartItem = CartItem.fromCartItem(_cartItem, count: decrementedCount);
-    return CountGoodUpdateCountState(_cartItem);
+    _cartItem = _cartItem.copyWith(count: decrementedCount);
+    return UpdateCountState(_cartItem);
   }
 
-  CountGoodState _mapCountGoodIncrementCountToState(CountGoodIncrementCountEvent event) {
+  CountGoodState _mapIncrementCountToState(IncrementCountEvent event) {
     final incrementedCount = _cartItem.count + 1;
-    _cartItem = CartItem.fromCartItem(_cartItem, count: incrementedCount);
-    return CountGoodUpdateCountState(_cartItem);
+    _cartItem = _cartItem.copyWith(count: incrementedCount);
+    return UpdateCountState(_cartItem);
   }
 
-  Future<CountGoodState> _mapCountGoodAddCartToState(CountGoodAddCartEvent event) async {
+  Future<CountGoodState> _mapAddCartToState(AddCartEvent event) async {
     try {
       await _addCartItem(_cartItem);
-      return CountGoodApplyAddCartState();
+      return ApplyAddCartState();
     } catch(e) {
-      return CountGoodErrorState(e);
+      return ErrorState(e);
     }
   }
 
@@ -64,7 +64,7 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
 
     if (existingCartItem != null) {
       final updatedCount = existingCartItem.count + cartItem.count;
-      final updatedCartItem = CartItem.fromCartItem(existingCartItem, count: updatedCount);
+      final updatedCartItem = _cartItem.copyWith(count: updatedCount);
       return _cartDataRepository.updateCartItem(updatedCartItem);
     }
 
@@ -75,30 +75,30 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
 @immutable
 abstract class CountGoodEvent {}
 
-class CountGoodInitEvent extends CountGoodEvent{
+class InitEvent extends CountGoodEvent{
   final CartItem cartItem;
-  CountGoodInitEvent(this.cartItem);
+  InitEvent(this.cartItem);
 }
 
-class CountGoodDecrementCountEvent extends CountGoodEvent{}
+class DecrementCountEvent extends CountGoodEvent{}
 
-class CountGoodIncrementCountEvent extends CountGoodEvent{}
+class IncrementCountEvent extends CountGoodEvent{}
 
-class CountGoodAddCartEvent extends CountGoodEvent{}
+class AddCartEvent extends CountGoodEvent{}
 
 @immutable
 abstract class CountGoodState {}
 
-class CountGoodLoadingState extends CountGoodState {}
+class LoadingState extends CountGoodState {}
 
-class CountGoodApplyAddCartState extends CountGoodState {}
+class ApplyAddCartState extends CountGoodState {}
 
-class CountGoodUpdateCountState extends CountGoodState{
+class UpdateCountState extends CountGoodState{
   final cartItem;
-  CountGoodUpdateCountState(this.cartItem);
+  UpdateCountState(this.cartItem);
 }
 
-class CountGoodErrorState extends CountGoodState {
+class ErrorState extends CountGoodState {
   final dynamic error;
-  CountGoodErrorState(this.error);
+  ErrorState(this.error);
 }

@@ -20,7 +20,7 @@ class _AvatarWidgetState extends State<AvatarWidget> {
       builder: (context) => _avatarBloc,
       child: BlocBuilder<AvatarBloc, AvatarState>(
         builder: (context, state) {
-          if (state is AvatarApplyState) {
+          if (state is ApplyState) {
             return DrawerHeader(
               margin: EdgeInsets.only(bottom: .0),
               child: CircleAvatar(
@@ -32,7 +32,7 @@ class _AvatarWidgetState extends State<AvatarWidget> {
               ),
             );
           }
-          _avatarBloc.dispatch(AvatarActionEvent());
+          _avatarBloc.dispatch(ActionEvent());
           return LoaderPage();
         },
       ),
