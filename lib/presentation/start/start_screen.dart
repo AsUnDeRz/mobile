@@ -1,9 +1,13 @@
+import 'package:catalog_app/domain/bloc/form_login/login_form_bloc.dart';
+import 'package:catalog_app/presentation/start/form/checkbox_widget.dart';
+import 'package:catalog_app/presentation/start/form/name_widget.dart';
+import 'package:catalog_app/presentation/start/form/password_widget.dart';
+import 'package:catalog_app/presentation/start/form/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app/presentation/catalog/catalog_screen.dart';
 import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/domain/bloc/login_bloc.dart';
 import 'package:catalog_app/internal/dependencies/application_component.dart';
 
 class StartScreen extends StatefulWidget {
@@ -12,119 +16,50 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
-  final LoginBloc _loginBloc = UserModule.loginBloc();
+  final LoginFormBloc _loginFormBloc = UserModule.loginFormBloc();
   GlobalKey<FormState> _formKey;
-  TextEditingController _nameUserController;
-  TextEditingController _passwordUserController;
 
   _StartScreenState() {
-    _nameUserController = TextEditingController();
-    _passwordUserController = TextEditingController();
     _formKey = GlobalKey<FormState>();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider<LoginBloc>(
-        builder: (context) => _loginBloc,
-        child: BlocListener<LoginBloc, LoginState>(
-          listener: (context, state) {
-            if (state is ApplyState) {
-              _onLoginSuccess();
-            }
+      body:BlocListener<LoginFormBloc, LoginFormState>(
+        bloc: _loginFormBloc,
+        listener: (context, state) {
+          if (state is SuccessLoginState) {
+            _onLoginSuccess();
+          }
+        },
+        child: BlocBuilder<LoginFormBloc, LoginFormState>(
+          bloc: _loginFormBloc,
+          builder: (context, loginFormState) {
+            return Form(
+              key: _formKey,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return ListView(
+                    padding: EdgeInsets.all(constraints.maxWidth * 0.1),
+                    children: <Widget>[
+                      TitleWidget(),
+                      Container(height:  30,),
+                      NameWidget(_loginFormBloc.nameBloc),
+                      Container(height:  30,),
+                      PasswordWidget(_loginFormBloc.passwordBloc),
+                      Container(height:  30,),
+                      _getSubmitButton(),
+                      Container(height:  30,),
+                      CheckboxWidget(_loginFormBloc),
+                    ],
+                  );
+                },
+              ),
+            );
           },
-          child: BlocBuilder<LoginBloc, LoginState>(
-            builder: (context, state) {
-              bool agree = false;
-              Widget agreeText = Text('На всё согласен(на)');
-              if(state is UpdateAgreeState){
-                agree = state.agree;
-              }
-              if (state is FailureAgreeState) {
-                agreeText = Text('На всё согласен(на)', style: TextStyle(color: Colors.redAccent),);
-              }
-              return _getBody(agree, agreeText);
-            },
-          ),
         ),
       ),
-    );
-  }
-
-  Widget _getBody(agree, agreeText) {
-    return Form(
-      key: _formKey,
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return ListView(
-            padding: EdgeInsets.all(constraints.maxWidth * 0.1),
-            children: <Widget>[
-              Text(
-                'Catalog app',
-                style: TextStyle(fontSize: 25.0),
-                textAlign: TextAlign.center,
-              ),
-              Container(height: 30.0),
-              _getTextFormField(
-                label: 'Имя',
-                errorText: 'Пожалуйста, введите имя',
-                controller: _nameUserController,
-                onChange: _onUpdateBlocName,
-              ),
-              Container(height: 20.0),
-              _getTextFormField(
-                label: 'Пароль',
-                errorText: 'Пожалуйста, введите пароль',
-                obscure: true,
-                controller: _passwordUserController,
-                onChange: _onUpdateBlocPassword,
-              ),
-              Container(height: 20.0),
-              _getSubmitButton(),
-              Container(height: 20.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: <Widget>[
-                    Spacer(flex: 1,),
-                    Checkbox(
-                      value: agree,
-                      onChanged: _onUpdateBlocAgree,
-                    ),
-                    Container(width:  20,),
-                    agreeText,
-                    Spacer(flex: 1,),
-                  ],
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _getTextFormField(
-      {String label,
-      String errorText,
-      bool obscure = false,
-      @required TextEditingController controller,
-      Function onChange}) {
-    return TextFormField(
-      obscureText: obscure,
-      controller: controller,
-      onChanged: onChange,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        hintText: label,
-      ),
-      validator: (value) {
-        if (value.isEmpty) {
-          return errorText;
-        }
-        return null;
-      },
     );
   }
 
@@ -142,22 +77,10 @@ class _StartScreenState extends State<StartScreen> {
     );
   }
 
-  void _onUpdateBlocName(String name) {
-    _loginBloc.dispatch(UpdateNameEvent(name));
-  }
-
-  void _onUpdateBlocPassword(String password) {
-    _loginBloc.dispatch(UpdatePasswordEvent(password));
-  }
-
-  void _onUpdateBlocAgree(agree) {
-    _loginBloc.dispatch(UpdateAgreeEvent(agree));
-  }
-
   void _onLogin() {
     if (!_formKey.currentState.validate()) {
       return;
     }
-    _loginBloc.dispatch(ActionEvent());
+    _loginFormBloc.dispatch(LoginEvent());
   }
 }
