@@ -42,4 +42,14 @@ public class CreateMessageActivity extends AppCompatActivity {
         Intent chooseIntent = Intent.createChooser(intent, chooseTitle);
         startActivity(chooseIntent);
     }
+
+    public  void onSendMessageAppError(View view){
+        EditText editText = findViewById(R.id.editText);
+        String message = editText.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plaindsa");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if(intent.resolveActivity(getPackageManager()) != null )
+            startActivity(intent);
+    }
 }

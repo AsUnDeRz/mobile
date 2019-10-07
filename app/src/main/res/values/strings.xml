@@ -4,5 +4,6 @@
     <string name="sendLocal">Send message local</string>
     <string name="sendToApp">Send message another app</string>
     <string name="sendToAppVia">Send message another app via</string>
+    <string name="sendToAppError">Send message another app error</string>
     <string name="chooseSendAppVia">Choose app to send message</string>
 </resources>
