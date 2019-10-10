@@ -1,4 +1,4 @@
-import 'package:catalog_app/data/sp/sp_util.dart';
+import 'package:catalog_app_bloc/data/sp/sp_util.dart';
 
 class SpModule {
   static SpUtil _spUtil;

@@ -1,4 +1,4 @@
-import 'package:catalog_app/domain/bloc/catalog_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/catalog_bloc.dart';
 
 import 'offer_repository_module.dart';
 

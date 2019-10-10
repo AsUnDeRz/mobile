@@ -1,7 +1,7 @@
-import 'package:catalog_app/domain/model/cart_item.dart';
-import 'package:catalog_app/domain/model/offer.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/presentation/design/dialog/count_good/count_good_widget.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/domain/model/offer.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/presentation/design/dialog/count_good/count_good_widget.dart';
 import 'package:flutter/material.dart';
 
 class CardOfferBuyArea extends StatefulWidget {

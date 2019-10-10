@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/domain/model/cart.dart';
+import 'package:catalog_app_bloc/domain/model/cart.dart';
 
 class CartActionBloc extends  Bloc<CartActionEvent, CartActionState> {
   final _cartDataRepository;

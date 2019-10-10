@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/data/repository/offer_data_repository.dart';
+import 'package:catalog_app_bloc/data/repository/offer_data_repository.dart';
 
 class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   OfferDataRepository _offerDataRepository;

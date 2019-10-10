@@ -1,5 +1,5 @@
-import 'package:catalog_app/data/api/model/api_offer.dart';
-import 'package:catalog_app/domain/model/offer.dart';
+import 'package:catalog_app_bloc/data/api/model/api_offer.dart';
+import 'package:catalog_app_bloc/domain/model/offer.dart';
 
 class ApiOfferMapper {
   static Offer toOffer(ApiOffer apiOffer) {

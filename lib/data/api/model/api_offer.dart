@@ -1,5 +1,5 @@
-import 'package:catalog_app/data/api/mapping/api_seller_mapper.dart';
-import 'package:catalog_app/domain/model/seller.dart';
+import 'package:catalog_app_bloc/data/api/mapping/api_seller_mapper.dart';
+import 'package:catalog_app_bloc/domain/model/seller.dart';
 
 class ApiOffer {
   static const ID = 'offer_id';

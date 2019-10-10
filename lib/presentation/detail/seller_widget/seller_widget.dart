@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:catalog_app/presentation/detail/seller_widget/seller_avatar.dart';
-import 'package:catalog_app/presentation/detail/seller_widget/seller_description.dart';
-import 'package:catalog_app/domain/model/seller.dart';
+import 'package:catalog_app_bloc/presentation/detail/seller_widget/seller_avatar.dart';
+import 'package:catalog_app_bloc/presentation/detail/seller_widget/seller_description.dart';
+import 'package:catalog_app_bloc/domain/model/seller.dart';
 
 
 class SellerWidget extends StatefulWidget{

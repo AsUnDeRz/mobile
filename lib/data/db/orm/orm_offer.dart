@@ -1,13 +1,13 @@
 import 'package:sqflite/sqflite.dart';
 
-import 'package:catalog_app/data/db/db_scheme.dart';
-import 'package:catalog_app/data/db/db_util.dart';
-import 'package:catalog_app/data/db/mapping/offer_mapper.dart';
-import 'package:catalog_app/data/db/mapping/seller_mapper.dart';
-import 'package:catalog_app/data/db/model/db_offer.dart';
-import 'package:catalog_app/data/db/model/db_seller.dart';
-import 'package:catalog_app/domain/model/offer.dart';
-import 'package:catalog_app/domain/model/seller.dart';
+import 'package:catalog_app_bloc/data/db/db_scheme.dart';
+import 'package:catalog_app_bloc/data/db/db_util.dart';
+import 'package:catalog_app_bloc/data/db/mapping/offer_mapper.dart';
+import 'package:catalog_app_bloc/data/db/mapping/seller_mapper.dart';
+import 'package:catalog_app_bloc/data/db/model/db_offer.dart';
+import 'package:catalog_app_bloc/data/db/model/db_seller.dart';
+import 'package:catalog_app_bloc/domain/model/offer.dart';
+import 'package:catalog_app_bloc/domain/model/seller.dart';
 
 class OrmOffer {
   DbUtil _dbUtil;

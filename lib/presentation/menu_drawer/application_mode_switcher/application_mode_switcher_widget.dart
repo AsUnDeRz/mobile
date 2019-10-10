@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app/domain/bloc/menu_drawer/application_theme_switcher/application_theme_bloc.dart';
-import 'package:catalog_app/domain/model/application_theme.dart';
-import 'package:catalog_app/internal/dependencies/application_theme_module.dart';
+import 'package:catalog_app_bloc/domain/bloc/menu_drawer/application_theme_switcher/application_theme_bloc.dart';
+import 'package:catalog_app_bloc/domain/model/application_theme.dart';
+import 'package:catalog_app_bloc/internal/dependencies/application_theme_module.dart';
 
 class ApplicationThemeSwitcherWidget extends StatefulWidget  {
   @override

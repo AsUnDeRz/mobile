@@ -1,12 +1,12 @@
 import 'dart:async';
-import 'package:catalog_app/domain/bloc/form_login/checkbox_bloc.dart';
-import 'package:catalog_app/domain/bloc/form_login/password_field_bloc.dart';
-import 'package:catalog_app/domain/bloc/form_login/text_field_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/checkbox_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/password_field_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/text_field_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/domain/model/user.dart';
-import 'package:catalog_app/domain/repository/user_repository.dart';
+import 'package:catalog_app_bloc/domain/model/user.dart';
+import 'package:catalog_app_bloc/domain/repository/user_repository.dart';
 
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   final UserRepository _userDataRepository;

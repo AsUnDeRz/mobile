@@ -1,6 +1,6 @@
-import 'package:catalog_app/domain/model/user.dart';
-import 'package:catalog_app/domain/repository/user_repository.dart';
-import 'package:catalog_app/data/sp/sp_util.dart';
+import 'package:catalog_app_bloc/domain/model/user.dart';
+import 'package:catalog_app_bloc/domain/repository/user_repository.dart';
+import 'package:catalog_app_bloc/data/sp/sp_util.dart';
 
 class UserDataRepository extends UserRepository {
   SpUtil _spUtil;

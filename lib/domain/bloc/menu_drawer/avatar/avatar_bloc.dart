@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/domain/repository/user_repository.dart';
+import 'package:catalog_app_bloc/domain/repository/user_repository.dart';
 
 class AvatarBloc extends Bloc<AvatarEvent, AvatarState> {
   final UserRepository _userDataRepository;

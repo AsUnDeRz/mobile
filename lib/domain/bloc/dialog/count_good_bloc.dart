@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 
 class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
   final _cartDataRepository;

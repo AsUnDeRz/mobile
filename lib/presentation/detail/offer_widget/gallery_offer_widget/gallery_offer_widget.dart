@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:catalog_app/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 
 import 'gallery_photo_view_wrapper.dart';
 

@@ -1,9 +1,9 @@
-import 'package:catalog_app/domain/bloc/menu_drawer/logout/logout_bloc.dart';
-import 'package:catalog_app/internal/dependencies/application_component.dart';
+import 'package:catalog_app_bloc/domain/bloc/menu_drawer/logout/logout_bloc.dart';
+import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app/presentation/start/start_screen.dart';
+import 'package:catalog_app_bloc/presentation/start/start_screen.dart';
 
 
 class LogoutWidget extends StatefulWidget {

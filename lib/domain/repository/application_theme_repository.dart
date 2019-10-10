@@ -1,4 +1,4 @@
-import 'package:catalog_app/domain/model/application_theme.dart';
+import 'package:catalog_app_bloc/domain/model/application_theme.dart';
 
 abstract class ApplicationThemeRepository {
   Future<ApplicationTheme> getApplicationTheme();

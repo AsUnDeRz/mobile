@@ -1,6 +1,6 @@
-import 'package:catalog_app/data/db/db_util.dart';
-import 'package:catalog_app/data/db/orm/orm_cart_item.dart';
-import 'package:catalog_app/data/db/orm/orm_offer.dart';
+import 'package:catalog_app_bloc/data/db/db_util.dart';
+import 'package:catalog_app_bloc/data/db/orm/orm_cart_item.dart';
+import 'package:catalog_app_bloc/data/db/orm/orm_offer.dart';
 
 class DbModule {
   static DbUtil _dbUtilInstance;

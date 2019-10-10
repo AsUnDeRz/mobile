@@ -1,7 +1,7 @@
-import 'package:catalog_app/data/db/db_demo.dart';
-import 'package:catalog_app/data/db/model/db_offer.dart';
-import 'package:catalog_app/data/db/model/db_seller.dart';
-import 'package:catalog_app/data/db/model/db_cart_item.dart';
+import 'package:catalog_app_bloc/data/db/db_demo.dart';
+import 'package:catalog_app_bloc/data/db/model/db_offer.dart';
+import 'package:catalog_app_bloc/data/db/model/db_seller.dart';
+import 'package:catalog_app_bloc/data/db/model/db_cart_item.dart';
 
 class CartScheme {
   static final String tableId = 'cart_table';

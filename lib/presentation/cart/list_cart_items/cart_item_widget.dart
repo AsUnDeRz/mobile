@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:catalog_app/domain/model/cart_item.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 
 class CartItemWidget extends StatefulWidget {
   final CartItem _cartItem;

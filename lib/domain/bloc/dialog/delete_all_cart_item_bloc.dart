@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/data/repository/cart_data_repository.dart';
+import 'package:catalog_app_bloc/data/repository/cart_data_repository.dart';
 
 class DeleteAllCartItemsBloc extends Bloc<DeleteAllCartItemsEvent, DeleteAllCartItemsState> {
   final CartDataRepository _cartDataRepository;

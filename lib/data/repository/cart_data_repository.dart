@@ -1,9 +1,9 @@
 import 'package:rxdart/rxdart.dart';
 
-import 'package:catalog_app/data/db/orm/orm_cart_item.dart';
-import 'package:catalog_app/domain/model/cart.dart';
-import 'package:catalog_app/domain/model/cart_item.dart';
-import 'package:catalog_app/domain/repository/cart_repository.dart';
+import 'package:catalog_app_bloc/data/db/orm/orm_cart_item.dart';
+import 'package:catalog_app_bloc/domain/model/cart.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/domain/repository/cart_repository.dart';
 
 
 class CartDataRepository extends CartRepository {

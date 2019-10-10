@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'package:catalog_app/data/api/model/api_offer.dart';
+import 'package:catalog_app_bloc/data/api/model/api_offer.dart';
 
 class MockableApiService {
   final Dio _dio;

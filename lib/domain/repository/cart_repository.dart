@@ -1,7 +1,7 @@
 import 'dart:core';
 
-import 'package:catalog_app/domain/model/cart.dart';
-import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/domain/model/cart.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 
 abstract class CartRepository {
   Stream<Cart> getCartStream();

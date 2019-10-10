@@ -1,8 +1,8 @@
-import 'package:catalog_app/domain/bloc/cart_action_bloc.dart';
-import 'package:catalog_app/domain/bloc/cart_bloc.dart';
-import 'package:catalog_app/domain/bloc/dialog/count_good_bloc.dart';
-import 'package:catalog_app/domain/bloc/dialog/delete_all_cart_item_bloc.dart';
-import 'package:catalog_app/domain/bloc/dialog/delete_cart_item_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/cart_action_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/cart_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/dialog/count_good_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/dialog/delete_all_cart_item_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/dialog/delete_cart_item_bloc.dart';
 
 import 'cart_repository_module.dart';
 

@@ -1,11 +1,11 @@
-import 'package:catalog_app/domain/bloc/catalog_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/catalog_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/presentation/design/loader_view.dart';
-import 'package:catalog_app/presentation/catalog/list_offers/card_offer/card_offer_widget.dart';
-import 'package:catalog_app/internal/dependencies/offer_module.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/presentation/design/loader_view.dart';
+import 'package:catalog_app_bloc/presentation/catalog/list_offers/card_offer/card_offer_widget.dart';
+import 'package:catalog_app_bloc/internal/dependencies/offer_module.dart';
 
 class ListOffersWidget extends StatefulWidget {
   @override

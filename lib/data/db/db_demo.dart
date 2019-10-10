@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:catalog_app/domain/model/seller.dart';
+import 'package:catalog_app_bloc/domain/model/seller.dart';
 
 class SellerFixture{
   static List _names = ['John', 'Shon', 'Johan'];

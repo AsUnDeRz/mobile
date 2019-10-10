@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/domain/model/cart.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/domain/model/cart.dart';
 
 class CartSumActionWidget extends StatelessWidget {
   final Cart _cart;

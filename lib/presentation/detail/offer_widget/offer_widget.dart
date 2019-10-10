@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:catalog_app/domain/model/offer.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/presentation/detail/offer_widget/gallery_offer_widget/gallery_offer_widget.dart';
-import 'package:catalog_app/presentation/detail/seller_widget/seller_widget.dart';
-import 'package:catalog_app/presentation/detail/offer_widget/category_offer_widget/category_offer_widget.dart';
-import 'package:catalog_app/presentation/detail/offer_widget/characters_offer_widget/characters_offer_widget.dart';
-import 'package:catalog_app/presentation/detail/offer_widget/description_offer_widget/description_offer_widget.dart';
-import 'package:catalog_app/presentation/detail/offer_widget/header_offer_widget/header_offer_widget.dart';
+import 'package:catalog_app_bloc/domain/model/offer.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/presentation/detail/offer_widget/gallery_offer_widget/gallery_offer_widget.dart';
+import 'package:catalog_app_bloc/presentation/detail/seller_widget/seller_widget.dart';
+import 'package:catalog_app_bloc/presentation/detail/offer_widget/category_offer_widget/category_offer_widget.dart';
+import 'package:catalog_app_bloc/presentation/detail/offer_widget/characters_offer_widget/characters_offer_widget.dart';
+import 'package:catalog_app_bloc/presentation/detail/offer_widget/description_offer_widget/description_offer_widget.dart';
+import 'package:catalog_app_bloc/presentation/detail/offer_widget/header_offer_widget/header_offer_widget.dart';
 
 class OfferWidget extends StatelessWidget {
   final Offer _offer;

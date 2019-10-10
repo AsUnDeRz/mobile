@@ -1,5 +1,5 @@
-import 'package:catalog_app/data/db/model/db_cart_item.dart';
-import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/data/db/model/db_cart_item.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 
 class CartItemMapper {
   static CartItem toCartItem(DbCartItem dbCartItem) {

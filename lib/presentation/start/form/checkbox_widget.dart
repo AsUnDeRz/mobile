@@ -1,5 +1,5 @@
-import 'package:catalog_app/domain/bloc/form_login/checkbox_bloc.dart';
-import 'package:catalog_app/domain/bloc/form_login/login_form_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/checkbox_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/login_form_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

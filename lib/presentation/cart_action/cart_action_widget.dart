@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app/domain/bloc/cart_action_bloc.dart';
-import 'package:catalog_app/internal/dependencies/application_component.dart';
-import 'package:catalog_app/domain/model/cart.dart';
-import 'package:catalog_app/presentation/design/loader_view.dart';
-import 'package:catalog_app/presentation/cart/cart_screen.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/domain/bloc/cart_action_bloc.dart';
+import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
+import 'package:catalog_app_bloc/domain/model/cart.dart';
+import 'package:catalog_app_bloc/presentation/design/loader_view.dart';
+import 'package:catalog_app_bloc/presentation/cart/cart_screen.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 
 class CartActionWidget extends StatefulWidget {
   @override

@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:catalog_app/domain/model/application_theme.dart';
-import 'package:catalog_app/domain/repository/application_theme_repository.dart';
+import 'package:catalog_app_bloc/domain/model/application_theme.dart';
+import 'package:catalog_app_bloc/domain/repository/application_theme_repository.dart';
 
 class ApplicationThemeBloc extends Bloc<ApplicationThemeEvent, ApplicationThemeState> {
   final ApplicationThemeRepository _applicationThemeDataRepository;

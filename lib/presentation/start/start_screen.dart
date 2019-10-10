@@ -1,14 +1,14 @@
-import 'package:catalog_app/domain/bloc/form_login/login_form_bloc.dart';
-import 'package:catalog_app/presentation/start/form/checkbox_widget.dart';
-import 'package:catalog_app/presentation/start/form/name_widget.dart';
-import 'package:catalog_app/presentation/start/form/password_widget.dart';
-import 'package:catalog_app/presentation/start/form/title_widget.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/login_form_bloc.dart';
+import 'package:catalog_app_bloc/presentation/start/form/checkbox_widget.dart';
+import 'package:catalog_app_bloc/presentation/start/form/name_widget.dart';
+import 'package:catalog_app_bloc/presentation/start/form/password_widget.dart';
+import 'package:catalog_app_bloc/presentation/start/form/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app/presentation/catalog/catalog_screen.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/internal/dependencies/application_component.dart';
+import 'package:catalog_app_bloc/presentation/catalog/catalog_screen.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
 
 class StartScreen extends StatefulWidget {
   @override

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app/presentation/design/application_design.dart';
-import 'package:catalog_app/domain/bloc/dialog/delete_cart_item_bloc.dart';
-import 'package:catalog_app/domain/model/cart_item.dart';
-import 'package:catalog_app/internal/dependencies/application_component.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/domain/bloc/dialog/delete_cart_item_bloc.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
 
 class DeleteCartItemWidget extends StatefulWidget {
   final CartItem _cartItem;

@@ -1,4 +1,4 @@
-import 'package:catalog_app/domain/model/cart_item.dart';
+import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 
 class Cart {
   final List<CartItem> _listItems;

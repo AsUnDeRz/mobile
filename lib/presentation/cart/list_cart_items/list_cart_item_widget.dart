@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:catalog_app/domain/model/cart.dart';
-import 'package:catalog_app/presentation/cart/list_cart_items/cart_item_widget.dart';
-import 'package:catalog_app/presentation/design/application_design.dart';
+import 'package:catalog_app_bloc/domain/model/cart.dart';
+import 'package:catalog_app_bloc/presentation/cart/list_cart_items/cart_item_widget.dart';
+import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 
 class ListCartItems extends StatefulWidget {
   final Cart cart;
