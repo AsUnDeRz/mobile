@@ -12,7 +12,6 @@ class _CarScreenState extends State<CarScreen> with SingleTickerProviderStateMix
 
   @override
   void initState() {
-    super.initState();
     _controller = AnimationController(
         vsync: this,
         duration: Duration(seconds: 4));
@@ -30,6 +29,7 @@ class _CarScreenState extends State<CarScreen> with SingleTickerProviderStateMix
       else if(status == AnimationStatus.dismissed)
         _controller.forward();
     });
+    super.initState();
   }
 
   @override

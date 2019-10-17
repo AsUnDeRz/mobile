@@ -133,6 +133,42 @@ class Application extends StatelessWidget {
                               ),
                             ),
                           ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Radial menu',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  RadialMenuScreen(),
+                              ),
+                            ),
+                          ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Skeleton effect',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  SkeletonEffectScreen(),
+                              ),
+                            ),
+                          ),
+                          FlatButton(
+                            padding: EdgeInsets.all (constraint.maxWidth * .03),
+                            child: Text(
+                              'Loading button',
+                              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700),
+                            ),
+                            onPressed: () =>Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (_) =>  LoadingButtonScreen(),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

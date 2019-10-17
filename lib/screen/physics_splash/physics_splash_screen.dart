@@ -48,7 +48,6 @@ class BoxState extends State<PhysicsBox> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    super.initState();
     boxPosition = widget.boxPosition;
 
     simulation = ScrollSpringSimulation(
@@ -64,8 +63,10 @@ class BoxState extends State<PhysicsBox> with TickerProviderStateMixin {
 
     controller = AnimationController(vsync: this)
       ..addListener(() {
-        print('${simulation.x(controller.value)}');
-      });
+//        print('${simulation.x(controller.value)}');
+      },
+    );
+    super.initState();
   }
 
   @override

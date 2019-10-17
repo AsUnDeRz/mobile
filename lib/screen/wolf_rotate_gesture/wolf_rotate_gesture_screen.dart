@@ -12,11 +12,17 @@ class _WolfRotateGestureScreenState extends State<WolfRotateGestureScreen> with 
 
   @override
   void initState() {
-    super.initState();
     _controller = AnimationController(
         vsync: this,
         duration: Duration(seconds: 2),
     );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   Widget build(BuildContext context) {
