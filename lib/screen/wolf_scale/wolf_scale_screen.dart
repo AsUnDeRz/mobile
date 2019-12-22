@@ -33,7 +33,7 @@ class _WolfScaleScreenState extends State<WolfScaleScreen> with SingleTickerProv
               scale: _controller,
               child: Text("\u{1F43A}",
                 textDirection: TextDirection.ltr,
-                style: TextStyle(fontSize: 85.0),)
+                style: TextStyle(fontSize: 85.0),),
           )
       ),
     );
