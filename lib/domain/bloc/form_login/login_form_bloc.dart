@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'package:catalog_app_bloc/domain/bloc/form_login/checkbox_bloc.dart';
-import 'package:catalog_app_bloc/domain/bloc/form_login/password_field_bloc.dart';
-import 'package:catalog_app_bloc/domain/bloc/form_login/text_field_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
+import 'package:catalog_app_bloc/domain/bloc/form_login/checkbox_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/password_field_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/text_field_bloc.dart';
 import 'package:catalog_app_bloc/domain/model/user.dart';
 import 'package:catalog_app_bloc/domain/repository/user_repository.dart';
 
@@ -22,6 +22,14 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   LoginFormState get initialState => InitState();
 
   @override
+  Future<void> close() {
+    nameBloc.close();
+    passwordBloc.close();
+    checkboxBloc.close();
+    return super.close();
+  }
+
+  @override
   Stream<LoginFormState> mapEventToState(LoginFormEvent event) async* {
     ++_countTryLogin;
     if (event is LoginEvent) {
@@ -33,7 +41,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   }
 
   Future<LoginFormState> _mapLoginToState(LoginEvent event) async {
-    if(checkboxBloc.currentState.value == false ){
+    if(checkboxBloc.value == false ){
       return FailLoginState();
     }
     await _userDataRepository.setUser(User(nameBloc.value, passwordBloc.value));
@@ -41,7 +49,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   }
 
   void _mapUpdateAgreeToState(UpdateAgreeEvent event) {
-    checkboxBloc.dispatch(CheckboxUpdateEvent());
+    checkboxBloc.add(CheckboxUpdateEvent());
   }
 }
 

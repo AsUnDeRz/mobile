@@ -48,32 +48,36 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          decoration: widget.backgroundDecoration,
-          constraints: BoxConstraints.expand(
-            height: MediaQuery.of(context).size.height,
-          ),
-          child: Stack(
-            alignment: Alignment.bottomRight,
-            children: <Widget>[
-              PhotoViewGallery.builder(
-                scrollPhysics: const BouncingScrollPhysics(),
-                builder: _buildItem,
-                itemCount: widget.galleryItems.length,
-                loadingChild: widget.loadingChild,
-                backgroundDecoration: widget.backgroundDecoration,
-                pageController: widget.pageController,
-                onPageChanged: onPageChanged,
+        decoration: widget.backgroundDecoration,
+        constraints: BoxConstraints.expand(
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
+        ),
+        child: Stack(
+          alignment: Alignment.bottomRight,
+          children: <Widget>[
+            PhotoViewGallery.builder(
+              scrollPhysics: const BouncingScrollPhysics(),
+              builder: _buildItem,
+              itemCount: widget.galleryItems.length,
+              loadingChild: widget.loadingChild,
+              backgroundDecoration: widget.backgroundDecoration,
+              pageController: widget.pageController,
+              onPageChanged: onPageChanged,
+            ),
+            Container(
+              padding: const EdgeInsets.all(20.0),
+              child: Text(
+                "Image ${currentIndex + 1}",
+                style: const TextStyle(
+                    color: Colors.white, fontSize: 17.0, decoration: null),
               ),
-              Container(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  "Image ${currentIndex + 1}",
-                  style: const TextStyle(
-                      color: Colors.white, fontSize: 17.0, decoration: null),
-                ),
-              )
-            ],
-          )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

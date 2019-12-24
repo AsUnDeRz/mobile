@@ -1,7 +1,8 @@
-import 'package:catalog_app_bloc/domain/bloc/form_login/checkbox_bloc.dart';
-import 'package:catalog_app_bloc/domain/bloc/form_login/login_form_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:catalog_app_bloc/domain/bloc/form_login/checkbox_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/login_form_bloc.dart';
 
 class CheckboxWidget extends StatefulWidget {
   final LoginFormBloc _formBloc;
@@ -49,6 +50,6 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
   }
 
   void _onUpdateBlocAgree(LoginFormBloc formBloc) {
-    formBloc.dispatch(UpdateAgreeEvent());
+    formBloc.add(UpdateAgreeEvent());
   }
 }

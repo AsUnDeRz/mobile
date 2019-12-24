@@ -1,10 +1,9 @@
-import 'package:catalog_app_bloc/domain/bloc/menu_drawer/logout/logout_bloc.dart';
-import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app_bloc/presentation/start/start_screen.dart';
-
+import 'package:catalog_app_bloc/domain/bloc/menu_drawer/logout/logout_bloc.dart';
+import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
 
 class LogoutWidget extends StatefulWidget {
   @override
@@ -16,30 +15,35 @@ class _LogoutWidgetState extends State<LogoutWidget> {
   final LogoutBloc _logoutBloc = UserModule.logoutBloc();
 
   @override
+  void dispose() {
+    _logoutBloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _logoutBloc,
-      child: BlocListener <LogoutBloc, LogoutState>(
-        listener: (context, state) {
-          if (state is ApplyState) {
-            _onLogoutSuccess();
-          }
+    return BlocListener <LogoutBloc, LogoutState>(
+      bloc: _logoutBloc,
+      listener: (context, state) {
+        if (state is ApplyState) {
+          _onLogoutSuccess();
+        }
+      },
+      child: BlocBuilder<LogoutBloc, LogoutState>(
+        bloc: _logoutBloc,
+        builder: (context, state) {
+          return  ListTile(
+            title: Text("Loout"),
+            trailing: Icon(Icons.exit_to_app),
+            onTap: _onLogout,
+          );
         },
-        child: BlocBuilder<LogoutBloc, LogoutState>(
-          builder: (context, state) {
-            return  ListTile(
-              title: Text("Loout"),
-              trailing: Icon(Icons.exit_to_app),
-              onTap: _onLogout,
-            );
-          },
-        ),
       ),
     );
   }
 
   void _onLogout() {
-    _logoutBloc.dispatch(ActionEvent());
+    _logoutBloc.add(ActionEvent());
   }
 
   void _onLogoutSuccess() {

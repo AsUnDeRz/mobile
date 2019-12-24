@@ -12,30 +12,39 @@ class AvatarWidget extends StatefulWidget {
 }
 
 class _AvatarWidgetState extends State<AvatarWidget> {
-  AvatarBloc _avatarBloc = UserModule.avatarBloc;
+  AvatarBloc _avatarBloc = UserModule.avatarBloc();
+
+  @override
+  void initState() {
+    _avatarBloc.add(ActionEvent());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _avatarBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _avatarBloc,
-      child: BlocBuilder<AvatarBloc, AvatarState>(
-        builder: (context, state) {
-          if (state is ApplyState) {
-            return DrawerHeader(
-              margin: EdgeInsets.only(bottom: .0),
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Text(
-                  state.avatar,
-                  style: TextStyle(fontSize: 40.0),
-                ),
+    return BlocBuilder<AvatarBloc, AvatarState>(
+      bloc: _avatarBloc,
+      builder: (context, state) {
+        if (state is ApplyState) {
+          return DrawerHeader(
+            margin: EdgeInsets.only(bottom: .0),
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Text(
+                state.avatar,
+                style: TextStyle(fontSize: 40.0),
               ),
-            );
-          }
-          _avatarBloc.dispatch(ActionEvent());
-          return LoaderPage();
-        },
-      ),
+            ),
+          );
+        }
+        return LoaderPage();
+      },
     );
   }
 }

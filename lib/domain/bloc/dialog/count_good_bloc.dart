@@ -1,11 +1,12 @@
 import 'dart:async';
+import 'package:catalog_app_bloc/domain/repository/cart_repository.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
 import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 
 class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
-  final _cartDataRepository;
+  final CartRepository _cartDataRepository;
   CartItem _cartItem;
 
   CountGoodBloc(this._cartDataRepository);
@@ -56,19 +57,25 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
   }
 
   Future<void> _addCartItem(CartItem cartItem) async {
-    final cart = await _cartDataRepository.getCartStream().first;
-    final existingCartItem = cart.listItems.singleWhere(
-      ((item) => item.offerId == cartItem.offerId),
-      orElse: () => null,
-    );
+    try {
+      final cart = await _cartDataRepository
+          .getCartStream()
+          .first;
+      final existingCartItem = cart.listItems.singleWhere(
+        ((item) => item.offerId == cartItem.offerId),
+        orElse: () => null,
+      );
 
-    if (existingCartItem != null) {
-      final updatedCount = existingCartItem.count + cartItem.count;
-      final updatedCartItem = _cartItem.copyWith(count: updatedCount);
-      return _cartDataRepository.updateCartItem(updatedCartItem);
+      if (existingCartItem != null) {
+        final updatedCount = existingCartItem.count + cartItem.count;
+        final updatedCartItem = existingCartItem.copyWith(count: updatedCount);
+        return await _cartDataRepository.updateCartItem(updatedCartItem);
+      }
+
+      return await _cartDataRepository.addCartItem(cartItem);
+    } catch(error) {
+      print("error");
     }
-
-    return _cartDataRepository.addCartItem(cartItem);
   }
 }
 

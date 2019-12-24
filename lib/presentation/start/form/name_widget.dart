@@ -1,6 +1,6 @@
-import 'package:catalog_app_bloc/domain/bloc/form_login/text_field_bloc.dart';
 import 'package:flutter/material.dart';
 
+import 'package:catalog_app_bloc/domain/bloc/form_login/text_field_bloc.dart';
 
 class NameWidget extends StatelessWidget {
 
@@ -34,6 +34,6 @@ class NameWidget extends StatelessWidget {
   }
 
   void _onUpdateBlocName(String name, TextFieldBloc nameBloc) {
-    nameBloc.dispatch(TextFieldUpdateEvent(name));
+    nameBloc.add(TextFieldUpdateEvent(name));
   }
 }

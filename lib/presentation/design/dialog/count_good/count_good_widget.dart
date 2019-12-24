@@ -1,11 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:catalog_app_bloc/domain/bloc/dialog/count_good_bloc.dart';
 import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
-import 'package:flutter/material.dart';
-
 import 'package:catalog_app_bloc/presentation/design/application_design.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class CountGoodWidget extends StatefulWidget {
   final CartItem _cartItem;
@@ -22,36 +21,38 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
 
   @override
   void initState() {
-    _countGoodBloc.dispatch(InitEvent(widget._cartItem));
+    _countGoodBloc.add(InitEvent(widget._cartItem));
     super.initState();
   }
 
   @override
+  void dispose() {
+    _countGoodBloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _countGoodBloc,
-      child: BlocBuilder<CountGoodBloc, CountGoodState>(
-        builder: (context, state) {
+    return BlocBuilder<CountGoodBloc, CountGoodState>(
+      bloc: _countGoodBloc,
+      builder: (context, state) {
+        if(state is LoadingState) {
+          return LoaderPage();
+        }
+        if(state is UpdateCountState) {
+          return _getDialogChooseCount(state.cartItem);
+        }
 
-          if(state is LoadingState) {
-            return LoaderPage();
-          }
+        if(state is ApplyAddCartState){
+          return _getDialogFinishChooseItem();
+        }
 
-          if(state is UpdateCountState) {
-            return _getDialogChooseCount(state.cartItem);
-          }
-
-          if(state is ApplyAddCartState){
-            return _getDialogFinishChooseItem();
-          }
-
-          if(state is ErrorState) {
-            return _getErrorFinishChooseItem();
-          }
-
+        if(state is ErrorState) {
           return _getErrorFinishChooseItem();
-        },
-      ),
+        }
+
+        return _getErrorFinishChooseItem();
+      },
     );
   }
 
@@ -212,16 +213,16 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
   }
 
   void _onAddCart(CartItem cartItem){
-    _countGoodBloc.dispatch(AddCartEvent());
+    _countGoodBloc.add(AddCartEvent());
   }
 
   void _onDecrement(CartItem cartItem) {
     if(cartItem.count == 1) return;
-    _countGoodBloc.dispatch(DecrementCountEvent());
+    _countGoodBloc.add(DecrementCountEvent());
   }
 
   void _onIncrement(CartItem cartItem) {
-    _countGoodBloc.dispatch(IncrementCountEvent());
+    _countGoodBloc.add(IncrementCountEvent());
   }
 
   void _onBack() {

@@ -18,29 +18,34 @@ class _ListOffersWidgetState extends State<ListOffersWidget> {
   @override
   void initState() {
     super.initState();
-    _catalogBloc.dispatch(RefreshEvent());
+    _catalogBloc.add(RefreshEvent());
+  }
+
+  @override
+  void dispose() {
+    _catalogBloc.close();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _catalogBloc,
-      child: BlocListener<CatalogBloc, CatalogState>(
-        listener: (context, state) {
-          if (state is ErrorState) {
-            _showErrorDialog(state.error);
+    return BlocListener<CatalogBloc, CatalogState>(
+      bloc: _catalogBloc,
+      listener: (context, state) {
+        if (state is ErrorState) {
+          _showErrorDialog(state.error);
+        }
+      },
+      child: BlocBuilder<CatalogBloc, CatalogState>(
+        bloc: _catalogBloc,
+        builder: (context, state) {
+          if (state is ReadyState) {
+            return _getList(state.listOffers);
+          }
+          else {
+            return LoaderPage();
           }
         },
-        child: BlocBuilder<CatalogBloc, CatalogState>(
-          builder: (context, state) {
-            if (state is ReadyState) {
-              return _getList(state.listOffers);
-            }
-            else {
-              return LoaderPage();
-            }
-          },
-        ),
       ),
     );
   }
@@ -48,6 +53,7 @@ class _ListOffersWidgetState extends State<ListOffersWidget> {
   Widget _getList(listOffers) {
     return ListView(
       padding:  EdgeInsets.all(5),
+      shrinkWrap: true,
       children: [
         ...listOffers.map((offer) => CardOfferWidget(offer))
       ],
@@ -58,7 +64,7 @@ class _ListOffersWidgetState extends State<ListOffersWidget> {
     return ErrorDialogWidget.showErrorDialog(
       context,
       error: error,
-      handlerButton: () => _catalogBloc.dispatch(RefreshEvent(),
+      handlerButton: () => _catalogBloc.add(RefreshEvent(),
       ), //onRefreshCatalog
     );
   }

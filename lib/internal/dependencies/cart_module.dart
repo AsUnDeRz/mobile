@@ -7,8 +7,12 @@ import 'package:catalog_app_bloc/domain/bloc/dialog/delete_cart_item_bloc.dart';
 import 'cart_repository_module.dart';
 
 class CartModule {
-  static final cartActionBloc = CartActionBloc(CartRepositoryModule.cartRepository);
-  static final cartBloc = CartBloc(CartRepositoryModule.cartRepository);
+  static CartActionBloc cartActionBloc(){
+    return CartActionBloc(CartRepositoryModule.cartRepository);
+  }
+  static CartBloc cartBloc(){
+    return CartBloc(CartRepositoryModule.cartRepository);
+  }
   static CountGoodBloc countGoodBloc() {
     return CountGoodBloc(CartRepositoryModule.cartRepository);
   }

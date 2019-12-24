@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:catalog_app_bloc/domain/bloc/menu_drawer/application_theme_switcher/application_theme_bloc.dart';
+import 'package:catalog_app_bloc/domain/bloc/menu_drawer/application_theme_switcher/switcher_application_theme_bloc.dart';
 import 'package:catalog_app_bloc/domain/model/application_theme.dart';
 import 'package:catalog_app_bloc/internal/dependencies/application_theme_module.dart';
 
@@ -11,36 +11,40 @@ class ApplicationThemeSwitcherWidget extends StatefulWidget  {
 }
 
 class _ApplicationThemeSwitcherWidgetState extends State<ApplicationThemeSwitcherWidget> {
-  ApplicationThemeBloc _applicationThemeBloc = ApplicationThemeModule.applicationThemeBloc;
+  SwitcherApplicationThemeBloc _applicationThemeBloc = ApplicationThemeModule.switcherApplicationThemeBloc();
+
+  @override
+  void dispose() {
+    _applicationThemeBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _applicationThemeBloc,
-      child: BlocBuilder<ApplicationThemeBloc, ApplicationThemeState>(
-        builder: (context, state) {
-          if (state is ReadyState) {
-            var iconTheme = Icon(Icons.brightness_1);
-            if( state.applicationTheme.mode == ApplicationTheme.DARK_MODE ) {
-              iconTheme = Icon(Icons.brightness_3);
-            }
-            return  ListTile(
-              title: Text("Mode theme"),
-              trailing: iconTheme,
-              onTap: () => _onChange(state.applicationTheme.mode),
-            );
+    return BlocBuilder<SwitcherApplicationThemeBloc, SwitcherApplicationThemeState>(
+      bloc: _applicationThemeBloc,
+      builder: (context, state) {
+        if (state is ReadyState) {
+          var iconTheme = Icon(Icons.brightness_1);
+          if( state.applicationTheme.mode == ApplicationTheme.DARK_MODE ) {
+            iconTheme = Icon(Icons.brightness_3);
           }
-          return ListTile(
+          return  ListTile(
             title: Text("Mode theme"),
-            trailing: Icon(Icons.brightness_1),
-            onTap: () => _onChange(false),
+            trailing: iconTheme,
+            onTap: () => _onChange(state.applicationTheme.mode),
           );
-        },
-      ),
+        }
+        return ListTile(
+          title: Text("Mode theme"),
+          trailing: Icon(Icons.brightness_1),
+          onTap: () => _onChange(false),
+        );
+      },
     );
   }
 
   void _onChange(bool mode) {
-    _applicationThemeBloc.dispatch(SwitchEvent());
+    _applicationThemeBloc.add(SwitchEvent());
   }
 }

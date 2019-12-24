@@ -13,27 +13,31 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen>{
-  CartBloc _cartBloc = CartModule.cartBloc;
+  CartBloc _cartBloc = CartModule.cartBloc();
+
+  @override
+  void dispose() {
+    _cartBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _cartBloc,
-      child: BlocBuilder<CartBloc, CartState>(
-        builder: (context, state) {
-          if (state is ReadyState) {
-            return Scaffold(
-              appBar: AppBar(
-                title: AppBarTitle('Корзина'),
-                centerTitle: true,
-                actions: [CartSumActionWidget(state.cart),],
-              ),
-              body: ListCartItems(state.cart),
-            );
-          }
-          return LoaderPage();
+    return BlocBuilder<CartBloc, CartState>(
+      bloc: _cartBloc,
+      builder: (context, state) {
+        if (state is ReadyState) {
+          return Scaffold(
+            appBar: AppBar(
+              title: AppBarTitle('Корзина'),
+              centerTitle: true,
+              actions: [CartSumActionWidget(state.cart),],
+            ),
+            body: ListCartItems(state.cart),
+          );
         }
-      ),
+        return LoaderPage();
+      }
     );
   }
 }

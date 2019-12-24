@@ -14,20 +14,24 @@ class CartActionWidget extends StatefulWidget {
 }
 
 class _CartActionWidgetState extends State<CartActionWidget>{
-  CartActionBloc _cartActionBloc = CartModule.cartActionBloc;
+  CartActionBloc _cartActionBloc = CartModule.cartActionBloc();
+
+  @override
+  void dispose() {
+    _cartActionBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _cartActionBloc,
-      child: BlocBuilder<CartActionBloc, CartActionState>(
-        builder: (context, state) {
-          if (state is ReadyState) {
-            return _getCart(state.cart);
-          }
-          return LoaderPage();
-        },
-      ),
+    return BlocBuilder<CartActionBloc, CartActionState>(
+      bloc: _cartActionBloc,
+      builder: (context, state) {
+        if (state is ReadyState) {
+          return _getCart(state.cart);
+        }
+        return LoaderPage();
+      },
     );
   }
 

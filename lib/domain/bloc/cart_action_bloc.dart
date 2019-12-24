@@ -11,26 +11,23 @@ class CartActionBloc extends  Bloc<CartActionEvent, CartActionState> {
   CartActionBloc(this._cartDataRepository){
     _cartSubscription = _cartDataRepository
         .getCartStream()
-        .listen((cart) => dispatch(RefreshEvent(cart)));
+        .listen((cart) => add(RefreshEvent(cart)));
   }
 
   @override
   CartActionState get initialState => LoadingState();
 
   @override
+  Future<void> close() {
+    _cartSubscription?.cancel();
+    return super.close();
+  }
+
+  @override
   Stream<CartActionState> mapEventToState(CartActionEvent event) async* {
     if (event is RefreshEvent) {
       yield  _mapRefreshToState(event);
     }
-  }
-
-  @override
-  void dispose() {
-    if (_cartSubscription != null) {
-      _cartSubscription.cancel();
-      _cartSubscription = null;
-    }
-    super.dispose();
   }
 
   CartActionState _mapRefreshToState(RefreshEvent event) {

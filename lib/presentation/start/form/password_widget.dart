@@ -34,6 +34,6 @@ class PasswordWidget extends StatelessWidget{
   }
 
   void _onUpdateBlocPassword(String password, PasswordFieldBloc passwordBloc) {
-    passwordBloc.dispatch(PasswordFieldUpdateEvent(password));
+    passwordBloc.add(PasswordFieldUpdateEvent(password));
   }
 }

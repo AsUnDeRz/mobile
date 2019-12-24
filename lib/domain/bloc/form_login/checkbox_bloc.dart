@@ -3,10 +3,10 @@ import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
 class CheckboxBloc extends Bloc<CheckboxEvent, CheckboxState> {
-  bool _value = false;
+  bool value = false;
 
   @override
-  CheckboxState get initialState => CheckboxState(_value);
+  CheckboxState get initialState => CheckboxState(value);
 
   @override
   Stream<CheckboxState> mapEventToState(CheckboxEvent event) async* {
@@ -16,8 +16,8 @@ class CheckboxBloc extends Bloc<CheckboxEvent, CheckboxState> {
   }
 
   CheckboxState _mapUpdateToState(CheckboxUpdateEvent event) {
-    _value = !_value;
-    return CheckboxState(_value);
+    value = !value;
+    return CheckboxState(value);
   }
 }
 

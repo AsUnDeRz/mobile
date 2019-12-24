@@ -7,7 +7,9 @@ import 'package:catalog_app_bloc/domain/bloc/menu_drawer/logout/logout_bloc.dart
 import 'package:catalog_app_bloc/internal/dependencies/user_repository_module.dart';
 
 class UserModule {
-  static final avatarBloc = AvatarBloc(UserRepositoryModule.userRepository);
+  static AvatarBloc  avatarBloc(){
+    return AvatarBloc(UserRepositoryModule.userRepository);
+  }
 
   static LogoutBloc logoutBloc() {
     return LogoutBloc(UserRepositoryModule.userRepository);

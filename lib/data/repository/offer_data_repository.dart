@@ -1,4 +1,4 @@
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:catalog_app_bloc/data/api/api_util.dart';
 import 'package:catalog_app_bloc/data/db/orm/orm_offer.dart';
@@ -13,7 +13,7 @@ class OfferDataRepository extends OfferRepository  {
 
   @override
   Future<List<Offer>> getListOffer() async {
-    if (_randomError) return Future.error('Не сегодня.... Попробуйте завтра.');
+//    if (_randomError) return Future.error('Не сегодня.... Попробуйте завтра.');
 
     List<Offer> offers = await _ormOffer.getListOffer();
 
@@ -34,5 +34,5 @@ class OfferDataRepository extends OfferRepository  {
     await _ormOffer.saveListOffer(offers);
   }
 
-  bool get _randomError => Random().nextBool();
+//  bool get _randomError => Random().nextBool();
 }

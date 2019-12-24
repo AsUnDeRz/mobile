@@ -1,14 +1,14 @@
-import 'package:catalog_app_bloc/domain/bloc/form_login/login_form_bloc.dart';
-import 'package:catalog_app_bloc/presentation/start/form/checkbox_widget.dart';
-import 'package:catalog_app_bloc/presentation/start/form/name_widget.dart';
-import 'package:catalog_app_bloc/presentation/start/form/password_widget.dart';
-import 'package:catalog_app_bloc/presentation/start/form/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:catalog_app_bloc/presentation/catalog/catalog_screen.dart';
 import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 import 'package:catalog_app_bloc/internal/dependencies/application_component.dart';
+import 'package:catalog_app_bloc/domain/bloc/form_login/login_form_bloc.dart';
+import 'package:catalog_app_bloc/presentation/start/form/checkbox_widget.dart';
+import 'package:catalog_app_bloc/presentation/start/form/name_widget.dart';
+import 'package:catalog_app_bloc/presentation/start/form/password_widget.dart';
+import 'package:catalog_app_bloc/presentation/start/form/title_widget.dart';
 
 class StartScreen extends StatefulWidget {
   @override
@@ -21,6 +21,12 @@ class _StartScreenState extends State<StartScreen> {
 
   _StartScreenState() {
     _formKey = GlobalKey<FormState>();
+  }
+
+  @override
+  void dispose() {
+    _loginFormBloc.close();
+    super.dispose();
   }
 
   @override
@@ -81,6 +87,6 @@ class _StartScreenState extends State<StartScreen> {
     if (!_formKey.currentState.validate()) {
       return;
     }
-    _loginFormBloc.dispatch(LoginEvent());
+    _loginFormBloc.add(LoginEvent());
   }
 }

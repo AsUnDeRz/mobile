@@ -20,28 +20,32 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
 
   @override
   void initState() {
-    _deleteCartItemBloc.dispatch(InitEvent(widget._cartItem.id));
+    _deleteCartItemBloc.add(InitEvent(widget._cartItem.id));
     super.initState();
   }
 
   @override
+  void dispose() {
+    _deleteCartItemBloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      builder: (context) => _deleteCartItemBloc,
-      child: BlocBuilder<DeleteCartItemBloc, DeleteCartItemState>(
-        builder: (context, state) {
-          if(state is InitState) {
-            return _getDialogAcceptDeleteItem();
-          }
-          if(state is ApplyDeleteState){
-            return _getDialogSuccessDeleteItem();
-          }
-          if(state is ErrorState) {
-            return _getDialogErrorDeleteItem();
-          }
+    return BlocBuilder<DeleteCartItemBloc, DeleteCartItemState>(
+      bloc: _deleteCartItemBloc,
+      builder: (context, state) {
+        if(state is InitState) {
+          return _getDialogAcceptDeleteItem();
+        }
+        if(state is ApplyDeleteState){
+          return _getDialogSuccessDeleteItem();
+        }
+        if(state is ErrorState) {
           return _getDialogErrorDeleteItem();
-        },
-      ),
+        }
+        return _getDialogErrorDeleteItem();
+      },
     );
   }
 
@@ -123,7 +127,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
     Navigator.pop(context);
   }
 
-  void _onDeleteCartItem(int id) {
-    _deleteCartItemBloc.dispatch(DeleteEvent());
+  void _onDeleteCartItem() {
+    _deleteCartItemBloc.add(DeleteEvent());
   }
 }

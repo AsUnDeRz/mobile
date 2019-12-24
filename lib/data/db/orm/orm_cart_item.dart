@@ -10,18 +10,18 @@ class OrmCartItem {
   OrmCartItem (this._dbUtil,);
 
   Future<void> insertCartItem(CartItem cartItem) async {
-    _dbUtil.insert(
+    await _dbUtil.insert(
       CartScheme.tableId,
       CartItemMapper.fromCartItem(cartItem).toMap(),
     );
   }
 
   Future<void> clearCart() async {
-    _dbUtil.delete(CartScheme.tableId);
+    await _dbUtil.delete(CartScheme.tableId);
   }
 
   Future<void> updateCartItem(CartItem cartItem) async {
-    _dbUtil.update(
+    await _dbUtil.update(
       CartScheme.tableId,
       CartItemMapper.fromCartItem(cartItem).toMap(),
       where: '${CartScheme.columnId} = ?',
@@ -30,7 +30,7 @@ class OrmCartItem {
   }
 
   Future<void> deleteCartItem(int id) async {
-    _dbUtil.delete(
+    await _dbUtil.delete(
       CartScheme.tableId,
       where: '${CartScheme.columnId} = ?',
       whereArgs: [id],
