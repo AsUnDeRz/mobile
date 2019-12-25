@@ -53,6 +53,7 @@ class _ListOffersWidgetState extends State<ListOffersWidget> {
   Widget _getList(listOffers) {
     return ListView(
       padding:  EdgeInsets.all(5),
+      addAutomaticKeepAlives: true,
       shrinkWrap: true,
       children: [
         ...listOffers.map((offer) => CardOfferWidget(offer))

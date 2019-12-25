@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:catalog_app_bloc/domain/model/offer.dart';
-import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 import 'package:catalog_app_bloc/presentation/detail/detail_screen.dart';
 import 'package:catalog_app_bloc/presentation/catalog/list_offers/card_offer/card_offer_image.dart';
 import 'package:catalog_app_bloc/presentation/catalog/list_offers/card_offer/card_offer_info/card_offer_info.dart';
@@ -15,19 +14,6 @@ class CardOfferWidget extends StatefulWidget {
 }
 
 class _CardOfferWidgetState extends State<CardOfferWidget> with SingleTickerProviderStateMixin {
-  GlobalKey _key;
-  double _height;
-
-  _CardOfferWidgetState() {
-    _key = GlobalKey();
-    _height=null;
-  }
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
-    super.initState();
-  }
 
   @override
   void dispose() {
@@ -45,19 +31,18 @@ class _CardOfferWidgetState extends State<CardOfferWidget> with SingleTickerProv
             Spacer(flex: 1),
             Expanded(
               flex: 20,
-              child: Container(
-                  child: AnimatedSwitcher(
-                    duration: Duration(seconds: 1),
-                    child: (_height == null)
-                      ? LoaderPage()
-                      : CardOfferImage(widget.offer.image, _height),
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: AspectRatio(
+                  aspectRatio: 4/3,
+                  child: CardOfferImage(widget.offer.image),
                 ),
               ),
             ),
             Spacer(flex: 1),
             Expanded(
               flex: 10,
-              child:  CardOfferInfo(widget.offer, _key),
+              child:  CardOfferInfo(widget.offer),
               ),
             Spacer(flex: 1),
           ],
@@ -65,13 +50,6 @@ class _CardOfferWidgetState extends State<CardOfferWidget> with SingleTickerProv
         onTap: () => _onRouteDetail(widget.offer),
       ),
     );
-  }
-
-  void _afterLayout(_) {
-    final RenderBox renderBoxRed = _key.currentContext.findRenderObject();
-    setState(() {
-      _height = renderBoxRed.size.height;
-    });
   }
 
   void _onRouteDetail(Offer offer) {

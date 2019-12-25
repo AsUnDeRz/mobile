@@ -5,16 +5,14 @@ import 'package:catalog_app_bloc/presentation/catalog/list_offers/card_offer/car
 
 class CardOfferInfo extends StatelessWidget {
   final Offer _offer;
-  final GlobalKey _key;
 
-  CardOfferInfo(this._offer, this._key);
+  CardOfferInfo(this._offer);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0),
       child: Container(
-          key: _key,
           child: CardOfferDescription(_offer)
       ),
     );

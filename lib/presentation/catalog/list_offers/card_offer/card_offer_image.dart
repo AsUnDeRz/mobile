@@ -5,17 +5,16 @@ import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 
 class CardOfferImage extends StatelessWidget {
   final String _image;
-  final double _height;
 
-  CardOfferImage(this._image, this._height);
+  CardOfferImage(this._image);
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       placeholder: (context, url) => LoaderPage(),
       imageUrl: _image,
-      fit: BoxFit.fill,
-      height: _height,
+      fit: BoxFit.cover,
+      fadeInDuration: Duration(seconds: 1),
     );
   }
 }
