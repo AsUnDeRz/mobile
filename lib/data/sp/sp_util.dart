@@ -28,14 +28,9 @@ class SpUtil {
     await prefs.setString(_userPassword, password);
   }
 
-  Future<String> getSettings() async {
-    final prefs = await _getSp;
-    return prefs.getString(_userName) ?? '';
-  }
-
   Future<bool> getApplicationTheme() async {
     final prefs = await _getSp;
-    return prefs.getBool(_themeMode) ?? false;
+    return prefs.getBool(_themeMode) ?? true;
   }
 
   Future<void> setApplicationTheme(bool themMode) async {

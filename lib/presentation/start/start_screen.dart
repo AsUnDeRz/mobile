@@ -1,3 +1,4 @@
+import 'package:catalog_app_bloc/presentation/menu_drawer/application_mode_switcher/application_mode_switcher_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,6 +59,8 @@ class _StartScreenState extends State<StartScreen> {
                       _getSubmitButton(),
                       Container(height:  30,),
                       CheckboxWidget(_loginFormBloc),
+                      Container(height:  30,),
+                      ApplicationThemeSwitcherWidget()
                     ],
                   );
                 },
