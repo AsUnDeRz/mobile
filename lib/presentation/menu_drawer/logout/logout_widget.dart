@@ -25,7 +25,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
     return BlocListener <LogoutBloc, LogoutState>(
       bloc: _logoutBloc,
       listener: (context, state) {
-        if (state is ApplyState) {
+        if (state is ApplyLogoutState) {
           _onLogoutSuccess();
         }
       },
@@ -43,7 +43,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
   }
 
   void _onLogout() {
-    _logoutBloc.add(ActionEvent());
+    _logoutBloc.add(ActionLogoutEvent());
   }
 
   void _onLogoutSuccess() {

@@ -5,9 +5,9 @@ import 'package:catalog_app_bloc/domain/model/cart_item.dart';
 import 'package:catalog_app_bloc/presentation/design/application_design.dart';
 
 class CartItemWidget extends StatefulWidget {
-  final CartItem _cartItem;
+  final CartItem cartItem;
 
-  CartItemWidget(this._cartItem);
+  CartItemWidget(this.cartItem);
 
   @override
   _CartItemWidgetState createState() => _CartItemWidgetState();
@@ -18,32 +18,46 @@ class _CartItemWidgetState extends State<CartItemWidget> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      child:  Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: _getPartCardCartItem(widget._cartItem),
-        ),
+      child:  Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 3,
+            child: _getImageItem(widget.cartItem.image),
+          ),
+          Expanded(
+            flex: 2,
+            child: _getTitleItem(widget.cartItem.title),
+          ),
+          Expanded(
+            flex: 2,
+            child: _getCountItem(widget.cartItem.count),
+          ),
+          Expanded(
+            flex: 4,
+            child: _getPriceItem(widget.cartItem.sum),
+          ),
+          Expanded(
+            flex: 2,
+            child: _getIconDelete(widget.cartItem),
+          ),
+        ],
       ),
     );
   }
 
-  List <Widget> _getPartCardCartItem(CartItem cartItem) {
-    return [
-      _getImageItem(cartItem.image),
-      _getTitleItem(cartItem.title),
-      _getCountItem(cartItem.count),
-      _getPriceItem(cartItem.sum),
-      _getIconDelete(cartItem),
-      ].map((content) => _getContainerPartCardCartItem(content) )
-        .toList(growable: false);
-  }
 
   Widget _getImageItem(String image) {
-    return CachedNetworkImage(
-      placeholder: (context, url) => LoaderPage(),
-      imageUrl: image,
-      height: 50,
+    return AspectRatio(
+      aspectRatio: 4/3.5,
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: CachedNetworkImage(
+          placeholder: (context, url) => LoaderPage(),
+          imageUrl: image,
+          fit: BoxFit.fill,
+        ),
+      ),
     );
   }
 
@@ -53,6 +67,8 @@ class _CartItemWidgetState extends State<CartItemWidget> {
       style: TextStyle(
         fontSize: 16,
       ),
+      textAlign: TextAlign.center,
+      overflow: TextOverflow.ellipsis,
     );
   }
 
@@ -62,6 +78,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
       style: TextStyle(
         fontSize: 16,
       ),
+      textAlign: TextAlign.center,
     );
   }
 
@@ -71,15 +88,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
       style: TextStyle(
         fontSize: 16,
       ),
-    );
-  }
-
-  Widget _getContainerPartCardCartItem(Widget content) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:5.0),
-        child: content,
-      ),
+      textAlign: TextAlign.center,
     );
   }
 

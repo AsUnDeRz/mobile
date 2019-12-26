@@ -12,7 +12,7 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
   CountGoodBloc(this._cartDataRepository);
 
   @override
-  CountGoodState get initialState => LoadingState();
+  CountGoodState get initialState => LoadingCountGoodState();
 
   @override
   Stream<CountGoodState> mapEventToState(CountGoodEvent event) async* {
@@ -32,27 +32,27 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
 
   CountGoodState _mapInitToState(InitEvent event) {
     _cartItem = event.cartItem;
-    return UpdateCountState(_cartItem);
+    return UpdateCountCountGoodState(_cartItem);
   }
 
   CountGoodState _mapDecrementCountToState(DecrementCountEvent event) {
     final decrementedCount = _cartItem.count - 1;
     _cartItem = _cartItem.copyWith(count: decrementedCount);
-    return UpdateCountState(_cartItem);
+    return UpdateCountCountGoodState(_cartItem);
   }
 
   CountGoodState _mapIncrementCountToState(IncrementCountEvent event) {
     final incrementedCount = _cartItem.count + 1;
     _cartItem = _cartItem.copyWith(count: incrementedCount);
-    return UpdateCountState(_cartItem);
+    return UpdateCountCountGoodState(_cartItem);
   }
 
   Future<CountGoodState> _mapAddCartToState(AddCartEvent event) async {
     try {
       await _addCartItem(_cartItem);
-      return ApplyAddCartState();
+      return ApplyAddCartCountGoodState();
     } catch(e) {
-      return ErrorState(e);
+      return ErrorCountGoodState(e);
     }
   }
 
@@ -96,16 +96,16 @@ class AddCartEvent extends CountGoodEvent{}
 @immutable
 abstract class CountGoodState {}
 
-class LoadingState extends CountGoodState {}
+class LoadingCountGoodState extends CountGoodState {}
 
-class ApplyAddCartState extends CountGoodState {}
+class ApplyAddCartCountGoodState extends CountGoodState {}
 
-class UpdateCountState extends CountGoodState{
+class UpdateCountCountGoodState extends CountGoodState{
   final cartItem;
-  UpdateCountState(this.cartItem);
+  UpdateCountCountGoodState(this.cartItem);
 }
 
-class ErrorState extends CountGoodState {
+class ErrorCountGoodState extends CountGoodState {
   final dynamic error;
-  ErrorState(this.error);
+  ErrorCountGoodState(this.error);
 }

@@ -1,10 +1,11 @@
 import 'dart:async';
+import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
 class TextFieldBloc extends Bloc<TextFieldEvent, TextFieldState> {
+  FocusNode focusNode = FocusNode();
   String value = '';
-
 
   @override
   TextFieldState get initialState => TextFieldState();
@@ -12,7 +13,7 @@ class TextFieldBloc extends Bloc<TextFieldEvent, TextFieldState> {
   @override
   Stream<TextFieldState> mapEventToState(TextFieldEvent event) async* {
     if (event is TextFieldUpdateEvent) {
-      _mapUpdateToState(event);
+       _mapUpdateToState(event);
     }
   }
 
@@ -30,4 +31,3 @@ class TextFieldUpdateEvent extends TextFieldEvent{
 }
 
 class TextFieldState {}
-

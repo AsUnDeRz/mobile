@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
 class PasswordFieldBloc extends Bloc<PasswordFieldEvent, PasswordFieldState> {
+  FocusNode focusNode = FocusNode();
   String value = '';
 
   @override

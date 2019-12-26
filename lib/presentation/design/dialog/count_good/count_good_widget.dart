@@ -36,18 +36,18 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
     return BlocBuilder<CountGoodBloc, CountGoodState>(
       bloc: _countGoodBloc,
       builder: (context, state) {
-        if(state is LoadingState) {
+        if(state is LoadingCountGoodState) {
           return LoaderPage();
         }
-        if(state is UpdateCountState) {
+        if(state is UpdateCountCountGoodState) {
           return _getDialogChooseCount(state.cartItem);
         }
 
-        if(state is ApplyAddCartState){
+        if(state is ApplyAddCartCountGoodState){
           return _getDialogFinishChooseItem();
         }
 
-        if(state is ErrorState) {
+        if(state is ErrorCountGoodState) {
           return _getErrorFinishChooseItem();
         }
 

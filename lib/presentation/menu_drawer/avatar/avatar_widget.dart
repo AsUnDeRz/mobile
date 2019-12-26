@@ -16,7 +16,7 @@ class _AvatarWidgetState extends State<AvatarWidget> {
 
   @override
   void initState() {
-    _avatarBloc.add(ActionEvent());
+    _avatarBloc.add(ActionAvatarEvent());
     super.initState();
   }
 
@@ -31,7 +31,7 @@ class _AvatarWidgetState extends State<AvatarWidget> {
     return BlocBuilder<AvatarBloc, AvatarState>(
       bloc: _avatarBloc,
       builder: (context, state) {
-        if (state is ApplyState) {
+        if (state is ApplyAvatarState) {
           return DrawerHeader(
             margin: EdgeInsets.only(bottom: .0),
             child: CircleAvatar(

@@ -24,7 +24,7 @@ class _ApplicationThemeSwitcherWidgetState extends State<ApplicationThemeSwitche
     return BlocBuilder<SwitcherApplicationThemeBloc, SwitcherApplicationThemeState>(
       bloc: _applicationThemeBloc,
       builder: (context, state) {
-        if (state is ReadyState) {
+        if (state is ReadySwitcherApplicationThemeState) {
           var iconTheme = Icon(Icons.brightness_1);
           if( state.applicationTheme.mode == ApplicationTheme.DARK_MODE ) {
             iconTheme = Icon(Icons.brightness_3);
@@ -45,6 +45,6 @@ class _ApplicationThemeSwitcherWidgetState extends State<ApplicationThemeSwitche
   }
 
   void _onChange(bool mode) {
-    _applicationThemeBloc.add(SwitchEvent());
+    _applicationThemeBloc.add(SwitchSwitcherApplicationThemeEvent());
   }
 }

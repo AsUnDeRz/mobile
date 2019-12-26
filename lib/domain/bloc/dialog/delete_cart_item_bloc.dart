@@ -10,29 +10,29 @@ class DeleteCartItemBloc extends Bloc<DeleteCartItemEvent, DeleteCartItemState> 
   DeleteCartItemBloc(this._cartDataRepository);
 
   @override
-  DeleteCartItemState get initialState => LoadingState();
+  DeleteCartItemState get initialState => LoadingDeleteCartItemState();
 
   @override
   Stream<DeleteCartItemState> mapEventToState(DeleteCartItemEvent event) async* {
-    if (event is InitEvent) {
+    if (event is InitDeleteCartItemEvent) {
       yield  _mapInitToState(event);
     }
-    if (event is DeleteEvent) {
+    if (event is DeleteDeleteCartItemEvent) {
       yield await _mapDeleteToState(event);
     }
   }
 
-  DeleteCartItemState _mapInitToState(InitEvent event) {
+  DeleteCartItemState _mapInitToState(InitDeleteCartItemEvent event) {
     _deleteId = event.id;
-    return InitState();
+    return InitDeleteCartItemState();
   }
 
-  Future<DeleteCartItemState> _mapDeleteToState(DeleteEvent event) async {
+  Future<DeleteCartItemState> _mapDeleteToState(DeleteDeleteCartItemEvent event) async {
     try {
       await _cartDataRepository.deleteCartItem(_deleteId);
-      return ApplyDeleteState();
+      return ApplyDeleteDeleteCartItemState();
     } catch(e) {
-      return ErrorState(e);
+      return ErrorDeleteCartItemState(e);
     }
   }
 }
@@ -40,23 +40,23 @@ class DeleteCartItemBloc extends Bloc<DeleteCartItemEvent, DeleteCartItemState> 
 @immutable
 abstract class DeleteCartItemEvent {}
 
-class InitEvent extends DeleteCartItemEvent{
+class InitDeleteCartItemEvent extends DeleteCartItemEvent{
   final id;
-  InitEvent(this.id);
+  InitDeleteCartItemEvent(this.id);
 }
 
-class DeleteEvent extends DeleteCartItemEvent{}
+class DeleteDeleteCartItemEvent extends DeleteCartItemEvent{}
 
 @immutable
 abstract class DeleteCartItemState {}
 
-class LoadingState extends DeleteCartItemState {}
+class LoadingDeleteCartItemState extends DeleteCartItemState {}
 
-class InitState extends DeleteCartItemState {}
+class InitDeleteCartItemState extends DeleteCartItemState {}
 
-class ApplyDeleteState extends DeleteCartItemState {}
+class ApplyDeleteDeleteCartItemState extends DeleteCartItemState {}
 
-class ErrorState extends DeleteCartItemState {
+class ErrorDeleteCartItemState extends DeleteCartItemState {
   final dynamic error;
-  ErrorState(this.error);
+  ErrorDeleteCartItemState(this.error);
 }

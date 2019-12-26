@@ -33,40 +33,42 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:BlocListener<LoginFormBloc, LoginFormState>(
-        bloc: _loginFormBloc,
-        listener: (context, state) {
-          if (state is SuccessLoginState) {
-            _onLoginSuccess();
-          }
+      body: GestureDetector(
+        onTap: (){
+          _loginFormBloc.add(UnFocusLoginFormEvent());
         },
-        child: BlocBuilder<LoginFormBloc, LoginFormState>(
+        child: BlocListener<LoginFormBloc, LoginFormState>(
           bloc: _loginFormBloc,
-          builder: (context, loginFormState) {
-            return Form(
-              key: _formKey,
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return ListView(
-                    padding: EdgeInsets.all(constraints.maxWidth * 0.1),
-                    children: <Widget>[
-                      TitleWidget(),
-                      Container(height:  30,),
-                      NameWidget(_loginFormBloc.nameBloc),
-                      Container(height:  30,),
-                      PasswordWidget(_loginFormBloc.passwordBloc),
-                      Container(height:  30,),
-                      _getSubmitButton(),
-                      Container(height:  30,),
-                      CheckboxWidget(_loginFormBloc),
-                      Container(height:  30,),
-                      ApplicationThemeSwitcherWidget()
-                    ],
-                  );
-                },
-              ),
-            );
+          listener: (context, state) {
+            if (state is SuccessLoginFormState) {
+              _onLoginSuccess();
+            }
           },
+          child: BlocBuilder<LoginFormBloc, LoginFormState>(
+            bloc: _loginFormBloc,
+            builder: (context, loginFormState) {
+              return Form(
+                key: _formKey,
+                autovalidate: true,
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return ListView(
+                      padding: EdgeInsets.all(constraints.maxWidth * 0.1),
+                      children: <Widget>[
+                        TitleWidget(),
+                        Container(height:  30,),
+                        NameWidget(_loginFormBloc.nameBloc),
+                        PasswordWidget(_loginFormBloc.passwordBloc),
+                        _getSubmitButton(),
+                        CheckboxWidget(_loginFormBloc),
+                        ApplicationThemeSwitcherWidget()
+                      ],
+                    );
+                  },
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -90,6 +92,6 @@ class _StartScreenState extends State<StartScreen> {
     if (!_formKey.currentState.validate()) {
       return;
     }
-    _loginFormBloc.add(LoginEvent());
+    _loginFormBloc.add(TryLoginFormEvent());
   }
 }

@@ -13,12 +13,12 @@ class ListOffersWidget extends StatefulWidget {
 }
 
 class _ListOffersWidgetState extends State<ListOffersWidget> {
-  final _catalogBloc = OfferModule.catalogBloc();
+  final CatalogBloc _catalogBloc = OfferModule.catalogBloc();
 
   @override
   void initState() {
     super.initState();
-    _catalogBloc.add(RefreshEvent());
+    _catalogBloc.add(RefreshCatalogEvent());
   }
 
   @override
@@ -32,14 +32,14 @@ class _ListOffersWidgetState extends State<ListOffersWidget> {
     return BlocListener<CatalogBloc, CatalogState>(
       bloc: _catalogBloc,
       listener: (context, state) {
-        if (state is ErrorState) {
+        if (state is ErrorCatalogState) {
           _showErrorDialog(state.error);
         }
       },
       child: BlocBuilder<CatalogBloc, CatalogState>(
         bloc: _catalogBloc,
         builder: (context, state) {
-          if (state is ReadyState) {
+          if (state is ReadyCatalogState) {
             return _getList(state.listOffers);
           }
           else {
@@ -65,7 +65,7 @@ class _ListOffersWidgetState extends State<ListOffersWidget> {
     return ErrorDialogWidget.showErrorDialog(
       context,
       error: error,
-      handlerButton: () => _catalogBloc.add(RefreshEvent(),
+      handlerButton: () => _catalogBloc.add(RefreshCatalogEvent(),
       ), //onRefreshCatalog
     );
   }

@@ -10,22 +10,22 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
   CatalogBloc(this._offerDataRepository);
 
   @override
-  CatalogState get initialState => LoadingState();
+  CatalogState get initialState => LoadingCatalogState();
 
   @override
   Stream<CatalogState> mapEventToState(CatalogEvent event) async* {
 
-    if (event is RefreshEvent) {
+    if (event is RefreshCatalogEvent) {
       yield await _mapRefreshToState(event);
     }
   }
 
-  Future<CatalogState> _mapRefreshToState(RefreshEvent event) async {
+  Future<CatalogState> _mapRefreshToState(RefreshCatalogEvent event) async {
     try {
       final listOffers = await _offerDataRepository.getListOffer();
-      return ReadyState(listOffers);
+      return ReadyCatalogState(listOffers);
     } catch(e) {
-      return ErrorState(e);
+      return ErrorCatalogState(e);
     }
   }
 }
@@ -33,20 +33,20 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
 @immutable
 abstract class CatalogEvent {}
 
-class RefreshEvent extends CatalogEvent{}
+class RefreshCatalogEvent extends CatalogEvent{}
 
 @immutable
 abstract class CatalogState {}
 
-class LoadingState extends CatalogState {}
+class LoadingCatalogState extends CatalogState {}
 
-class ReadyState extends CatalogState {
+class ReadyCatalogState extends CatalogState {
   final listOffers;
-  ReadyState(this.listOffers);
+  ReadyCatalogState(this.listOffers);
 }
 
-class ErrorState extends CatalogState {
+class ErrorCatalogState extends CatalogState {
   final dynamic error;
 
-  ErrorState(this.error);
+  ErrorCatalogState(this.error);
 }

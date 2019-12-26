@@ -26,7 +26,7 @@ class _CartScreenState extends State<CartScreen>{
     return BlocBuilder<CartBloc, CartState>(
       bloc: _cartBloc,
       builder: (context, state) {
-        if (state is ReadyState) {
+        if (state is ReadyCartState) {
           return Scaffold(
             appBar: AppBar(
               title: AppBarTitle('Корзина'),

@@ -27,7 +27,7 @@ class _CartActionWidgetState extends State<CartActionWidget>{
     return BlocBuilder<CartActionBloc, CartActionState>(
       bloc: _cartActionBloc,
       builder: (context, state) {
-        if (state is ReadyState) {
+        if (state is ReadyCartActionState) {
           return _getCart(state.cart);
         }
         return LoaderPage();

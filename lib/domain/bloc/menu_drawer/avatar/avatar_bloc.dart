@@ -10,11 +10,11 @@ class AvatarBloc extends Bloc<AvatarEvent, AvatarState> {
   AvatarBloc(this._userDataRepository);
 
   @override
-  AvatarState get initialState => InitState();
+  AvatarState get initialState => InitAvatarState();
 
   @override
   Stream<AvatarState> mapEventToState(AvatarEvent event) async* {
-    if (event is ActionEvent) {
+    if (event is ActionAvatarEvent) {
       yield await _mapActionToState(event);
     }
   }
@@ -22,21 +22,21 @@ class AvatarBloc extends Bloc<AvatarEvent, AvatarState> {
   Future<AvatarState> _mapActionToState(AvatarEvent event) async {
     final user = await _userDataRepository.getUser();
     final avatar = user.name[0].toUpperCase();
-    return ApplyState(avatar);
+    return ApplyAvatarState(avatar);
   }
 }
 
 @immutable
 abstract class AvatarEvent {}
 
-class ActionEvent extends AvatarEvent{}
+class ActionAvatarEvent extends AvatarEvent{}
 
 @immutable
 abstract class AvatarState {}
 
-class InitState extends AvatarState {}
+class InitAvatarState extends AvatarState {}
 
-class ApplyState extends AvatarState {
+class ApplyAvatarState extends AvatarState {
   final avatar;
-  ApplyState(this.avatar);
+  ApplyAvatarState(this.avatar);
 }

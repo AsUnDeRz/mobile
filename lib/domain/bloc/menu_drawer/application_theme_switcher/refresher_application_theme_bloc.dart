@@ -16,7 +16,7 @@ class RefresherApplicationThemeBloc extends Bloc<RefresherApplicationThemeEvent,
   }
 
   @override
-  RefresherApplicationThemeState get initialState => LoadingState();
+  RefresherApplicationThemeState get initialState => LoadingRefresherApplicationThemeState();
 
   @override
   Future<void> close() {
@@ -32,7 +32,7 @@ class RefresherApplicationThemeBloc extends Bloc<RefresherApplicationThemeEvent,
   }
 
   RefresherApplicationThemeState _mapRefreshToState(RefreshEvent event) {
-    return ReadyState(event.applicationTheme);
+    return ReadyRefresherApplicationThemeState(event.applicationTheme);
   }
 }
 
@@ -47,10 +47,10 @@ class RefreshEvent extends RefresherApplicationThemeEvent {
 @immutable
 abstract class RefresherApplicationThemeState {}
 
-class LoadingState extends RefresherApplicationThemeState {}
+class LoadingRefresherApplicationThemeState extends RefresherApplicationThemeState {}
 
-class ReadyState extends RefresherApplicationThemeState {
+class ReadyRefresherApplicationThemeState extends RefresherApplicationThemeState {
   final ApplicationTheme applicationTheme;
-  ReadyState(this.applicationTheme);
+  ReadyRefresherApplicationThemeState(this.applicationTheme);
 }
 

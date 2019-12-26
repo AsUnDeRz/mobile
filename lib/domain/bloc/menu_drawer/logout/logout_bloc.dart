@@ -11,39 +11,39 @@ class LogoutBloc extends Bloc<LogoutEvent, LogoutState> {
   LogoutBloc(this._userDataRepository);
 
   @override
-  LogoutState get initialState => InitState();
+  LogoutState get initialState => InitLogoutState();
 
   @override
   Stream<LogoutState> mapEventToState(LogoutEvent event) async* {
-    if (event is InitEvent) {
+    if (event is InitLogoutEvent) {
       yield  _mapInitToState(event);
     }
 
-    if (event is ActionEvent) {
+    if (event is ActionLogoutEvent) {
       yield await _mapActionToState(event);
     }
   }
 
-  LogoutState _mapInitToState(InitEvent event) {
-    return InitState();
+  LogoutState _mapInitToState(InitLogoutEvent event) {
+    return InitLogoutState();
   }
 
-  Future<LogoutState> _mapActionToState(LogoutEvent event) async {
+  Future<LogoutState> _mapActionToState(ActionLogoutEvent event) async {
       await _userDataRepository.logout();
-      return ApplyState();
+      return ApplyLogoutState();
   }
 }
 
 @immutable
 abstract class LogoutEvent {}
 
-class InitEvent extends LogoutEvent{}
+class InitLogoutEvent extends LogoutEvent{}
 
-class ActionEvent extends LogoutEvent{}
+class ActionLogoutEvent extends LogoutEvent{}
 
 @immutable
 abstract class LogoutState {}
 
-class InitState extends LogoutState {}
+class InitLogoutState extends LogoutState {}
 
-class ApplyState extends LogoutState {}
+class ApplyLogoutState extends LogoutState {}

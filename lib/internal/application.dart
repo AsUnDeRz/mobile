@@ -32,7 +32,7 @@ class _ApplicationState extends State<Application> {
     return  BlocBuilder<RefresherApplicationThemeBloc, RefresherApplicationThemeState>(
       bloc: _applicationThemeBloc,
       builder: (context, state) {
-        if (state is ReadyState) {
+        if (state is ReadyRefresherApplicationThemeState) {
           return  MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Catalog app',

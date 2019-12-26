@@ -12,11 +12,11 @@ class SwitcherApplicationThemeBloc extends Bloc<SwitcherApplicationThemeEvent, S
   SwitcherApplicationThemeBloc(this._applicationThemeDataRepository){
     _applicationThemeSubject = _applicationThemeDataRepository
         .getApplicationThemeStream()
-        .listen((applicationTheme) => add(RefreshEvent(applicationTheme)));
+        .listen((applicationTheme) => add(RefreshSwitcherApplicationThemeEvent(applicationTheme)));
   }
 
   @override
-  SwitcherApplicationThemeState get initialState => LoadingState();
+  SwitcherApplicationThemeState get initialState => LoadingSwitcherApplicationThemeState();
 
   @override
   Future<void> close() {
@@ -26,19 +26,19 @@ class SwitcherApplicationThemeBloc extends Bloc<SwitcherApplicationThemeEvent, S
 
   @override
   Stream<SwitcherApplicationThemeState> mapEventToState(SwitcherApplicationThemeEvent event) async* {
-    if (event is RefreshEvent) {
+    if (event is RefreshSwitcherApplicationThemeEvent) {
       yield  _mapRefreshToState(event);
     }
-    if (event is SwitchEvent) {
+    if (event is SwitchSwitcherApplicationThemeEvent) {
      await _mapSwitchToState(event);
     }
   }
 
-  SwitcherApplicationThemeState _mapRefreshToState(RefreshEvent event) {
-    return ReadyState(event.applicationTheme);
+  SwitcherApplicationThemeState _mapRefreshToState(RefreshSwitcherApplicationThemeEvent event) {
+    return ReadySwitcherApplicationThemeState(event.applicationTheme);
   }
 
-  Future<void> _mapSwitchToState(SwitchEvent event) async {
+  Future<void> _mapSwitchToState(SwitchSwitcherApplicationThemeEvent event) async {
     final applicationTheme = await _applicationThemeDataRepository.getApplicationThemeStream().first;
     _applicationThemeDataRepository.setApplicationTheme(!applicationTheme.mode);
   }
@@ -47,20 +47,20 @@ class SwitcherApplicationThemeBloc extends Bloc<SwitcherApplicationThemeEvent, S
 @immutable
 abstract class SwitcherApplicationThemeEvent {}
 
-class RefreshEvent extends SwitcherApplicationThemeEvent {
+class RefreshSwitcherApplicationThemeEvent extends SwitcherApplicationThemeEvent {
   final ApplicationTheme applicationTheme;
-  RefreshEvent(this.applicationTheme);
+  RefreshSwitcherApplicationThemeEvent(this.applicationTheme);
 }
 
-class SwitchEvent extends SwitcherApplicationThemeEvent {}
+class SwitchSwitcherApplicationThemeEvent extends SwitcherApplicationThemeEvent {}
 
 @immutable
 abstract class SwitcherApplicationThemeState {}
 
-class LoadingState extends SwitcherApplicationThemeState {}
+class LoadingSwitcherApplicationThemeState extends SwitcherApplicationThemeState {}
 
-class ReadyState extends SwitcherApplicationThemeState {
+class ReadySwitcherApplicationThemeState extends SwitcherApplicationThemeState {
   final ApplicationTheme applicationTheme;
-  ReadyState(this.applicationTheme);
+  ReadySwitcherApplicationThemeState(this.applicationTheme);
 }
 

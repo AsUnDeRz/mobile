@@ -11,11 +11,11 @@ class CartActionBloc extends  Bloc<CartActionEvent, CartActionState> {
   CartActionBloc(this._cartDataRepository){
     _cartSubscription = _cartDataRepository
         .getCartStream()
-        .listen((cart) => add(RefreshEvent(cart)));
+        .listen((cart) => add(RefreshCartActionEvent(cart)));
   }
 
   @override
-  CartActionState get initialState => LoadingState();
+  CartActionState get initialState => LoadingCartActionState();
 
   @override
   Future<void> close() {
@@ -25,35 +25,35 @@ class CartActionBloc extends  Bloc<CartActionEvent, CartActionState> {
 
   @override
   Stream<CartActionState> mapEventToState(CartActionEvent event) async* {
-    if (event is RefreshEvent) {
+    if (event is RefreshCartActionEvent) {
       yield  _mapRefreshToState(event);
     }
   }
 
-  CartActionState _mapRefreshToState(RefreshEvent event) {
-    return ReadyState(event.cart);
+  CartActionState _mapRefreshToState(RefreshCartActionEvent event) {
+    return ReadyCartActionState(event.cart);
   }
 }
 
 @immutable
 abstract class CartActionEvent {}
 
-class RefreshEvent extends CartActionEvent {
+class RefreshCartActionEvent extends CartActionEvent {
   final cart;
-  RefreshEvent(this.cart);
+  RefreshCartActionEvent(this.cart);
 }
 
 @immutable
 abstract class CartActionState {}
 
-class LoadingState extends CartActionState {}
+class LoadingCartActionState extends CartActionState {}
 
-class ReadyState extends CartActionState {
+class ReadyCartActionState extends CartActionState {
   final cart;
-  ReadyState(this.cart);
+  ReadyCartActionState(this.cart);
 }
 
-class ErrorState extends CartActionState {
+class ErrorCartActionState extends CartActionState {
   final dynamic error;
-  ErrorState(this.error);
+  ErrorCartActionState(this.error);
 }

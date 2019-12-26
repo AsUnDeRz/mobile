@@ -24,15 +24,15 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
     return BlocBuilder<DeleteAllCartItemsBloc, DeleteAllCartItemsState>(
       bloc: _deleteAllCartItemsBloc,
       builder: (context, state) {
-        if(state is InitState) {
+        if(state is InitDeleteAllCartItemsState) {
           return _getDialogAcceptDeleteAllItems();
         }
 
-        if(state is ApplyClearState){
+        if(state is ApplyClearDeleteAllCartItemsState){
           return _getDialogSuccessDeleteAllItems();
         }
 
-        if(state is ErrorState) {
+        if(state is ErrorDeleteAllCartItemsState) {
           return _getDialogErrorDeleteAllItems();
         }
 
@@ -120,7 +120,7 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
   }
 
   void onDeleteAllCartItems() {
-    _deleteAllCartItemsBloc.add(ClearEvent());
+    _deleteAllCartItemsBloc.add(ClearDeleteAllCartItemsEvent());
   }
 
   void onError() {

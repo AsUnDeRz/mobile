@@ -19,7 +19,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   LoginFormBloc(this.nameBloc, this.passwordBloc, this.checkboxBloc, this._userDataRepository);
 
   @override
-  LoginFormState get initialState => InitState();
+  LoginFormState get initialState => InitLoginFormState();
 
   @override
   Future<void> close() {
@@ -32,36 +32,43 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   @override
   Stream<LoginFormState> mapEventToState(LoginFormEvent event) async* {
     ++_countTryLogin;
-    if (event is LoginEvent) {
-      yield await _mapLoginToState(event);
+    if (event is TryLoginFormEvent) {
+      if(checkboxBloc.value == true ) {
+        yield await _mapLoginToState(event);
+      }
     }
-    if (event is UpdateAgreeEvent) {
+    if (event is UpdateAgreeLoginFormEvent) {
       _mapUpdateAgreeToState(event);
     }
-  }
-
-  Future<LoginFormState> _mapLoginToState(LoginEvent event) async {
-    if(checkboxBloc.value == false ){
-      return FailLoginState();
+    if (event is UnFocusLoginFormEvent) {
+      if( nameBloc.focusNode.hasFocus){
+        nameBloc.focusNode.unfocus();
+      }
+      if(passwordBloc.focusNode.hasFocus){
+        passwordBloc.focusNode.unfocus();
+      }
     }
-    await _userDataRepository.setUser(User(nameBloc.value, passwordBloc.value));
-    return SuccessLoginState();
   }
 
-  void _mapUpdateAgreeToState(UpdateAgreeEvent event) {
-    checkboxBloc.add(CheckboxUpdateEvent());
+  Future<LoginFormState> _mapLoginToState(TryLoginFormEvent event) async {
+    await _userDataRepository.setUser(User(nameBloc.value, passwordBloc.value));
+    return SuccessLoginFormState();
+  }
+
+  void _mapUpdateAgreeToState(UpdateAgreeLoginFormEvent event) {
+    checkboxBloc.add(UpdateCheckboxEvent());
   }
 }
 
 @immutable
 abstract class LoginFormEvent {}
 
-class LoginEvent extends LoginFormEvent{}
-class UpdateAgreeEvent extends LoginFormEvent{}
+class TryLoginFormEvent extends LoginFormEvent{}
+class UpdateAgreeLoginFormEvent extends LoginFormEvent{}
+class UnFocusLoginFormEvent extends LoginFormEvent{}
 
 @immutable
 abstract class LoginFormState {}
 
-class InitState extends LoginFormState {}
-class SuccessLoginState extends LoginFormState {}
-class FailLoginState extends LoginFormState {}
+class InitLoginFormState extends LoginFormState {}
+class SuccessLoginFormState extends LoginFormState {}

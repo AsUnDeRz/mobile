@@ -34,7 +34,7 @@ class _CardOfferWidgetState extends State<CardOfferWidget> with SingleTickerProv
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: AspectRatio(
-                  aspectRatio: 4/3,
+                  aspectRatio: 4/3.5,
                   child: CardOfferImage(widget.offer.image),
                 ),
               ),

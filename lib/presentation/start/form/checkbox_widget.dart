@@ -45,11 +45,11 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
 
   Widget _getLabel(LoginFormBloc formBloc, CheckboxState checkboxState){
     if(formBloc.tryLogin && !checkboxState.value)
-      return Text('На всё согласен(на)', style: TextStyle(color: Colors.redAccent),);
-    return Text('На всё согласен(на)',);
+      return Text('I agree on everything', style: TextStyle(color: Colors.redAccent),);
+    return Text('I agree on everything',);
   }
 
   void _onUpdateBlocAgree(LoginFormBloc formBloc) {
-    formBloc.add(UpdateAgreeEvent());
+    formBloc.add(UpdateAgreeLoginFormEvent());
   }
 }
