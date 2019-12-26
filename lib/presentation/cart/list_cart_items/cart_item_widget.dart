@@ -65,7 +65,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       title,
       style: TextStyle(
-        fontSize: 16,
+        fontSize: 14,
       ),
       textAlign: TextAlign.center,
       overflow: TextOverflow.ellipsis,
@@ -76,7 +76,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       CartItemHelper.formatCount(count),
       style: TextStyle(
-        fontSize: 16,
+        fontSize: 14,
       ),
       textAlign: TextAlign.center,
     );
@@ -86,7 +86,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Text(
       MoneyHelper.formatMoney(price),
       style: TextStyle(
-        fontSize: 16,
+        fontSize: 14,
       ),
       textAlign: TextAlign.center,
     );
