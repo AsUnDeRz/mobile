@@ -1,27 +1,27 @@
-# Catalog app bloc (Flutter 1.12)
+# Catalog app bloc (обновлён до Flutter 1.12)
 
-Первый проект на Flutter. Учебное приложение, которое было написано в первые несколько недель работы в [Progressive Mobile][ProgressiveMobile]. Основной его целью было научиться основным практикам/приёмам, существующих в организации перед тем как присоеденятся к боевому проекту.
+Первый проект на Flutter. Учебное приложение, которое было написано в первые несколько недель работы в [Progressive Mobile][ProgressiveMobile] (вышел на работу 2 сентября 2019). Основной его целью было научиться основным практикам/приёмам, существующих в организации перед тем как присоеденятся к боевому проекту.
 
 >Представленная версия является усовершенствованной предыдущей версии приложения основанной на [старой версии архитектуры][GitHubCatalogApp]. Основное отличие залючается в смене методологии контроля состояний в виджетах переход от interactor к BLoC.
 
 Приложение является подобием мобильной версии интернет магазина. После игрушечной авторизации пользователь попадает на экран с каталогом товаров, откуда пользователь может отправится на любой другой экран приложения. Доступные сценарии можно разделить на следующие части:
-1) Авторизация. Для входа  можно ввести что угодно, а внизу можно сменить тему приложения. Логин, пароль записываются в shared preferences, а логин используется в автарке в drawer. [Видео][]
+1) Авторизация. Для входа  можно ввести что угодно, а внизу можно сменить тему приложения. Логин, пароль записываются в shared preferences, а логин используется в автарке в drawer. [Видео][AuthDemoVideo]
 
 ![auth demo][AuthDemo]
 
-2) Drawer(боковое выезжающееменю на треть экрана). Сверху отображается автарка с первой буква логина введённого при входе. Ниже доступны кнопки: logout, смена темы приложения.
+2) Drawer(боковое выезжающееменю на треть экрана). Сверху отображается автарка с первой буква логина введённого при входе. Ниже доступны кнопки: logout, смена темы приложения. [Видео][DrawerDemoVideo]
 
 ![drawer demo][DrawerDemo]
 
-3) Корзина. Из каталога или детальной страницы товара возможно добавление в корзину. Во время добавления в корзину уточняется количество товара, а содержимое корзины записывается в бд для восстановления после закрытия приложения.
+3) Корзина. Из каталога или детальной страницы товара возможно добавление в корзину. Во время добавления в корзину уточняется количество товара, а содержимое корзины записывается в бд для восстановления после закрытия приложения. [Видео][CartDemoVideo]
 
 ![cart demo][CartDemo]
 
-4) Детальная страница товара. На странице товара доступна его покупка.
+4) Детальная страница товара. На странице товара доступна его покупка. [Видео][DetailItemDemoVideo]
 
 ![detail item demo][DetailItemDemo]
 
-5) Галлерея на странице товара.
+5) Галлерея на странице товара. [Видео][GalleryDemo]
 
 ![detail item demo][DetailItemDemo]
 
@@ -33,9 +33,16 @@
   - Используются Stream для реализации динамической смена темы приложения, корзины.
   - Запись в shared preferences логина, пароля, типа темы приложения.
   - Присутсвует несколько интеграций со сторонним REST Api заполнение описаний, названий товаров, получение случайных картинок. Пока не было интеграции с Mockable локально генерировались товары, продавцы, а к товарам заголовок и описания брались из других Api: [fish-text.ru][FishTextApi], [loremapi.org][LoremApi].
+  - Переезд на BLoC был довольно мягким и занял 1 или 2 дня.
 
+## А что если доделать...
 
-## Screenshots
+<details>
+  <summary>Ответ</summary>
+  С конца декабря 2019 я нахожусь на перепутье. Либо я устраиваюсь на работу как Flutter-разработчик, либо возвращаюсь в веб.
+</details>
+
+## Скриншоты
 
 <details>
   <summary>Куча картинок</summary>
@@ -85,14 +92,21 @@ MIT
    [ProgressiveMobile]:<http://pmobi.ru/>
    [GitHubCatalogApp]:<https://github.com/iebrosalin/catalog_app/>
    [MockableIO]:<https://www.mockable.io/>
+   [BlocReference]:<https://pub.dev/packages/flutter_bloc>
+   [LoremApi]:<https://loremipsum.wiegertschouten.nl>
+   [FishTextApi]:<https://fish-text.ru>
+
    [AuthDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_login.gif>
    [DrawerDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_logout.gif>
    [CartDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_cart%20.gif>
    [DetailItemDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_item_page.gif>
    [GalleryDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/gallery_demo.gif>
-   [BlocReference]:<https://pub.dev/packages/flutter_bloc>
-   [LoremApi]:<https://loremipsum.wiegertschouten.nl>
-   [FishTextApi]:<https://fish-text.ru>
+
+   [AuthDemoVideo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/mp4/demo_login.mp4>
+   [DrawerDemoVideo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/mp4/demo_logout.mp4>
+   [CartDemoVideo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/mp4/demo_cart.mp4>
+   [DetailItemDemoVideo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/mp4/demo_item_page.mp4>
+   [GalleryDemoVideo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/mp4/gallery_demo.mp4>
 
    [BlackStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_start_screen.jpeg>
    [WhiteStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_start_screen.jpeg>
