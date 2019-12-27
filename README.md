@@ -34,7 +34,11 @@
   - Запись в shared preferences логина, пароля, типа темы приложения.
   - Присутсвует несколько интеграций со сторонним REST Api заполнение описаний, названий товаров, получение случайных картинок. Пока не было интеграции с Mockable локально генерировались товары, продавцы, а к товарам заголовок и описания брались из других Api: [fish-text.ru][FishTextApi], [loremapi.org][LoremApi].
 
+
 ## Screenshots
+
+<details>
+  <summary>Куча картинок</summary>
 ![black start screen][BlackStartScreen]
 
 ![white start screen][WhiteStartScreen]
@@ -66,6 +70,8 @@
 ![white item screen][WhiteItemScreen]
 
 ![app in background][AppInBackground]
+</details>
+
 
 License
 ----
