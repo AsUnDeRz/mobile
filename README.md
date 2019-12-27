@@ -37,7 +37,7 @@
 ## Screenshots
 [black start screen][BlackStartScreen][white start screen][WhiteStartScreen]
 
-[black invalid start screen][BlackInvalidStartCcreen][white invalid start screen][WhiteInvalidStartCcreen]
+[black invalid start screen][BlackInvalidStartCcreen][white invalid start screen][WhiteInvalidStartScreen]
 
 [black catalog screen][BlackCatalogScreen][white catalog screen][WhiteCatalogScreen]
 
@@ -63,7 +63,7 @@ MIT
    [ProgressiveMobile]:<http://pmobi.ru/>
    [GitHubCatalogApp]:<https://github.com/iebrosalin/catalog_app/>
    [MockableIO]:<https://www.mockable.io/>
-   [AuthDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_login.gi/>
+   [AuthDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_login.gif>
    [DrawerDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_logout.gif>
    [CartDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_cart%20.gif>
    [DetailItemDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_item_page.gif>
