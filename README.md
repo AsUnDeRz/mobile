@@ -40,6 +40,7 @@
 <details>
   <summary>Куча картинок</summary>
 
+
 ![black start screen][BlackStartScreen]
 
 ![white start screen][WhiteStartScreen]
