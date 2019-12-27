@@ -51,7 +51,7 @@
 
 ![black item screen][BlackItemScreen]![white item screen][WhiteItemScreen]
 
-![app in background]![AppInBackground]
+![app in background][AppInBackground]
 
 License
 ----
@@ -74,8 +74,8 @@ MIT
 
    [BlackStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_start_screen.jpeg>
    [WhiteStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_start_screen.jpeg>
-   [BlackInvalidStartCcreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_invalid_start_screen.jpeg>
-   [WhiteInvalidStartCcreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_invalid_start_screen.jpeg>
+   [BlackInvalidStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_invalid_start_screen.jpeg>
+   [WhiteInvalidStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_invalid_start_screen.jpeg>
    [BlackCatalogScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_catalog_screen.jpeg>
    [WhiteCatalogScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_catalog_screen.jpeg>
    [BlackDrawer]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_drawer.jpeg>
