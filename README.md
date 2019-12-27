@@ -35,21 +35,35 @@
   - Присутсвует несколько интеграций со сторонним REST Api заполнение описаний, названий товаров, получение случайных картинок. Пока не было интеграции с Mockable локально генерировались товары, продавцы, а к товарам заголовок и описания брались из других Api: [fish-text.ru][FishTextApi], [loremapi.org][LoremApi].
 
 ## Screenshots
-![black start screen][BlackStartScreen]![white start screen][WhiteStartScreen]
+![black start screen][BlackStartScreen]
 
-![black invalid start screen][BlackInvalidStartScreen]![white invalid start screen][WhiteInvalidStartScreen]
+![white start screen][WhiteStartScreen]
 
-![black catalog screen][BlackCatalogScreen]![white catalog screen][WhiteCatalogScreen]
+![black invalid start screen][BlackInvalidStartScreen]
+
+![white invalid start screen][WhiteInvalidStartScreen]
+
+![black catalog screen][BlackCatalogScreen]
+
+![white catalog screen][WhiteCatalogScreen]
 
 ![black drawer][BlackDrawer]![white drawer][WhiteDrawer]
 
-![black choose count dialog][BlackChooseCountDialog]![white choose count dialog][WhiteChooseCountDialog]
+![black choose count dialog][BlackChooseCountDialog]
 
-![black cart screen][BlackCartScreen]![white cart screen][WhiteCartScreenNotEmpty]
+![white choose count dialog][WhiteChooseCountDialog]
 
-![black cart screen empty][BlackCartScreenEmpty]![white cart screen empty][WhiteCartScreen]
+![black cart screen][BlackCartScreen]
 
-![black item screen][BlackItemScreen]![white item screen][WhiteItemScreen]
+![white cart screen][WhiteCartScreenNotEmpty]
+
+![black cart screen empty][BlackCartScreenEmpty]
+
+![white cart screen empty][WhiteCartScreen]
+
+![black item screen][BlackItemScreen]
+
+![white item screen][WhiteItemScreen]
 
 ![app in background][AppInBackground]
 
