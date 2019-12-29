@@ -17,8 +17,6 @@
 2) Drawer(боковое выезжающееменю на треть экрана). Сверху отображается автарка с первой буква логина введённого при
  входе. Ниже доступны кнопки: logout, смена темы приложения. 
 
-![drawer demo][DrawerDemo]
-
 <details>
     <summary>Демо</summary>
                                 
@@ -87,7 +85,9 @@
 
 ![white catalog screen][WhiteCatalogScreen]
 
-![black drawer][BlackDrawer]![white drawer][WhiteDrawer]
+![black drawer][BlackDrawer]
+
+![white drawer][WhiteDrawer]
 
 ![black choose count dialog][BlackChooseCountDialog]
 
