@@ -123,26 +123,26 @@ MIT
    [LoremApi]:<https://loremipsum.wiegertschouten.nl>
    [FishTextApi]:<https://fish-text.ru>
 
-   [AuthDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_login.gif>
-   [DrawerDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_logout.gif>
-   [CartDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_cart%20.gif>
-   [DetailItemDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/demo_item_page.gif>
-   [GalleryDemo]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/gif/gallery_demo.gif>
+   [AuthDemo]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/gif/demo_login.gif>
+   [DrawerDemo]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/gif/demo_logout.gif>
+   [CartDemo]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/gif/demo_cart%20.gif>
+   [DetailItemDemo]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/gif/demo_item_page.gif>
+   [GalleryDemo]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/gif/gallery_demo.gif>
 
-   [BlackStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_start_screen.jpeg>
-   [WhiteStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_start_screen.jpeg>
-   [BlackInvalidStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_invalid_start_screen.jpeg>
-   [WhiteInvalidStartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_invalid_start_screen.jpeg>
-   [BlackCatalogScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_catalog_screen.jpeg>
-   [WhiteCatalogScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_catalog_screen.jpeg>
-   [BlackDrawer]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_drawer.jpeg>
-   [WhiteDrawer]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_drawer.jpeg>
-   [BlackChooseCountDialog]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_choose_count_dialog.jpeg>
-   [WhiteChooseCountDialog]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_choose_count_dialog.jpeg>
-   [WhiteCartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_cart_screen.jpeg>
-   [BlackCartScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_cart_screen.jpeg>
-   [WhiteCartScreenNotEmpty]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_cart_screen_not_empty.jpeg>
-   [BlackCartScreenEmpty]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_cart_screen_empty.jpeg>
-   [BlackItemScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/black_item_screen.jpeg>
-   [WhiteItemScreen]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/white_item_screen.jpeg>
-   [AppInBackground]:<https://github.com/iebrosalin/catalog_app_bloc/blob/master/descriptions/app_in_background.jpeg>
+   [BlackStartScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_start_screen.jpeg>
+   [WhiteStartScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_start_screen.jpeg>
+   [BlackInvalidStartScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_invalid_start_screen.jpeg>
+   [WhiteInvalidStartScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_invalid_start_screen.jpeg>
+   [BlackCatalogScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_catalog_screen.jpeg>
+   [WhiteCatalogScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_catalog_screen.jpeg>
+   [BlackDrawer]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_drawer.jpeg>
+   [WhiteDrawer]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_drawer.jpeg>
+   [BlackChooseCountDialog]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_choose_count_dialog.jpeg>
+   [WhiteChooseCountDialog]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_choose_count_dialog.jpeg>
+   [WhiteCartScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_cart_screen.jpeg>
+   [BlackCartScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_cart_screen.jpeg>
+   [WhiteCartScreenNotEmpty]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_cart_screen_not_empty.jpeg>
+   [BlackCartScreenEmpty]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_cart_screen_empty.jpeg>
+   [BlackItemScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/black_item_screen.jpeg>
+   [WhiteItemScreen]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/white_item_screen.jpeg>
+   [AppInBackground]:https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc/descriptions/app_in_background.jpeg>
