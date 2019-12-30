@@ -32,33 +32,33 @@
     - <details>
         <summary>Демо тёмная версия</summary>
      
-![FlowDark1][FlowDark1]
-
-![FlowDark2][FlowDark2]
-
-![FlowDark3][FlowDark3]
-
-![FlowDark4][FlowDark4]
-
-![FlowDark5][FlowDark5]
-
-![FlowDark6][FlowDark6]
-
-![FlowDark7][FlowDark7]
-
-![FlowDark8][FlowDark8]
-
-![FlowDark9][FlowDark9]
-
-![FlowDark10][FlowDark10]
-
-![FlowDark11][FlowDark11]
-
-![FlowDark12][FlowDark12]
-
-![FlowDark12][FlowDarkAlt13]
-
-![FlowDark12][FlowDarkAlt14]
+         ![FlowDark1][FlowDark1]
+         
+         ![FlowDark2][FlowDark2]
+         
+         ![FlowDark3][FlowDark3]
+         
+         ![FlowDark4][FlowDark4]
+         
+         ![FlowDark5][FlowDark5]
+         
+         ![FlowDark6][FlowDark6]
+         
+         ![FlowDark7][FlowDark7]
+         
+         ![FlowDark8][FlowDark8]
+         
+         ![FlowDark9][FlowDark9]
+         
+         ![FlowDark10][FlowDark10]
+         
+         ![FlowDark11][FlowDark11]
+         
+         ![FlowDark12][FlowDark12]
+         
+         ![FlowDark12][FlowDarkAlt13]
+         
+         ![FlowDark12][FlowDarkAlt14]
 
      
    </details>   
