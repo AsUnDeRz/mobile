@@ -58,66 +58,84 @@
          
          ![FlowDark12][FlowDarkAlt13]
          
-         ![FlowDark12][FlowDarkAlt14]
-
-     
-   </details>   
-   - <details>
-  <summary>Светлая версия</summary>
-     
-   ![FlowLight1][FlowLight1]     
-     
-   ![FlowLight2][FlowLight2]   
-        
-   ![FlowLight3][FlowLight3]     
-     
-   ![FlowLight4][FlowLight4]   
-       
-   ![FlowLight5][FlowLight5]   
-       
-   ![FlowLight6][FlowLight6]  
-        
-   ![FlowLight7][FlowLight7]    
-      
-   ![FlowLight8][FlowLight8]    
-      
-   ![FlowLight9][FlowLight9]     
-     
-   ![FlowLight10][FlowLight10]   
-       
-   ![FlowLight10][FlowLight11]   
-       
-   ![FlowLight11][FlowLightAlt12]  
+         ![FlowDark12][FlowDarkAlt14]  
+   </details>
    
-   ![FlowLight12][FlowLightAlt13]  
-</details>   
-       
-   <details>
-     <summary>Несколько сценариев взаимодействия с экраном</summary>
-     - Тапаешь (нажатие пальчиком о экрану) на автарку, имя автора автора переходишь в его профиль.
-     - Пост оскорбляет твои чувства, тогда можно пожаловаться на него.
-     - Хочется начать чат с автором, есть кнопочка для этого.
-     - Лень свайпать, можно потрясти телефон и он сам перейдёт на следующий пост.
-     </details>
- </details>
- 
- <details>
-   <summary>Экран профиля</summary>
-      <details>
-        <summary>Тёмная версия</summary>
-        ![][]
-       </details>  
-      <details>
+   - <details>
         <summary>Светлая версия</summary>
-        ![][]
+     
+        ![FlowLight1][FlowLight1]     
+          
+        ![FlowLight2][FlowLight2]   
+             
+        ![FlowLight3][FlowLight3]     
+          
+        ![FlowLight4][FlowLight4]   
+            
+        ![FlowLight5][FlowLight5]   
+            
+        ![FlowLight6][FlowLight6]  
+             
+        ![FlowLight7][FlowLight7]    
+           
+        ![FlowLight8][FlowLight8]    
+           
+        ![FlowLight9][FlowLight9]     
+          
+        ![FlowLight10][FlowLight10]   
+            
+        ![FlowLight10][FlowLight11]   
+            
+        ![FlowLight11][FlowLightAlt12]  
+        
+        ![FlowLight12][FlowLightAlt13]  
+    </details>   
+ </details>
+
+ - <details>
+    <summary>Экран профиля</summary>
+    
+      - <details>
+            <summary>Тёмная версия</summary>
+            - <details>
+               <summary>Свой профиль</summary>
+               
+        ![ProfileDark1][ProfileDark1]
+        ![ProfileDark2][ProfileDark2]
+        </details>
+        - <details>
+           <summary>Чужой профиль</summary>
+           
+        ![ProfileDark3][ProfileDark3]
+        ![ProfileDark4][ProfileDark4]
+        </details> 
+       </details>  
+       
+      - <details>
+         <summary>Светлая версия</summary>
+         
+        - <details>
+           <summary>Свой профиль</summary>
+           
+        ![ProfileLight1][ProfileLight1]
+        ![ProfileLight2][ProfileLight2]
+        </details> 
+        - <details>
+            <summary>Чужой профиль</summary>
+            
+        ![ProfileLight3][ProfileLight3]
+        ![ProfileLight4][ProfileLight4]
+        </details> 
       </details> 
-      <details>
+      
+     - <details>
         <summary>Дополнительная информация</summary>
+       
         Скролируемый экран, имеющий разные виды и поведенияв зависимости от типа 
         пользователяи (мой и чужой профиль) и поведение от наличии авторизации. Неавторизованные 
         пользователи при совершении действий требующих авторизации открывают экран авторизации.  
         Свой экран профиля содержал следующее: 
-           - Автарку.
+            - Автарку.
            - Текущее местоположение
               - Неавторизованный пользователь видит вымышленное местонахождение пользователя.
               - В своём профиле пользователь видит город, страну где он находится.
@@ -134,23 +152,53 @@
         - Посты пользователя с подгрузкой по скролу. 
        </details>  
  </details>
- <details>
+ 
+ - <details>
    <summary>Экран редактирования профиля</summary>
- <details>
-        <summary>Тёмная версия</summary>
+   
+   - <details>
+       <summary>Тёмная версия</summary>
+        
         ![][]
-       </details>  
-      <details>
+   </details>  
+   
+   - <details>
         <summary>Светлая версия</summary>
-        ![][]
-      </details> 
-      <details>
-       <summary>Дополнительная информация</summary>
-       Стандартный экран редактирования. Аватар кликабелен и вызывает диалоговое окно с выбором источника аватрки.
-       Текстовые поля выполнены в стиле материал, с автовалидацией.
-       </details>  
+        
+      ![][]
+   </details> 
+   
+   - <details>
+        <summary>Дополнительная информация</summary>
+       
+      Стандартный экран редактирования. Аватар кликабелен и вызывает диалоговое окно с выбором источника аватрки.
+      Текстовые поля выполнены в стиле материал, с автовалидацией.
+   </details>  
  </details>
  
+  - <details>
+    <summary>Экран списка подписок/подписчиков</summary>
+    
+    - <details>
+        <summary>Тёмная версия</summary>
+         
+         ![][]
+    </details>  
+    
+    - <details>
+         <summary>Светлая версия</summary>
+         
+       ![][]
+    </details> 
+    
+    - <details>
+         <summary>Дополнительная информация</summary>
+        
+       Список с пагинацией по скролу. Неавторизованные пользователи при нажатии на кнопку подписатсья переходят на 
+       экран авторизации. Тап по аватару переводит на профиль пользователя.
+    </details>  
+  </details>
+
  ## Технологичесикие вызовы нового пет-проекта
  С частью задач я сталкивался и имею информации о их решении, но общее и универсальное пока не 
  найдено и не написано. Если придёт время, то придётся похоронить не один вечер на решение 
@@ -205,3 +253,13 @@
      
 [FlowLightAlt12]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_12.png>
 [FlowLightAlt13]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_13.png>
+
+[ProfileDark1]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_1.png>
+[ProfileDark2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_2.png>
+[ProfileDark3]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_3.png>
+[ProfileDark4]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_4.png>
+
+[ProfileLight1]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_1.png>
+[ProfileLight2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_2.png>
+[ProfileLight3]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_3.png>
+[ProfileLight4]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_4.png>
