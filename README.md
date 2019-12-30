@@ -60,8 +60,9 @@
      ![FlowLight8][FlowLight8]       
      ![FlowLight9][FlowLight9]       
      ![FlowLight10][FlowLight10]       
-     ![FlowLight11][FlowLightAlt11]  
-     ![FlowLight12][FlowLightAlt12]  
+     ![FlowLight10][FlowLight11]       
+     ![FlowLight11][FlowLightAlt12]  
+     ![FlowLight12][FlowLightAlt13]  
 </details>   
        
    <details>
@@ -173,6 +174,7 @@
 [FlowLight8]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/main/flow_8.png>
 [FlowLight9]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/main/flow_9.png>
 [FlowLight10]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/main/flow_10.png>
+[FlowLight11]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/main/flow_11.png>
      
-[FlowLightAlt11]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_11.png>
 [FlowLightAlt12]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_12.png>
+[FlowLightAlt13]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_13.png>
