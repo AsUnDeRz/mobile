@@ -8,7 +8,7 @@
 Проекты можно разделить на 2 типа:
 - Flutter.
     - [Первое приложение на Flutter, так же тестовое][FirstApp]
-    - [Учебное приложение catalog_app на старой архитектуре][OldCatalog]    - 
+    - [Учебное приложение catalog_app на старой архитектуре][OldCatalog] 
     - [Учебное приложение catalog_app на BLoC][BlocCatalog]
     - [Мои черновики, пригождались не раз] [Drafts]
     - Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые два месяца оказывал поддержку пока не прошёл все интересущие темы (90%) 
@@ -24,45 +24,72 @@
  UX-задачами, не смотря на то что почти каждый является потребителем подобного контента. 
 
  Накопились следующие наработки...
- <details>
+ - <details>
    <summary>Экран лента новостей</summary>
    Каждая новость занимает весь экран (переход свайпами верх). Имеет
    фото/видео, дату создания, автора. 
-   <details>
-     <summary>Демо тёмная версия</summary>
+
+    - <details>
+        <summary>Демо тёмная версия</summary>
      
 ![FlowDark1][FlowDark1]
+
 ![FlowDark2][FlowDark2]
+
 ![FlowDark3][FlowDark3]
+
 ![FlowDark4][FlowDark4]
+
 ![FlowDark5][FlowDark5]
+
 ![FlowDark6][FlowDark6]
+
 ![FlowDark7][FlowDark7]
+
 ![FlowDark8][FlowDark8]
+
 ![FlowDark9][FlowDark9]
+
 ![FlowDark10][FlowDark10]
+
 ![FlowDark11][FlowDark11]
+
 ![FlowDark12][FlowDark12]
+
 ![FlowDark12][FlowDarkAlt13]
+
 ![FlowDark12][FlowDarkAlt14]
+
      
    </details>   
-   <details>
-     <summary>Светлая версия</summary>
+<details>
+  <summary>Светлая версия</summary>
      
-   ![FlowLight1][FlowLight1]       
-    ![FlowLight2][FlowLight2]       
-     ![FlowLight3][FlowLight3]       
-     ![FlowLight4][FlowLight4]       
-     ![FlowLight5][FlowLight5]       
-     ![FlowLight6][FlowLight6]       
-     ![FlowLight7][FlowLight7]       
-     ![FlowLight8][FlowLight8]       
-     ![FlowLight9][FlowLight9]       
-     ![FlowLight10][FlowLight10]       
-     ![FlowLight10][FlowLight11]       
-     ![FlowLight11][FlowLightAlt12]  
-     ![FlowLight12][FlowLightAlt13]  
+   ![FlowLight1][FlowLight1]     
+     
+   ![FlowLight2][FlowLight2]   
+        
+   ![FlowLight3][FlowLight3]     
+     
+   ![FlowLight4][FlowLight4]   
+       
+   ![FlowLight5][FlowLight5]   
+       
+   ![FlowLight6][FlowLight6]  
+        
+   ![FlowLight7][FlowLight7]    
+      
+   ![FlowLight8][FlowLight8]    
+      
+   ![FlowLight9][FlowLight9]     
+     
+   ![FlowLight10][FlowLight10]   
+       
+   ![FlowLight10][FlowLight11]   
+       
+   ![FlowLight11][FlowLightAlt12]  
+   
+   ![FlowLight12][FlowLightAlt13]  
 </details>   
        
    <details>
