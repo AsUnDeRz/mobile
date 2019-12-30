@@ -60,7 +60,7 @@
      ![FlowLight8][FlowLight8]       
      ![FlowLight9][FlowLight9]       
      ![FlowLight10][FlowLight10]       
-     ![FlowLight12][FlowLightAlt11]  
+     ![FlowLight11][FlowLightAlt11]  
      ![FlowLight12][FlowLightAlt12]  
 </details>   
        
