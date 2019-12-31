@@ -159,36 +159,35 @@
   
   - Экран редактирования профиля
     
-   - <details>
+    - <details>
       <summary>Тёмная версия</summary>
          
          ![][]
-   </details>  
+    </details>  
     
-   - <details>
+    - <details>
       <summary>Светлая версия</summary>
          
        ![][]
-   </details> 
+    </details> 
     
-   - <details>
+    - <details>
       <summary>Дополнительная информация</summary>
         
        Стандартный экран редактирования. Аватар кликабелен и вызывает диалоговое окно с выбором источника аватрки.
        Текстовые поля выполнены в стиле материал, с автовалидацией.
-   </details>  
+    </details>  
 
-  
  - Экран списка подписок/подписчиков
      
     - <details>
-         <summary>Тёмная версия</summary>
+      <summary>Тёмная версия</summary>
           
-          ![][]
+        ![][]
      </details>  
      
      - <details>
-          <summary>Светлая версия</summary>
+        <summary>Светлая версия</summary>
           
         ![][]
      </details> 
