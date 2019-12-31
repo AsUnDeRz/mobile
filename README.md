@@ -100,18 +100,18 @@
         - <details>
            <summary>Свой профиль</summary>
              
-          ![ProfileDark1][ProfileDark1]
+          ![ProfileDark1][ProfileDarkOwn]
           
-          ![ProfileDark2][ProfileDark2]
+          ![ProfileDark2][ProfileDarkOwn2]
       
        </details>
       
         - <details>
            <summary>Чужой профиль</summary>
              
-            ![ProfileDark3][ProfileDark3]
+            ![ProfileDark3][ProfileDarkOther]
               
-            ![ProfileDark4][ProfileDark4]
+            ![ProfileDark4][ProfileDarkOther2]
         </details>  
      
     - Светлая версия
@@ -119,17 +119,17 @@
        - <details>
            <summary>Свой профиль</summary>
              
-            ![ProfileLight1][ProfileLight1]
+            ![ProfileLight1][ProfileLightOwn]
               
-            ![ProfileLight2][ProfileLight2]
+            ![ProfileLight2][ProfileLightOwn2]
        </details> 
       
       - <details>
           <summary>Чужой профиль</summary>
           
-          ![ProfileLight3][ProfileLight3]
+          ![ProfileLight3][ProfileLightOther]
           
-          ![ProfileLight4][ProfileLight4]
+          ![ProfileLight4][ProfileLightOther2]
       </details> 
        
       - <details>
@@ -255,12 +255,12 @@
 [FlowLightAlt12]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_12.png>
 [FlowLightAlt13]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_13.png>
 
-[ProfileDark1]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_1.png>
-[ProfileDark2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_2.png>
-[ProfileDark3]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_3.png>
-[ProfileDark4]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/profile_4.png>
+[ProfileDarkOwn]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/light/own.png>
+[ProfileDarkOwn]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/dark/own.png>
+[ProfileDarkOther]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/dark/other.png>
+[ProfileDarkOther2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/light/other.png>
 
-[ProfileLight1]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_1.png>
-[ProfileLight2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_2.png>
-[ProfileLight3]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_3.png>
-[ProfileLight4]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/profile_4.png>
+[ProfileLightOwn]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/light/own.png>
+[ProfileLightOwn]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/own.png>
+[ProfileLightOther]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/other.png>
+[ProfileLightOther2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/profile/light/other.png>
