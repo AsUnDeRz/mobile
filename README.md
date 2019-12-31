@@ -7,11 +7,17 @@
 
 Проекты можно разделить на 2 типа:
 - Flutter.
-    - [Первое приложение на Flutter, так же тестовое][FirstApp]
-    - [Учебное приложение catalog_app на старой архитектуре][OldCatalog] 
-    - [Учебное приложение catalog_app на BLoC][BlocCatalog]
-    - [Мои черновики, пригождались не раз] [Drafts]
-    - Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые два месяца оказывал поддержку пока не прошёл все интересущие темы (90%) 
+
+| Проект                        | Статус               | Тестируемая платформа| Целевые устройства |
+| --------------------          | -------------------- | -------------------- | ------------------ |
+| [Первое приложение][FirstApp] |                      |                      |                    | 
+| [Catalog_app][OldCatalog]  |
+| [Catalog_app bloc][BlocCatalog] | [plugins/googledrive/README.md][PlGd] |
+| [Черновики] [Drafts] | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
+   Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые два месяца оказывал поддержку пока не прошёл все интересущие темы (90%) 
 - Android. Поизучал немного в моменты затишья по книге Head First. 
     - [Hello world][HelloWorld]
     - [Advicer beer][AdvicerBeer]
