@@ -100,9 +100,9 @@
         - <details>
            <summary>Свой профиль</summary>
              
-          ![ProfileDark1][ProfileDarkOwn]
+            ![ProfileDark1][ProfileDarkOwn]
           
-          ![ProfileDark2][ProfileDarkOwn2]
+            ![ProfileDark2][ProfileDarkOwn2]
       
        </details>
       
@@ -256,7 +256,7 @@
 [FlowLightAlt13]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/light/flow/alt/flow_13.png>
 
 [ProfileDarkOwn]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/light/own.png>
-[ProfileDarkOwn]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/dark/own.png>
+[ProfileDarkOwn2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/dark/own.png>
 [ProfileDarkOther]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/dark/other.png>
 [ProfileDarkOther2]:<https://github.com/iebrosalin/mobile/blob/master/descriptions/unpublish/dark/profile/light/other.png>
 
