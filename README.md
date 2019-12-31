@@ -93,48 +93,47 @@
     </details>   
 
  
-  - <details>
-     <summary>Экран профиля</summary>
-     
-       - <details>
-          <summary>Тёмная версия</summary>
+  - Экран профиля
+ 
+    - <details>
+       <summary>Тёмная версия</summary>
+       
+        - <details>
+           <summary>Свой профиль</summary>
+             
+          ![ProfileDark1][ProfileDark1]
           
-           - <details>
-              <summary>Свой профиль</summary>
-                
-             ![ProfileDark1][ProfileDark1]
+          ![ProfileDark2][ProfileDark2]
+      
+       </details>
+      
+        - <details>
+           <summary>Чужой профиль</summary>
              
-             ![ProfileDark2][ProfileDark2]
-         
-          </details>
-         
-           - <details>
-              <summary>Чужой профиль</summary>
-                
-               ![ProfileDark3][ProfileDark3]
-                 
-               ![ProfileDark4][ProfileDark4]
-           </details>  
-        
-           - <details>
-              <summary>Светлая версия</summary>
+            ![ProfileDark3][ProfileDark3]
               
-              - <details>
-                  <summary>Свой профиль</summary>
-                    
-                   ![ProfileLight1][ProfileLight1]
-                     
-                   ![ProfileLight2][ProfileLight2]
-              </details> 
-             
-             - <details>
-                 <summary>Чужой профиль</summary>
+            ![ProfileDark4][ProfileDark4]
+        </details>  
+     
+        - <details>
+           <summary>Светлая версия</summary>
+           
+           - <details>
+               <summary>Свой профиль</summary>
                  
-                 ![ProfileLight3][ProfileLight3]
-                 
-                 ![ProfileLight4][ProfileLight4]
-             </details> 
+                ![ProfileLight1][ProfileLight1]
+                  
+                ![ProfileLight2][ProfileLight2]
            </details> 
+          
+          - <details>
+              <summary>Чужой профиль</summary>
+              
+              ![ProfileLight3][ProfileLight3]
+              
+              ![ProfileLight4][ProfileLight4]
+          </details> 
+        </details> 
        
       - <details>
          <summary>Дополнительная информация</summary>
@@ -159,35 +158,33 @@
           также другие настройки придётся прятать тут.
          - Посты пользователя с подгрузкой по скролу. 
         </details>  
-  </details>
+
   
-  - <details>
-    <summary>Экран редактирования профиля</summary>
+  - Экран редактирования профиля
     
-    - <details>
-        <summary>Тёмная версия</summary>
+   - <details>
+      <summary>Тёмная версия</summary>
          
          ![][]
-    </details>  
+   </details>  
     
-    - <details>
-         <summary>Светлая версия</summary>
+   - <details>
+      <summary>Светлая версия</summary>
          
        ![][]
-    </details> 
+   </details> 
     
-    - <details>
-         <summary>Дополнительная информация</summary>
+   - <details>
+      <summary>Дополнительная информация</summary>
         
        Стандартный экран редактирования. Аватар кликабелен и вызывает диалоговое окно с выбором источника аватрки.
        Текстовые поля выполнены в стиле материал, с автовалидацией.
-    </details>  
-  </details>
+   </details>  
+
   
-   - <details>
-     <summary>Экран списка подписок/подписчиков</summary>
+ - Экран списка подписок/подписчиков
      
-     - <details>
+    - <details>
          <summary>Тёмная версия</summary>
           
           ![][]
@@ -205,7 +202,6 @@
         Список с пагинацией по скролу. Неавторизованные пользователи при нажатии на кнопку подписатсья переходят на 
         экран авторизации. Тап по аватару переводит на профиль пользователя.
      </details>  
-   </details>
  
   ## Технологичесикие вызовы нового пет-проекта
   С частью задач я сталкивался и имею информации о их решении, но общее и универсальное пока не 
