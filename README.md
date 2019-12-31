@@ -59,36 +59,37 @@
          ![FlowDark12][FlowDarkAlt13]
          
          ![FlowDark12][FlowDarkAlt14]  
+         
    </details>
    
-   - <details>
-        <summary>Светлая версия</summary>
-     
-        ![FlowLight1][FlowLight1]     
-          
-        ![FlowLight2][FlowLight2]   
-             
-        ![FlowLight3][FlowLight3]     
-          
-        ![FlowLight4][FlowLight4]   
-            
-        ![FlowLight5][FlowLight5]   
-            
-        ![FlowLight6][FlowLight6]  
-             
-        ![FlowLight7][FlowLight7]    
+    - <details>
+         <summary>Светлая версия</summary>
+      
+         ![FlowLight1][FlowLight1]     
            
-        ![FlowLight8][FlowLight8]    
+         ![FlowLight2][FlowLight2]   
+              
+         ![FlowLight3][FlowLight3]     
            
-        ![FlowLight9][FlowLight9]     
-          
-        ![FlowLight10][FlowLight10]   
+         ![FlowLight4][FlowLight4]   
+             
+         ![FlowLight5][FlowLight5]   
+             
+         ![FlowLight6][FlowLight6]  
+              
+         ![FlowLight7][FlowLight7]    
             
-        ![FlowLight10][FlowLight11]   
+         ![FlowLight8][FlowLight8]    
             
-        ![FlowLight11][FlowLightAlt12]  
-        
-        ![FlowLight12][FlowLightAlt13]  
+         ![FlowLight9][FlowLight9]     
+           
+         ![FlowLight10][FlowLight10]   
+             
+         ![FlowLight10][FlowLight11]   
+             
+         ![FlowLight11][FlowLightAlt12]  
+         
+         ![FlowLight12][FlowLightAlt13]  
     </details>   
  </details>
 
