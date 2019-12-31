@@ -63,7 +63,7 @@
    </details>
    
     - <details>
-      <summary>Светлая версия</summary>
+        <summary>Светлая версия</summary>
       
          ![FlowLight1][FlowLight1]     
            
@@ -91,6 +91,7 @@
          
          ![FlowLight12][FlowLightAlt13]  
     </details>   
+    
  </details>
 
  - <details>
