@@ -95,8 +95,7 @@
  
   - Экран профиля
  
-    - <details>
-       <summary>Тёмная версия</summary>
+    - Тёмная версия
        
         - <details>
            <summary>Свой профиль</summary>
@@ -115,25 +114,23 @@
             ![ProfileDark4][ProfileDark4]
         </details>  
      
-        - <details>
-           <summary>Светлая версия</summary>
-           
-           - <details>
-               <summary>Свой профиль</summary>
-                 
-                ![ProfileLight1][ProfileLight1]
-                  
-                ![ProfileLight2][ProfileLight2]
-           </details> 
+    - Светлая версия
+      
+       - <details>
+           <summary>Свой профиль</summary>
+             
+            ![ProfileLight1][ProfileLight1]
+              
+            ![ProfileLight2][ProfileLight2]
+       </details> 
+      
+      - <details>
+          <summary>Чужой профиль</summary>
           
-          - <details>
-              <summary>Чужой профиль</summary>
-              
-              ![ProfileLight3][ProfileLight3]
-              
-              ![ProfileLight4][ProfileLight4]
-          </details> 
-        </details> 
+          ![ProfileLight3][ProfileLight3]
+          
+          ![ProfileLight4][ProfileLight4]
+      </details> 
        
       - <details>
          <summary>Дополнительная информация</summary>
