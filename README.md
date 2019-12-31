@@ -99,41 +99,41 @@
          <summary>Тёмная версия</summary>
          
           - <details>
-               <summary>Свой профиль</summary>
+             <summary>Свой профиль</summary>
                
             ![ProfileDark1][ProfileDark1]
             
             ![ProfileDark2][ProfileDark2]
         
-      </details>
+         </details>
         
-      - <details>
-           <summary>Чужой профиль</summary>
-           
-            ![ProfileDark3][ProfileDark3]
-            
-            ![ProfileDark4][ProfileDark4]
-      </details>  
+          - <details>
+             <summary>Чужой профиль</summary>
+               
+              ![ProfileDark3][ProfileDark3]
+                
+              ![ProfileDark4][ProfileDark4]
+          </details>  
        
-      - <details>
-         <summary>Светлая версия</summary>
-         
-        - <details>
-           <summary>Свой профиль</summary>
-           
-            ![ProfileLight1][ProfileLight1]
+          - <details>
+             <summary>Светлая версия</summary>
+             
+             - <details>
+                 <summary>Свой профиль</summary>
+                   
+                  ![ProfileLight1][ProfileLight1]
+                    
+                  ![ProfileLight2][ProfileLight2]
+             </details> 
             
-            ![ProfileLight2][ProfileLight2]
-        </details> 
-        
-        - <details>
-            <summary>Чужой профиль</summary>
-            
-            ![ProfileLight3][ProfileLight3]
-            
-            ![ProfileLight4][ProfileLight4]
-        </details> 
-      </details> 
+            - <details>
+                <summary>Чужой профиль</summary>
+                
+                ![ProfileLight3][ProfileLight3]
+                
+                ![ProfileLight4][ProfileLight4]
+            </details> 
+          </details> 
       
      - <details>
         <summary>Дополнительная информация</summary>
