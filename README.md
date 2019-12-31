@@ -64,7 +64,7 @@
     
     - <details>
        <summary>Светлая версия</summary>
-      
+       
          ![FlowLight1][FlowLight1]     
            
          ![FlowLight2][FlowLight2]   
