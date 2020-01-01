@@ -33,7 +33,8 @@
     <summary>Другие проекты</summary>
         
 <details> 
-<summary>Mobile</summ                                                                                                       
+<summary>Mobile</summary>    
+                                                                                                   
 #### Flutter
                                                                                                                                  
 | Проект                          | Статус проекта       | Тестируемая платформа| Целевые устройства |                       
@@ -55,7 +56,8 @@
 </details> 
 
 <details> 
-<summary>Mobile</summ                                                                                                       
+<summary>Mobile</summary>     
+                                                                                                  
 #### Flutter
                                                                                                                                  
 | Проект                          | Статус проекта       | Тестируемая платформа| Целевые устройства |                       
