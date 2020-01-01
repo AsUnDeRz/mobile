@@ -56,7 +56,7 @@
 </details> 
 
 <details> 
-<summary>Mobile</summary>     
+<summary>Web</summary>     
                                                                                                   
 #### Flutter
                                                                                                                                  
