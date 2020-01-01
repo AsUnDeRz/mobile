@@ -10,7 +10,7 @@
 | [Первое приложение][FirstApp]   | поддерживается       | android              | смрартфоны         | 
 | [Catalog_app][OldCatalog]       | заморожен            | android              | смрартфоны         |
 | [Catalog_app bloc][BlocCatalog] | поддерживается       | android              | смрартфоны         |
-| [Drafts][Drafts]            | поддерживается       | android              | смрартфоны         |
+| [Drafts][Drafts]                | поддерживается       | android              | смрартфоны         |
 | [Social network][SocialNetwork] | поддерживается       | android              | смрартфоны         |
 
 >   Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые
