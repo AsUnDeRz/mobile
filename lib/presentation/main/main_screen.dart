@@ -3,6 +3,10 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_network/presentation/design/application_design.dart';
+import 'package:social_network/presentation/main/widgets/drawer_navigation_widget.dart';
+import 'package:social_network/presentation/main/widgets/navigation_menu/icon_navigation_widget.dart';
+import 'package:social_network/presentation/main/widgets/navigation_menu/navigation_menu_widget.dart';
+import 'package:social_network/presentation/main/widgets/view_widget.dart';
 
 
 
@@ -14,6 +18,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 //  final NavigationBloc _navigationBloc = NavigationModule.navigationBloc();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,90 +28,20 @@ class _MainScreenState extends State<MainScreen> {
         return false;
       },
       child: Scaffold(
+        key: _scaffoldKey,
+        drawer: Drawer(
+          child: DrawerNavigationWidget(),
+        ),
         body: Stack(
-          alignment: Alignment.bottomCenter,
           children: <Widget>[
-            Container(
-              color: Colors.amber,
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(.2)
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    FlatButton(
-                      child:Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            Icons.menu,
-                            color: Colors.white.withOpacity(.5),
-                          ),
-                          Text("Menu")
-                        ],
-                      ),
-                      splashColor: Colors.black.withOpacity(.6),
-                      onPressed: (){},
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      padding: EdgeInsets.zero,
-                    ),
-                    FlatButton(
-                      child:Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            Icons.collections,
-                            color: Colors.white.withOpacity(.5),
-                          ),
-                          Text("Flow")
-                        ],
-                      ),
-                      splashColor: Colors.black.withOpacity(.6),
-                      onPressed: (){},
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      padding: EdgeInsets.zero,
-                    ),
-                    FlatButton(
-                      child:Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            Icons.portrait,
-                            color: Colors.white.withOpacity(.5),
-                          ),
-                          Text("Profile")
-                        ],
-                      ),
-                      splashColor: Colors.black.withOpacity(.6),
-                      onPressed: (){},
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      padding: EdgeInsets.zero,
-                    )
-                  ],
-                ),
-              ),
+            ViewWidget(),
+            NavigationMenuWidget(
+              scaffoldKey: _scaffoldKey,
             )
           ],
         ),
         resizeToAvoidBottomInset : false,
       ),
-//      BlocBuilder<NavigationBloc, NavigationState>(
-//        bloc: _navigationBloc,
-//        builder: (context, state) {
-//          if (state is PageNavigationState) {
-//            return _getBody(state);
-//          } else {
-//            return Container();
-//          }
-//        },
-//      ),
     );
   }
 }
