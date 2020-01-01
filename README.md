@@ -29,7 +29,29 @@
 | [Messenger][Messanger]          | заморожен            | смрартфоны         |
 | [Stopwatch] [Stopwatch]         | заморожен            | смрартфоны         |
 
-
+<details>
+    <summary>Другие проекты</summary>
+                                                                                                                
+### Flutter
+                                                                                                                                 
+| Проект                          | Статус проекта       | Тестируемая платформа| Целевые устройства |                       
+| ------------------------------- | -------------------- | -------------------- | ------------------ |                       
+| [Первое приложение][FirstApp]   | поддерживается       | android              | смрартфоны         |                       
+| [Catalog_app][OldCatalog]       | заморожен            | android              | смрартфоны         |                       
+| [Catalog_app bloc][BlocCatalog] | поддерживается       | android              | смрартфоны         |                       
+| [Drafts][Drafts]                | поддерживается       | android              | смрартфоны         |                       
+| [Social network][SocialNetwork] | поддерживается       | android              | смрартфоны         |                       
+                                                                                                                                                                                                                                                                     
+### Android                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                     
+| Проект                          | Статус проекта       | Целевые устройства |                                              
+| ------------------------------- | -------------------- | ------------------ |                                              
+| [Hello world][HelloWorld]       | заморожен            | смрартфоны         |                                              
+| [Advicer beer][AdvicerBeer]     | заморожен            | смрартфоны         |                                              
+| [Messenger][Messanger]          | заморожен            | смрартфоны         |                                              
+| [Stopwatch] [Stopwatch]         | заморожен            | смрартфоны         |                                              
+                                                                                                                                 
+</details>
 
  
 [FirstApp]:<https://github.com/iebrosalin/mobile/tree/flutter/first_app_flutter>
