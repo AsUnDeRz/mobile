@@ -75,7 +75,7 @@ class _StartScreenState extends State<StartScreen> {
 
   Widget _getSubmitButton() {
     return Button(
-      label: 'Submit',
+      label: 'Login',
       handler: _onLogin,
     );
   }
