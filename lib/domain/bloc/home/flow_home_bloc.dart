@@ -17,11 +17,8 @@ class FlowHomeBloc extends Bloc<FlowHomeEvent, FlowHomeState> {
   List<Post> listShowPost = [];
   List<PostHomeBloc> listBlocs = [];
 
-  ContentCacheManager _cacheManager;
 
-  FlowHomeBloc(this._postRepository){
-    this._cacheManager = ContentCacheManager();
-  }
+  FlowHomeBloc(this._postRepository);
 
   @override
   void close() {
@@ -40,7 +37,7 @@ class FlowHomeBloc extends Bloc<FlowHomeEvent, FlowHomeState> {
       final List<Post> partList = listPosts.sublist(0, page*perPage);
       listShowPost.addAll(partList);
       partList.forEach((post){
-        final bloc = PostHomeBloc();
+        PostHomeBloc bloc = PostHomeBloc();
         bloc.add(InitPostHomeEvent(post.fileUrl));
         listBlocs.add(bloc);
       });
@@ -56,7 +53,7 @@ class FlowHomeBloc extends Bloc<FlowHomeEvent, FlowHomeState> {
       final List<Post> partList = listPosts.sublist((page-1)*perPage, page*perPage);
       listShowPost.addAll(partList);
       partList.forEach((post){
-        final bloc = PostHomeBloc();
+        PostHomeBloc bloc = PostHomeBloc();
         bloc.add(InitPostHomeEvent(post.fileUrl));
         listBlocs.add(bloc);
       });

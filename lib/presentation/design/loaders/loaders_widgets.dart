@@ -83,6 +83,43 @@ class _FadeAnimationState extends State<FadeAnimation>
   }
 }
 
+class FadeContainer extends StatefulWidget {
+  FadeContainer(
+      {this.child, this.controller});
+
+  final Widget child;
+  final AnimationController controller;
+
+
+  @override
+  _FadeContainerState createState() => _FadeContainerState();
+}
+
+class _FadeContainerState extends State<FadeContainer>
+    with SingleTickerProviderStateMixin {
+
+
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print("opacity ${widget.controller.value}");
+
+    return Opacity(
+      opacity: widget.controller.value,
+      child: widget.child,
+    );
+  }
+}
+
 class SkeletonEffect extends StatefulWidget {
   final double height;
   final double width;
