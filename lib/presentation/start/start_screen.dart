@@ -61,7 +61,6 @@ class _StartScreenState extends State<StartScreen> {
                         PasswordWidget(_loginFormBloc.passwordBloc),
                         _getSubmitButton(),
                         CheckboxWidget(_loginFormBloc),
-                        ApplicationThemeSwitcherWidget()
                       ],
                     );
                   },
