@@ -10,7 +10,7 @@ class NameWidget extends StatefulWidget {
 
   NameWidget(this.nameBloc,{label, errorText}):
         label = label ?? 'Name',
-        errorText = errorText ?? 'Please, enter name';
+        errorText = errorText ?? 'Please, enter not empty string';
 
   @override
   _NameWidgetState createState() => _NameWidgetState();

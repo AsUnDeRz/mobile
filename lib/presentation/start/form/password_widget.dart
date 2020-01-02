@@ -10,7 +10,7 @@ class PasswordWidget extends StatefulWidget{
 
   PasswordWidget(this.passwordBloc, {label, errorText}):
         label = label ?? 'Pssword',
-        errorText = errorText ?? 'Please, enter password';
+        errorText = errorText ?? 'Please, enter not empty string';
 
   @override
   _PasswordWidgetState createState() => _PasswordWidgetState();
