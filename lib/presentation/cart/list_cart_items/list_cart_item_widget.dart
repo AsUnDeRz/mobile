@@ -28,7 +28,7 @@ class _ListCartItemsState extends State<ListCartItems> {
     }
     return Center (
       child: Text(
-        'Корзина пуста',
+        'Cart is empty',
       ),
     );
   }
@@ -49,7 +49,7 @@ class _ListCartItemsState extends State<ListCartItems> {
             RaisedButton(
               color: Colors.redAccent,
               child: Text(
-                'Удалить все товары',
+                'Delete all items',
                 style: TextStyle(
                   color: Colors.white,
                 ),

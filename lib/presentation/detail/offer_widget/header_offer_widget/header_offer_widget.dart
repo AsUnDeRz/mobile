@@ -81,7 +81,7 @@ class _HeaderOfferWidgetState extends State<HeaderOfferWidget> {
 
   Widget _getButtonBuy(Offer offer) {
     return Button(
-      label: 'Купить',
+      label: 'Buy',
       handler: () => _onChooseCountGoods(offer),
     );
   }

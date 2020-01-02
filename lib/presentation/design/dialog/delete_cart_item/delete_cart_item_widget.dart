@@ -51,10 +51,10 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
 
   Widget _getDialogAcceptDeleteItem() {
     return PlatformAlertDialog(
-      title: Text('Подвердите удаление'),
+      title: Text('Confirm Deletion'),
       actions: <Widget>[
-        _getButtonBack('Назад'),
-        _getButtonDelete('Удалить',_onDeleteCartItem),
+        _getButtonBack('Back'),
+        _getButtonDelete('Delete',_onDeleteCartItem),
       ],
     );
   }
@@ -91,7 +91,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
         height: 50,
         child: Center(
           child: Text(
-            'Товар успешно удалён',
+            'Item successfully deleted',
           ),
         ),
       ),
@@ -100,7 +100,7 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
           android: (_) => MaterialDialogActionData(),
           ios: (_) => CupertinoDialogActionData(),
           child: PlatformText(
-            'Продолжить покупки',
+            'Continue shopping',
           ),
           onPressed: _onBack,
         ),
@@ -110,15 +110,15 @@ class _DeleteCartItemWidgetState extends State<DeleteCartItemWidget>{
 
   Widget _getDialogErrorDeleteItem() {
     return PlatformAlertDialog(
-      title: Text('Ошибка'),
+      title: Text('Error'),
       content: Container(
         height: 50,
         child: Center(
-          child: Text('Произошла неизвестная ошибка'),
+          child: Text('An unknown error has occurred'),
         ),
       ),
       actions: <Widget>[
-        _getButtonBack('Вернуться назад'),
+        _getButtonBack('Back'),
       ],
     );
   }

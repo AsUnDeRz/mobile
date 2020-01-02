@@ -9,8 +9,8 @@ class NameWidget extends StatefulWidget {
   final String errorText;
 
   NameWidget(this.nameBloc,{label, errorText}):
-        label = label ?? 'Имя',
-        errorText = errorText ?? 'Пожалуйста, введите имя';
+        label = label ?? 'Name',
+        errorText = errorText ?? 'Please, enter name';
 
   @override
   _NameWidgetState createState() => _NameWidgetState();

@@ -15,7 +15,7 @@ class CartSumActionWidget extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            'Итого: ${MoneyHelper.formatMoney(_cart.sum)}',
+            'Total: ${MoneyHelper.formatMoney(_cart.sum)}',
           ),
         ),
       );

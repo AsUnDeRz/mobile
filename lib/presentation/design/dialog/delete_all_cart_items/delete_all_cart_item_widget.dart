@@ -43,10 +43,10 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
 
   Widget _getDialogAcceptDeleteAllItems() {
     return PlatformAlertDialog(
-      title: Text('Подвердите удаление всех товаро из корзины'),
+      title: Text('Confirm removal of all items from the basket'),
       actions: <Widget>[
-        _getButtonBack('Назад'),
-        _getButtonDelete('Удалить всё', onDeleteAllCartItems),
+        _getButtonBack('Back'),
+        _getButtonDelete('Delete everything', onDeleteAllCartItems),
       ],
     );
   }
@@ -83,7 +83,7 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
         height: 50,
         child: Center(
           child: Text(
-            'Товары успешно удалены',
+            'Items successfully deleted',
           ),
         ),
       ),
@@ -92,7 +92,7 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
           android: (_) => MaterialDialogActionData(),
           ios: (_) => CupertinoDialogActionData(),
           child: PlatformText(
-            'Продолжить покупки',
+            'Continue shopping',
           ),
           onPressed:_onBack,
         ),
@@ -102,15 +102,15 @@ class _DeleteAllCartItemsWidgetState extends State<DeleteAllCartItemsWidget> {
 
   Widget _getDialogErrorDeleteAllItems () {
     return PlatformAlertDialog(
-      title: Text('Ошибка'),
+      title: Text('Error'),
       content: Container(
         height: 50,
         child: Center(
-          child: Text('Произошла неизвестная ошибка'),
+          child: Text('An unknown error has occurred'),
         ),
       ),
       actions: <Widget>[
-        _getButtonBack('Вернуться назад'),
+        _getButtonBack('Back'),
       ],
     );
   }

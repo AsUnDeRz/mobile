@@ -29,7 +29,7 @@ class _CardOfferBuyAreaSate extends State<CardOfferBuyArea> {
 
   Widget _getTextPriceOffer() {
     return Text(
-      'Стоимость: ',
+      'Price: ',
       style: TextStyle(
         fontSize: 16,
       ),
@@ -38,7 +38,7 @@ class _CardOfferBuyAreaSate extends State<CardOfferBuyArea> {
 
   Widget _getButtonBuyOffer(Offer offer) {
     return Button(
-      label: 'Купить',
+      label: 'Buy',
       handler: () => _onChooseCountGoods(offer),
     );
   }

@@ -74,7 +74,7 @@ class CountGoodBloc extends Bloc<CountGoodEvent, CountGoodState> {
 
       return await _cartDataRepository.addCartItem(cartItem);
     } catch(error) {
-      print("error");
+      ErrorCountGoodState(Exception("Error"));
     }
   }
 }

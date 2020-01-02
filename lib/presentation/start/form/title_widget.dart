@@ -4,7 +4,7 @@ class TitleWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Catalog app',
+      'Catalog app bloc',
       style: TextStyle(fontSize: 25.0),
       textAlign: TextAlign.center,
     );

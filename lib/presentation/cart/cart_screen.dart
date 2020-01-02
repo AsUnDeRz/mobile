@@ -29,7 +29,7 @@ class _CartScreenState extends State<CartScreen>{
         if (state is ReadyCartState) {
           return Scaffold(
             appBar: AppBar(
-              title: AppBarTitle('Корзина'),
+              title: AppBarTitle('Cart'),
               centerTitle: true,
               actions: [CartSumActionWidget(state.cart),],
             ),

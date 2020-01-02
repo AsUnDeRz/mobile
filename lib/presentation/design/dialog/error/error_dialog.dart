@@ -6,15 +6,15 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 class ErrorDialogWidget {
     static showErrorDialog(BuildContext context, {
       dynamic error,
-      title = 'Ошибка',
-      String labelButton = 'Повторить',
+      title = 'Error',
+      String labelButton = 'Repeat',
       Function handlerButton,
     }) {
       showPlatformDialog(
         context: context,
         builder: (_) => PlatformAlertDialog(
-          title: Text('Ошибка'),
-          content: Text(error==null?'Произошла ошибка напишите об этом разработчику':error.toString()),
+          title: Text('Error'),
+          content: Text(error==null?'An error has occurred, write to the developer about this':error.toString()),
           actions: <Widget>[
             PlatformDialogAction(
               android: (_) => MaterialDialogActionData(),

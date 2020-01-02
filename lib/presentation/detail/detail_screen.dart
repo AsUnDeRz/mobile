@@ -14,7 +14,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: AppBarTitle('Описание'),
+          title: AppBarTitle('Description'),
           centerTitle: true,
           actions: <Widget>[
             CartActionWidget(),

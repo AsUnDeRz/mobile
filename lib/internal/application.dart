@@ -35,7 +35,7 @@ class _ApplicationState extends State<Application> {
         if (state is ReadyRefresherApplicationThemeState) {
           return  MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Catalog app',
+            title: 'Catalog app bloc',
             theme: state.applicationTheme.theme,
             home: StartScreen(),
           );

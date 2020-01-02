@@ -58,7 +58,7 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
 
   Widget _getDialogChooseCount(CartItem cartItem){
     return PlatformAlertDialog(
-      title: const Text('Выберите количество товара '),
+      title: const Text('Choose quantity of goods'),
       content:  Table(
         children: <TableRow>[
           TableRow(
@@ -74,9 +74,9 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
         ],
       ),
       actions: <Widget>[
-        _getButtonBack('Назад'),
+        _getButtonBack('Back'),
         _getButtonAction(
-          'Добавить в корзину',
+          'Add to Basket',
               () => _onAddCart(cartItem),
         ),
       ],
@@ -141,7 +141,7 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
               child:
               Center(
                 child: Text(
-                    'Стоимость:'
+                    'Price:'
                 ),
               ),
             ),
@@ -166,11 +166,11 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
       content: Container(
         height: 50,
         child: Center(
-          child: const Text('Товар успешно добавлен'),
+          child: const Text('Product successfully added'),
         ),
       ),
       actions: <Widget>[
-        _getButtonBack('Продолжить покупки'),
+        _getButtonBack('Continue shopping'),
       ],
     );
   }
@@ -199,15 +199,15 @@ class CountGoodWidgetState extends State<CountGoodWidget> {
 
   Widget _getErrorFinishChooseItem () {
     return PlatformAlertDialog(
-      title: Text('Ошибка'),
+      title: Text('Error'),
       content: Container(
         height: 50,
         child: Center(
-          child: Text('Произошла неизвестная ошибка'),
+          child: Text('An unknown error has occurred'),
         ),
       ),
       actions: <Widget>[
-        _getButtonBack('Вернуться назад'),
+        _getButtonBack('Back'),
       ],
     );
   }

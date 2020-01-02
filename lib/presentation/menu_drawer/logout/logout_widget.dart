@@ -33,7 +33,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
         bloc: _logoutBloc,
         builder: (context, state) {
           return  ListTile(
-            title: Text("Loout"),
+            title: Text("Logout"),
             trailing: Icon(Icons.exit_to_app),
             onTap: _onLogout,
           );

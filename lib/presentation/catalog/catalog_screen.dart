@@ -10,7 +10,7 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBarTitle('Каталог'),
+        title: AppBarTitle('Catalog'),
         centerTitle: true,
         actions: <Widget>[
           CartActionWidget(),
