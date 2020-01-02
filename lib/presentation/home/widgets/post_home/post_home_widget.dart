@@ -22,26 +22,39 @@ class _PostHomeWidgetState extends State<PostHomeWidget> with SingleTickerProvid
       bloc: widget.bloc,
       builder: (context, state){
         if(state is RefreshPostHomeState){
-          return FadeAnimation(
-            duration: Duration(milliseconds: 1500),
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
+          return Container(
+            width: double.infinity,
+            height: double.infinity,
 //              decoration: BoxDecoration(
 //                image: DecorationImage(
 //                  image: FileImage(state.file),
 //                  fit: BoxFit.cover,
 //                ),
 //              ),
-                            child: FadeInImage(
-                image: FileImage(state.file),
-                fit: BoxFit.cover,
-                fadeInDuration: Duration(milliseconds: 20),
-                fadeOutDuration: Duration(milliseconds: 50),
-                placeholder: AssetImage("assets/images/pixel.png"),
+            child: FadeInImage(
+              image: FileImage(state.file),
+              fit: BoxFit.cover,
+              fadeInDuration: Duration(milliseconds: 20),
+              fadeOutDuration: Duration(milliseconds: 50),
+              placeholder: AssetImage("assets/images/pixel.png"),
 
-              ),
             ),
+          );
+        }
+        if(state is ErrorPostHomeState){
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.broken_image,
+                size: 32,
+                color: Colors.white,
+              ),
+              Container(
+                height: 10,
+              ),
+              Text("Sorry, can't load image")
+            ],
           );
         }
 

@@ -25,7 +25,9 @@ class PostHomeBloc extends Bloc<PostHomeEvent, PostHomeState> {
           return;
         }
         yield RefreshPostHomeState(cached.file);
-      } catch (_) {}
+      } catch (_) {
+        yield ErrorPostHomeState();
+      }
     }
   }
 }
@@ -41,6 +43,7 @@ class InitPostHomeEvent extends PostHomeEvent {
 abstract class PostHomeState {}
 
 class InitPostHomeState extends PostHomeState {}
+class ErrorPostHomeState extends PostHomeState {}
 class RefreshPostHomeState extends PostHomeState {
   final File file;
 

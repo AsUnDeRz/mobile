@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class LoadersWidget {
@@ -8,7 +9,9 @@ class LoadersWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          LoaderPageStandard(),
+          LoaderPageStandard(
+
+          ),
           Container(height: 30),
           Text(
             "Sorry, load :(",
@@ -23,10 +26,17 @@ class LoadersWidget {
 }
 
 class LoaderPageStandard extends StatelessWidget {
+  final Color color;
+
+  const LoaderPageStandard({Key key, this.color = const Color.fromRGBO(255, 255, 255, 1)}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: CircularProgressIndicator(),
+      child: SpinKitRing(
+        lineWidth: 4,
+        color: color,
+      ),
     );
   }
 }

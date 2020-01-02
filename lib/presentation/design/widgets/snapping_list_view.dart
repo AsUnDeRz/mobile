@@ -53,7 +53,7 @@ class _SnappingListViewState extends State<SnappingListView> {
         mainAxisStartPadding: startPadding, itemExtent: widget.itemExtent);
     final listView = widget.children != null
         ? ListView(
-        cacheExtent: widget.itemExtent*5,
+        cacheExtent: 0,
         shrinkWrap: true,
         scrollDirection: widget.scrollDirection,
         controller: widget.controller,
@@ -71,8 +71,14 @@ class _SnappingListViewState extends State<SnappingListView> {
         itemExtent: widget.itemExtent,
         physics: scrollPhysics,
         padding: widget.padding);
+//    return listView;
     return NotificationListener<ScrollNotification>(
-        child: listView,
+         child: Theme(
+           data: ThemeData(
+             accentColor: Colors.transparent,
+           ),
+           child: listView,
+         ),
         onNotification: (notif) {
           if (notif.depth == 0 &&
               widget.onItemChanged != null &&
@@ -123,6 +129,7 @@ class SnappingListScrollPhysics extends ScrollPhysics {
     else if (velocity > tolerance.velocity) item += .5;
     return _getPixels(position, item.roundToDouble());
   }
+
 
   @override
   Simulation createBallisticSimulation(
