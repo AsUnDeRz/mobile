@@ -25,17 +25,11 @@ class _PostHomeWidgetState extends State<PostHomeWidget> with SingleTickerProvid
           return Container(
             width: double.infinity,
             height: double.infinity,
-//              decoration: BoxDecoration(
-//                image: DecorationImage(
-//                  image: FileImage(state.file),
-//                  fit: BoxFit.cover,
-//                ),
-//              ),
             child: FadeInImage(
               image: FileImage(state.file),
               fit: BoxFit.cover,
-              fadeInDuration: Duration(milliseconds: 20),
-              fadeOutDuration: Duration(milliseconds: 50),
+              fadeInDuration: Duration(milliseconds: 100),
+              fadeOutDuration: Duration(milliseconds: 100),
               placeholder: AssetImage("assets/images/pixel.png"),
 
             ),
