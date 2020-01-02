@@ -8,24 +8,33 @@ class DrawerNavigationWidget extends StatelessWidget {
       padding: EdgeInsets.zero,
       children: <Widget>[
         DrawerHeader(
-          child: Text('Drawer Header'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'User avatar with his nickname and something else useful',
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
           decoration: BoxDecoration(
             color: Colors.blue,
           ),
         ),
-        ListTile(
-          title: Text('Item 1'),
-          onTap: () {
-            // Update the state of the app.
-            // ...
-          },
-        ),
-        ListTile(
-          title: Text('Item 2'),
-          onTap: () {
-            // Update the state of the app.
-            // ...
-          },
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 100),
+          child: Row(
+            children: <Widget>[
+              Spacer(),
+              Expanded(
+                child: Text(
+                  "List of useful buttons with unique functionality",
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Spacer(),
+            ],
+          ),
         ),
       ],
     );

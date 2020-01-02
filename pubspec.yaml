@@ -1,5 +1,5 @@
 name: social_network
-description: A new Flutter application.
+description: Pet project on the topic of social networks.
 
 version: 1.0.0+1
 
@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
 
   cupertino_icons: ^0.1.2
   flutter_bloc: ^1.0.0
@@ -23,7 +22,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: ^0.7.3
 
 flutter:
   uses-material-design: true
@@ -32,3 +31,8 @@ flutter:
     - assets/flare/
     - assets/localizations/
     - assets/images/
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "res/icon_panda.png"
