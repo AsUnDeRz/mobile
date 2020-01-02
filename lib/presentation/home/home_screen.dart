@@ -1,8 +1,6 @@
-import 'dart:math';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:social_network/domain/bloc/home/flow_home_bloc.dart';
 import 'package:social_network/internal/dependencies/application_component.dart';
 import 'package:social_network/presentation/design/application_design.dart';
@@ -71,13 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         builder: (context, state){
           if(state is RefreshFlowHomeState){
+
             return SnappingListView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: state.listPosts.length - 1,
                 itemBuilder: (context, index){
                   return PostHomeWidget(
                     imageUrl: state.listPosts[index].fileUrl,
-//                    bloc: state.listBlocs[index],
+                    bloc: state.listBlocs[index],
                   );
                 },
                 itemExtent: MediaQuery.of(context).size.height,
@@ -85,22 +84,48 @@ class _HomeScreenState extends State<HomeScreen> {
                   if(_flowHomeBloc.state is EndPagesFlowHomeState){
                     return;
                   }
-                  if(index > 1 && index%2==1){
+                  if(index > state.listPosts.length - _flowHomeBloc.perPage/2){
                     _flowHomeBloc.add(NextPageFlowHomeEvent());
                   }
                 }
              );
-
-//              PageView.builder(
+//
+//              return PageView.builder(
 //              physics: BouncingScrollPhysics(),
 //              scrollDirection: Axis.vertical,
-//              itemCount: state.listPosts.length,
+//              itemCount: state.listPosts.length - 1,
 //              itemBuilder: (context, index){
+//
 //                return PostHomeWidget(
 //                  imageUrl: state.listPosts[index].fileUrl,
 //                  bloc: state.listBlocs[index],
 //                );
 //              },
+//              onPageChanged: (index){
+//                if(_flowHomeBloc.state is EndPagesFlowHomeState){
+//                  return;
+//                }
+//                if(index > 1 && index%2==1){
+//                  _flowHomeBloc.add(NextPageFlowHomeEvent());
+//                }
+//              },
+//            );
+//          }
+//          final List<Widget> listPosts = [];
+//          for(int i=0; i != state.listPosts.length; ++i){
+//            listPosts.add(
+//              PostHomeWidget(
+//                imageUrl: state.listPosts[i].fileUrl,
+//                bloc: state.listBlocs[i],
+//              ),
+//            );
+//          }
+//          return PageView(
+//              physics: BouncingScrollPhysics(),
+//              scrollDirection: Axis.vertical,
+//              children:[
+//                ...listPosts
+//              ],
 //              onPageChanged: (index){
 //                if(_flowHomeBloc.state is EndPagesFlowHomeState){
 //                  return;
