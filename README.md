@@ -2,16 +2,18 @@
 В репозитории собраны все пет-проекты из мобильной разработки. Основной В каждой ветке находится проект с оформленным readme 
 (скриншоты, гифки всё как положенно).
 
+Всё протестировано и снятно на [Asus ZenFone Max Pro (M1)][MyPhoneRef]
+
 Проекты можно разделить на 2 типа:
 - Flutter
 
 | Проект                          | Статус проекта       | Тестируемая платформа| Целевые устройства |
 | ------------------------------- | -------------------- | -------------------- | ------------------ |
-| [Первое приложение][FirstApp]   | поддерживается       | android              | смрартфоны         | 
-| [Catalog_app][OldCatalog]       | заморожен            | android              | смрартфоны         |
-| [Catalog_app bloc][BlocCatalog] | поддерживается       | android              | смрартфоны         |
-| [Drafts][Drafts]                | поддерживается       | android              | смрартфоны         |
-| [Social network][SocialNetwork] | поддерживается       | android              | смрартфоны         |
+| [Первое приложение][FirstApp]   | неподдерживается       | android              | смрартфоны         | 
+| [Catalog_app][OldCatalog]       | легаси, неподдерживается| android              | смрартфоны         |
+| [Catalog_app bloc][BlocCatalog] | только исправление багов багов         | android              | смрартфоны         |
+| [Drafts][Drafts]                | заморожен            | android              | смрартфоны         |
+| [Social network][SocialNetwork] | заморожен            | android              | смрартфоны         |
 
 >   Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые
 >    два месяца оказывал поддержку пока не прошёл все интересущие темы,а потом и весь курс.
@@ -34,30 +36,7 @@
         
 <details> 
 <summary>Mobile</summary>    
-                                                                                                   
-#### Flutter
-                                                                                                                                 
-| Проект                          | Статус проекта       | Тестируемая платформа| Целевые устройства |                       
-| ------------------------------- | -------------------- | -------------------- | ------------------ |                       
-| [Первое приложение][FirstApp]   | поддерживается       | android              | смрартфоны         |                       
-| [Catalog_app][OldCatalog]       | заморожен            | android              | смрартфоны         |                       
-| [Catalog_app bloc][BlocCatalog] | поддерживается       | android              | смрартфоны         |                       
-| [Drafts][Drafts]                | поддерживается       | android              | смрартфоны         |                       
-| [Social network][SocialNetwork] | поддерживается       | android              | смрартфоны         |                       
-                                                                                                                                                                                                                                                                     
-#### Android                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                     
-| Проект                          | Статус проекта       | Целевые устройства |                                              
-| ------------------------------- | -------------------- | ------------------ |                                              
-| [Hello world][HelloWorld]       | заморожен            | смрартфоны         |                                              
-| [Advicer beer][AdvicerBeer]     | заморожен            | смрартфоны         |                                              
-| [Messenger][Messanger]          | заморожен            | смрартфоны         |                                              
-| [Stopwatch] [Stopwatch]         | заморожен            | смрартфоны         |                                              
-</details> 
-
-<details> 
-<summary>Web</summary>     
-                                                                                                  
+                                                                                                                                                                                                     
 #### Flutter
                                                                                                                                  
 | Проект                          | Статус проекта       | Тестируемая платформа| Целевые устройства |                       
@@ -92,3 +71,6 @@
 [AdvicerBeer]:<https://github.com/iebrosalin/mobile/tree/android/advicer_beer>
 [Messanger]:<https://github.com/iebrosalin/mobile/tree/android/messanger>
 [Stopwatch]:<https://github.com/iebrosalin/mobile/tree/android/stopwatch>
+
+[AndroidIcon]:<https://github.com/iebrosalin/mobile/blob/master/readme/master/icons/android.png>
+[MyPhoneRef]:<https://www.asus.com/ru/Phone/ZenFone-Max-Pro-ZB602KL/Tech-Specs/>
