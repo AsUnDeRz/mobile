@@ -14,8 +14,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.7.4
 
 flutter:
   uses-material-design: true
   assets:
     - images/seller.png
+
+flutter_icons:
+    android: true
+    ios: true
+    image_path: "icon/icon.png"
