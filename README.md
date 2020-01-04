@@ -1,28 +1,16 @@
-package com.example.android_my_messanger;
+# Messenger
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-public class CreateMessageActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_message);
-    }
-
+```java    
     public  void onSendMessageLocal(View view){
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
         Intent intent = new Intent(this, ReceivedMessageActivity.class);
         intent.putExtra("message", message);
         startActivity(intent);
-    }
+    }    
+```
 
+```java    
     public  void onSendMessageApp(View view){
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
@@ -30,8 +18,10 @@ public class CreateMessageActivity extends AppCompatActivity {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, message);
         startActivity(intent);
-    }
+    }   
+```
 
+```java    
     public  void onSendMessageAppVia(View view){
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
@@ -41,15 +31,17 @@ public class CreateMessageActivity extends AppCompatActivity {
         String chooseTitle = getString(R.string.chooseSendAppVia);
         Intent chooseIntent = Intent.createChooser(intent, chooseTitle);
         startActivity(chooseIntent);
-    }
+    }   
+```
 
+```java    
     public  void onSendMessageAppError(View view){
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plaindsa");
+        intent.setType("application/vnd.zzazz.deck+xml");
         intent.putExtra(Intent.EXTRA_TEXT, message);
         if(intent.resolveActivity(getPackageManager()) != null )
             startActivity(intent);
-    }
-}
+    } 
+```
