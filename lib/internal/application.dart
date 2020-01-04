@@ -5,6 +5,7 @@ import 'package:catalog_app/presentation/design/application_design.dart';
 
 import 'package:catalog_app/presentation/start/start_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Application extends StatefulWidget {
 
@@ -23,6 +24,7 @@ class _ApplicationState extends State<Application> implements ApplicationView {
 
   @override
   void initState() {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     _applicationPresenter.startThemeModeApplicationStream();
     super.initState();
   }
