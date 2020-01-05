@@ -19,6 +19,7 @@ dependencies:
   vibration: ^1.2.2
   cached_network_image: ^2.0.0
   snappable: ^1.0.1
+  clippy_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
