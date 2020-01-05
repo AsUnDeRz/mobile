@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:animation_app/screen/loading_button/progress_button/reveal_progress_button.dart';
+import 'package:drafts/screen/loading_button/progress_button/reveal_progress_button.dart';
 
 class LoadingButton extends StatefulWidget {
   LoadingButton({Key key, this.title}) : super(key: key);

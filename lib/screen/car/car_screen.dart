@@ -41,21 +41,26 @@ class _CarScreenState extends State<CarScreen> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-                child: Material(
-                    child: Icon(Icons.airport_shuttle,
-                        textDirection: TextDirection.ltr,
-                        size: 81.0
-                    )
-                ),
-                left: _animation.value, // Animated value
-                top: 30.0  // Fixed value
-            )
-          ],
-          textDirection: TextDirection.ltr,)
+      color: Colors.white,
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            child: Material(
+              child: Icon(
+                Icons.airport_shuttle,
+                textDirection: TextDirection.rtl,
+                size: 80.0,
+              ),
+            ),
+            left: _animation.value, // Animated value
+            top: MediaQuery
+                .of(context)
+                .size
+                .height / 2 - 40, // Fixed value
+          ),
+        ],
+        textDirection: TextDirection.ltr,
+      ),
     );
   }
 }

@@ -1,5 +1,5 @@
-name: animation_app
-description: A new Flutter application.
+name: drafts
+description: My drafts
 
 version: 1.0.0+1
 
@@ -17,6 +17,8 @@ dependencies:
   flutter_bloc: ^1.0.0
   shake: ^0.1.0
   vibration: ^1.2.2
+  cached_network_image: ^2.0.0
+  snappable: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +29,9 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  assets:
+    - assets/test-avatar/
+    - assets/images/
 
 flutter_icons:
   android: true

@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
-import 'package:animation_app/screen/loading_button/navigation.dart';
+import 'package:drafts/screen/loading_button/navigation.dart';
 
 import 'progress_button.dart';
 import 'reveal_progress_button_painter.dart';
