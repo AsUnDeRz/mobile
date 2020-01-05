@@ -1,6 +1,6 @@
 # First app
 
-Моё первым приложением на Flutter было "Hello World!",а тестовое задание для [Progressive Mobile][Pmobi].
+Моё первым приложением на Flutter было "Hello World!", а тестовое задание для [Progressive Mobile][Pmobi].
 
 <details>
   <summary>Само задание</summary>
