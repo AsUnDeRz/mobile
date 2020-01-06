@@ -64,6 +64,7 @@ Messenger  - приложение демонстрирующее работу с
     <summary>Скриншоты</summary>
     
 ![send mail share][SendMailShare]
+
 ![send mail gmail][SendMailGmail]
 </details>   
 </details>
@@ -71,7 +72,7 @@ Messenger  - приложение демонстрирующее работу с
 --------------------------------------------------
 
 <details>
-    <summary>Передача данных другому приложению на примере почты с любого MIME-type</summary>
+    <summary>Передача данных другому приложению на примере телеграмма с любым MIME-type</summary>
 
 Код для этого события
 
@@ -134,7 +135,7 @@ Messenger  - приложение демонстрирующее работу с
 
 [SendMailDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/send_mail_demo.gif>
 [SendMailShare]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/screens/mail_share_dialog.jpg>
-[SendMainGmail]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/screens/send_mail.jpg>
+[SendMailGmail]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/screens/send_mail.jpg>
 
 [TgDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/send_tg_demo.gif>
 [TgShare]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/screens/tg_share_dialog.jpg>
