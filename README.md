@@ -74,17 +74,58 @@
   </details>
 </details>
 
-4. Wolf fade
-5. Simulate gravity
-6. Physics splash
-7. Wolf rotate gesture
-8. Wokf rotate set state
-9. Radial menu
-10. Skeleton effect
-11. Loading button
-12. Circle avatar
-13. Thanos snap
-14. Shake screen
+4. Wolf scale
+
+<details>
+  <summary>Описание</summary>
+  
+  Неуправляемая анимация, в которой вращается голова волка.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![wolf scale demo][[WolfScaleDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![wolf scale main screen 1][WolfScaleMainScreen1]
+  ![wolf scale main screen 2][WolfScaleMainScreen2]
+  </details>
+</details>
+
+5. Wolf fade
+<details>
+  <summary>Описание</summary>
+  
+  Неуправляемая анимация, в которой вращается голова волка.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![wolf fade demo][WolfFadeDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![wolf fade main screen 1][WolfFadeMainScreen1]
+  ![wolf fade main screen 2][WolfFadeMainScreen2]
+  ![wolf fade main screen 3][WolfFadeMainScreen3]
+  ![wolf fade main screen 4][WolfFadeMainScreen4]
+  </details>
+</details>
+6. Simulate gravity
+7. Physics splash
+8. Wolf rotate gesture
+9. Wokf rotate set state
+10. Radial menu
+11. Skeleton effect
+12. Loading button
+13. Circle avatar
+14. Thanos snap
+15. Shake screen
 
 ## [Список всех моих проектов][ListAllMyProject]
 
@@ -107,3 +148,14 @@
 [WolfRotateDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate/demo.gif>
 [WolfRotateMainScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate/rotation_1.jpg>
 [WolfRotateMainScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate/rotation_2.jpg>
+
+[WolfScaleDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_scale/demo.gif>
+[WolfScaleMainScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_scale/scale_1.jpg>
+[WolfScaleMainScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_scale/scale_2.jpg>
+
+
+[WolfFadeDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_fade/demo.gif>
+[WolfFadeMainScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_fade/fade_1.jpg>
+[WolfFadeMainScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_fade/fade_2.jpg>
+[WolfFadeMainScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_fade/fade_3.jpg>
+[WolfFadeMainScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_fade/fade_4.jpg>
