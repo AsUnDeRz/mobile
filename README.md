@@ -185,7 +185,30 @@
   </details>
 </details>
 
-9. Wokf rotate set state
+9. Wolf rotate set state
+
+<details>
+  <summary>Описание</summary>
+  
+ Управляемая вращения головы волка по направлению ведения пальца в горизонтальном направлении. Вправо вращение по часовой стрелке, влево против часовой стрелки. Так же есть кнопка для вращения на 90 градусов.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![wolf rotate gesture set state demo][WolfRotateGestureSetStateDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![wolf rotate gesture set state main screen 1][WolfRotateGestureSetStateMainScreen1]
+  ![wolf rotate gesture set state main screen 2][WolfRotateGestureSetStateMainScreen2]
+  ![wolf rotate gesture set state main screen 3][WolfRotateGestureSetStateMainScreen3]
+  ![wolf rotate gesture set state main screen 4][WolfRotateGestureSetStateMainScreen4]
+  ![wolf rotate gesture set state main screen 5][WolfRotateGestureSetStateMainScreen5]
+  ![wolf rotate gesture set state main screen 6][WolfRotateGestureSetStateMainScreen6]
+  </details>
+</details>
 10. Radial menu
 11. Skeleton effect
 12. Loading button
@@ -237,3 +260,11 @@
 [WolfRotateGestureMainScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_4.jpg>
 [WolfRotateGestureMainScreen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_5.jpg>
 [WolfRotateGestureMainScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_6.jpg>
+
+[WolfRotateGestureSetStateDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gestureя_set_state/demo.gif>
+[WolfRotateGestureSetStateMainScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_1.jpg>
+[WolfRotateGestureSetStateMainScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_2.jpg>
+[WolfRotateGestureSetStateMainScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_3.jpg>
+[WolfRotateGestureSetStateMainScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_4.jpg>
+[WolfRotateGestureSetStateMainScreen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_5.jpg>
+[WolfRotateGestureSetStateMainScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_6.jpg>
