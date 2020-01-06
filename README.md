@@ -13,133 +13,7 @@
 
 Названия идей сугубо рабочии. В большинстве своём проекты связаны с анимациями. К сожалению gif режет кол-во кадров в секунду из-за чего лаги есть.
 
-### Анимации
-1. Car
-<details>
-  <summary>Описание</summary>
-  
-  Моя первая анимация, в ней нет ничего магического. Она неуправляема.
-  
-  <details>
-    <summary>Демо</summary>
-  
-   ![car demo][CarDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![Car main screen][CarMainScreen]
-  </details>
-</details>
-
-2. Curve
-
-<details>
-  <summary>Описание</summary>
-  
-  Неуправляемая анимация, в которой задётся кривая безье по которой выполняется анимация. В данном случае симулируется отскок мяча.
-  
-  <details>
-    <summary>Демо</summary>
-  
-   ![curve demo][CurveDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![curve main screen][CurveMainScreen]
-  </details>
-</details>
-
-3. Wolf rotate
-
-<details>
-  <summary>Описание</summary>
-  
-  Неуправляемая анимация, в которой вращается голова волка.
-  
-  <details>
-    <summary>Демо</summary>
-  
-   ![wolf rotate demo][WolfRotateDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![wolf rotate main screen 1][WolfRotateMainScreen1]
-  ![wolf rotate main screen 2][WolfRotateMainScreen2]
-  </details>
-</details>
-
-4. Wolf scale
-
-<details>
-  <summary>Описание</summary>
-  
-  Неуправляемая анимация, в которой изменяются размеры головы волка.
-  
-  <details>
-    <summary>Демо</summary>
-  
-   ![wolf scale demo][[WolfScaleDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![wolf scale main screen 1][WolfScaleMainScreen1]
-  ![wolf scale main screen 2][WolfScaleMainScreen2]
-  </details>
-</details>
-
-5. Wolf fade
-<details>
-  <summary>Описание</summary>
-  
-  Неуправляемая анимация, в которой изменяется прозрачность у головы волка.
-  
-  <details>
-    <summary>Демо</summary>
-  
-   ![wolf fade demo][WolfFadeDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![wolf fade main screen 1][WolfFadeMainScreen1]
-  ![wolf fade main screen 2][WolfFadeMainScreen2]
-  ![wolf fade main screen 3][WolfFadeMainScreen3]
-  ![wolf fade main screen 4][WolfFadeMainScreen4]
-  </details>
-</details>
-
-6. Simulate gravity
-<details>
-  <summary>Описание</summary>
-  
-  Неуправляемая анимация, в которой вращается голова волка.
-  
-  <details>
-    <summary>Демо</summary>
-  
-   ![wolf fade demo][WolfFadeDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![wolf fade main screen 1][WolfFadeMainScreen1]
-  ![wolf fade main screen 2][WolfFadeMainScreen2]
-  ![wolf fade main screen 3][WolfFadeMainScreen3]
-  ![wolf fade main screen 4][WolfFadeMainScreen4]
-  </details>
-</details>
-
-7. Physics splash
+1. Physics splash
 
 <details>
   <summary>Описание</summary>
@@ -158,6 +32,135 @@
   ![physics splash main screen 1][PhysicsSplashMainScreen1]
   ![physics splash main screen 2][PhysicsSplashMainScreen2]
   </details>
+</details>
+2. Radial menu
+
+<details>
+  <summary>Описание</summary>
+  
+ Управляемая анимация радиального меню.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![radial menu demo][RadialMenuDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![wolf rotate gesture set state main screen 1][WolfRotateGestureSetStateMainScreen1]
+  ![wolf rotate gesture set state main screen 2][WolfRotateGestureSetStateMainScreen2]
+  ![wolf rotate gesture set state main screen 3][WolfRotateGestureSetStateMainScreen3]
+  ![wolf rotate gesture set state main screen 4][WolfRotateGestureSetStateMainScreen4]
+  ![wolf rotate gesture set state main screen 5][WolfRotateGestureSetStateMainScreen5]
+  ![wolf rotate gesture set state main screen 6][WolfRotateGestureSetStateMainScreen6]
+  </details>
+</details>
+
+3. Skeleton effect
+
+<details>
+  <summary>Описание</summary>
+  
+ Неуправляемая анимация перелевающихся элементов.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![skeleton effect demo][SkeletonEffectDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![skeleton effect screen 1][SkeletonEffectScreen1]
+  ![skeleton effect screen 2][SkeletonEffectScreen2]
+  ![skeleton effect screen 3][SkeletonEffectScreen3]
+  ![skeleton effect screen 4][SkeletonEffectScreen4]
+  ![skeleton effect screen 5][SkeletonEffectScreen5]
+  ![skeleton effect screen 6][SkeletonEffectScreen6]
+  </details>
+</details>
+
+4. Loading button
+
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация виджета кнопки перехода на другой экран с анимацией загрузки и сплэша.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![loading button demo][LoadingButtonDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![loading button screen 1][LoadingButtonScreen1]
+  ![loading button screen 2][LoadingButtonScreen2]
+  ![loading button screen 3][LoadingButtonScreen3]
+  ![loading button screen 4][LoadingButtonScreen4]
+  </details>
+</details>
+5. Circle avatar
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация виджета для автарок.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![circle avatar demo][CicrcleAvatarDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![circle avatar screen 1][CicrcleAvatarScreen1]
+  ![circle avatar screen 2][CicrcleAvatarScreen2]
+  ![circle avatar screen 3][CicrcleAvatarScreen3]
+  </details>
+</details>
+6. Thanos snap
+
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация плагина умеющего делать эффект исчезновения как в Мстителях.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![thanos snap demo][ThanosSnapDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![thanos snap screen 1_1][ThanosSnapScreen1_1]
+  ![thanos snap screen 1_2][ThanosSnapScreen1_2]
+  ![thanos snap screen 2_1][ThanosSnapScreen2_1]
+  ![thanos snap screen 2_2][ThanosSnapScreen2_2]
+  ![thanos snap screen 3_1][ThanosSnapScreen3_1]
+  ![thanos snap screen 3_2][ThanosSnapScreen3_2]
+  </details>
+</details>
+7. Shake screen
+
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация перелестывания, когда телефон трясётся.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![shake screen demo][ShakeScreenDemo]
+  </details>  
 </details>
 
 8. Wolf rotate gesture
@@ -209,135 +212,132 @@
   ![wolf rotate gesture set state main screen 6][WolfRotateGestureSetStateMainScreen6]
   </details>
 </details>
-10. Radial menu
 
+10. Car
 <details>
   <summary>Описание</summary>
   
- Управляемая анимация радиального меню.
+  Моя первая анимация, в ней нет ничего магического. Она неуправляема.
   
   <details>
     <summary>Демо</summary>
   
-   ![radial menu demo][RadialMenuDemo]
+   ![car demo][CarDemo]
   </details>  
   
   <details>
     <summary>Скриншоты</summary>
   
-  ![wolf rotate gesture set state main screen 1][WolfRotateGestureSetStateMainScreen1]
-  ![wolf rotate gesture set state main screen 2][WolfRotateGestureSetStateMainScreen2]
-  ![wolf rotate gesture set state main screen 3][WolfRotateGestureSetStateMainScreen3]
-  ![wolf rotate gesture set state main screen 4][WolfRotateGestureSetStateMainScreen4]
-  ![wolf rotate gesture set state main screen 5][WolfRotateGestureSetStateMainScreen5]
-  ![wolf rotate gesture set state main screen 6][WolfRotateGestureSetStateMainScreen6]
+  ![Car main screen][CarMainScreen]
   </details>
 </details>
 
-11. Skeleton effect
+11. Curve
 
 <details>
   <summary>Описание</summary>
   
- Неуправляемая анимация перелевающихся элементов.
+  Неуправляемая анимация, в которой задётся кривая безье по которой выполняется анимация. В данном случае симулируется отскок мяча.
   
   <details>
     <summary>Демо</summary>
   
-   ![skeleton effect demo][SkeletonEffectDemo]
+   ![curve demo][CurveDemo]
   </details>  
   
   <details>
     <summary>Скриншоты</summary>
   
-  ![skeleton effect screen 1][SkeletonEffectScreen1]
-  ![skeleton effect screen 2][SkeletonEffectScreen2]
-  ![skeleton effect screen 3][SkeletonEffectScreen3]
-  ![skeleton effect screen 4][SkeletonEffectScreen4]
-  ![skeleton effect screen 5][SkeletonEffectScreen5]
-  ![skeleton effect screen 6][SkeletonEffectScreen6]
+  ![curve main screen][CurveMainScreen]
   </details>
 </details>
 
-12. Loading button
+12. Wolf rotate
 
 <details>
   <summary>Описание</summary>
   
- Демонстрация виджета кнопки перехода на другой экран с анимацией загрузки и сплэша.
+  Неуправляемая анимация, в которой вращается голова волка.
   
   <details>
     <summary>Демо</summary>
   
-   ![loading button demo][LoadingButtonDemo]
+   ![wolf rotate demo][WolfRotateDemo]
   </details>  
   
   <details>
     <summary>Скриншоты</summary>
   
-  ![loading button screen 1][LoadingButtonScreen1]
-  ![loading button screen 2][LoadingButtonScreen2]
-  ![loading button screen 3][LoadingButtonScreen3]
-  ![loading button screen 4][LoadingButtonScreen4]
+  ![wolf rotate main screen 1][WolfRotateMainScreen1]
+  ![wolf rotate main screen 2][WolfRotateMainScreen2]
   </details>
 </details>
-13. Circle avatar
+
+13. Wolf scale
+
 <details>
   <summary>Описание</summary>
   
- Демонстрация виджета для автарок.
+  Неуправляемая анимация, в которой изменяются размеры головы волка.
   
   <details>
     <summary>Демо</summary>
   
-   ![circle avatar demo][CicrcleAvatarDemo]
+   ![wolf scale demo][[WolfScaleDemo]
   </details>  
   
   <details>
     <summary>Скриншоты</summary>
   
-  ![circle avatar screen 1][CicrcleAvatarScreen1]
-  ![circle avatar screen 2][CicrcleAvatarScreen2]
-  ![circle avatar screen 3][CicrcleAvatarScreen3]
+  ![wolf scale main screen 1][WolfScaleMainScreen1]
+  ![wolf scale main screen 2][WolfScaleMainScreen2]
   </details>
 </details>
-14. Thanos snap
 
+14. Wolf fade
 <details>
   <summary>Описание</summary>
   
- Демонстрация плагина умеющего делать эффект исчезновения как в Мстителях.
+  Неуправляемая анимация, в которой изменяется прозрачность у головы волка.
   
   <details>
     <summary>Демо</summary>
   
-   ![thanos snap demo][ThanosSnapDemo]
+   ![wolf fade demo][WolfFadeDemo]
   </details>  
   
   <details>
     <summary>Скриншоты</summary>
   
-  ![thanos snap screen 1_1][ThanosSnapScreen1_1]
-  ![thanos snap screen 1_2][ThanosSnapScreen1_2]
-  ![thanos snap screen 2_1][ThanosSnapScreen2_1]
-  ![thanos snap screen 2_2][ThanosSnapScreen2_2]
-  ![thanos snap screen 3_1][ThanosSnapScreen3_1]
-  ![thanos snap screen 3_2][ThanosSnapScreen3_2]
+  ![wolf fade main screen 1][WolfFadeMainScreen1]
+  ![wolf fade main screen 2][WolfFadeMainScreen2]
+  ![wolf fade main screen 3][WolfFadeMainScreen3]
+  ![wolf fade main screen 4][WolfFadeMainScreen4]
   </details>
 </details>
-15. Shake screen
 
+15. Simulate gravity
 <details>
   <summary>Описание</summary>
   
- Демонстрация перелестывания, когда телефон трясётся.
+  Неуправляемая анимация, в которой вращается голова волка.
   
   <details>
     <summary>Демо</summary>
   
-   ![shake screen demo][ShakeScreenDemo]
+   ![wolf fade demo][WolfFadeDemo]
   </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![wolf fade main screen 1][WolfFadeMainScreen1]
+  ![wolf fade main screen 2][WolfFadeMainScreen2]
+  ![wolf fade main screen 3][WolfFadeMainScreen3]
+  ![wolf fade main screen 4][WolfFadeMainScreen4]
+  </details>
 </details>
+
 
 ## [Список всех моих проектов][ListAllMyProject]
 
