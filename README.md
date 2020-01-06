@@ -212,7 +212,7 @@ MIT
 
    [ForegroundDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/foreground_demo.gif>
 
-   [BlackStartScreen]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/catalog_app/bloc/descriptions/screens/black_start_screen.jpg>
+   [BlackStartScreen]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/catalog_app/bloc/descriptions/screens/black_start_screen.jpeg>
    [WhiteStartScreen]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/catalog_app/bloc/descriptions/screens/white_start_screen.jpg>
    [BlackInvalidStartScreen]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/catalog_app/bloc/descriptions/screens/black_invalid_start_screen.jpg>
    [WhiteInvalidStartScreen]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/catalog_app/bloc/descriptions/screens/white_invalid_start_screen.jpg>
