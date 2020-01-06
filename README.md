@@ -2,7 +2,7 @@
 
 ## Улучшенная версия предыдущего [варианта][CatalogAppOld]
 
-![icon catalog app][IconCatalogApp]
+![icon catalog app][IconCatalogApp] 
 
 Представленная версия является усовершенствованной предыдущей версии приложения основанной на [старой версии архитектуры][GitHubCatalogApp]. Основное отличие залючается в смене методологии контроля состояний в виджетах переход от interactor к BLoC.
 
@@ -42,9 +42,14 @@
 
 Приложение является подобием мобильной версии интернет магазина. После игрушечной авторизации пользователь попадает на экран с каталогом товаров, откуда пользователь может отправится на любой другой экран приложения.
 
+<details>
+    <summary>Полная версия демо</summary>
+                                
+   ![full demo][FullDemo]
+</details>
 
 Доступные сценарии можно разделить на следующие части:
-1) Авторизация. Для входа  можно ввести что угодно, а внизу можно сменить тему приложения. Логин, пароль записываются в shared preferences, а логин используется в автарке в drawer.
+1) Авторизация. Для входа  можно ввести что угодно. Логин, пароль записываются в shared preferences, а логин используется в автарке в drawer.
 
 <details>
     <summary>Login/logout полная версия демо</summary>
@@ -65,7 +70,7 @@
 </details>
 
 2) Drawer(боковое выезжающееменю на треть экрана). Сверху отображается автарка с первой буква логина введённого при
- входе. Ниже доступны кнопки: logout, смена темы приложения. 
+ входе. Ниже доступны кнопки: logout, смена темы приложения.
 
 <details>
     <summary>Демо</summary>
@@ -77,32 +82,57 @@
  уточняется количество товара, а содержимое корзины записывается в бд для восстановления после закрытия приложения. 
 
 <details>
-    <summary>Демо</summary>
+    <summary>Демо тёмной версии</summary>
                                 
-   ![cart demo][CartDemo]
+   ![black cart demo][BlackCartDemo]
 
 </details>
 
+<details>
+    <summary>Демо светлой версии</summary>
+                                
+   ![White cart demo][WhiteCartDemo]
+
+</details>
 4) Детальная страница товара. На странице товара доступна его покупка.
 
 <details>
-    <summary>Демо</summary>
+    <summary>Демо тёмной версии</summary>
                                 
-   ![detail item demo][DetailItemDemo]
+   ![black detail item demo][BlackDetailItemDemo]
+
+</details>
+
+
+<details>
+    <summary>Демо светлой версии</summary>
+                                
+   ![white detail item demo][WhiteDetailItemDemo]
 
 </details>
 
 5) Галлерея на странице товара. 
 <details>
-    <summary>Демо</summary>
+    <summary>Демо тёмной версии</summary>
                                 
-   ![gallery item demo][GalleryDemo]
+   ![black gallery item demo][BlackGalleryDemo]
 
 </details>
 
 <details>
-  <summary>Ответ</summary>
-  С конца декабря 2019 я нахожусь на перепутье. Либо я устраиваюсь на работу как Flutter-разработчик, либо возвращаюсь в веб.
+    <summary>Демо светлой версии</summary>
+                                
+   ![white gallery item demo][WhiteGalleryDemo]
+
+</details>
+
+6) Фоновый режим и смена темы 
+
+<details>
+    <summary>Демо</summary>
+                                
+   ![foreground demo][ForegroundDemo]
+
 </details>
 
 ## Скриншоты
@@ -161,13 +191,24 @@ MIT
    [FishTextApi]:<https://fish-text.ru>
    [LoremPrixel]:<http://lorempixel.com/>
 
+   [FullDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/full_app_demo.gif>
+
    [FullLoginLogoutDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/login_logout/full_login_and_logout_demo.gif>
    [ShortLoginDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/login_logout/short_login_demo.gif>
    [ShortLogoutDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/login_logout/short_logout_demo.gif>
-   [DrawerDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_logout.gif>
-   [CartDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_cart%20.gif>
-   [DetailItemDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_item_page.gif>
-   [GalleryDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/gallery_demo.gif>
+
+   [DrawerDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/drawer_demo.gif>
+
+   [BlackCartDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/cart/black_cart_demo.gif>
+   [WhiteCartDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/cart/white_cart_demo.gif>
+
+   [BlackDetailItemDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/item/black_item_demo.gif>
+   [WhiteDetailItemDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/item/white_item_demo.gif>
+
+   [BlackGalleryDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/gallery/black_gallery_demo.gif>
+   [WhiteGalleryDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/gallery/white_gallery_demo.gif>
+
+   [ForegroundDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/foreground_demo.gif>
 
    [BlackStartScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/black_start_screen.jpeg>
    [WhiteStartScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/white_start_screen.jpeg>
