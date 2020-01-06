@@ -14,25 +14,26 @@
 Названия идей сугубо рабочии. В большинстве своём проекты связаны с анимациями. К сожалению gif режет кол-во кадров в секунду из-за чего лаги есть.
 
 1. Physics splash
+  <details>
+    <summary>Описание</summary>
 
-<details>
-  <summary>Описание</summary>
-  
-  Управляемая анимация растягивания, сжатия сплэша.
-  
-  <details>
-    <summary>Демо</summary>
-  
+   Управляемая анимация растягивания, сжатия сплэша.
+
+   <details>
+      <summary>Демо</summary>
+
    ![physics splash demo][PhysicsSplashDemo]
-  </details>  
-  
-  <details>
-    <summary>Скриншоты</summary>
-  
-  ![physics splash main screen 1][PhysicsSplashMainScreen1]
-  ![physics splash main screen 2][PhysicsSplashMainScreen2]
+   </details>  
+
+   <details>
+     <summary>Скриншоты</summary>
+
+   ![physics splash main screen 1][PhysicsSplashMainScreen1]
+   ![physics splash main screen 2][PhysicsSplashMainScreen2]
+    </details>
   </details>
-</details>
+
+-----------------------
 
 2. Radial menu
 
@@ -59,6 +60,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 3. Skeleton effect
 
 <details>
@@ -84,6 +88,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 4. Loading button
 
 <details>
@@ -107,6 +114,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 5. Circle avatar
 
 <details>
@@ -128,6 +138,9 @@
   ![circle avatar screen 3][CicrcleAvatarScreen3]
   </details>
 </details>
+
+-----------------------
+
 
 6. Thanos snap
 
@@ -154,6 +167,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 7. Shake screen
 
 <details>
@@ -167,6 +183,9 @@
    ![shake screen demo][ShakeScreenDemo]
   </details>  
 </details>
+
+-----------------------
+
 
 8. Wolf rotate gesture
 
@@ -193,6 +212,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 9. Wolf rotate set state
 
 <details>
@@ -218,6 +240,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 10. Car
 
 <details>
@@ -238,6 +263,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 11. Curve
 
 <details>
@@ -257,6 +285,9 @@
   ![curve main screen][CurveMainScreen]
   </details>
 </details>
+
+-----------------------
+
 
 12. Wolf rotate
 
@@ -279,6 +310,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 13. Wolf scale
 
 <details>
@@ -299,6 +333,9 @@
   ![wolf scale main screen 2][WolfScaleMainScreen2]
   </details>
 </details>
+
+-----------------------
+
 
 14. Wolf fade
 
@@ -323,6 +360,9 @@
   </details>
 </details>
 
+-----------------------
+
+
 15. Simulate gravity
 
 <details>
@@ -345,6 +385,9 @@
   ![wolf fade main screen 4][WolfFadeMainScreen4]
   </details>
 </details>
+
+-----------------------
+
 
 
 ## [Список всех моих проектов][ListAllMyProject]
