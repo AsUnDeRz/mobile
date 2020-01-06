@@ -176,6 +176,10 @@
 ![black app in background][BlackAppInBackground]
 
 ![white app in background][WhiteAppInBackground]
+
+![black exception][BlackException]
+
+![white exception][WhiteException]
 </details>
 
 ## [Список всех моих проектов][ListAllMyProject]
@@ -226,6 +230,8 @@
    [WhiteItemScreen]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/catalog_app/bloc/descriptions/screens/white_item_screen.jpg>
    [BlackAppInBackground]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/screens/dark_app_in_background.jpg>
    [WhiteAppInBackground]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/screens/light_app_in_background.jpg>
+   [BlackException]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/screens/black_example_exception.jpg>
+   [WhiteException]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/screens/white_example_exception.jpg>
 
    [IconCatalogApp]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/icons/icon.png>
    [CatalogAppOld]:<https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/old>
