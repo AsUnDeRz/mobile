@@ -173,7 +173,9 @@
 
 ![white item screen][WhiteItemScreen]
 
-![app in background][AppInBackground]
+![black app in background][BlackAppInBackground]
+
+![white app in background][WhiteAppInBackground]
 </details>
 
 License
