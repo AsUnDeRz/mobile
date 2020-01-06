@@ -185,7 +185,7 @@
 ## [Список всех моих проектов][ListAllMyProject]
 
    [ListAllMyProject]:<https://github.com/iebrosalin/all_public_projects>
-   [ProgressiveMobile]:<http://pmobi.ru/>
+   [ProgressiveMobile]:<https://pmobi.ru/>
    [GitHubCatalogApp]:<https://github.com/iebrosalin/catalog_app/>
    [MockableIO]:<https://www.mockable.io/>
    [BlocReference]:<https://pub.dev/packages/flutter_bloc>
