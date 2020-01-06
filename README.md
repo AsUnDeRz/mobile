@@ -261,10 +261,10 @@
 [WolfRotateGestureMainScreen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_5.jpg>
 [WolfRotateGestureMainScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_6.jpg>
 
-[WolfRotateGestureSetStateDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gestureя_set_state/demo.gif>
+[WolfRotateGestureSetStateDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/demo.gif>
 [WolfRotateGestureSetStateMainScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_1.jpg>
 [WolfRotateGestureSetStateMainScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_2.jpg>
 [WolfRotateGestureSetStateMainScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_3.jpg>
 [WolfRotateGestureSetStateMainScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_4.jpg>
 [WolfRotateGestureSetStateMainScreen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_5.jpg>
-[WolfRotateGestureSetStateMainScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture/rotate_6.jpg>
+[WolfRotateGestureSetStateMainScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_6.jpg>
