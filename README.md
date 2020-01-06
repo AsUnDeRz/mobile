@@ -219,7 +219,7 @@
   <details>
     <summary>Демо</summary>
   
-   ![wolf rotate gesture set state demo][WolfRotateGestureSetStateDemo]
+   ![radial menu demo][RadialMenuDemo]
   </details>  
   
   <details>
@@ -233,11 +233,111 @@
   ![wolf rotate gesture set state main screen 6][WolfRotateGestureSetStateMainScreen6]
   </details>
 </details>
+
 11. Skeleton effect
+
+<details>
+  <summary>Описание</summary>
+  
+ Неуправляемая анимация перелевающихся элементов.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![skeleton effect demo][SkeletonEffectDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![skeleton effect screen 1][SkeletonEffectScreen1]
+  ![skeleton effect screen 2][SkeletonEffectScreen2]
+  ![skeleton effect screen 3][SkeletonEffectScreen3]
+  ![skeleton effect screen 4][SkeletonEffectScreen4]
+  ![skeleton effect screen 5][SkeletonEffectScreen5]
+  ![skeleton effect screen 6][SkeletonEffectScreen6]
+  </details>
+</details>
+
 12. Loading button
+
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация виджета кнопки перехода на другой экран с анимацией загрузки и сплэша.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![loading button demo][LoadingButtonDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![loading button screen 1][LoadingButtonScreen1]
+  ![loading button screen 2][LoadingButtonScreen2]
+  ![loading button screen 3][LoadingButtonScreen3]
+  ![loading button screen 4][LoadingButtonScreen4]
+  </details>
+</details>
 13. Circle avatar
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация виджета для автарок.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![circle avatar demo][CicrcleAvatarDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![circle avatar screen 1][CicrcleAvatarScreen1]
+  ![circle avatar screen 2][CicrcleAvatarScreen2]
+  ![circle avatar screen 3][CicrcleAvatarScreen3]
+  </details>
+</details>
 14. Thanos snap
+
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация плагина умеющего делать эффект исчезновения как в Мстителях.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![thanos snap demo][ThanosSnapDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![thanos snap screen 1_1][ThanosSnapScreen1_1]
+  ![thanos snap screen 1_2][ThanosSnapScreen1_2]
+  ![thanos snap screen 2_1][ThanosSnapScreen2_1]
+  ![thanos snap screen 2_2][ThanosSnapScreen2_2]
+  ![thanos snap screen 3_1][ThanosSnapScreen3_1]
+  ![thanos snap screen 3_2][ThanosSnapScreen3_2]
+  </details>
+</details>
 15. Shake screen
+
+<details>
+  <summary>Описание</summary>
+  
+ Демонстрация перелестывания, когда телефон трясётся.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![shake screen demo][ShakeScreenDemo]
+  </details>  
+</details>
 
 ## [Список всех моих проектов][ListAllMyProject]
 
@@ -297,3 +397,31 @@
 [RadialMenuScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/radial_menu/screen_2.jpg>
 [RadialMenuScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/radial_menu/screen_3.jpg>
 
+[SkeletonEffectDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/demo.gif>
+[SkeletonEffectScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/effect_1.jpg>
+[SkeletonEffectScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/effect_2.jpg>
+[SkeletonEffectScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/effect_3.jpg>
+[SkeletonEffectScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/effect_4.jpg>
+[SkeletonEffectScreen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/effect_5.jpg>
+[SkeletonEffectScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/skeleton_effect/effect_6.jpg>
+
+[LoadingButtonDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/loading_button/demo.gif>
+[LoadingButtonScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/loading_button/screen_1.jpg>
+[LoadingButtonScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/loading_button/screen_2.jpg>
+[LoadingButtonScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/loading_button/screen_3.jpg>
+[LoadingButtonScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/loading_button/screen_4.jpg>
+
+[CicrcleAvatarDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/circle_avatar/demo.gif>
+[CicrcleAvatarScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/circle_avatar/screen_1.jpg>
+[CicrcleAvatarScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/circle_avatar/screen_2.jpg>
+[CicrcleAvatarScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/circle_avatar/screen_3.jpg>
+
+[ThanosSnapDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/demo.gif>
+[ThanosSnapScreen1_1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/panda_1_1.jpg>
+[ThanosSnapScreen1_2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/panda_1_2.jpg>
+[ThanosSnapScreen2_1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/panda_2_1.jpg>
+[ThanosSnapScreen2_2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/panda_2_2.jpg>
+[ThanosSnapScreen3_1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/panda_3_1.jpg>
+[ThanosSnapScreen3_2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/thanos_snap/panda_3_2.jpg>
+
+[ShakeScreenDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/shake_screen/demo.gif>
