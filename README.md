@@ -1,17 +1,67 @@
-# Catalog app bloc (обновлён до Flutter 1.12)
+# Catalog app bloc
 
-Первый проект на Flutter. Учебное приложение, которое было написано в первые несколько недель работы в [Progressive Mobile][ProgressiveMobile] (вышел на работу 2 сентября 2019). Основной его целью было научиться основным практикам/приёмам, существующих в организации перед тем как присоеденятся к боевому проекту.
+## Улучшенная версия предыдущего [варианта][CatalogAppOld]
 
->Представленная версия является усовершенствованной предыдущей версии приложения основанной на [старой версии архитектуры][GitHubCatalogApp]. Основное отличие залючается в смене методологии контроля состояний в виджетах переход от interactor к BLoC.
+![icon catalog app][IconCatalogApp]
 
-Приложение является подобием мобильной версии интернет магазина. После игрушечной авторизации пользователь попадает на экран с каталогом товаров, откуда пользователь может отправится на любой другой экран приложения. Доступные сценарии можно разделить на следующие части:
-1) Авторизация. Для входа  можно ввести что угодно, а внизу можно сменить тему приложения. Логин, пароль записываются 
-в shared preferences, а логин используется в автарке в drawer.
+Представленная версия является усовершенствованной предыдущей версии приложения основанной на [старой версии архитектуры][GitHubCatalogApp]. Основное отличие залючается в смене методологии контроля состояний в виджетах переход от interactor к BLoC.
 
 <details>
-    <summary>Демо</summary>
+ <summary>Список всего что было сделано</summary>
+ 
+  1. Авторизация. Вход возможен при вводе любых строк, кроме пустых строк;
+  2. В приложении сведены к минимуму резкие переходы, поэтому есть лоадеры, fade-эффект, даже для отсутвующих данных, например пуста корзина, предусмотрена соответвующая вёрсткая;
+  3. Запись/чтение данных shared preferences;
+  4. Заполнение данными приложение. У нас ведь каталог товаров, реализованы следующие варинты аполнения каталоа: сгенерировать полностью товары локально, с использованием API для получения строк с описанием товара, полноценное получение товаров из REST API;
+  5. Изображения для товаров сначала грузились из ассетов, а потом уже из прекрасного интернета, с последующим кэшированием;
+  6. Кэширование получаемого товара. Реализован упрощённый, если определённая таблица пуста, значит надо заполнить товарами и потом данные брать оттуда. По началу товары локально генерировались, а потом с сервера поступали.
+  7. Добавление в корзину товаров.
+  8. Синхронизация отображаемого в корзине и БД. Если пользователь закроет приложение, то его данные не потярются.
+  9. Итоговоя сумма набранных в корзине товаров отображается на всех экранах кроме авторизации. Реализовано с помощью Stream;
+  10. Диалоговые окна используются в приложении, например: добавление, удаление товаров, обработке исключени;
+  11. Есть обработка Exception. В приложении реализована авторская ситема "орёл/решка" - при входе в на экран каталога после авторизации с вероятностью 50% получить диалоговое с шуточным сообщением "Сегодня не ваш день. Пробуйте завтра" или перейти на экран на кталаога. В случае неудачи можно нажать на  кнопку "Повторить";
+  12. У товаров есть галлерея;
+  13. У товаров есть продавец с краткой информацией;
+  14. Есть смена темы;
+  15. Переход на BLoC;
+  16. У приложения есть своя иконка;
+  17. Реализован только 1 вариант вёрстки;
+  18. Адаптивная вёрстка;
+  19. Невозможно изменить вертикальную ориентацию. Реализован 1 вариант вёрстки - пришлось заблокировать смену ориантации, иначе бы парочка  новых багов появилась и внешний вид ухудшился бы;
+  20. Исправление мелких багов, которые негативно влияли UI. С точки зрения логики всё было написано ещё в [предыдущей версии][CatalogAppOld].
+  21. Присутсвует несколько интеграций со сторонним REST API
+  
+  |Сервис|Цель|
+  |------|----|
+  |[fish-text.ru][FishTextApi]|Название, описание товара|
+  |[loremapi.org][LoremApi]|Название, описание товара|
+  |[mockable.io][MockableIO]|Аналог сервера c REST API|
+  |[lorempixel.com][LoremPrixel]|Источник картинок|
+
+</details> 
+
+Приложение является подобием мобильной версии интернет магазина. После игрушечной авторизации пользователь попадает на экран с каталогом товаров, откуда пользователь может отправится на любой другой экран приложения.
+
+
+Доступные сценарии можно разделить на следующие части:
+1) Авторизация. Для входа  можно ввести что угодно, а внизу можно сменить тему приложения. Логин, пароль записываются в shared preferences, а логин используется в автарке в drawer.
+
+<details>
+    <summary>Login/logout полная версия демо</summary>
                                 
-   ![auth demo][AuthDemo]
+   ![full login logout demo][FullLoginLogoutDemo]
+</details>
+
+<details>
+    <summary>Login демо</summary>
+                                
+   ![short login demo][ShortLoginDemo]
+</details>
+
+<details>
+    <summary>Logout демо</summary>
+                                
+   ![short logout demo][ShortLogoutDemo]
 </details>
 
 2) Drawer(боковое выезжающееменю на треть экрана). Сверху отображается автарка с первой буква логина введённого при
@@ -49,18 +99,6 @@
    ![gallery item demo][GalleryDemo]
 
 </details>
-
-# Ключевые особенности
-  - Clean архитектура.
-  - [BLoC][BlocReference].
-  - Серверную часть эмулирует сервис [mockable.io][MockableIO].
-  - Кэширование получаемой загружаемого каталога товаров из Mockable в SQLite.
-  - Используются Stream для реализации динамической смена темы приложения, корзины.
-  - Запись в shared preferences логина, пароля, типа темы приложения.
-  - Присутсвует несколько интеграций со сторонним REST Api заполнение описаний, названий товаров, получение случайных картинок. Пока не было интеграции с Mockable локально генерировались товары, продавцы, а к товарам заголовок и описания брались из других Api: [fish-text.ru][FishTextApi], [loremapi.org][LoremApi].
-  - Переезд на BLoC был довольно мягким и занял 1 или 2 дня.
-
-## А что если доделать...
 
 <details>
   <summary>Ответ</summary>
@@ -108,7 +146,6 @@
 ![app in background][AppInBackground]
 </details>
 
-
 License
 ----
 
@@ -122,8 +159,11 @@ MIT
    [BlocReference]:<https://pub.dev/packages/flutter_bloc>
    [LoremApi]:<https://loremipsum.wiegertschouten.nl>
    [FishTextApi]:<https://fish-text.ru>
+   [LoremPrixel]:<http://lorempixel.com/>
 
-   [AuthDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_login.gif>
+   [FullLoginLogoutDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/login_logout/full_login_and_logout_demo.gif>
+   [ShortLoginDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/login_logout/short_login_demo.gif>
+   [ShortLogoutDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/login_logout/short_logout_demo.gif>
    [DrawerDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_logout.gif>
    [CartDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_cart%20.gif>
    [DetailItemDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/demo_item_page.gif>
@@ -146,3 +186,6 @@ MIT
    [BlackItemScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/black_item_screen.jpeg>
    [WhiteItemScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/white_item_screen.jpeg>
    [AppInBackground]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/app_in_background.jpeg>
+   
+   [IconCatalogApp]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/icons/icon.png>
+   [CatalogAppOld]:<https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/old>
