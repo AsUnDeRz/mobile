@@ -125,6 +125,7 @@ Messenger  - приложение демонстрирующее работу с
 ```
 </details>
 --------------------------------------------------
+
 [FullDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/demo.gif>
 
 [SendDataOtherScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/screens/send_data_to_other_screen.jpg>
