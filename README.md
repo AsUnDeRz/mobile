@@ -210,6 +210,29 @@
   </details>
 </details>
 10. Radial menu
+
+<details>
+  <summary>Описание</summary>
+  
+ Управляемая анимация радиального меню.
+  
+  <details>
+    <summary>Демо</summary>
+  
+   ![wolf rotate gesture set state demo][WolfRotateGestureSetStateDemo]
+  </details>  
+  
+  <details>
+    <summary>Скриншоты</summary>
+  
+  ![wolf rotate gesture set state main screen 1][WolfRotateGestureSetStateMainScreen1]
+  ![wolf rotate gesture set state main screen 2][WolfRotateGestureSetStateMainScreen2]
+  ![wolf rotate gesture set state main screen 3][WolfRotateGestureSetStateMainScreen3]
+  ![wolf rotate gesture set state main screen 4][WolfRotateGestureSetStateMainScreen4]
+  ![wolf rotate gesture set state main screen 5][WolfRotateGestureSetStateMainScreen5]
+  ![wolf rotate gesture set state main screen 6][WolfRotateGestureSetStateMainScreen6]
+  </details>
+</details>
 11. Skeleton effect
 12. Loading button
 13. Circle avatar
@@ -268,3 +291,9 @@
 [WolfRotateGestureSetStateMainScreen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_4.jpg>
 [WolfRotateGestureSetStateMainScreen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_5.jpg>
 [WolfRotateGestureSetStateMainScreen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/wolf_rotate_gesture_set_state/rotate_6.jpg>
+
+[RadialMenuDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/radial_menu/demo.gif>
+[RadialMenuScreen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/radial_menu/screen_1.jpg>
+[RadialMenuScreen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/radial_menu/screen_2.jpg>
+[RadialMenuScreen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/drafts/screens/radial_menu/screen_3.jpg>
+
