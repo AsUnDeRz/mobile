@@ -23,18 +23,21 @@ Messenger  - приложение демонстрирующее работу с
     }
     ```
  
- <details>
-    <summary>Демо</summary>
-    
-![send data other screen demo][SendDataOtherScreenDemo]
-</details>   
+   <details>
+      <summary>Демо</summary>
 
- <details>
-    <summary>Скриншоты</summary>
-    
-![send data other screen][SendDataOtherScreen]
-</details>   
+  ![send data other screen demo][SendDataOtherScreenDemo]
+  </details>   
+
+   <details>
+      <summary>Скриншоты</summary>
+
+  ![send data other screen][SendDataOtherScreen]
+  </details>   
+
 </details>
+
+--------------------------------------------------
 
 <details>
     <summary>Передача данных другому приложению на примере почты с указанием конкретного MIME-type</summary>
@@ -65,6 +68,7 @@ Messenger  - приложение демонстрирующее работу с
 </details>   
 </details>
 
+--------------------------------------------------
 
 <details>
     <summary>Передача данных другому приложению на примере почты с любого MIME-type</summary>
@@ -99,6 +103,8 @@ Messenger  - приложение демонстрирующее работу с
 </details>
 </details>
 
+--------------------------------------------------
+
 <details>
     <summary>Обработка случая, когда нет подходящего приложения для шаринга</summary>
     
@@ -117,10 +123,8 @@ Messenger  - приложение демонстрирующее работу с
             startActivity(intent);
     } 
 ```
-    
- ![send data other screen][SendDataOtherScreen]
 </details>
-
+--------------------------------------------------
 [FullDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/demo.gif>
 
 [SendDataOtherScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/android/messanger/screens/send_data_to_other_screen.jpg>
