@@ -13,7 +13,7 @@ Messenger  - приложение демонстрирующее работу с
     
    Код для этого события
    
-    ```java    
+  ```java    
     public  void onSendMessageLocal(View view){
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
@@ -21,7 +21,7 @@ Messenger  - приложение демонстрирующее работу с
         intent.putExtra("message", message);
         startActivity(intent);
     }
-    ```
+  ```
  
    <details>
       <summary>Демо</summary>
