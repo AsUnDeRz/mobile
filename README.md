@@ -2,8 +2,6 @@
 
 ![icon drafts][IconDrafts]
 
-## [Список всех моих проектов][ListAllMyProject]
-
 Особый репозиторий возникший на 3 неделе работы в [Progressive Mobile][ProgressiveMobile]. В нём не действуют правила чистого кода, здесь самое главное запрототипировать идею. Репозиторий является хранилищем собранных идей, в определённый момент почуствовал острую надобоность в нём во время изучения UI-приёмов во Flutter. Репозиторий неоднократно выручал меня. 
 
 <details>
@@ -87,6 +85,8 @@
 12. Circle avatar
 13. Thanos snap
 14. Shake screen
+
+## [Список всех моих проектов][ListAllMyProject]
 
 [ProgressiveMobile]:<https://pmobi.ru/>
 [ListAllMyProject]:<https://github.com/iebrosalin/all_public_projects>
