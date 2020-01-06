@@ -24,6 +24,8 @@
 
 Сделал задание за 6 часов (за основу взял [туториал][FlutterTutorial] и вдохновлялся [превью видео курса][AcademiamindCrushCourse], который позже оказывал мне пару поддержку как источник теории о Flutter). За день до этого потратил пару часов на установку Flutter и запуска готового "Hello World!" типичного при создании проекта на Flutter в Android Studio. Время показало что я хорошо справился с заданием, а единственным недочётом была декомпозиция кода.
 
+## [Список всех моих проектов][ListAllMyProject]
+
 [Pmobi]:<https://pmobi.ru/>
 [TaskScreen]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/first_app/task.png>
 [LayoutOrigin]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/first_app/task_screen.jpg>
@@ -31,3 +33,4 @@
 [FlutterTutorial]:<https://flutter.dev/docs/development/ui/layout/tutorial>
 [AcademiamindCrushCourse]:<https://www.youtube.com/watch?v=x0uinJvhNxI>
 [IconFirstApp]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/first_app/icons/icon.png>
+[ListAllMyProject]:<https://github.com/iebrosalin/all_public_projects>
