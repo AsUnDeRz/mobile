@@ -1,5 +1,7 @@
 # First app
 
+![icon first app][IconFirstApp]
+
 Моё первым приложением на Flutter было не "Hello World!", а тестовое задание для [Progressive Mobile][Pmobi].
 
 <details>
@@ -28,3 +30,4 @@
 [Result]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/first_app/result_screen.jpg>
 [FlutterTutorial]:<https://flutter.dev/docs/development/ui/layout/tutorial>
 [AcademiamindCrushCourse]:<https://www.youtube.com/watch?v=x0uinJvhNxI>
+[IconFirstApp]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/first_app/icons/icon.png>
