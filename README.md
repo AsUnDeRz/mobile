@@ -33,6 +33,7 @@
   ![physics splash main screen 2][PhysicsSplashMainScreen2]
   </details>
 </details>
+
 2. Radial menu
 
 <details>
@@ -105,7 +106,9 @@
   ![loading button screen 4][LoadingButtonScreen4]
   </details>
 </details>
+
 5. Circle avatar
+
 <details>
   <summary>Описание</summary>
   
@@ -125,6 +128,7 @@
   ![circle avatar screen 3][CicrcleAvatarScreen3]
   </details>
 </details>
+
 6. Thanos snap
 
 <details>
@@ -149,6 +153,7 @@
   ![thanos snap screen 3_2][ThanosSnapScreen3_2]
   </details>
 </details>
+
 7. Shake screen
 
 <details>
@@ -214,6 +219,7 @@
 </details>
 
 10. Car
+
 <details>
   <summary>Описание</summary>
   
@@ -295,6 +301,7 @@
 </details>
 
 14. Wolf fade
+
 <details>
   <summary>Описание</summary>
   
@@ -317,6 +324,7 @@
 </details>
 
 15. Simulate gravity
+
 <details>
   <summary>Описание</summary>
   
