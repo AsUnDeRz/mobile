@@ -31,10 +31,23 @@
   16. Реализован только 1 вариант вёрстки;
   17. Адаптивная вёрстка в стиле material;
   18. Невозможно изменить вертикальную ориентацию. Реализован 1 вариант вёрстки - пришлось заблокировать смену ориантации, иначе бы парочка  новых багов появилась и внешний вид ухудшился бы;
+  19. Присутсвует несколько интеграций со сторонним REST API
   
+  |Сервис|Цель|
+  |------|----|
+  |[fish-text.ru][FishTextApi]|Название, описание товара|
+  |[loremapi.org][LoremApi]|Название, описание товара|
+  |[mockable.io][MockableIO]|Аналог сервера c REST API|
+  |[lorempixel.com][LoremPrixel]|Источник картинок|
 </details>  
   
 [Pmobi]:<https://pmobi.ru/>
 [CatalogAppBloc]:<https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/bloc>
 [FirstApp]:<https://github.com/iebrosalin/mobile/tree/flutter/first_app_flutter>
 [IconCatalogApp]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/icons/icon.png>
+
+[MockableIO]:<https://www.mockable.io/>
+[BlocReference]:<https://pub.dev/packages/flutter_bloc>
+[LoremApi]:<https://loremipsum.wiegertschouten.nl>
+[FishTextApi]:<https://fish-text.ru>
+[LoremPrixel]:<http://lorempixel.com/>
