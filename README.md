@@ -129,6 +129,7 @@
       <summary>Светлая версия</summary>
          
        ![edit profile light 1][EditProfileLight1]
+       
        ![edit profile light 2][EditProfileLight2]
     </details> 
 
