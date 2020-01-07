@@ -146,6 +146,7 @@
         <summary>Светлая версия</summary>
           
         ![subscription light 1][SubscriptionLight1]
+        
         ![subscription light 2][SubscriptionLight2]
      </details> 
  
@@ -211,7 +212,7 @@
 [EditProfileLight2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/edit_profile/edit_profile_2.png>
 
 [SubscriptionDark1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/subscription/subscription_1.png>
-[SubscriptionDark2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/darkt/subscription/subscription_2.png>
+[SubscriptionDark2]:<https://raw.githubusercontent.com/iebrosalin/mobile/master/readme/flutter/social_network/unpublish/dark/subscription/subscription_2.png>
 
 [SubscriptionLight1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/subscription/subscription_1.png>
 [SubscriptionLight2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/subscription/subscription_2.png>
