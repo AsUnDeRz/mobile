@@ -80,7 +80,7 @@
  
     - Тёмная версия
        
-        - <details>
+        <details>
            <summary>Свой профиль</summary>
              
         ![ProfileDark1][ProfileDarkOwn]
@@ -89,7 +89,7 @@
       
        </details>
       
-        - <details>
+        <details>
            <summary>Чужой профиль</summary>
              
          ![ProfileDark3][ProfileDarkOther]
@@ -99,7 +99,7 @@
      
     - Светлая версия
       
-       - <details>
+       <details>
            <summary>Свой профиль</summary>
              
         ![ProfileLight1][ProfileLightOwn]
@@ -107,7 +107,7 @@
         ![ProfileLight2][ProfileLightOwn2]
        </details> 
       
-      - <details>
+      <details>
           <summary>Чужой профиль</summary>
           
        ![ProfileLight3][ProfileLightOther]
@@ -121,6 +121,7 @@
       <summary>Тёмная версия</summary>
          
          ![edit profile dark 1][EditProfileDark1]
+         
          ![edit profile dark 2][EditProfileDark2]
     </details>  
     
@@ -136,8 +137,9 @@
     - <details>
       <summary>Тёмная версия</summary>
           
-        ![subscription dark 1][SubscriptionDark1]
-        ![subscription dark 2][SubscriptionDark2]
+      ![subscription dark 1][SubscriptionDark1]
+        
+      ![subscription dark 2][SubscriptionDark2]
      </details>  
      
      - <details>
