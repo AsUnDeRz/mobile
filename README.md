@@ -2,11 +2,55 @@
 
  За середину октября в плоть до конца декабря я накопил достаточно опыта, впечатлений для следующего 
  пет-проекта. Представьте себе интсаграмм, тик-ток и вы не сильно ошибётесь. Там поле непаханное
- задач: UX, мобильный бек, синхронизация с беком, реал-тайм (чаты, сессии...). В текущей версии 
- сконцентрировался на решении UX-задач.
+ задач: UX, мобильный бек, синхронизация с беком, реал-тайм (чаты, сессии...).
+ 
+ В текущей версии сконцентрировался на решении UX-задач для экрана ленты новостей.
 
-# Демо
+## Демо
 
+Пока готова лента новостей. Это не окончательный вариант, если ещё буду разрабатывать на Flutter, то всё же сделаю переключение вариантов экранов. Есть разные варианты и код для их реализации было бы удобно складировать с помощью этого механизма.
+
+<details>
+ <sumary>Демо запуска приложения</summary>
+ 
+ ![StartDemo][StartDemo]
+</details> 
+
+<details>
+ <sumary>Демо шапки и футера поста</summary>
+ 
+ ![HeaderFooterPostDemo][HeaderFooterPostDemo]
+</details> 
+ 
+<details>
+ <sumary>Демо быстрого листания</summary>
+ 
+ ![FastSnappingDemo][FastSnappingDemo]
+</details> 
+  
+<details>
+ <sumary>Демо ошибки при загрузке изображения поста</summary>
+ 
+ ![ErrorPost][ErrorPostDemo]
+</details>
+   
+<details>
+ <sumary>Демо drawer и фоновой иконки</summary>
+ 
+ ![DrawerBackground][DrawerBackground]
+</details>
+ 
+ <details>
+ <sumary>Скриншоты</summary>
+ 
+ ![Screen1][Screen1]
+ ![Screen2][Screen2]
+ ![Screen3][Screen3] 
+ ![Screen4][Screen4] 
+ ![Screen5][Screen5] 
+ ![Screen6][Screen6]
+</details>
+ 
 # Немного макетов
 
 [Исходный файл макета][MaketLink]
@@ -162,6 +206,20 @@
   - Алгоритм предзагрузки контента для ленты.
   - Чаты.
   - Уведомления.
+
+
+[StartDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/gif/start.gif>
+[HeaderFooterPostDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/gif/header_footer_post.gif>
+[FastSnappingDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/gif/fast%20snapping.gif>
+[ErrorPostDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/gif/error_post.gif>
+[DrawerBackground]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/gif/drawer_background.gif>
+
+[Screen1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/screenshots/post.jpg>
+[Screen2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/screenshots/expanded%20post.jpg>
+[Screen3]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/screenshots/drawer.jpg>
+[Screen4]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/screenshots/load_post.jpg>
+[Screen5]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/screenshots/error%20post.jpg>
+[Screen6]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/screenshots/background.jpg>
 
 [MaketLink]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/maket.drawio>
 
