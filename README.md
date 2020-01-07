@@ -11,37 +11,37 @@
 Пока готова лента новостей. Это не окончательный вариант, если ещё буду разрабатывать на Flutter, то всё же сделаю переключение вариантов экранов. Есть разные варианты и код для их реализации было бы удобно складировать с помощью этого механизма.
 
 <details>
- <sumary>Демо запуска приложения</summary>
+ <summary>Демо запуска приложения</summary>
  
  ![StartDemo][StartDemo]
 </details> 
 
 <details>
- <sumary>Демо шапки и футера поста</summary>
+ <summary>Демо шапки и футера поста</summary>
  
  ![HeaderFooterPostDemo][HeaderFooterPostDemo]
 </details> 
  
 <details>
- <sumary>Демо быстрого листания</summary>
+ <summary>Демо быстрого листания</summary>
  
  ![FastSnappingDemo][FastSnappingDemo]
 </details> 
   
 <details>
- <sumary>Демо ошибки при загрузке изображения поста</summary>
+ <summary>Демо ошибки при загрузке изображения поста</summary>
  
  ![ErrorPost][ErrorPostDemo]
 </details>
    
 <details>
- <sumary>Демо drawer и фоновой иконки</summary>
+ <summary>Демо drawer и фоновой иконки</summary>
  
  ![DrawerBackground][DrawerBackground]
 </details>
  
  <details>
- <sumary>Скриншоты</summary>
+ <summary>Скриншоты</summary>
  
  ![Screen1][Screen1]
  ![Screen2][Screen2]
