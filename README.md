@@ -8,11 +8,10 @@
 # Демо
 
 # Немного макетов
- - Экран лента новостей
-   
-   Каждая новость занимает весь экран (переход свайпами верх). Имеет
-   фото/видео, дату создания, автора, описание. 
 
+[Исходный файл макета][MaketLink]
+
+ - Экран лента новостей
     - <details>
         <summary>Демо тёмная версия</summary>
      
@@ -84,18 +83,18 @@
         - <details>
            <summary>Свой профиль</summary>
              
-            ![ProfileDark1][ProfileDarkOwn]
+        ![ProfileDark1][ProfileDarkOwn]
           
-            ![ProfileDark2][ProfileDarkOwn2]
+        ![ProfileDark2][ProfileDarkOwn2]
       
        </details>
       
         - <details>
            <summary>Чужой профиль</summary>
              
-            ![ProfileDark3][ProfileDarkOther]
+         ![ProfileDark3][ProfileDarkOther]
               
-            ![ProfileDark4][ProfileDarkOther2]
+         ![ProfileDark4][ProfileDarkOther2]
         </details>  
      
     - Светлая версия
@@ -103,85 +102,50 @@
        - <details>
            <summary>Свой профиль</summary>
              
-            ![ProfileLight1][ProfileLightOwn]
+        ![ProfileLight1][ProfileLightOwn]
               
-            ![ProfileLight2][ProfileLightOwn2]
+        ![ProfileLight2][ProfileLightOwn2]
        </details> 
       
       - <details>
           <summary>Чужой профиль</summary>
           
-          ![ProfileLight3][ProfileLightOther]
-          
-          ![ProfileLight4][ProfileLightOther2]
+       ![ProfileLight3][ProfileLightOther]
+         
+       ![ProfileLight4][ProfileLightOther2]
       </details> 
-       
-   - <details>
-     <summary>Дополнительная информация</summary>
-      
-       Скролируемый экран, имеющий разные виды и поведенияв зависимости от типа 
-       пользователяи (мой и чужой профиль) и поведение от наличии авторизации. Неавторизованные 
-       пользователи при совершении действий требующих авторизации открывают экран авторизации.  
-       Свой экран профиля содержал следующее: 
-       - Автарку.
-       - Текущее местоположение
-          - Неавторизованный пользователь видит вымышленное местонахождение пользователя.
-          - В своём профиле пользователь видит город, страну где он находится.
-          - В чужом профиле город чужого пользователя и расстояние между своим пользователем и 
-          просматриваемым пользователе.
-       - Подарки.  В моём понимании это сообщение в чате с пользователем оформленные особенным образом.
-       Эти сообщение отличаются рядом дополнительных настроек, например: цвет фона, звук при открытии подарка, 
-       тема сообщения(совокупность тематических преднастроек). Если есть подарки, то иконка 
-       показывается иначе нет. При клике на происходит переход на экран со списком подарков.
-       - Кол-во подписок, подписчиков - кликабельны и ведут на на соответствующие страницы списки
-       - В своём профиле есть бургер меню для вызова диалогового окна для выбора следующей страницы.
-        Отсюда пользователь точно сможет попасть на страницу редактирования профиля пользователя, 
-        также другие настройки придётся прятать тут.
-       - Посты пользователя с подгрузкой по скролу. 
-      </details>  
-
   
   - Экран редактирования профиля
     
     - <details>
       <summary>Тёмная версия</summary>
          
-         ![][]
+         ![edit profile dark 1][EditProfileDark1]
+         ![edit profile dark 2][EditProfileDark2]
     </details>  
     
     - <details>
       <summary>Светлая версия</summary>
          
-       ![][]
+       ![edit profile light 1][EditProfileLight1]
+       ![edit profile light 2][EditProfileLight2]
     </details> 
-    
-    - <details>
-      <summary>Дополнительная информация</summary>
-        
-       Стандартный экран редактирования. Аватар кликабелен и вызывает диалоговое окно с выбором источника аватрки.
-       Текстовые поля выполнены в стиле материал, с автовалидацией.
-    </details>  
 
  - Экран списка подписок/подписчиков
      
     - <details>
       <summary>Тёмная версия</summary>
           
-        ![][]
+        ![subscription dark 1][SubscriptionDark1]
+        ![subscription dark 2][SubscriptionDark2]
      </details>  
      
      - <details>
         <summary>Светлая версия</summary>
           
-        ![][]
+        ![subscription light 1][SubscriptionLight1]
+        ![subscription light 2][SubscriptionLight2]
      </details> 
-     
-     - <details>
-          <summary>Дополнительная информация</summary>
-         
-        Список с пагинацией по скролу. Неавторизованные пользователи при нажатии на кнопку подписатсья переходят на 
-        экран авторизации. Тап по аватару переводит на профиль пользователя.
-     </details>  
  
   ## Технологичесикие вызовы нового пет-проекта
   С частью задач я сталкивался и имею информации о их решении, но общее и универсальное пока не 
@@ -194,6 +158,8 @@
   - Алгоритм предзагрузки контента для ленты.
   - Чаты.
   - Уведомления.
+
+[MaketLink]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/maket.drawio>
 
 [FlowDark1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/flow/main/flow_1.png>
 [FlowDark2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/flow/main/flow_2.png>
@@ -235,3 +201,15 @@
 [ProfileLightOwn]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/own.png>
 [ProfileLightOther]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/other.png>
 [ProfileLightOther2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/light/other.png>
+
+[EditProfileDark1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/edit_profile/edit_profile_1.png>
+[EditProfileDark2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/edit_profile/edit_profile_2.png>
+
+[EditProfileLight1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/edit_profile/edit_profile_1.png>
+[EditProfileLight2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/edit_profile/edit_profile_2.png>
+
+[SubscriptionDark1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/subscription/subscription_1.png>
+[SubscriptionDark2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/darkt/subscription/subscription_2.png>
+
+[SubscriptionLight1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/subscription/subscription_1.png>
+[SubscriptionLight2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/subscription/subscription_2.png>
