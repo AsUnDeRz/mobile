@@ -3,6 +3,7 @@ import 'user.dart';
 class Post {
   final int id;
   final String fileUrl;
+  final String description;
   final int likesAmount;
   final int sharesAmount;
   final int viewsAmount;
@@ -16,6 +17,7 @@ class Post {
   Post({
     this.id,
     this.fileUrl,
+    this.description,
     this.likesAmount,
     this.sharesAmount,
     this.viewsAmount,

@@ -31,7 +31,6 @@ class _PostHomeWidgetState extends State<PostHomeWidget> with SingleTickerProvid
               fadeInDuration: Duration(milliseconds: 100),
               fadeOutDuration: Duration(milliseconds: 100),
               placeholder: AssetImage("assets/images/pixel.png"),
-
             ),
           );
         }

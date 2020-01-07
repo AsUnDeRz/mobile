@@ -12,6 +12,7 @@ class FixtureUtil {
         listPosts.add(Post(
           id: i,
           fileUrl: "http://lorempixel.com/1080/1920/?${Random().nextInt(4200000000)}",
+          description: comments[Random().nextInt(comments.length)],
           date: DateTime.now().subtract(Duration(days: 2 * i)),
           likesAmount: Random().nextInt(4200000000),
           viewsAmount: Random().nextInt(4200000000),

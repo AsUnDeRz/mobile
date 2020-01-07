@@ -9,7 +9,8 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
 
   @override
   Stream<ViewState> mapEventToState(event) async* {
-    if (event is ViewInitEvent) {
+    if (event is ProfileViewEvent) {
+      yield ProfileViewState();
     }
   }
 }
@@ -17,9 +18,12 @@ class ViewBloc extends Bloc<ViewEvent, ViewState> {
 @immutable
 abstract class ViewEvent {}
 
-class ViewInitEvent extends ViewEvent {}
+class ProfileViewEvent extends ViewEvent {}
+class HomeViewEvent extends ViewEvent {}
 
 @immutable
 abstract class ViewState {}
 
 class OriginViewState extends ViewState {}
+class ProfileViewState extends ViewState {}
+class HomeViewState extends ViewState {}

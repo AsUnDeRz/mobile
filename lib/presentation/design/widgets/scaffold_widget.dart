@@ -10,11 +10,14 @@ class ScaffoldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> listWidgets = [
+      body,
+    ];
+    if(appBarWidget != null){
+      listWidgets.add(appBarWidget);
+    }
     return Stack(
-      children: <Widget>[
-        body,
-        appBarWidget
-      ],
+      children: listWidgets,
     );
   }
 }

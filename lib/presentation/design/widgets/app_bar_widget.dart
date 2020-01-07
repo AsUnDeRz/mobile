@@ -13,7 +13,7 @@ class AppBarWidget extends StatelessWidget {
       right: 0,
       child: Container(
         height: 50 + MediaQuery.of(context).viewPadding.top,
-        color: Colors.black.withOpacity(.2),
+        color: Colors.black.withOpacity(.35),
         child: Stack(
           children: <Widget>[
             Positioned(

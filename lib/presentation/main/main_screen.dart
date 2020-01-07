@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_network/presentation/design/application_design.dart';
+import 'package:social_network/domain/bloc/navigation_bloc.dart';
 import 'package:social_network/presentation/main/widgets/drawer_navigation_widget.dart';
-import 'package:social_network/presentation/main/widgets/navigation_menu/icon_navigation_widget.dart';
 import 'package:social_network/presentation/main/widgets/navigation_menu/navigation_menu_widget.dart';
 import 'package:social_network/presentation/main/widgets/view_widget.dart';
+
+import '../../internal/dependencies/view/view_module.dart';
 
 
 
@@ -17,8 +17,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-//  final NavigationBloc _navigationBloc = NavigationModule.navigationBloc();
+  final NavigationBloc _navigationBloc = ViewModule.navigationBloc();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _navigationBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +40,12 @@ class _MainScreenState extends State<MainScreen> {
         ),
         body: Stack(
           children: <Widget>[
-            ViewWidget(),
+            ViewWidget(
+              navigationBloc: _navigationBloc,
+            ),
             NavigationMenuWidget(
               scaffoldKey: _scaffoldKey,
+              navigationBloc: _navigationBloc
             )
           ],
         ),
