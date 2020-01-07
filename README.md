@@ -200,7 +200,7 @@
 [ProfileDarkOther2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/profile/light/other.png>
 
 [ProfileLightOwn]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/light/own.png>
-[ProfileLightOwn]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/own.png>
+[ProfileLightOwn2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/own.png>
 [ProfileLightOther]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/other.png>
 [ProfileLightOther2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/light/other.png>
 
