@@ -200,9 +200,9 @@
 [ProfileDarkOther2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/profile/light/other.png>
 
 [ProfileLightOwn]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/light/own.png>
-[ProfileLightOwn2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/own.png>
-[ProfileLightOther]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/other.png>
-[ProfileLightOther2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/light/other.png>
+[ProfileLightOwn2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/dark/own.png>
+[ProfileLightOther]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/light/other.png>
+[ProfileLightOther2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/light/profile/dark/other.png>
 
 [EditProfileDark1]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/edit_profile/edit_profile_1.png>
 [EditProfileDark2]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/social_network/unpublish/dark/edit_profile/edit_profile_2.png>
