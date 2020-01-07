@@ -12,67 +12,67 @@
 [Исходный файл макета][MaketLink]
 
  - Экран лента новостей
-    - <details>
+    <details>
         <summary>Демо тёмная версия</summary>
      
-         ![FlowDark1][FlowDark1]
+      ![FlowDark1][FlowDark1]
+        
+      ![FlowDark2][FlowDark2]
          
-         ![FlowDark2][FlowDark2]
+      ![FlowDark3][FlowDark3]
          
-         ![FlowDark3][FlowDark3]
+      ![FlowDark4][FlowDark4]
          
-         ![FlowDark4][FlowDark4]
+      ![FlowDark5][FlowDark5]
          
-         ![FlowDark5][FlowDark5]
+      ![FlowDark6][FlowDark6]
          
-         ![FlowDark6][FlowDark6]
+      ![FlowDark7][FlowDark7]
          
-         ![FlowDark7][FlowDark7]
+      ![FlowDark8][FlowDark8]
          
-         ![FlowDark8][FlowDark8]
+      ![FlowDark9][FlowDark9]
          
-         ![FlowDark9][FlowDark9]
+      ![FlowDark10][FlowDark10]
          
-         ![FlowDark10][FlowDark10]
+      ![FlowDark11][FlowDark11]
          
-         ![FlowDark11][FlowDark11]
+      ![FlowDark12][FlowDark12]
          
-         ![FlowDark12][FlowDark12]
+      ![FlowDark12][FlowDarkAlt13]
          
-         ![FlowDark12][FlowDarkAlt13]
-         
-         ![FlowDark12][FlowDarkAlt14]  
+      ![FlowDark12][FlowDarkAlt14]  
          
     </details>
     
-    - <details>
-       <summary>Светлая версия</summary>
+    <details>
+      <summary>Светлая версия</summary>
        
-         ![FlowLight1][FlowLight1]     
+      ![FlowLight1][FlowLight1]     
            
-         ![FlowLight2][FlowLight2]   
+      ![FlowLight2][FlowLight2]   
               
-         ![FlowLight3][FlowLight3]     
+      ![FlowLight3][FlowLight3]     
            
-         ![FlowLight4][FlowLight4]   
+      ![FlowLight4][FlowLight4]   
              
-         ![FlowLight5][FlowLight5]   
+      ![FlowLight5][FlowLight5]   
              
-         ![FlowLight6][FlowLight6]  
+      ![FlowLight6][FlowLight6]  
               
-         ![FlowLight7][FlowLight7]    
+      ![FlowLight7][FlowLight7]    
             
-         ![FlowLight8][FlowLight8]    
+      ![FlowLight8][FlowLight8]    
             
-         ![FlowLight9][FlowLight9]     
+      ![FlowLight9][FlowLight9]     
            
-         ![FlowLight10][FlowLight10]   
+      ![FlowLight10][FlowLight10]   
              
-         ![FlowLight10][FlowLight11]   
+      ![FlowLight10][FlowLight11]   
              
-         ![FlowLight11][FlowLightAlt12]  
+      ![FlowLight11][FlowLightAlt12]  
          
-         ![FlowLight12][FlowLightAlt13]  
+      ![FlowLight12][FlowLightAlt13]  
     </details>   
 
  
@@ -117,15 +117,15 @@
   
   - Экран редактирования профиля
     
-    - <details>
+    <details>
       <summary>Тёмная версия</summary>
          
-         ![edit profile dark 1][EditProfileDark1]
+       ![edit profile dark 1][EditProfileDark1]
          
-         ![edit profile dark 2][EditProfileDark2]
+       ![edit profile dark 2][EditProfileDark2]
     </details>  
     
-    - <details>
+    <details>
       <summary>Светлая версия</summary>
          
        ![edit profile light 1][EditProfileLight1]
@@ -134,7 +134,7 @@
 
  - Экран списка подписок/подписчиков
      
-    - <details>
+    <details>
       <summary>Тёмная версия</summary>
           
       ![subscription dark 1][SubscriptionDark1]
@@ -142,12 +142,12 @@
       ![subscription dark 2][SubscriptionDark2]
      </details>  
      
-     - <details>
+     <details>
         <summary>Светлая версия</summary>
           
-        ![subscription light 1][SubscriptionLight1]
+      ![subscription light 1][SubscriptionLight1]
         
-        ![subscription light 2][SubscriptionLight2]
+      ![subscription light 2][SubscriptionLight2]
      </details> 
  
   ## Технологичесикие вызовы нового пет-проекта
