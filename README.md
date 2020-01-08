@@ -15,7 +15,7 @@ Flutter-разработка была основной моей деятельс
 | [Первое приложение][FirstApp]   | неподдерживается              | android              | смрартфоны         | 
 | [Catalog_app][OldCatalog]       | легаси, неподдерживается      | android              | смрартфоны         |
 | [Drafts][Drafts]                | заморожен                     | android              | смрартфоны         |
-| [Catalog_app bloc][BlocCatalog] | только исправление багов багов| android              | смрартфоны         |
+| [Catalog_app bloc][BlocCatalog] | заморожен                     | android              | смрартфоны         |
 | [Social network][SocialNetwork] | заморожен                     | android              | смрартфоны         |
 
 >   Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые
