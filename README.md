@@ -6,7 +6,7 @@
 Проекты можно разделить на 2 типа:
 - Flutter
 
-Flutter-разработка была основной моей деятельсностью 02.09.2019 - 20.12.2019. 
+Flutter-разработка была основной моей деятельсностью 02.09.2019 - 20.12.2019 в [Progressive Mobile][Pmobi]. 
   
 Проекты перечислены в хронолигическом порядке (самый нижний, последний). Все проекты обновлены до Flutter 1.12.
 
@@ -40,6 +40,7 @@ Flutter-разработка была основной моей деятельс
                                                                                                                                                                                                      
 ## [Список всех моих проектов][ListAllMyProject]
 
+ [Pmobi]:<https://pmobi.ru/>
  
 [FirstApp]:<https://github.com/iebrosalin/mobile/tree/flutter/first_app_flutter>
 [OldCatalog]:<https://github.com/iebrosalin/mobile/tree/flutter/catalog_app/old>
