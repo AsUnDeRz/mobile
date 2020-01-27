@@ -10,13 +10,13 @@ Flutter-разработка была основной моей деятельс
   
 Проекты перечислены в хронолигическом порядке (самый нижний, последний). Все проекты обновлены до Flutter 1.12.
 
-| Проект                          | Тестируемая платформа| Целевые устройства |Завершённость     |
-| ------------------------------- | -------------------- | ------------------ |------------------|
-| [Первое приложение][FirstApp]   | android              | смрартфоны         |:white_check_mark:|
-| [Catalog_app][OldCatalog]       | android              | смрартфоны         |:white_check_mark:|
-| [Drafts][Drafts]                | android              | смрартфоны         |:white_check_mark:|
-| [Catalog_app bloc][BlocCatalog] | android              | смрартфоны         |:white_check_mark:|
-| [Social network][SocialNetwork] | android              | смрартфоны         ||
+|месяц.год создания| Проект                          | Тестируемая платформа| Целевые устройства |Завершённость     |
+|------------------| ------------------------------- | -------------------- | ------------------ |------------------|
+|08.2019           | [Первое приложение][FirstApp]   | android              | смрартфоны         |:white_check_mark:|
+|09.2019           | [Catalog_app][OldCatalog]       | android              | смрартфоны         |:white_check_mark:|
+|09.2019           | [Drafts][Drafts]                | android              | смрартфоны         |:white_check_mark:|
+|10.2019           | [Catalog_app bloc][BlocCatalog] | android              | смрартфоны         |:white_check_mark:|
+|01.2020           | [Social network][SocialNetwork] | android              | смрартфоны         ||
 
 >   Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые
 >    два месяца оказывал поддержку пока не прошёл все интересущие темы,а потом и весь курс. Единственное что
@@ -30,12 +30,12 @@ Flutter-разработка была основной моей деятельс
  
  Проекты перечислены в хронолигическом порядке.
   
-| Проект                          | Целевые устройства |Завершённость     |
-| ------------------------------- | ------------------ |------------------|
-| [Hello world][HelloWorld]       | смрартфоны         |:white_check_mark:|
-| [Advicer beer][AdvicerBeer]     | смрартфоны         |:white_check_mark:|
-| [Messenger][Messanger]          | смрартфоны         |:white_check_mark:|
-| [Stopwatch][Stopwatch]          | смрартфоны         |:white_check_mark:|
+|месяц.год создания| Проект                          | Целевые устройства |Завершённость     |
+|------------------| ------------------------------- | ------------------ |------------------|
+|10.2019           | [Hello world][HelloWorld]       | смрартфоны         |:white_check_mark:|
+|10.2019           | [Advicer beer][AdvicerBeer]     | смрартфоны         |:white_check_mark:|
+|10.2019           | [Messenger][Messanger]          | смрартфоны         |:white_check_mark:|
+|10.2019           | [Stopwatch][Stopwatch]          | смрартфоны         |:white_check_mark:|
 
                                                                                                                                                                                                      
 ## [Список всех моих проектов][ListAllMyProject]
