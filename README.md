@@ -40,6 +40,13 @@
 
 </details> 
 
+<details>
+    <summary>Диаграмма архитектуры</summary>
+                                
+   ![architecture diagram][ArchitectureDiagram]
+</details>
+
+
 Приложение является подобием мобильной версии интернет магазина. После игрушечной авторизации пользователь попадает на экран с каталогом товаров, откуда пользователь может отправится на любой другой экран приложения.
 
 <details>
@@ -194,6 +201,8 @@
    [LoremApi]:<https://loremipsum.wiegertschouten.nl>
    [FishTextApi]:<https://fish-text.ru>
    [LoremPrixel]:<http://lorempixel.com/>
+
+   [ArchitectureDiagram]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/Bloc%20scheme.png>
 
    [FullDemo]:<https://github.com/iebrosalin/mobile/blob/master/readme/flutter/catalog_app/bloc/descriptions/gif/full_app_demo.gif>
 
