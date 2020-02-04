@@ -12,11 +12,11 @@ Flutter-разработка была основной моей деятельс
 
 |месяц.год создания| Проект                          | Протестированная платформа| Целевые устройства |Завершённость     |
 |------------------| ------------------------------- | -------------------- | ------------------ |------------------|
-|08.2019           | [Первое приложение][FirstApp]   | android              | смрартфоны         |:white_check_mark:|
-|09.2019           | [Catalog_app][OldCatalog]       | android              | смрартфоны         |:white_check_mark:|
-|09.2019           | [Drafts][Drafts]                | android              | смрартфоны         |:white_check_mark:|
-|10.2019           | [Catalog_app bloc][BlocCatalog] | android              | смрартфоны         |:white_check_mark:|
-|01.2020           | [Social network][SocialNetwork] | android              | смрартфоны         ||
+|08.2019           | [Первое приложение][FirstApp]   | android              | смартфоны         |:white_check_mark:|
+|09.2019           | [Catalog_app][OldCatalog]       | android              | смартфоны         |:white_check_mark:|
+|09.2019           | [Drafts][Drafts]                | android              | смартфоны         |:white_check_mark:|
+|10.2019           | [Catalog_app bloc][BlocCatalog] | android              | смартфоны         |:white_check_mark:|
+|01.2020           | [Social network][SocialNetwork] | android              | смартфоны         ||
 
 >   Отельную поддержку мне оказал [курс][UdemyAcademiamind]. С помощью него я тестовое сделал, первые
 >    два месяца оказывал поддержку пока не прошёл все интересущие темы,а потом и весь курс. Единственное что
@@ -32,10 +32,10 @@ Flutter-разработка была основной моей деятельс
   
 |месяц.год создания| Проект                          | Целевые устройства |Завершённость     |
 |------------------| ------------------------------- | ------------------ |------------------|
-|10.2019           | [Hello world][HelloWorld]       | смрартфоны         |:white_check_mark:|
-|10.2019           | [Advicer beer][AdvicerBeer]     | смрартфоны         |:white_check_mark:|
-|10.2019           | [Messenger][Messanger]          | смрартфоны         |:white_check_mark:|
-|10.2019           | [Stopwatch][Stopwatch]          | смрартфоны         |:white_check_mark:|
+|10.2019           | [Hello world][HelloWorld]       | смартфоны         |:white_check_mark:|
+|10.2019           | [Advicer beer][AdvicerBeer]     | смартфоны         |:white_check_mark:|
+|10.2019           | [Messenger][Messanger]          | смартфоны         |:white_check_mark:|
+|10.2019           | [Stopwatch][Stopwatch]          | смартфоны         |:white_check_mark:|
 
                                                                                                                                                                                                      
 ## [Список всех моих проектов][ListAllMyProject]
